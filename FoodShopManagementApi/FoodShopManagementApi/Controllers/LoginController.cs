@@ -20,7 +20,8 @@ namespace FoodShopManagementApi.Controllers
             try
             {
                 TblEmployeesDTO dto = dao.CheckLogin(tblEmployeeDTO.idEmployee, tblEmployeeDTO.password);
-                if (dto != null) return Ok(tblEmployeeDTO);
+                if (dto != null) return Ok(dto);
+                else return Unauthorized();
             }
             catch (Exception e)
             {

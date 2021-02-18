@@ -13,10 +13,10 @@ namespace FoodShopManagementApi.Util
             {
                 SqlConnection cn = new SqlConnection();
                 SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
-                stringBuilder.UserID = "sa";
-                stringBuilder.Password = "Goboi123";
-                stringBuilder.InitialCatalog = "EmployeeManagement";
-                stringBuilder.DataSource = @"localhost,1433";
+                stringBuilder.UserID = "admin";
+                stringBuilder.Password = "12345678";
+                stringBuilder.InitialCatalog = "TheFoodHouse";
+                stringBuilder.DataSource = @"foodshopmanagement.cfxet315umch.ap-southeast-1.rds.amazonaws.com,1433";
                 stringBuilder.ConnectTimeout = 5;
 
                 cn.ConnectionString = stringBuilder.ConnectionString;

@@ -35,8 +35,8 @@ namespace FoodShopManagementApi.DAO
                         if (idEmployeeCompare.Equals(idEmployee) && passwordCompare.Equals(password))
                         {
                             TblEmployeesDTO employee = new TblEmployeesDTO();
-                            employee.idEmployee = idEmployee;
-                            employee.password = password;
+                            employee.idEmployee = sqlDataReader.GetString("idEmployee");
+                            employee.password = sqlDataReader.GetString("password");
                             employee.name = sqlDataReader.GetString("name");
                             employee.role = sqlDataReader.GetString("role");
                             employee.status = sqlDataReader.GetBoolean("status");
