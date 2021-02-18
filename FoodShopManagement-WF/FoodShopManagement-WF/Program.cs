@@ -1,11 +1,10 @@
-﻿using employee_management_asp_winform.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace employee_management_asp_winform
+namespace FoodShopManagement_WF
 {
     static class Program
     {
@@ -17,7 +16,7 @@ namespace employee_management_asp_winform
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new Form1());
         }
     }
 }

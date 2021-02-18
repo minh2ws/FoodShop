@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "employee-management-asp-winform", "employee-management-asp-winform\employee-management-asp-winform.csproj", "{6C6014FC-F319-4AED-97F5-BEE4EB515BCA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoosShopManagement-WinForm", "employee-management-asp-winform\FoosShopManagement-WinForm.csproj", "{6C6014FC-F319-4AED-97F5-BEE4EB515BCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
