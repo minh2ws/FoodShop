@@ -7,7 +7,6 @@ namespace FoodShopManagementApi.Util
 {
     public class DBUtil
     {
-        public static SqlDataReader myDataReader = null;
         public static SqlConnection MakeConnect()
         {
             try
