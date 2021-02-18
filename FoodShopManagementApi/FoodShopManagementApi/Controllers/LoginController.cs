@@ -14,6 +14,7 @@ namespace FoodShopManagementApi.Controllers
     public class LoginController : ControllerBase
     {
         [HttpPost("login")]
+        [Produces("application/json")]
         public IActionResult CheckLogin([FromBody]TblEmployeesDTO tblEmployeeDTO)
         {
             TblEmployeesDAO dao = new TblEmployeesDAO();
