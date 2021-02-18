@@ -1,4 +1,5 @@
-﻿using FoodShopManagementApi.DTO;
+﻿using FoodShopManagementApi.DAO;
+using FoodShopManagementApi.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,9 +14,19 @@ namespace FoodShopManagementApi.Controllers
     public class LoginController : ControllerBase
     {
         [HttpPost("login")]
-        public IActionResult checkLogin([FromBody]TblEmployeesDTO tblEmployeeDTO)
+        public IActionResult CheckLogin([FromBody]TblEmployeesDTO tblEmployeeDTO)
         {
-            
+            TblEmployeesDAO dao = new TblEmployeesDAO();
+            try
+            {
+                TblEmployeesDTO dto = dao.CheckLogin(tblEmployeeDTO.idEmployee, tblEmployeeDTO.password);
+                if (dto != null) return Ok(tblEmployeeDTO);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return Unauthorized();
         }
     }
 }

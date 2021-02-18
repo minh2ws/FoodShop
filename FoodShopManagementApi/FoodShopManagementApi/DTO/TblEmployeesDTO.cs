@@ -7,10 +7,10 @@ namespace FoodShopManagementApi.DTO
 {
     public class TblEmployeesDTO
     {
-        public int IdEmployee { get; set; }
-        public string Name { get; set; }
-        public string Password { get; set; }
-        public string Role { get; set; }
+        public string idEmployee { get; set; }
+        public string name { get; set; }
+        public string password { get; set; }
+        public string role { get; set; }
         public bool status { get; set; }
     }
 }

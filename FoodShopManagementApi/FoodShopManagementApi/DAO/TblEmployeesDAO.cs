@@ -11,36 +11,49 @@ namespace FoodShopManagementApi.DAO
 {
     public class TblEmployeesDAO
     {
-        public TblEmployeesDTO checkLogin(string idEmployee, string password)
+        public TblEmployeesDTO CheckLogin(string idEmployee, string password)
         {
-            SqlConnection connection = DBUtil.MakeConnect();
+            SqlConnection connection = null;
             SqlDataReader sqlDataReader = null;
 
-            if (connection != null)
+            try
             {
-                String sql = "Select idEmployee, password, name, role, status " +
-                    "From tblEmployees " +
-                    "Where idEmployee = @idEmployee and password = @password";
-                SqlCommand sqlCommand = new SqlCommand(sql, connection);
-                sqlCommand.Parameters.AddWithValue("@idEmployee", idEmployee);
-                sqlCommand.Parameters.AddWithValue("@password", password);
-                sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
-                if (sqlDataReader.Read())
+                connection = DBUtil.MakeConnect();
+                if (connection != null)
                 {
-                    int idEmployeeCompare = sqlDataReader.GetInt32("idEmployee");
-                    string passwordCompare = sqlDataReader.GetString("password");
-                    if (idEmployeeCompare.Equals(idEmployee) && passwordCompare.Equals(password))
+                    String sql = "Select idEmployee, password, name, role, status " +
+                        "From tblEmployees " +
+                        "Where idEmployee = @idEmployee and password = @password";
+                    SqlCommand sqlCommand = new SqlCommand(sql, connection);
+                    sqlCommand.Parameters.AddWithValue("@idEmployee", idEmployee);
+                    sqlCommand.Parameters.AddWithValue("@password", password);
+                    sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                    if (sqlDataReader.Read())
                     {
-                        TblEmployeesDTO employee = new TblEmployeesDTO();
-                        employee.IdEmployee = idEmployee;
-                        employee.Password = password;
-                        employee.Name = sqlDataReader.GetString("name");
-                        employee.Role = sqlDataReader.GetString("name");
-                        employee.status = sqlDataReader.GetString("name");
-                        employee.IdEmployee = idEmployee;
+                        string idEmployeeCompare = sqlDataReader.GetString("idEmployee");
+                        string passwordCompare = sqlDataReader.GetString("password");
+                        if (idEmployeeCompare.Equals(idEmployee) && passwordCompare.Equals(password))
+                        {
+                            TblEmployeesDTO employee = new TblEmployeesDTO();
+                            employee.idEmployee = idEmployee;
+                            employee.password = password;
+                            employee.name = sqlDataReader.GetString("name");
+                            employee.role = sqlDataReader.GetString("role");
+                            employee.status = sqlDataReader.GetBoolean("status");
+                            return employee;
+                        }
                     }
                 }
             }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (sqlDataReader != null) sqlDataReader.Close();
+            }
+            return null;
         }
     }
 }
