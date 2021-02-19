@@ -50,7 +50,8 @@ namespace FoodShopManagement_WF
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(168, 256);
+            this.btnLogin.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.btnLogin.Location = new System.Drawing.Point(168, 257);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 26);
@@ -105,8 +106,10 @@ namespace FoodShopManagement_WF
             // 
             // Form1
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(431, 306);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnLogin);
