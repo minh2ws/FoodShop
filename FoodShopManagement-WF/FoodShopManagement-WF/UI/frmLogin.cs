@@ -8,17 +8,17 @@ using FoodShopManagement_WF.UI;
 
 namespace FoodShopManagement_WF
 {
-    public partial class Form1 : Form
+    public partial class frmLogin : Form
     {
-        public Form1()
+        public frmLogin()
         {
             InitializeComponent();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text.Trim();
             TblEmployeesDTO tblEmployeesDTO = new TblEmployeesDTO();
             tblEmployeesDTO.idEmployee = username;
             tblEmployeesDTO.password = password;
@@ -39,10 +39,13 @@ namespace FoodShopManagement_WF
                         warehouse.Show();
                         break;
                     case "SALESMAN":
-                        frmSaleManager saleManager = new frmSaleManager();
+                        frmSaleManager saleManager = new frmSaleManager(this);
                         saleManager.Show();
                         break;
                 }
+                Hide();
+                txtUsername.Clear();
+                txtPassword.Clear();
             }
             else
             {
@@ -50,6 +53,9 @@ namespace FoodShopManagement_WF
             }
         }
 
-       
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace FoodShopManagement_WF
 {
-    partial class Form1
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,6 @@ namespace FoodShopManagement_WF
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -51,7 +50,7 @@ namespace FoodShopManagement_WF
             // btnLogin
             // 
             this.btnLogin.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.btnLogin.Location = new System.Drawing.Point(168, 257);
+            this.btnLogin.Location = new System.Drawing.Point(168, 213);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 26);
@@ -95,23 +94,13 @@ namespace FoodShopManagement_WF
             this.label2.TabIndex = 4;
             this.label2.Text = "Username";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(124, 199);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "label4";
-            // 
-            // Form1
+            // frmLogin
             // 
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(431, 306);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(431, 267);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
@@ -119,8 +108,9 @@ namespace FoodShopManagement_WF
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
+            this.Name = "frmLogin";
             this.Text = "Login";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,7 +124,6 @@ namespace FoodShopManagement_WF
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
     }
 }
 
