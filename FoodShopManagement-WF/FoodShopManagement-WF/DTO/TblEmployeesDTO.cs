@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FoodShopManagement_WF.DTO
 {
-    class TblEmployeesDTO
+    public class TblEmployeesDTO
     {
         public string idEmployee { get; set; }
         public string name { get; set; }
