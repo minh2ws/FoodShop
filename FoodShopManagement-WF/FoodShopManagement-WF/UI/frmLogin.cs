@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+
 namespace FoodShopManagement_WF
 {
     public partial class Form1 : Form

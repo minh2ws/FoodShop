@@ -53,27 +53,28 @@ namespace FoodShopManagement_WF
             this.btnLogin.Location = new System.Drawing.Point(168, 256);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 7;
+            this.btnLogin.Size = new System.Drawing.Size(75, 26);
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(127, 149);
+            this.txtPassword.Location = new System.Drawing.Point(127, 151);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(252, 22);
-            this.txtPassword.TabIndex = 5;
+            this.txtPassword.TabIndex = 2;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(127, 85);
+            this.txtUsername.Location = new System.Drawing.Point(127, 87);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(252, 22);
-            this.txtUsername.TabIndex = 6;
+            this.txtUsername.TabIndex = 1;
             // 
             // label3
             // 
@@ -106,7 +107,7 @@ namespace FoodShopManagement_WF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 378);
+            this.ClientSize = new System.Drawing.Size(431, 306);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
@@ -114,9 +115,9 @@ namespace FoodShopManagement_WF
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 
