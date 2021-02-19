@@ -1,15 +1,10 @@
 ﻿using FoodShopManagement_WF.DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using FoodShopManagement_WF.Util;
+using FoodShopManagement_WF.UI;
 
 namespace FoodShopManagement_WF
 {
@@ -27,16 +22,30 @@ namespace FoodShopManagement_WF
             TblEmployeesDTO tblEmployeesDTO = new TblEmployeesDTO();
             tblEmployeesDTO.idEmployee = username;
             tblEmployeesDTO.password = password;
-            String json=JsonConvert.SerializeObject(tblEmployeesDTO);
-            StringContent data = new StringContent(json,Encoding.UTF8,"application/json");
-            HttpClient httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("https://localhost:44314/api/FoodShopManagement/");
-            HttpResponseMessage responseMessage= httpClient.PostAsync("login", data).Result;
+            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("login", tblEmployeesDTO);
             if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
             {
                 var employeeDTO = responseMessage.Content.ReadAsStringAsync();
                 TblEmployeesDTO emp=JsonConvert.DeserializeObject<TblEmployeesDTO>(employeeDTO.Result);
-                label4.Text = "login successfull";
+                string role = emp.role;
+                switch (role)
+                {
+                    case "MANAGER":
+                        frmManager manage = new frmManager();
+                        manage.Show();
+                        break;
+                    case "STAFF":
+                        frmWarehouse warehoust = new frmWarehouse();
+                        warehoust.Show();
+                        break;
+                    case "SALESMAN":
+                        frmSaleManager saleManage = new frmSaleManager();
+                        saleManage.Show();
+                        break;
+                }
+                
+                MessageBox.Show("login successful");
+                
             }
             else
             {
