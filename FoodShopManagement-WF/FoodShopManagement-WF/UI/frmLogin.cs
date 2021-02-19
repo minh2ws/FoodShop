@@ -22,7 +22,6 @@ namespace FoodShopManagement_WF
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            btnLogin.Enabled = false;
             string username = txtUsername.Text;
             string password = txtPassword.Text;
             TblEmployeesDTO tblEmployeesDTO = new TblEmployeesDTO();
@@ -31,9 +30,8 @@ namespace FoodShopManagement_WF
             String json=JsonConvert.SerializeObject(tblEmployeesDTO);
             StringContent data = new StringContent(json,Encoding.UTF8,"application/json");
             HttpClient httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("https://localhost:44314/");
-            HttpResponseMessage responseMessage= httpClient.PostAsync("api/FoodShopManagement/login", data).Result;
-            Console.WriteLine(responseMessage.StatusCode);
+            httpClient.BaseAddress = new Uri("https://localhost:44314/api/FoodShopManagement/");
+            HttpResponseMessage responseMessage= httpClient.PostAsync("login", data).Result;
             if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
             {
                 var employeeDTO = responseMessage.Content.ReadAsStringAsync();
@@ -42,9 +40,8 @@ namespace FoodShopManagement_WF
             }
             else
             {
-                label4.Text = "invalid password or id";
+                MessageBox.Show("invalid password or id");
             }
-            btnLogin.Enabled = true;
         }
 
        
