@@ -22,6 +22,7 @@ namespace FoodShopManagement_WF
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            btnLogin.Enabled = false;
             string username = txtUsername.Text;
             string password = txtPassword.Text;
             TblEmployeesDTO tblEmployeesDTO = new TblEmployeesDTO();
@@ -43,6 +44,7 @@ namespace FoodShopManagement_WF
             {
                 label4.Text = "invalid password or id";
             }
+            btnLogin.Enabled = true;
         }
 
        
