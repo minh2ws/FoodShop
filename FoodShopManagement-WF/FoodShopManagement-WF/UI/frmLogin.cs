@@ -31,25 +31,22 @@ namespace FoodShopManagement_WF
                 switch (role)
                 {
                     case "MANAGER":
-                        frmManager manage = new frmManager();
-                        manage.Show();
+                        frmManager manager = new frmManager();
+                        manager.Show();
                         break;
                     case "STAFF":
-                        frmWarehouse warehoust = new frmWarehouse();
-                        warehoust.Show();
+                        frmWarehouse warehouse = new frmWarehouse();
+                        warehouse.Show();
                         break;
                     case "SALESMAN":
-                        frmSaleManager saleManage = new frmSaleManager();
-                        saleManage.Show();
+                        frmSaleManager saleManager = new frmSaleManager();
+                        saleManager.Show();
                         break;
                 }
-                
-                MessageBox.Show("login successful");
-                
             }
             else
             {
-                MessageBox.Show("invalid password or id");
+                MessageBox.Show("invalid password or id", "Warning!");
             }
         }
 
