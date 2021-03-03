@@ -42,5 +42,10 @@ namespace FoodShopManagement_WF.UI
         {
             Application.Exit();
         }
+
+        private void frmManager_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

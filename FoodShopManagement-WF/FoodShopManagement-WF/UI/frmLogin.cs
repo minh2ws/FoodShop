@@ -31,7 +31,7 @@ namespace FoodShopManagement_WF
                 switch (role)
                 {
                     case "MANAGER":
-                        frmManager manager = new frmManager(this, emp);
+                        frmManager_v2 manager = new frmManager_v2(this, emp);
                         manager.Show();
                         break;
                     case "STAFF":
@@ -56,6 +56,11 @@ namespace FoodShopManagement_WF
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

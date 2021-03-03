@@ -41,19 +41,19 @@ namespace FoodShopManagement_WF
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(163, 25);
+            this.label1.Location = new System.Drawing.Point(183, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 25);
+            this.label1.Size = new System.Drawing.Size(94, 29);
             this.label1.TabIndex = 1;
             this.label1.Text = "Sign In";
             // 
             // btnLogin
             // 
             this.btnLogin.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.btnLogin.Location = new System.Drawing.Point(168, 213);
+            this.btnLogin.Location = new System.Drawing.Point(189, 266);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 26);
+            this.btnLogin.Size = new System.Drawing.Size(84, 32);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -61,56 +61,57 @@ namespace FoodShopManagement_WF
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(127, 151);
+            this.txtPassword.Location = new System.Drawing.Point(143, 189);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(252, 22);
+            this.txtPassword.Size = new System.Drawing.Size(283, 26);
             this.txtPassword.TabIndex = 2;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(127, 87);
+            this.txtUsername.Location = new System.Drawing.Point(143, 109);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(252, 22);
+            this.txtUsername.Size = new System.Drawing.Size(283, 26);
             this.txtUsername.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 154);
+            this.label3.Location = new System.Drawing.Point(35, 192);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 17);
+            this.label3.Size = new System.Drawing.Size(78, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "Password";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 90);
+            this.label2.Location = new System.Drawing.Point(35, 112);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 17);
+            this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Username";
             // 
             // frmLogin
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(431, 267);
+            this.ClientSize = new System.Drawing.Size(485, 334);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmLogin";
             this.Text = "Login";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
