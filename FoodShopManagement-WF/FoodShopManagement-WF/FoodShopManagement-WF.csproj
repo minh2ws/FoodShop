@@ -91,6 +91,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UI\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -120,6 +121,75 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-flat-circle-icon-vector-15199282.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\122932.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\182944.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SVG401253.zoom.d.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-simple-green-information-login-h5-background-material-image_124699.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-simple-green-information-login-h5-background-material-image_1246991.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGIN_NOW_Button-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24816-7-sign-up-button-photo-thumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginiconn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-simple-green-information-login-h5-background-material-image_1246992.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
