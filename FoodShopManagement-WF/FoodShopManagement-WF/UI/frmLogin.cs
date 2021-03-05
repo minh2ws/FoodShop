@@ -2,54 +2,43 @@
 using System;
 using System.Net.Http;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 using FoodShopManagement_WF.Util;
 using FoodShopManagement_WF.UI;
+using Newtonsoft.Json;
+using FoodShopManagement_WF.Presenter;
+using FoodShopManagement_WF.Presenter.impl;
 
 namespace FoodShopManagement_WF
 {
     public partial class frmLogin : Form
     {
+        ILoginPresenter loginPresenter = new LoginPresenter();
         public frmLogin()
         {
             InitializeComponent();
         }
-
+        public string getUserName()
+        {
+            return this.txtUsername.Text;
+        }
+        public string getPassword()
+        {
+            return this.txtPassword.Text;
+        }
+        public void setUsername(string username)
+        {
+            this.txtUsername.Text = username;
+        }
+        public void setPassword(string password)
+        {
+            this.txtPassword.Text = password;
+        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text.Trim();
-            TblEmployeesDTO tblEmployeesDTO = new TblEmployeesDTO();
-            tblEmployeesDTO.idEmployee = username;
-            tblEmployeesDTO.password = password;
-            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("login", tblEmployeesDTO);
-            if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
+            bool checkLogin=loginPresenter.checkLogin(this);
+            if (!checkLogin)
             {
-                var employeeDTO = responseMessage.Content.ReadAsStringAsync();
-                TblEmployeesDTO emp=JsonConvert.DeserializeObject<TblEmployeesDTO>(employeeDTO.Result);
-                string role = emp.role;
-                switch (role)
-                {
-                    case "MANAGER":
-                        frmManager manager = new frmManager();
-                        manager.Show();
-                        break;
-                    case "STAFF":
-                        frmWarehouse warehouse = new frmWarehouse();
-                        warehouse.Show();
-                        break;
-                    case "SALESMAN":
-                        frmSaleManager saleManager = new frmSaleManager(this, emp);
-                        saleManager.Show();
-                        break;
-                }
-                Hide();
-                txtUsername.Clear();
-                txtPassword.Clear();
-            }
-            else
-            {
-                MessageBox.Show("invalid password or id", "Warning!");
+                MessageBox.Show("invalid password or id", "Warning!");   
             }
         }
 

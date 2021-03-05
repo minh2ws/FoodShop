@@ -20,7 +20,10 @@ namespace FoodShopManagementApi.Util
                 stringBuilder.ConnectTimeout = 5;
 
                 cn.ConnectionString = stringBuilder.ConnectionString;
-                cn.Open();
+                if (cn.State == System.Data.ConnectionState.Closed)
+                {
+                    cn.Open();
+                }
                 return cn;
             }
             catch (Exception e)
@@ -29,5 +32,25 @@ namespace FoodShopManagementApi.Util
             }
             return null;
         }
+        public static void CloseConnection(SqlDataReader sqlDataReader, SqlConnection sqlConnection)
+        {
+            try
+            {
+                if (sqlDataReader != null)
+                {
+                    sqlDataReader.Close();
+                }
+                if (sqlConnection != null)
+                {
+                    sqlConnection.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
     }
+    
 }
