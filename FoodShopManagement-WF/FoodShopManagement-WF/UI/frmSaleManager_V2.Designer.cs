@@ -173,7 +173,7 @@ namespace FoodShopManagement_WF.UI
             this.button3.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.delete1;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button3.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(722, 233);
+            this.button3.Location = new System.Drawing.Point(722, 282);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(56, 54);
@@ -188,7 +188,7 @@ namespace FoodShopManagement_WF.UI
             this.button4.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.edit2;
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button4.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(722, 170);
+            this.button4.Location = new System.Drawing.Point(722, 219);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(56, 59);
@@ -203,7 +203,7 @@ namespace FoodShopManagement_WF.UI
             this.button1.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.add1;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(720, 118);
+            this.button1.Location = new System.Drawing.Point(720, 167);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(58, 48);
@@ -398,14 +398,14 @@ namespace FoodShopManagement_WF.UI
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(203, 28);
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click_1);
             // 
             // ViewProfile
             // 
             this.ViewProfile.Name = "ViewProfile";
-            this.ViewProfile.Size = new System.Drawing.Size(224, 28);
+            this.ViewProfile.Size = new System.Drawing.Size(203, 28);
             this.ViewProfile.Text = "View Profile";
             // 
             // panel2
@@ -516,7 +516,6 @@ namespace FoodShopManagement_WF.UI
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -944,7 +943,6 @@ namespace FoodShopManagement_WF.UI
             // 
             this.toolStripTextBox1.AccessibleName = "Position";
             this.toolStripTextBox1.AutoSize = false;
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(50, 27);
             this.toolStripTextBox1.Text = "0";
