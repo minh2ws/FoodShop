@@ -39,7 +39,7 @@ namespace FoodShopManagement_WF
                         warehouse.Show();
                         break;
                     case "SALESMAN":
-                        frmSaleManager saleManager = new frmSaleManager(this, emp);
+                        frmSaleManager_V2 saleManager = new frmSaleManager_V2(this, emp);
                         saleManager.Show();
                         break;
                 }
