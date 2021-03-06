@@ -38,6 +38,7 @@ namespace FoodShopManagement_WF.UI
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "frmWarehouse";
             this.Text = "Warehouse";
+            this.Load += new System.EventHandler(this.frmWarehouse_Load);
             this.ResumeLayout(false);
 
         }

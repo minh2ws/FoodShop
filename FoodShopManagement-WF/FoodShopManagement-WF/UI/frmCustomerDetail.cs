@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace FoodShopManagement_WF.UI
 {
-    public partial class Employee : Form
+    public partial class frmCustomerDetail : Form
     {
-        public Employee()
+        public frmCustomerDetail()
         {
             InitializeComponent();
+        }
+        public frmCustomerDetail(bool flag) : this()
+        {
+
+
+
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -27,7 +27,7 @@ namespace FoodShopManagement_WF.UI
         
 
        
-        private void logOutToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             loginFrame.Show();
@@ -35,6 +35,32 @@ namespace FoodShopManagement_WF.UI
         private void frmSaleManager_V2_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmCustomerDetail ProductDetail = new frmCustomerDetail(true);
+            DialogResult r = ProductDetail.ShowDialog();
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+            frmCustomerDetail ProductDetail = new frmCustomerDetail(true);
+            DialogResult r = ProductDetail.ShowDialog();
+
+        }
+
+        private void frmSaleManager_V2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ViewProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMyProfileDetailcs ProductDetail = new frmMyProfileDetailcs(true);
+            DialogResult r = ProductDetail.ShowDialog();
         }
     }
 }

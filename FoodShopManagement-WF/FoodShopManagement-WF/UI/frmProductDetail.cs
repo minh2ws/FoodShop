@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace FoodShopManagement_WF.UI
 {
-    public partial class frmWarehouse : Form
+    public partial class frmProductDetail : Form
     {
-        public frmWarehouse()
+        public frmProductDetail()
         {
             InitializeComponent();
         }
+        public frmProductDetail(bool flag) : this()
+        {
 
-        private void frmWarehouse_Load(object sender, EventArgs e)
+
+
+        }
+        private void btnSave_Click(object sender, EventArgs e)
         {
 
         }

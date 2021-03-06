@@ -53,17 +53,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UI\Employee.cs">
+    <Compile Include="UI\frmCategoryDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Employee.Designer.cs">
-      <DependentUpon>Employee.cs</DependentUpon>
+    <Compile Include="UI\frmCategoryDetail.Designer.cs">
+      <DependentUpon>frmCategoryDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\frmCustomer.cs">
+    <Compile Include="UI\frmEmployeeDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\frmCustomer.Designer.cs">
-      <DependentUpon>frmCustomer.cs</DependentUpon>
+    <Compile Include="UI\frmEmployeeDetail.Designer.cs">
+      <DependentUpon>frmEmployeeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmCustomerDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmCustomerDetail.Designer.cs">
+      <DependentUpon>frmCustomerDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmLogin.cs">
       <SubType>Form</SubType>
@@ -84,6 +90,12 @@
     </Compile>
     <Compile Include="UI\frmManager_v2.Designer.cs">
       <DependentUpon>frmManager_v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmMyProfileDetailcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmMyProfileDetailcs.Designer.cs">
+      <DependentUpon>frmMyProfileDetailcs.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\frmSaleManager.cs">
       <SubType>Form</SubType>
@@ -109,11 +121,11 @@
     <Compile Include="UI\frmWarehouse_V2.Designer.cs">
       <DependentUpon>frmWarehouse_V2.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Product.cs">
+    <Compile Include="UI\frmProductDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Product.Designer.cs">
-      <DependentUpon>Product.cs</DependentUpon>
+    <Compile Include="UI\frmProductDetail.Designer.cs">
+      <DependentUpon>frmProductDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\ApiConnection.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -126,6 +138,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\frmCategoryDetail.resx">
+      <DependentUpon>frmCategoryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmCustomerDetail.resx">
+      <DependentUpon>frmCustomerDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmEmployeeDetail.resx">
+      <DependentUpon>frmEmployeeDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +156,12 @@
     <EmbeddedResource Include="UI\frmManager_v2.resx">
       <DependentUpon>frmManager_v2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmMyProfileDetailcs.resx">
+      <DependentUpon>frmMyProfileDetailcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmProductDetail.resx">
+      <DependentUpon>frmProductDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmSaleManager.resx">
       <DependentUpon>frmSaleManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmWarehouse.resx">
       <DependentUpon>frmWarehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmWarehouse_V2.resx">
+      <DependentUpon>frmWarehouse_V2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

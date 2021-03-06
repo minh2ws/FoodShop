@@ -100,5 +100,36 @@ namespace FoodShopManagement_WF.UI
         {
 
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            frmEmployeeDetail ProductDetail = new frmEmployeeDetail(true);
+            DialogResult r = ProductDetail.ShowDialog();
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //Tao moi doi tuong va truyen tham so cho Form frmProductDetails ( true la them moi) 
+            frmEmployeeDetail ProductDetail = new frmEmployeeDetail(true);
+            DialogResult r = ProductDetail.ShowDialog();
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ViewProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMyProfileDetailcs ProductDetail = new frmMyProfileDetailcs(true);
+            DialogResult r = ProductDetail.ShowDialog();
+        }
     }
 }
