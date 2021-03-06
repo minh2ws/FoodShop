@@ -1,0 +1,47 @@
+﻿using FoodShopManagement_WF.DTO;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace FoodShopManagement_WF.UI
+{
+    public partial class frmSaleManager_V2 : Form
+    {
+        private frmLogin loginFrame;
+        private TblEmployeesDTO emp;
+        public frmSaleManager_V2()
+        {
+            InitializeComponent();
+        }
+        public frmSaleManager_V2(frmLogin loginFrame, TblEmployeesDTO emp)
+        {
+            InitializeComponent();
+            this.loginFrame = loginFrame;
+            this.emp = emp;
+            loadData();
+        }
+        public void loadData()
+        {
+            msTool.Text = "User: " + emp.name;
+
+        }
+        
+
+       
+        private void logOutToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginFrame.Show();
+        }
+        private void frmSaleManager_V2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+    }
+}
