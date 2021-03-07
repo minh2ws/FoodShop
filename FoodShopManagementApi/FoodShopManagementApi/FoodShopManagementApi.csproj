@@ -12,5 +12,11 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="DTO">
+      <HintPath>..\..\DTO\DTO.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 
 </Project>

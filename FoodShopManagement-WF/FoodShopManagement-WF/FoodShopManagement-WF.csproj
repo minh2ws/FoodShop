@@ -33,7 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="DTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=22869618b5515b60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DTO\DTO.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,12 +53,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\TblEmployeesDTO.cs" />
-    <Compile Include="Model\ILoginModel.cs" />
-    <Compile Include="Model\impl\LoginModel.cs" />
-    <Compile Include="Model\TblEmployeeDTO.cs" />
-    <Compile Include="Presenter\ILoginPresenter.cs" />
-    <Compile Include="Presenter\impl\LoginPresenter.cs" />
+    <Compile Include="UI\frmCategoryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmCategoryDetail.Designer.cs">
+      <DependentUpon>frmCategoryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmEmployeeDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmEmployeeDetail.Designer.cs">
+      <DependentUpon>frmEmployeeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmCustomerDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmCustomerDetail.Designer.cs">
+      <DependentUpon>frmCustomerDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,17 +85,47 @@
     <Compile Include="UI\frmManager.Designer.cs">
       <DependentUpon>frmManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmManager_v2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmManager_v2.Designer.cs">
+      <DependentUpon>frmManager_v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmMyProfileDetailcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmMyProfileDetailcs.Designer.cs">
+      <DependentUpon>frmMyProfileDetailcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmSaleManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\frmSaleManager.Designer.cs">
       <DependentUpon>frmSaleManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\frmSaleManager_V2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmSaleManager_V2.Designer.cs">
+      <DependentUpon>frmSaleManager_V2.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\frmWarehouse.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\frmWarehouse.Designer.cs">
       <DependentUpon>frmWarehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmWarehouse_V2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmWarehouse_V2.Designer.cs">
+      <DependentUpon>frmWarehouse_V2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmProductDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\frmProductDetail.Designer.cs">
+      <DependentUpon>frmProductDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\ApiConnection.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -88,18 +136,43 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\frmCategoryDetail.resx">
+      <DependentUpon>frmCategoryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmCustomerDetail.resx">
+      <DependentUpon>frmCustomerDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmEmployeeDetail.resx">
+      <DependentUpon>frmEmployeeDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmManager.resx">
       <DependentUpon>frmManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmManager_v2.resx">
+      <DependentUpon>frmManager_v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmMyProfileDetailcs.resx">
+      <DependentUpon>frmMyProfileDetailcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmProductDetail.resx">
+      <DependentUpon>frmProductDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmSaleManager.resx">
       <DependentUpon>frmSaleManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmSaleManager_V2.resx">
+      <DependentUpon>frmSaleManager_V2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\frmWarehouse.resx">
       <DependentUpon>frmWarehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\frmWarehouse_V2.resx">
+      <DependentUpon>frmWarehouse_V2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -115,6 +188,89 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Untitled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-flat-circle-icon-vector-15199282.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\122932.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\182944.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SVG401253.zoom.d.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-simple-green-information-login-h5-background-material-image_124699.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-simple-green-information-login-h5-background-material-image_1246991.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGIN_NOW_Button-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24816-7-sign-up-button-photo-thumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginiconn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-simple-green-information-login-h5-background-material-image_1246992.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1229321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

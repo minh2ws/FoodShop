@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FoodShopManagementApi.DTO
+namespace FoodShopManagementApi.Controllers
 {
-    public class ErrorDTO
+    public class SearchEmployees
     {
-        public string loginFail { get; set; }
     }
 }

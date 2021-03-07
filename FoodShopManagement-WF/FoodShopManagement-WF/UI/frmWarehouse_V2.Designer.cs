@@ -1,0 +1,1079 @@
+﻿
+namespace FoodShopManagement_WF.UI
+{
+    partial class frmWarehouse_V2
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWarehouse_V2));
+            this.panel = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtCategoryID = new System.Windows.Forms.TextBox();
+            this.txtCategoryName = new System.Windows.Forms.TextBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.btnAddCategory = new System.Windows.Forms.Button();
+            this.btnEditCategory = new System.Windows.Forms.Button();
+            this.btnDeleteCategory = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.bindingNavigator2 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtProductID = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtProductName = new System.Windows.Forms.TextBox();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.bindingNavigator3 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.btnAddProduct = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.btnEditProduct = new System.Windows.Forms.Button();
+            this.btnDeleteProduct = new System.Windows.Forms.Button();
+            this.txtSearchProductName = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.msTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ViewProfiletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).BeginInit();
+            this.bindingNavigator2.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator3)).BeginInit();
+            this.bindingNavigator3.SuspendLayout();
+            this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.panel12.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // panel
+            // 
+            this.panel.Controls.Add(this.tabPage1);
+            this.panel.Controls.Add(this.tabPage2);
+            this.panel.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel.ItemSize = new System.Drawing.Size(80, 40);
+            this.panel.Location = new System.Drawing.Point(177, 57);
+            this.panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel.Name = "panel";
+            this.panel.Padding = new System.Drawing.Point(30, 3);
+            this.panel.SelectedIndex = 0;
+            this.panel.Size = new System.Drawing.Size(1472, 839);
+            this.panel.TabIndex = 1;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Window;
+            this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPage1.Controls.Add(this.panel7);
+            this.tabPage1.Controls.Add(this.panel8);
+            this.tabPage1.Controls.Add(this.panel9);
+            this.tabPage1.Controls.Add(this.panel10);
+            this.tabPage1.ImageKey = "(none)";
+            this.tabPage1.Location = new System.Drawing.Point(4, 44);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Size = new System.Drawing.Size(1464, 791);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Category";
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.label11);
+            this.panel7.Controls.Add(this.label12);
+            this.panel7.Controls.Add(this.txtCategoryID);
+            this.panel7.Controls.Add(this.txtCategoryName);
+            this.panel7.Location = new System.Drawing.Point(724, 268);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(626, 209);
+            this.panel7.TabIndex = 10;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(13, 126);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(150, 24);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Category name:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(13, 46);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(123, 24);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Category ID:";
+            // 
+            // txtCategoryID
+            // 
+            this.txtCategoryID.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtCategoryID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCategoryID.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCategoryID.Location = new System.Drawing.Point(199, 46);
+            this.txtCategoryID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCategoryID.Name = "txtCategoryID";
+            this.txtCategoryID.Size = new System.Drawing.Size(400, 34);
+            this.txtCategoryID.TabIndex = 4;
+            // 
+            // txtCategoryName
+            // 
+            this.txtCategoryName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCategoryName.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCategoryName.Location = new System.Drawing.Point(199, 126);
+            this.txtCategoryName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCategoryName.Name = "txtCategoryName";
+            this.txtCategoryName.Size = new System.Drawing.Size(400, 34);
+            this.txtCategoryName.TabIndex = 5;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Transparent;
+            this.panel8.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._182944;
+            this.panel8.Controls.Add(this.label14);
+            this.panel8.Location = new System.Drawing.Point(724, 158);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(626, 90);
+            this.panel8.TabIndex = 9;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Imprint MT Shadow", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(150, 19);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(319, 47);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Category Details";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.btnAddCategory);
+            this.panel9.Controls.Add(this.btnEditCategory);
+            this.panel9.Controls.Add(this.btnDeleteCategory);
+            this.panel9.Location = new System.Drawing.Point(-2, -2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1461, 77);
+            this.panel9.TabIndex = 3;
+            // 
+            // btnAddCategory
+            // 
+            this.btnAddCategory.BackColor = System.Drawing.Color.White;
+            this.btnAddCategory.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.add1;
+            this.btnAddCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAddCategory.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCategory.Location = new System.Drawing.Point(53, 5);
+            this.btnAddCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(57, 59);
+            this.btnAddCategory.TabIndex = 4;
+            this.btnAddCategory.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAddCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddCategory.UseVisualStyleBackColor = false;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
+            // 
+            // btnEditCategory
+            // 
+            this.btnEditCategory.BackColor = System.Drawing.Color.White;
+            this.btnEditCategory.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.edit2;
+            this.btnEditCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnEditCategory.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditCategory.Location = new System.Drawing.Point(116, 5);
+            this.btnEditCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEditCategory.Name = "btnEditCategory";
+            this.btnEditCategory.Size = new System.Drawing.Size(52, 59);
+            this.btnEditCategory.TabIndex = 6;
+            this.btnEditCategory.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEditCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditCategory.UseVisualStyleBackColor = false;
+            this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
+            // 
+            // btnDeleteCategory
+            // 
+            this.btnDeleteCategory.BackColor = System.Drawing.Color.White;
+            this.btnDeleteCategory.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.delete1;
+            this.btnDeleteCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDeleteCategory.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteCategory.Location = new System.Drawing.Point(176, 5);
+            this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDeleteCategory.Name = "btnDeleteCategory";
+            this.btnDeleteCategory.Size = new System.Drawing.Size(58, 59);
+            this.btnDeleteCategory.TabIndex = 5;
+            this.btnDeleteCategory.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDeleteCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteCategory.UseVisualStyleBackColor = false;
+            // 
+            // panel10
+            // 
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Controls.Add(this.bindingNavigator2);
+            this.panel10.Controls.Add(this.panel11);
+            this.panel10.Controls.Add(this.dataGridView2);
+            this.panel10.Location = new System.Drawing.Point(52, 113);
+            this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(506, 657);
+            this.panel10.TabIndex = 0;
+            // 
+            // bindingNavigator2
+            // 
+            this.bindingNavigator2.AddNewItem = this.toolStripButton1;
+            this.bindingNavigator2.CountItem = this.toolStripLabel1;
+            this.bindingNavigator2.DeleteItem = this.toolStripButton2;
+            this.bindingNavigator2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.bindingNavigator2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton3,
+            this.toolStripButton4,
+            this.toolStripSeparator1,
+            this.toolStripTextBox1,
+            this.toolStripLabel1,
+            this.toolStripSeparator2,
+            this.toolStripButton5,
+            this.toolStripButton6,
+            this.toolStripSeparator3,
+            this.toolStripButton1,
+            this.toolStripButton2});
+            this.bindingNavigator2.Location = new System.Drawing.Point(0, 0);
+            this.bindingNavigator2.MoveFirstItem = this.toolStripButton3;
+            this.bindingNavigator2.MoveLastItem = this.toolStripButton6;
+            this.bindingNavigator2.MoveNextItem = this.toolStripButton5;
+            this.bindingNavigator2.MovePreviousItem = this.toolStripButton4;
+            this.bindingNavigator2.Name = "bindingNavigator2";
+            this.bindingNavigator2.PositionItem = this.toolStripTextBox1;
+            this.bindingNavigator2.Size = new System.Drawing.Size(504, 27);
+            this.bindingNavigator2.TabIndex = 5;
+            this.bindingNavigator2.Text = "bindingNavigator2";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton1.Text = "Add new";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(45, 24);
+            this.toolStripLabel1.Text = "of {0}";
+            this.toolStripLabel1.ToolTipText = "Total number of items";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton2.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton2.Text = "Delete";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton3.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton3.Text = "Move first";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton4.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton4.Text = "Move previous";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.AccessibleName = "Position";
+            this.toolStripTextBox1.AutoSize = false;
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(50, 27);
+            this.toolStripTextBox1.Text = "0";
+            this.toolStripTextBox1.ToolTipText = "Current position";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton5.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton5.Text = "Move next";
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton6.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton6.Text = "Move last";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.Transparent;
+            this.panel11.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.SVG401253_zoom_d;
+            this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel11.Controls.Add(this.label18);
+            this.panel11.ForeColor = System.Drawing.Color.Yellow;
+            this.panel11.Location = new System.Drawing.Point(-1, 29);
+            this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(506, 39);
+            this.panel11.TabIndex = 1;
+            // 
+            // label18
+            // 
+            this.label18.Font = new System.Drawing.Font("Georgia", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(88, 5);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(331, 32);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "List of Category";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 72);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 62;
+            this.dataGridView2.RowTemplate.Height = 28;
+            this.dataGridView2.Size = new System.Drawing.Size(498, 581);
+            this.dataGridView2.TabIndex = 2;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.panel13);
+            this.tabPage2.Controls.Add(this.panel14);
+            this.tabPage2.Controls.Add(this.panel15);
+            this.tabPage2.Controls.Add(this.panel12);
+            this.tabPage2.Location = new System.Drawing.Point(4, 44);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Size = new System.Drawing.Size(1464, 791);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Product";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel13
+            // 
+            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel13.Controls.Add(this.cbStatus);
+            this.panel13.Controls.Add(this.cbCategory);
+            this.panel13.Controls.Add(this.label20);
+            this.panel13.Controls.Add(this.label21);
+            this.panel13.Controls.Add(this.txtQuantity);
+            this.panel13.Controls.Add(this.label22);
+            this.panel13.Controls.Add(this.txtPrice);
+            this.panel13.Controls.Add(this.label23);
+            this.panel13.Controls.Add(this.label24);
+            this.panel13.Controls.Add(this.txtProductID);
+            this.panel13.Controls.Add(this.label25);
+            this.panel13.Controls.Add(this.txtProductName);
+            this.panel13.Location = new System.Drawing.Point(743, 230);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(626, 525);
+            this.panel13.TabIndex = 17;
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.Font = new System.Drawing.Font("Georgia", 13.8F);
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Location = new System.Drawing.Point(203, 420);
+            this.cbStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(150, 35);
+            this.cbStatus.TabIndex = 9;
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.Font = new System.Drawing.Font("Georgia", 13.8F);
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(201, 26);
+            this.cbCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(150, 35);
+            this.cbCategory.TabIndex = 7;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(21, 26);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(95, 24);
+            this.label20.TabIndex = 3;
+            this.label20.Text = "Category:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(17, 420);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(72, 24);
+            this.label21.TabIndex = 9;
+            this.label21.Text = "Status:";
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtQuantity.Font = new System.Drawing.Font("Georgia", 13.8F);
+            this.txtQuantity.Location = new System.Drawing.Point(203, 340);
+            this.txtQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(400, 34);
+            this.txtQuantity.TabIndex = 8;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(17, 340);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(95, 24);
+            this.label22.TabIndex = 7;
+            this.label22.Text = "Quantity:";
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrice.Font = new System.Drawing.Font("Georgia", 13.8F);
+            this.txtPrice.Location = new System.Drawing.Point(201, 257);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(400, 34);
+            this.txtPrice.TabIndex = 6;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(15, 182);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(141, 24);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "Product name:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(15, 102);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(114, 24);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Product ID:";
+            // 
+            // txtProductID
+            // 
+            this.txtProductID.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtProductID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtProductID.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductID.Location = new System.Drawing.Point(201, 102);
+            this.txtProductID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtProductID.Name = "txtProductID";
+            this.txtProductID.Size = new System.Drawing.Size(400, 34);
+            this.txtProductID.TabIndex = 4;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(15, 257);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(61, 24);
+            this.label25.TabIndex = 2;
+            this.label25.Text = "Price:";
+            // 
+            // txtProductName
+            // 
+            this.txtProductName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtProductName.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductName.Location = new System.Drawing.Point(201, 182);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Size = new System.Drawing.Size(400, 34);
+            this.txtProductName.TabIndex = 5;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.Transparent;
+            this.panel14.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._182944;
+            this.panel14.Controls.Add(this.label26);
+            this.panel14.Location = new System.Drawing.Point(743, 125);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(626, 99);
+            this.panel14.TabIndex = 16;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Imprint MT Shadow", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.Black;
+            this.label26.Location = new System.Drawing.Point(165, 24);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(304, 47);
+            this.label26.TabIndex = 8;
+            this.label26.Text = "Product Details";
+            // 
+            // panel15
+            // 
+            this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel15.Controls.Add(this.bindingNavigator3);
+            this.panel15.Controls.Add(this.comboBox8);
+            this.panel15.Controls.Add(this.label27);
+            this.panel15.Controls.Add(this.panel16);
+            this.panel15.Controls.Add(this.dataGridView3);
+            this.panel15.Location = new System.Drawing.Point(33, 112);
+            this.panel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(610, 657);
+            this.panel15.TabIndex = 15;
+            // 
+            // bindingNavigator3
+            // 
+            this.bindingNavigator3.AddNewItem = this.toolStripButton7;
+            this.bindingNavigator3.CountItem = this.toolStripLabel2;
+            this.bindingNavigator3.DeleteItem = this.toolStripButton8;
+            this.bindingNavigator3.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.bindingNavigator3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton9,
+            this.toolStripButton10,
+            this.toolStripSeparator4,
+            this.toolStripTextBox2,
+            this.toolStripLabel2,
+            this.toolStripSeparator5,
+            this.toolStripButton11,
+            this.toolStripButton12,
+            this.toolStripSeparator6,
+            this.toolStripButton7,
+            this.toolStripButton8});
+            this.bindingNavigator3.Location = new System.Drawing.Point(0, 0);
+            this.bindingNavigator3.MoveFirstItem = this.toolStripButton9;
+            this.bindingNavigator3.MoveLastItem = this.toolStripButton12;
+            this.bindingNavigator3.MoveNextItem = this.toolStripButton11;
+            this.bindingNavigator3.MovePreviousItem = this.toolStripButton10;
+            this.bindingNavigator3.Name = "bindingNavigator3";
+            this.bindingNavigator3.PositionItem = this.toolStripTextBox2;
+            this.bindingNavigator3.Size = new System.Drawing.Size(608, 27);
+            this.bindingNavigator3.TabIndex = 5;
+            this.bindingNavigator3.Text = "bindingNavigator3";
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton7.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton7.Text = "Add new";
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(45, 24);
+            this.toolStripLabel2.Text = "of {0}";
+            this.toolStripLabel2.ToolTipText = "Total number of items";
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton8.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton8.Text = "Delete";
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton9.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton9.Text = "Move first";
+            // 
+            // toolStripButton10
+            // 
+            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
+            this.toolStripButton10.Name = "toolStripButton10";
+            this.toolStripButton10.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton10.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton10.Text = "Move previous";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripTextBox2
+            // 
+            this.toolStripTextBox2.AccessibleName = "Position";
+            this.toolStripTextBox2.AutoSize = false;
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            this.toolStripTextBox2.Size = new System.Drawing.Size(50, 27);
+            this.toolStripTextBox2.Text = "0";
+            this.toolStripTextBox2.ToolTipText = "Current position";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripButton11
+            // 
+            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
+            this.toolStripButton11.Name = "toolStripButton11";
+            this.toolStripButton11.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton11.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton11.Text = "Move next";
+            // 
+            // toolStripButton12
+            // 
+            this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
+            this.toolStripButton12.Name = "toolStripButton12";
+            this.toolStripButton12.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton12.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton12.Text = "Move last";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(229, 75);
+            this.comboBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox8.MaximumSize = new System.Drawing.Size(156, 0);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(156, 32);
+            this.comboBox8.TabIndex = 4;
+            // 
+            // label27
+            // 
+            this.label27.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(94, 75);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(90, 24);
+            this.label27.TabIndex = 3;
+            this.label27.Text = "Category:";
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.Transparent;
+            this.panel16.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.SVG401253_zoom_d;
+            this.panel16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel16.Controls.Add(this.label28);
+            this.panel16.ForeColor = System.Drawing.Color.Yellow;
+            this.panel16.Location = new System.Drawing.Point(-1, 29);
+            this.panel16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(606, 39);
+            this.panel16.TabIndex = 1;
+            // 
+            // label28
+            // 
+            this.label28.Font = new System.Drawing.Font("Georgia", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(138, 2);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(331, 32);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "List of Product";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(3, 114);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 62;
+            this.dataGridView3.RowTemplate.Height = 28;
+            this.dataGridView3.Size = new System.Drawing.Size(602, 539);
+            this.dataGridView3.TabIndex = 2;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel12.Controls.Add(this.label19);
+            this.panel12.Controls.Add(this.btnAddProduct);
+            this.panel12.Controls.Add(this.button10);
+            this.panel12.Controls.Add(this.btnEditProduct);
+            this.panel12.Controls.Add(this.btnDeleteProduct);
+            this.panel12.Controls.Add(this.txtSearchProductName);
+            this.panel12.Location = new System.Drawing.Point(3, 4);
+            this.panel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1455, 77);
+            this.panel12.TabIndex = 13;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(911, 28);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(123, 20);
+            this.label19.TabIndex = 4;
+            this.label19.Text = "Product Name:";
+            // 
+            // btnAddProduct
+            // 
+            this.btnAddProduct.BackColor = System.Drawing.Color.White;
+            this.btnAddProduct.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.add1;
+            this.btnAddProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAddProduct.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddProduct.Location = new System.Drawing.Point(33, 10);
+            this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(57, 59);
+            this.btnAddProduct.TabIndex = 0;
+            this.btnAddProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAddProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddProduct.UseVisualStyleBackColor = false;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.Transparent;
+            this.button10.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._1229321;
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button10.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Location = new System.Drawing.Point(1311, 10);
+            this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(54, 55);
+            this.button10.TabIndex = 2;
+            this.button10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button10.UseVisualStyleBackColor = false;
+            // 
+            // btnEditProduct
+            // 
+            this.btnEditProduct.BackColor = System.Drawing.Color.White;
+            this.btnEditProduct.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.edit2;
+            this.btnEditProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnEditProduct.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditProduct.Location = new System.Drawing.Point(96, 10);
+            this.btnEditProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEditProduct.Name = "btnEditProduct";
+            this.btnEditProduct.Size = new System.Drawing.Size(52, 59);
+            this.btnEditProduct.TabIndex = 3;
+            this.btnEditProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEditProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditProduct.UseVisualStyleBackColor = false;
+            this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
+            // 
+            // btnDeleteProduct
+            // 
+            this.btnDeleteProduct.BackColor = System.Drawing.Color.White;
+            this.btnDeleteProduct.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.delete1;
+            this.btnDeleteProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDeleteProduct.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteProduct.Location = new System.Drawing.Point(156, 10);
+            this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDeleteProduct.Name = "btnDeleteProduct";
+            this.btnDeleteProduct.Size = new System.Drawing.Size(58, 59);
+            this.btnDeleteProduct.TabIndex = 2;
+            this.btnDeleteProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDeleteProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteProduct.UseVisualStyleBackColor = false;
+            // 
+            // txtSearchProductName
+            // 
+            this.txtSearchProductName.Location = new System.Drawing.Point(1054, 22);
+            this.txtSearchProductName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearchProductName.MaximumSize = new System.Drawing.Size(272, 50);
+            this.txtSearchProductName.Name = "txtSearchProductName";
+            this.txtSearchProductName.Size = new System.Drawing.Size(272, 30);
+            this.txtSearchProductName.TabIndex = 1;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.msTool});
+            this.menuStrip1.Location = new System.Drawing.Point(1213, 39);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(234, 32);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // msTool
+            // 
+            this.msTool.BackColor = System.Drawing.Color.Transparent;
+            this.msTool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logOutToolStripMenuItem,
+            this.ViewProfiletoolStripMenuItem});
+            this.msTool.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.msTool.Name = "msTool";
+            this.msTool.Size = new System.Drawing.Size(77, 28);
+            this.msTool.Text = "User: ";
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.logOutToolStripMenuItem.Text = "Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
+            // ViewProfiletoolStripMenuItem
+            // 
+            this.ViewProfiletoolStripMenuItem.Name = "ViewProfiletoolStripMenuItem";
+            this.ViewProfiletoolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.ViewProfiletoolStripMenuItem.Text = "View Profile";
+            this.ViewProfiletoolStripMenuItem.Click += new System.EventHandler(this.ViewProfileToolStripMenuItem_Click);
+            // 
+            // frmWarehouse_V2
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._182944;
+            this.ClientSize = new System.Drawing.Size(1647, 1055);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel);
+            this.Name = "frmWarehouse_V2";
+            this.Text = "frmWarehouse_V2";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmWarehouse_V2_FormClosed);
+            this.panel.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).EndInit();
+            this.bindingNavigator2.ResumeLayout(false);
+            this.bindingNavigator2.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator3)).EndInit();
+            this.bindingNavigator3.ResumeLayout(false);
+            this.bindingNavigator3.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TabControl panel;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtCategoryID;
+        private System.Windows.Forms.TextBox txtCategoryName;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.BindingNavigator bindingNavigator2;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.ComboBox cbCategory;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox txtProductID;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox txtProductName;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.BindingNavigator bindingNavigator3;
+        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripButton toolStripButton9;
+        private System.Windows.Forms.ToolStripButton toolStripButton10;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripButton toolStripButton11;
+        private System.Windows.Forms.ToolStripButton toolStripButton12;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btnAddProduct;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btnEditProduct;
+        private System.Windows.Forms.Button btnDeleteProduct;
+        private System.Windows.Forms.TextBox txtSearchProductName;
+        private System.Windows.Forms.Button btnAddCategory;
+        private System.Windows.Forms.Button btnEditCategory;
+        private System.Windows.Forms.Button btnDeleteCategory;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem msTool;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ViewProfiletoolStripMenuItem;
+    }
+}
