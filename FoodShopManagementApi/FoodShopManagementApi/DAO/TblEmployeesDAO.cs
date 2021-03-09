@@ -48,7 +48,13 @@ namespace FoodShopManagementApi.DAO
             }
             finally
             {
-                if (sqlDataReader != null) sqlDataReader.Close();
+                try
+                {
+                    DBUtil.CloseConnection(sqlDataReader, connection);
+                }catch(Exception ex)
+                {
+                    throw ex;
+                }
             }
             return null;
         }
