@@ -38,6 +38,10 @@ namespace FoodShopManagement_WF.UI
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbRole = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +50,7 @@ namespace FoodShopManagement_WF.UI
             this.btnCancel.BackColor = System.Drawing.SystemColors.Info;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Georgia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(324, 280);
+            this.btnCancel.Location = new System.Drawing.Point(330, 425);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(89, 48);
             this.btnCancel.TabIndex = 8;
@@ -59,7 +63,7 @@ namespace FoodShopManagement_WF.UI
             this.btnSave.BackColor = System.Drawing.SystemColors.Info;
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSave.Font = new System.Drawing.Font("Georgia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(62, 280);
+            this.btnSave.Location = new System.Drawing.Point(68, 425);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 48);
             this.btnSave.TabIndex = 7;
@@ -70,6 +74,10 @@ namespace FoodShopManagement_WF.UI
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.AliceBlue;
+            this.groupBox1.Controls.Add(this.cbStatus);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.cbRole);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.txtFullName);
             this.groupBox1.Controls.Add(this.txtEmployeeID);
@@ -79,7 +87,7 @@ namespace FoodShopManagement_WF.UI
             this.groupBox1.Font = new System.Drawing.Font("Georgia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(31, 34);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(451, 226);
+            this.groupBox1.Size = new System.Drawing.Size(451, 368);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Employee Details";
@@ -133,12 +141,54 @@ namespace FoodShopManagement_WF.UI
             this.label1.TabIndex = 5;
             this.label1.Text = "Employee ID";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(35, 232);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 23);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Role";
+            // 
+            // cbRole
+            // 
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Items.AddRange(new object[] {
+            "Salesman",
+            "Warehouse Staff"});
+            this.cbRole.Location = new System.Drawing.Point(164, 229);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(238, 29);
+            this.cbRole.TabIndex = 11;
+            this.cbRole.Text = "         ---- Select Role ---";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(35, 302);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 23);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Status";
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.cbStatus.Location = new System.Drawing.Point(164, 296);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(238, 29);
+            this.cbStatus.TabIndex = 13;
+            this.cbStatus.Text = "         ---- Select Status  ---";
+            // 
             // frmEmployeeDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._182944;
-            this.ClientSize = new System.Drawing.Size(510, 351);
+            this.ClientSize = new System.Drawing.Size(510, 497);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
@@ -161,5 +211,9 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbRole;
+        private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.Label label5;
     }
 }

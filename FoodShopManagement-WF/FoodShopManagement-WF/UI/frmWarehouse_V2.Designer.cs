@@ -166,7 +166,7 @@ namespace FoodShopManagement_WF.UI
             this.panel7.Controls.Add(this.label12);
             this.panel7.Controls.Add(this.txtCategoryID);
             this.panel7.Controls.Add(this.txtCategoryName);
-            this.panel7.Location = new System.Drawing.Point(724, 268);
+            this.panel7.Location = new System.Drawing.Point(723, 220);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(626, 209);
             this.panel7.TabIndex = 10;
@@ -217,7 +217,7 @@ namespace FoodShopManagement_WF.UI
             this.panel8.BackColor = System.Drawing.Color.Transparent;
             this.panel8.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._182944;
             this.panel8.Controls.Add(this.label14);
-            this.panel8.Location = new System.Drawing.Point(724, 158);
+            this.panel8.Location = new System.Drawing.Point(723, 110);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(626, 90);
             this.panel8.TabIndex = 9;
@@ -252,7 +252,7 @@ namespace FoodShopManagement_WF.UI
             this.btnAddCategory.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.add1;
             this.btnAddCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAddCategory.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCategory.Location = new System.Drawing.Point(53, 5);
+            this.btnAddCategory.Location = new System.Drawing.Point(36, 14);
             this.btnAddCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddCategory.Name = "btnAddCategory";
             this.btnAddCategory.Size = new System.Drawing.Size(57, 59);
@@ -268,7 +268,7 @@ namespace FoodShopManagement_WF.UI
             this.btnEditCategory.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.edit2;
             this.btnEditCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnEditCategory.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditCategory.Location = new System.Drawing.Point(116, 5);
+            this.btnEditCategory.Location = new System.Drawing.Point(99, 14);
             this.btnEditCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditCategory.Name = "btnEditCategory";
             this.btnEditCategory.Size = new System.Drawing.Size(52, 59);
@@ -284,7 +284,7 @@ namespace FoodShopManagement_WF.UI
             this.btnDeleteCategory.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.delete1;
             this.btnDeleteCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDeleteCategory.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCategory.Location = new System.Drawing.Point(176, 5);
+            this.btnDeleteCategory.Location = new System.Drawing.Point(159, 14);
             this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteCategory.Name = "btnDeleteCategory";
             this.btnDeleteCategory.Size = new System.Drawing.Size(58, 59);
@@ -299,10 +299,10 @@ namespace FoodShopManagement_WF.UI
             this.panel10.Controls.Add(this.bindingNavigator2);
             this.panel10.Controls.Add(this.panel11);
             this.panel10.Controls.Add(this.dataGridView2);
-            this.panel10.Location = new System.Drawing.Point(52, 113);
+            this.panel10.Location = new System.Drawing.Point(31, 110);
             this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(506, 657);
+            this.panel10.Size = new System.Drawing.Size(559, 657);
             this.panel10.TabIndex = 0;
             // 
             // bindingNavigator2
@@ -330,7 +330,11 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigator2.MovePreviousItem = this.toolStripButton4;
             this.bindingNavigator2.Name = "bindingNavigator2";
             this.bindingNavigator2.PositionItem = this.toolStripTextBox1;
+<<<<<<< HEAD
             this.bindingNavigator2.Size = new System.Drawing.Size(504, 31);
+=======
+            this.bindingNavigator2.Size = new System.Drawing.Size(557, 31);
+>>>>>>> Hanlg_Update
             this.bindingNavigator2.TabIndex = 5;
             this.bindingNavigator2.Text = "bindingNavigator2";
             // 
@@ -431,13 +435,13 @@ namespace FoodShopManagement_WF.UI
             this.panel11.Location = new System.Drawing.Point(-1, 29);
             this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(506, 39);
+            this.panel11.Size = new System.Drawing.Size(555, 39);
             this.panel11.TabIndex = 1;
             // 
             // label18
             // 
             this.label18.Font = new System.Drawing.Font("Georgia", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(88, 5);
+            this.label18.Location = new System.Drawing.Point(120, 5);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(331, 32);
             this.label18.TabIndex = 0;
@@ -452,7 +456,7 @@ namespace FoodShopManagement_WF.UI
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 62;
             this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(498, 581);
+            this.dataGridView2.Size = new System.Drawing.Size(551, 581);
             this.dataGridView2.TabIndex = 2;
             // 
             // tabPage2
@@ -837,7 +841,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(911, 28);
+            this.label19.Location = new System.Drawing.Point(908, 34);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(123, 20);
             this.label19.TabIndex = 4;
@@ -907,7 +911,7 @@ namespace FoodShopManagement_WF.UI
             // 
             // txtSearchProductName
             // 
-            this.txtSearchProductName.Location = new System.Drawing.Point(1054, 22);
+            this.txtSearchProductName.Location = new System.Drawing.Point(1053, 28);
             this.txtSearchProductName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearchProductName.MaximumSize = new System.Drawing.Size(272, 50);
             this.txtSearchProductName.Name = "txtSearchProductName";
@@ -921,7 +925,7 @@ namespace FoodShopManagement_WF.UI
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.msTool});
-            this.menuStrip1.Location = new System.Drawing.Point(1213, 39);
+            this.menuStrip1.Location = new System.Drawing.Point(1228, 45);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(84, 32);
@@ -958,7 +962,7 @@ namespace FoodShopManagement_WF.UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._182944;
-            this.ClientSize = new System.Drawing.Size(1647, 1055);
+            this.ClientSize = new System.Drawing.Size(1678, 1055);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel);
             this.Name = "frmWarehouse_V2";

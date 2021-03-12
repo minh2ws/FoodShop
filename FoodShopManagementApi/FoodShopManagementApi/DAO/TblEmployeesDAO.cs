@@ -58,5 +58,50 @@ namespace FoodShopManagementApi.DAO
             }
             return null;
         }
+
+
+        public bool AddEmployee(TblEmployeesDTO emp)
+        {
+            SqlConnection connection = null;
+            SqlDataReader sqlDataReader = null;
+            bool result=false;
+            try
+            {
+                connection = DBUtil.MakeConnect();
+                if (connection != null)
+                {
+                    String sql = "INSERT tblEmployees(idEmployee, password, name, role, status) " +
+                        "values(@idEmployee ,@password,@name,@role ,@status)";
+                    SqlCommand sqlCommand = new SqlCommand(sql, connection);
+                    sqlCommand.Parameters.AddWithValue("@idEmployee", emp.idEmployee);
+                    sqlCommand.Parameters.AddWithValue("@password", emp.password);
+                    sqlCommand.Parameters.AddWithValue("@name", emp.name);
+                    sqlCommand.Parameters.AddWithValue("@role", emp.role);
+                    sqlCommand.Parameters.AddWithValue("@status", true);
+               
+                    //sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                    result = sqlCommand.ExecuteNonQuery() > 0;
+
+                   
+                    }
+                
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                try
+                {
+                    DBUtil.CloseConnection(sqlDataReader, connection);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+            return result;
+        }
     }
 }
