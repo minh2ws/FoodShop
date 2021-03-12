@@ -1,4 +1,5 @@
-﻿using FoodShopManagement_WF.DTO;
+﻿
+using DTO;
 using FoodShopManagement_WF.Model;
 using FoodShopManagement_WF.Model.impl;
 using FoodShopManagement_WF.UI;
@@ -32,15 +33,15 @@ namespace FoodShopManagement_WF.Presenter.impl
                 switch (role)
                 {
                     case "MANAGER":
-                        frmManager manager = new frmManager();
+                        frmManager_v2 manager = new frmManager_v2(form,emp);
                         manager.Show();
                         break;
                     case "STAFF":
-                        frmWarehouse warehouse = new frmWarehouse(form, emp);
+                        frmWarehouse_V2 warehouse = new frmWarehouse_V2(form, emp);
                         warehouse.Show();
                         break;
                     case "SALESMAN":
-                        frmSaleManager saleManager = new frmSaleManager(form, emp);
+                        frmSaleManager_V2 saleManager = new frmSaleManager_V2(form, emp);
                         saleManager.Show();
                         break;
                 }
