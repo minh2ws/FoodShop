@@ -1,6 +1,7 @@
 ﻿using DTO;
 using System;
 using System.Windows.Forms;
+using System.Data;
 
 namespace FoodShopManagement_WF.UI
 {
@@ -54,10 +55,6 @@ namespace FoodShopManagement_WF.UI
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -131,5 +128,6 @@ namespace FoodShopManagement_WF.UI
             frmMyProfileDetailcs ProductDetail = new frmMyProfileDetailcs(true);
             DialogResult r = ProductDetail.ShowDialog();
         }
+
     }
 }
