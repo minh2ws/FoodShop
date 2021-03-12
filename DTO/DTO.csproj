@@ -50,6 +50,7 @@
     <Compile Include="ErrorDTO.cs" />
     <Compile Include="TblEmployeesDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TblProductsDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MyKey.snk" />

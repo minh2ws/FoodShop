@@ -1,4 +1,5 @@
-﻿using FoodShopManagementApi.DTO;
+﻿using DTO;
+using FoodShopManagementApi.DTO;
 using FoodShopManagementApi.Util;
 using System;
 using System.Collections.Generic;
