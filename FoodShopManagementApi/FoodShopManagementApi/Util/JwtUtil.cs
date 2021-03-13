@@ -15,17 +15,48 @@ namespace FoodShopManagementApi.Util
     {
         public static string GenerateJSONWebToken(TblEmployeesDTO employeesDTO,IConfiguration _config)
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var credentials = GetCredentials(_config);
             var permClaims = new List<Claim>();
             permClaims.Add(new Claim("idEmployee", employeesDTO.idEmployee));
+            permClaims.Add(new Claim("role", employeesDTO.role));
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
               _config["Jwt:Issuer"],
               permClaims,
               expires: DateTime.Now.AddMinutes(120),
               signingCredentials: credentials);
-
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+        public static bool ValidateJSONWebToken(string token, IConfiguration _config)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            try
+            {
+                // lay securityKey từ appsetting json
+                var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+               // check token
+                ClaimsPrincipal claims = handler.ValidateToken(token, new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidIssuer = _config["Jwt:Issuer"],
+                    ValidAudience = _config["Jwt:Issuer"],
+                    IssuerSigningKey = securityKey
+                }, out SecurityToken validatedToken);
+            }catch(Exception e)
+            {
+                return false;
+            }
+            return true;
+            
+            
+        }
+        public static SigningCredentials GetCredentials(IConfiguration _config)
+        {
+            
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            return new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+        }
+
     }
 }

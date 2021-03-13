@@ -4,6 +4,7 @@ using FoodShopManagementApi.Util;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Security.Claims;
 
 namespace FoodShopManagementApi.Controllers
 {
@@ -18,6 +19,20 @@ namespace FoodShopManagementApi.Controllers
         {
             _config = config;
         }
+
+        [HttpGet("test")]
+        [Produces("application/json")]
+        public IActionResult test()
+        {
+            // api test kiểm tra validate json token 
+            
+            var header = HttpContext.Request.Headers;// doc header cua request
+            header.TryGetValue("Authorization", out Microsoft.Extensions.Primitives.StringValues value); // lấy token authorization từ request           
+            return Ok(JwtUtil.ValidateJSONWebToken(value, _config));// kiem tra token
+        }
+
+
+
         [HttpPost("login")]
         [Produces("application/json")]
         public IActionResult CheckLogin([FromBody]TblEmployeesDTO tblEmployeeDTO)
