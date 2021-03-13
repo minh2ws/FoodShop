@@ -28,7 +28,13 @@ namespace FoodShopManagementApi.Controllers
             
             var header = HttpContext.Request.Headers;// doc header cua request
             header.TryGetValue("Authorization", out Microsoft.Extensions.Primitives.StringValues value); // lấy token authorization từ request           
-            return Ok(JwtUtil.ValidateJSONWebToken(value, _config));// kiem tra token
+            bool check = JwtUtil.ValidateJSONWebToken(value, _config);// kiem tra token
+            if (check)
+            {
+                return Ok(true);
+            }
+            return Unauthorized(false);
+            
         }
 
 
