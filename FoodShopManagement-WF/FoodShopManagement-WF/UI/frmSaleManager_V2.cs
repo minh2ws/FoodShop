@@ -25,8 +25,6 @@ namespace FoodShopManagement_WF.UI
 
         }
         
-
-       
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -49,11 +47,6 @@ namespace FoodShopManagement_WF.UI
 
             frmCustomerDetail ProductDetail = new frmCustomerDetail(true);
             DialogResult r = ProductDetail.ShowDialog();
-
-        }
-
-        private void frmSaleManager_V2_Load(object sender, EventArgs e)
-        {
 
         }
 

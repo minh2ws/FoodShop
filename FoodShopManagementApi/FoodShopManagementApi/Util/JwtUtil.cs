@@ -43,7 +43,7 @@ namespace FoodShopManagementApi.Util
                     ValidAudience = _config["Jwt:Issuer"],
                     IssuerSigningKey = securityKey
                 }, out SecurityToken validatedToken);
-            }catch(Exception e)
+            }catch(Exception)
             {
                 return false;
             }

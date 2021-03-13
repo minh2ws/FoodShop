@@ -45,11 +45,7 @@ namespace FoodShopManagementApi.Util
                     sqlConnection.Close();
                 }
             }
-            catch (Exception e)
-            {
-                throw e;
-            }
-
+            catch (SqlException e) { Console.WriteLine(e.Message); }
         }
     }
     

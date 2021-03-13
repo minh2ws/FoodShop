@@ -18,7 +18,7 @@ namespace FoodShopManagementApi.DAO
         SqlCommand sqlCommand = null;
         public List<TblProductsDTO> findAll()
         {
-            
+
             string sql = "select idProduct,name,price,quantity,status,idCategory from tblProducts";
             try
             {
@@ -26,35 +26,30 @@ namespace FoodShopManagementApi.DAO
                 if (sqlConnection != null)
                 {
                     sqlCommand = new SqlCommand(sql, sqlConnection);
-                    sqlDataReader= sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                    sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
                     List<TblProductsDTO> result = new List<TblProductsDTO>();
                     while (sqlDataReader.Read())
                     {
                         TblProductsDTO product = new TblProductsDTO();
-                        product.name=sqlDataReader.GetString("name");
-                        product.name = sqlDataReader.GetString("idProduct");
+                        product.idProduct = sqlDataReader.GetString("idProduct");
+                        product.name = sqlDataReader.GetString("name");
                         product.price = sqlDataReader.GetFloat("price");
                         product.quantity = sqlDataReader.GetInt32("quantity");
-                        product.idCategory = sqlDataReader.GetString("idCategory");
                         product.status = sqlDataReader.GetBoolean("status");
+                        product.idCategory = sqlDataReader.GetString("idCategory");
                         result.Add(product);
                     }
                     return result;
                 }
-            }catch(Exception e)
+            }
+            catch (SqlException e)
             {
-                throw e;
+                //throw new Exception(e.Message);
+                Console.WriteLine(e.Message);
             }
             finally
             {
-                try
-                {
-                    DBUtil.CloseConnection(sqlDataReader, sqlConnection);
-                }catch(Exception ex)
-                {
-                    throw ex;
-                }
-                
+                DBUtil.CloseConnection(sqlDataReader, sqlConnection);
             }
             return null;
         }

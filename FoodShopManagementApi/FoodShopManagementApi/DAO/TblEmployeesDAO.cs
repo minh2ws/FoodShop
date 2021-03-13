@@ -42,19 +42,11 @@ namespace FoodShopManagementApi.DAO
                     }
                 }
             }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            catch (SqlException e) { throw new Exception(e.Message); }
             finally
             {
-                try
-                {
-                    DBUtil.CloseConnection(sqlDataReader, connection);
-                }catch(Exception ex)
-                {
-                    throw ex;
-                }
+                DBUtil.CloseConnection(sqlDataReader, connection);
+
             }
             return null;
         }
@@ -64,7 +56,7 @@ namespace FoodShopManagementApi.DAO
         {
             SqlConnection connection = null;
             SqlDataReader sqlDataReader = null;
-            bool result=false;
+            bool result = false;
             try
             {
                 connection = DBUtil.MakeConnect();
@@ -78,28 +70,16 @@ namespace FoodShopManagementApi.DAO
                     sqlCommand.Parameters.AddWithValue("@name", emp.name);
                     sqlCommand.Parameters.AddWithValue("@role", emp.role);
                     sqlCommand.Parameters.AddWithValue("@status", true);
-               
+
                     //sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
                     result = sqlCommand.ExecuteNonQuery() > 0;
+                }
 
-                   
-                    }
-                
             }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            catch (SqlException e) { throw new Exception(e.Message); }
             finally
             {
-                try
-                {
-                    DBUtil.CloseConnection(sqlDataReader, connection);
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+                DBUtil.CloseConnection(sqlDataReader, connection);
             }
             return result;
         }

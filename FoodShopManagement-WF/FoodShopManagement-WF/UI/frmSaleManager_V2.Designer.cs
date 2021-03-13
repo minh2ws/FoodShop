@@ -183,7 +183,7 @@ namespace FoodShopManagement_WF.UI
             this.btnDeleteProduct.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.delete1;
             this.btnDeleteProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDeleteProduct.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteProduct.Location = new System.Drawing.Point(722, 282);
+            this.btnDeleteProduct.Location = new System.Drawing.Point(708, 282);
             this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
             this.btnDeleteProduct.Size = new System.Drawing.Size(56, 54);
@@ -198,7 +198,7 @@ namespace FoodShopManagement_WF.UI
             this.btnUpdateCart.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.edit2;
             this.btnUpdateCart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnUpdateCart.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateCart.Location = new System.Drawing.Point(722, 219);
+            this.btnUpdateCart.Location = new System.Drawing.Point(708, 219);
             this.btnUpdateCart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdateCart.Name = "btnUpdateCart";
             this.btnUpdateCart.Size = new System.Drawing.Size(56, 59);
@@ -213,7 +213,7 @@ namespace FoodShopManagement_WF.UI
             this.btnAddtocart.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.add1;
             this.btnAddtocart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAddtocart.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddtocart.Location = new System.Drawing.Point(720, 167);
+            this.btnAddtocart.Location = new System.Drawing.Point(706, 167);
             this.btnAddtocart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddtocart.Name = "btnAddtocart";
             this.btnAddtocart.Size = new System.Drawing.Size(58, 48);
@@ -234,7 +234,7 @@ namespace FoodShopManagement_WF.UI
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Location = new System.Drawing.Point(784, 21);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(587, 731);
+            this.panel1.Size = new System.Drawing.Size(587, 740);
             this.panel1.TabIndex = 9;
             // 
             // label9
@@ -280,7 +280,7 @@ namespace FoodShopManagement_WF.UI
             this.TOTAL.Controls.Add(this.label7);
             this.TOTAL.Location = new System.Drawing.Point(7, 528);
             this.TOTAL.Name = "TOTAL";
-            this.TOTAL.Size = new System.Drawing.Size(569, 188);
+            this.TOTAL.Size = new System.Drawing.Size(569, 201);
             this.TOTAL.TabIndex = 11;
             this.TOTAL.TabStop = false;
             this.TOTAL.Text = "Current Charges";
@@ -331,7 +331,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(180, 79);
+            this.label4.Location = new System.Drawing.Point(185, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 20);
             this.label4.TabIndex = 1;
@@ -352,7 +352,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(180, 30);
+            this.label7.Location = new System.Drawing.Point(185, 26);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(70, 20);
             this.label7.TabIndex = 0;
@@ -361,12 +361,12 @@ namespace FoodShopManagement_WF.UI
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(7, 147);
+            this.dataGridView2.Location = new System.Drawing.Point(3, 147);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 62;
             this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(569, 376);
+            this.dataGridView2.Size = new System.Drawing.Size(577, 376);
             this.dataGridView2.TabIndex = 10;
             // 
             // textBox3
@@ -432,7 +432,7 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(657, 31);
+            this.bindingNavigator1.Size = new System.Drawing.Size(657, 27);
             this.bindingNavigator1.TabIndex = 5;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -442,13 +442,13 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -458,7 +458,7 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -467,7 +467,7 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -476,19 +476,18 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -497,7 +496,7 @@ namespace FoodShopManagement_WF.UI
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -505,7 +504,7 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -514,13 +513,13 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // cbSearchCategory
             // 
@@ -539,7 +538,7 @@ namespace FoodShopManagement_WF.UI
             this.btnSearch.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._1229321;
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnSearch.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(525, 94);
+            this.btnSearch.Location = new System.Drawing.Point(531, 100);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(54, 60);
@@ -593,12 +592,12 @@ namespace FoodShopManagement_WF.UI
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-1, 177);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 187);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(655, 553);
+            this.dataGridView1.Size = new System.Drawing.Size(651, 549);
             this.dataGridView1.TabIndex = 2;
             // 
             // tabPage2
@@ -933,7 +932,6 @@ namespace FoodShopManagement_WF.UI
             // 
             this.toolStripTextBox1.AccessibleName = "Position";
             this.toolStripTextBox1.AutoSize = false;
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(50, 27);
             this.toolStripTextBox1.Text = "0";
@@ -1053,7 +1051,6 @@ namespace FoodShopManagement_WF.UI
             this.Name = "frmSaleManager_V2";
             this.Text = "frmSaleManager_V2";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSaleManager_V2_FormClosed);
-            this.Load += new System.EventHandler(this.frmSaleManager_V2_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
