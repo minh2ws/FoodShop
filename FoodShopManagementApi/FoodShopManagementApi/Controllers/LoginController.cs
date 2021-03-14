@@ -34,7 +34,6 @@ namespace FoodShopManagementApi.Controllers
                 return Ok(true);
             }
             return Unauthorized(false);
-            
         }
 
 

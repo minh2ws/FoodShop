@@ -1,7 +1,9 @@
 ﻿using DTO;
 using FoodShopManagementApi.DAO;
+using FoodShopManagementApi.Util;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,22 +15,41 @@ namespace FoodShopManagementApi.DTO
     [ApiController]
     public class ProductController : ControllerBase
     {
+        private IConfiguration _config;
+
+        public ProductController(IConfiguration config)
+        {
+            _config = config;
+        }
+
+        public bool ValidateToken()
+        {
+            var header = HttpContext.Request.Headers;//doc header cua request
+            header.TryGetValue("Authorization", out Microsoft.Extensions.Primitives.StringValues value);
+            bool isValid = JwtUtil.ValidateJSONWebToken(value, _config);
+            return isValid;
+        }
+
         [HttpGet("loadProducts")]
         [Produces("application/json")]
         public IActionResult LoadProducts()
         {
-            TblProductsDAO dao = new TblProductsDAO();
-            try
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
             {
-                List<TblProductsDTO> listProduct = dao.findAll();
-                if (listProduct != null)
+                TblProductsDAO dao = new TblProductsDAO();
+                try
                 {
-                    return Ok(listProduct);
+                    List<TblProductsDTO> listProduct = dao.findAll();
+                    if (listProduct != null)
+                    {
+                        return Ok(listProduct);
+                    }
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
+                catch (Exception)
+                {
+                    StatusCode(500);
+                }
             }
             return Unauthorized();
         }

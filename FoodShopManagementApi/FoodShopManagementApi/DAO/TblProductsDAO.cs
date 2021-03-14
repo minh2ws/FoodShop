@@ -31,12 +31,13 @@ namespace FoodShopManagementApi.DAO
                     while (sqlDataReader.Read())
                     {
                         TblProductsDTO product = new TblProductsDTO();
-                        product.idProduct = sqlDataReader.GetString("idProduct");
-                        product.name = sqlDataReader.GetString("name");
-                        product.price = sqlDataReader.GetFloat("price");
-                        product.quantity = sqlDataReader.GetInt32("quantity");
-                        product.status = sqlDataReader.GetBoolean("status");
-                        product.idCategory = sqlDataReader.GetString("idCategory");
+                        product.idProduct = sqlDataReader["idProduct"].ToString();
+                        product.name = sqlDataReader["name"].ToString();
+                        product.price = float.Parse(sqlDataReader["price"].ToString());
+                        product.quantity = int.Parse(sqlDataReader["quantity"].ToString());
+                        product.status = bool.Parse(sqlDataReader["status"].ToString());
+                        product.idCategory = sqlDataReader["idCategory"].ToString();
+
                         result.Add(product);
                     }
                     return result;
@@ -44,8 +45,8 @@ namespace FoodShopManagementApi.DAO
             }
             catch (SqlException e)
             {
-                //throw new Exception(e.Message);
-                Console.WriteLine(e.Message);
+                throw new Exception(e.Message);
+                //Console.WriteLine(e.Message);
             }
             finally
             {
