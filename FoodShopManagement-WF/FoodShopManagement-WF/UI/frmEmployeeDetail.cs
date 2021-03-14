@@ -37,7 +37,7 @@ namespace FoodShopManagement_WF.UI
             Employees.status = true;
 
             
-            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("Employee/Insert", Employees);
+            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("Employee/Insert", Employees,Program.TokenGlobal);
             if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
             {
                 var result = responseMessage.Content.ReadAsStringAsync();

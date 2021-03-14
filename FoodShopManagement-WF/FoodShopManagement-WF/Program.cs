@@ -8,6 +8,7 @@ namespace FoodShopManagement_WF
 {
     static class Program
     {
+        public static string TokenGlobal = "";
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

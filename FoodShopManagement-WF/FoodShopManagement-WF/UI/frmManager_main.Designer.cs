@@ -39,7 +39,6 @@ namespace FoodShopManagement_WF.UI
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -61,7 +60,6 @@ namespace FoodShopManagement_WF.UI
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -88,7 +86,6 @@ namespace FoodShopManagement_WF.UI
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.separatorControl1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
@@ -163,11 +160,7 @@ namespace FoodShopManagement_WF.UI
             this.panel6.TabIndex = 3;
             // 
             // separatorControl1
-            // 
-            this.separatorControl1.Location = new System.Drawing.Point(43, 241);
-            this.separatorControl1.Name = "separatorControl1";
-            this.separatorControl1.Size = new System.Drawing.Size(276, 30);
-            this.separatorControl1.TabIndex = 0;
+            //
             // 
             // label2
             // 
@@ -281,7 +274,6 @@ namespace FoodShopManagement_WF.UI
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -298,7 +290,6 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
