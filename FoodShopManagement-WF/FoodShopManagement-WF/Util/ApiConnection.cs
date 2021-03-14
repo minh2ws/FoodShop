@@ -11,7 +11,7 @@ namespace FoodShopManagement_WF.Util
     public class ApiConnection
     {
         public static string URI = "https://localhost:44314/api/FoodShopManagement/";
-        public static HttpResponseMessage loadPostJsonObject(string function, Object inputObj)
+        public static HttpResponseMessage loadPostJsonObjectLogin(string function, Object inputObj)
         {
             string json = JsonConvert.SerializeObject(inputObj);
             StringContent data = new StringContent(json, Encoding.UTF8, "application/json");
@@ -20,11 +20,30 @@ namespace FoodShopManagement_WF.Util
             HttpResponseMessage responseMessage = httpClient.PostAsync(function, data).Result;
             return responseMessage;
         }
-        public static HttpResponseMessage loadGetJsonObject(string function, Object inputObj)
+        public static HttpResponseMessage loadPostJsonObject(string function, Object inputObj,string token)
+        {
+            string json = JsonConvert.SerializeObject(inputObj);
+            StringContent data = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpClient httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("Authorization", token);
+            httpClient.BaseAddress = new Uri(URI);
+            HttpResponseMessage responseMessage = httpClient.PostAsync(function, data).Result;
+            return responseMessage;
+        }
+        public static HttpResponseMessage loadGetJsonObject(string function,string token)
+        {
+            HttpClient httpClient = new HttpClient();
+            httpClient.BaseAddress = new Uri(URI);
+            httpClient.DefaultRequestHeaders.Add("Authorization", token);
+            HttpResponseMessage responseMessage = httpClient.GetAsync(function).Result;
+            return responseMessage;
+        }
+        public static HttpResponseMessage loadGetJsonObject(string function,object inputObj, string token)
         {
             string json = JsonConvert.SerializeObject(inputObj);
             HttpClient httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(URI);
+            httpClient.DefaultRequestHeaders.Add("Authorization", token);
             HttpResponseMessage responseMessage = httpClient.GetAsync(function).Result;
             return responseMessage;
         }

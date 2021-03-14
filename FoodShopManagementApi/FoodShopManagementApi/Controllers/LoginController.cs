@@ -50,7 +50,8 @@ namespace FoodShopManagementApi.Controllers
                 if (dto != null)
                 {
                     string token = JwtUtil.GenerateJSONWebToken(dto,_config);
-                    response = Ok(new { token = token });
+                    HttpContext.Response.Headers.Add("token",token);
+                    response = Ok(dto);
                 }
                 return response;
             }
