@@ -330,11 +330,7 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigator2.MovePreviousItem = this.toolStripButton4;
             this.bindingNavigator2.Name = "bindingNavigator2";
             this.bindingNavigator2.PositionItem = this.toolStripTextBox1;
-<<<<<<< HEAD
-            this.bindingNavigator2.Size = new System.Drawing.Size(504, 31);
-=======
             this.bindingNavigator2.Size = new System.Drawing.Size(557, 31);
->>>>>>> Han
             this.bindingNavigator2.TabIndex = 5;
             this.bindingNavigator2.Text = "bindingNavigator2";
             // 
