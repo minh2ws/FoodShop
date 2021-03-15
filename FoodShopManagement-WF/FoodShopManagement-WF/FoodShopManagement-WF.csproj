@@ -62,10 +62,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\ILoginModel.cs" />
+    <Compile Include="Model\IManagerDetailModel.cs" />
     <Compile Include="Model\impl\LoginModel.cs" />
+<<<<<<< HEAD
     <Compile Include="Model\impl\SaleManagerModel.cs" />
     <Compile Include="Model\ISaleManagerModel.cs" />
+=======
+    <Compile Include="Model\impl\ManagerDetailModel.cs" />
+>>>>>>> eaddf154f68e039b69380ba617cb00874e8b8c2a
     <Compile Include="Presenter\ILoginPresenter.cs" />
+    <Compile Include="Presenter\IManagerDetailPresenter.cs" />
+    <Compile Include="Presenter\impl\ManagerDetailPresenter.cs" />
     <Compile Include="Presenter\impl\LoginPresenter.cs" />
     <Compile Include="Presenter\impl\SaleManagerPresenter.cs" />
     <Compile Include="Presenter\ISaleManagerPresenter.cs" />
