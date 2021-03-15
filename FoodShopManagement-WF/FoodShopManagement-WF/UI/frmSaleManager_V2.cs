@@ -1,5 +1,8 @@
 ﻿using DTO;
+using FoodShopManagement_WF.Presenter;
+using FoodShopManagement_WF.Presenter.impl;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace FoodShopManagement_WF.UI
@@ -8,6 +11,17 @@ namespace FoodShopManagement_WF.UI
     {
         private frmLogin loginFrame;
         private TblEmployeesDTO emp;
+        private ISaleManagerPresenter saleManagerPresenter = new SaleManagerPresenter();
+
+        public string getCategoryName()
+        {
+            return this.cmbCategory.Text;
+        }
+
+        public string getProductName()
+        {
+            return this.txtProductName.Text;
+        }
         public frmSaleManager_V2()
         {
             InitializeComponent();
@@ -19,10 +33,23 @@ namespace FoodShopManagement_WF.UI
             this.emp = emp;
             loadData();
         }
+
         public void loadData()
         {
             msTool.Text = "User: " + emp.name;
 
+            //binding data to binding source
+            bsProducts.DataSource = saleManagerPresenter.GetProducts();
+            dgvProducts.DataSource = bsProducts;
+
+            //binding to navigation
+            bnProducts.BindingSource = bsProducts;
+
+            List<TblCategoryDTO> listCategory = saleManagerPresenter.GetCategories();
+            foreach (var category in listCategory)
+            {
+                cmbCategory.Items.Add(category.name);
+            }
         }
         
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -54,6 +81,11 @@ namespace FoodShopManagement_WF.UI
         {
             frmMyProfileDetailcs ProductDetail = new frmMyProfileDetailcs(true);
             DialogResult r = ProductDetail.ShowDialog();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

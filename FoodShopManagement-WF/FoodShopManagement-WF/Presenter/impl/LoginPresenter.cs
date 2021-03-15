@@ -28,7 +28,7 @@ namespace FoodShopManagement_WF.Presenter.impl
             
             if (emp!=null)
             {
-                string role = emp.role;
+                string role = emp.role.ToUpper();
                 switch (role)
                 {
                     case "MANAGER":

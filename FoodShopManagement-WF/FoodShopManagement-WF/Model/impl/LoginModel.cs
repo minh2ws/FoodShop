@@ -24,11 +24,6 @@ namespace FoodShopManagement_WF.Model.impl
                 return emp;
             }
             return null;
-            
-        }
-        public void getProductList()
-        {
-            ApiConnection.loadGetJsonObject("product", Program.TokenGlobal);
         }
     }
 }
