@@ -64,6 +64,7 @@
     <Compile Include="Model\ILoginModel.cs" />
     <Compile Include="Model\IManagerDetailModel.cs" />
     <Compile Include="Model\impl\LoginModel.cs" />
+    <Compile Include="Model\impl\ManagerDetailModel.cs" />
     <Compile Include="Model\impl\SaleManagerModel.cs" />
     <Compile Include="Model\ISaleManagerModel.cs" />
     <Compile Include="Presenter\ILoginPresenter.cs" />

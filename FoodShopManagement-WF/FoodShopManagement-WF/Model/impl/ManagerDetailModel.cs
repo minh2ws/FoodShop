@@ -14,7 +14,7 @@ namespace FoodShopManagement_WF.Model.impl
     {
         public TblEmployeesDTO InsertEmployee(TblEmployeesDTO Employee)
         {
-            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("Employee/Insert", Employee);
+            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("Employee/Insert", Employee, Program.TokenGlobal);
             if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
             {
                 var result = responseMessage.Content.ReadAsStringAsync();

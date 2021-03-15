@@ -27,7 +27,5 @@ namespace FoodShopManagement_WF.Presenter.impl
             }
             return false;
         }
-
-
     }
 }
