@@ -1,4 +1,6 @@
 ﻿using DTO;
+using FoodShopManagement_WF.Presenter;
+using FoodShopManagement_WF.Presenter.impl;
 using FoodShopManagement_WF.Util;
 using Newtonsoft.Json;
 using System;
@@ -16,7 +18,40 @@ namespace FoodShopManagement_WF.UI
 {
     public partial class frmEmployeeDetail : Form
     {
-       public  TblEmployeesDTO Employees;
+        IManagerDetailPresenter ManagerDetailPresenter = new ManagerDetailPresenter();
+       
+        public string getUserName()
+        {
+            return this.txtEmployeeID.Text;
+        }
+        public string getPassword()
+        {
+            return this.txtPassword.Text;
+        }
+        public string getFullName()
+        {
+            return this.txtFullName.Text;
+        }
+        public string getRole()
+        {
+            return this.cbRole.GetItemText(this.cbRole.SelectedItem);
+        }
+        public void setUsername(string username)
+        {
+            this.txtEmployeeID.Text = username;
+        }
+        public void setPassword(string password)
+        {
+            this.txtPassword.Text = password;
+        }
+        public void setFullname(string fullname)
+        {
+            this.txtFullName.Text = fullname;
+        }
+        public void setRole(string Role)
+        {
+            this.cbRole.Items.Add(Role);
+        }
         public frmEmployeeDetail() 
         {
             InitializeComponent();
@@ -30,6 +65,7 @@ namespace FoodShopManagement_WF.UI
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
              Employees.idEmployee = txtEmployeeID.Text.Trim();
             Employees.name = txtFullName.Text.Trim();
             Employees.password = txtPassword.Text.Trim();
@@ -39,11 +75,14 @@ namespace FoodShopManagement_WF.UI
             
             HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("Employee/Insert", Employees,Program.TokenGlobal);
             if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
+=======
+            bool Insert = ManagerDetailPresenter.InsertEmployee(this);
+            if (!Insert)
+>>>>>>> Han
             {
-                var result = responseMessage.Content.ReadAsStringAsync();
-                bool emp = JsonConvert.DeserializeObject<Boolean>(result.Result);
-              
+                MessageBox.Show("invalid password or id", "Warning!");
             }
+            else MessageBox.Show("Successful Insert ");
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
