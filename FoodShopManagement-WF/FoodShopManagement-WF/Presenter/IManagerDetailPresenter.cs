@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO;
 
 namespace FoodShopManagement_WF.Presenter
 {
     interface IManagerDetailPresenter
     {
         bool InsertEmployee(frmEmployeeDetail form);
+
+        List<TblEmployeesDTO> loadData(frmEmployeeDetail form);
     }
 }

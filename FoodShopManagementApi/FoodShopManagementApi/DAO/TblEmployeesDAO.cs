@@ -1,6 +1,7 @@
 ﻿using DTO;
 using FoodShopManagementApi.Util;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -82,6 +83,46 @@ namespace FoodShopManagementApi.DAO
                 DBUtil.CloseConnection(sqlDataReader, connection);
             }
             return result;
+        }
+
+        public List<TblEmployeesDTO> loadEmployee(string role)
+        {
+            SqlConnection connection = null;
+            SqlDataReader sqlDataReader = null;
+            SqlCommand sqlCommand = null;
+            string sql = "select idEmployee, name " +
+                 "from tblEmployees " +
+                 "where role = '" + role +" '";
+            try
+            {
+                connection = DBUtil.MakeConnect();
+                if (connection != null)
+                {
+                    sqlCommand = new SqlCommand(sql, connection);
+                    sqlDataReader = sqlCommand.ExecuteReader();
+                    List<TblEmployeesDTO> result = new List<TblEmployeesDTO>();
+                    while (sqlDataReader.Read())
+                    {
+                        TblEmployeesDTO emp = new TblEmployeesDTO();
+                        emp.idEmployee = sqlDataReader["idEmployee"].ToString();
+                        emp.name = sqlDataReader["name"].ToString();
+                        emp.password = sqlDataReader["password"].ToString();
+                        emp.role = sqlDataReader["role"].ToString();
+                        emp.status = sqlDataReader["status"].GetType().IsValueType;
+
+                        result.Add(emp);
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                DBUtil.CloseConnection(sqlDataReader, connection);
+            }
+            return null;
         }
     }
 }

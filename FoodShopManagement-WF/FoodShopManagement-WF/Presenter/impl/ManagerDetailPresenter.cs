@@ -1,4 +1,5 @@
 ﻿using DTO;
+using DTO.Model;
 using FoodShopManagement_WF.Model;
 using FoodShopManagement_WF.Model.impl;
 using FoodShopManagement_WF.UI;
@@ -10,7 +11,8 @@ using System.Threading.Tasks;
 
 namespace FoodShopManagement_WF.Presenter.impl
 {
-    class ManagerDetailPresenter: IManagerDetailPresenter{
+    class ManagerDetailPresenter: IManagerDetailPresenter
+    {
          IManagerDetailModel ManagerDetail = new ManagerDetailModel();
         public bool InsertEmployee(frmEmployeeDetail form)
         {
@@ -27,5 +29,18 @@ namespace FoodShopManagement_WF.Presenter.impl
             }
             return false;
         }
+
+        public List<TblEmployeesDTO> loadData(frmManager_v2 form)
+        {
+            LoadEmployeeModel model = new LoadEmployeeModel
+            {
+                role = form.getRole()
+            };
+
+            List<TblEmployeesDTO> result = ManagerDetail.loadData(model);
+                return result;
+        }
+
+      
     }
 }
