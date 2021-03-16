@@ -1,4 +1,5 @@
 ﻿using DTO;
+using DTO.Model;
 using FoodShopManagementApi.DAO;
 using FoodShopManagementApi.Util;
 using Microsoft.AspNetCore.Http;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace FoodShopManagementApi.DTO
 {
-    [Route("api/FoodShopManagement")]
+    [Route("api/FoodShopManagement/product")]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -37,13 +38,37 @@ namespace FoodShopManagementApi.DTO
             bool isValidToken = ValidateToken();
             if (isValidToken)
             {
-                TblProductsDAO dao = new TblProductsDAO();
+                TblProductsDAO dao = TblProductsDAO.getInstance();
                 try
                 {
                     List<TblProductsDTO> listProduct = dao.findAll();
                     if (listProduct != null)
                     {
                         return Ok(listProduct);
+                    }
+                }
+                catch (Exception)
+                {
+                    StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
+
+        [HttpGet("searchProduct")]
+        [Produces("application/json")]
+        public IActionResult SearchProduct([FromBody] SearchProductModel searchModel)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblProductsDAO dao = TblProductsDAO.getInstance();
+                try
+                {
+                    List<TblProductsDTO> result = dao.searchProduct(searchModel.categoryName, searchModel.productName);
+                    if (result != null)
+                    {
+                        return Ok(result);
                     }
                 }
                 catch (Exception)

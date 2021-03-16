@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ErrorDTO.cs" />
+    <Compile Include="Model\SearchProductModel.cs" />
+    <Compile Include="TblCategoryDTO.cs" />
     <Compile Include="TblEmployeesDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TblProductsDTO.cs" />

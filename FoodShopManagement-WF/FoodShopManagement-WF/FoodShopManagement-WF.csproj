@@ -65,10 +65,14 @@
     <Compile Include="Model\IManagerDetailModel.cs" />
     <Compile Include="Model\impl\LoginModel.cs" />
     <Compile Include="Model\impl\ManagerDetailModel.cs" />
+    <Compile Include="Model\impl\SaleManagerModel.cs" />
+    <Compile Include="Model\ISaleManagerModel.cs" />
     <Compile Include="Presenter\ILoginPresenter.cs" />
     <Compile Include="Presenter\IManagerDetailPresenter.cs" />
     <Compile Include="Presenter\impl\ManagerDetailPresenter.cs" />
     <Compile Include="Presenter\impl\LoginPresenter.cs" />
+    <Compile Include="Presenter\impl\SaleManagerPresenter.cs" />
+    <Compile Include="Presenter\ISaleManagerPresenter.cs" />
     <Compile Include="UI\frmCategoryDetail.cs">
       <SubType>Form</SubType>
     </Compile>
