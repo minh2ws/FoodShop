@@ -4,6 +4,9 @@ using System.Windows.Forms;
 using System.Data;
 using FoodShopManagement_WF.Presenter;
 using FoodShopManagement_WF.Presenter.impl;
+using System.Collections.Generic;
+using DTO.Model;
+using System.Linq;
 
 namespace FoodShopManagement_WF.UI
 {
@@ -11,7 +14,8 @@ namespace FoodShopManagement_WF.UI
     {
         private frmLogin loginFrame;
         private TblEmployeesDTO emp;
-        private IManagerDetailPresenter presenter = new IManagerDetailPresenter();
+        private IManagerDetailPresenter presenter = new ManagerDetailPresenter();
+        
         public frmManager_v2(frmLogin loginFrame, TblEmployeesDTO emp)
         {
             InitializeComponent();
@@ -21,8 +25,13 @@ namespace FoodShopManagement_WF.UI
         }
         public void loadData()
         {
-           
             msTool.Text = "User: "+ emp.name;
+            //List<LoadEmployeeModel> listEmp = presenter.loadData(this);
+            List<TblEmployeesDTO> listEmp = presenter.loadEmployeeDTO(this);
+            //dgvListEmployee.DataSource = listEmp;
+
+            dgvListEmployee.DataSource = listEmp.Select(emp => new {
+            Id = emp.idEmployee, Name = emp.name }).ToList();
         }
 
         private void frmManager_v2_Load(object sender, EventArgs e)
@@ -131,14 +140,22 @@ namespace FoodShopManagement_WF.UI
             frmMyProfileDetailcs ProductDetail = new frmMyProfileDetailcs(true);
             DialogResult r = ProductDetail.ShowDialog();
         }
-      public string getRole()
+
+        private string role;//var to load emp base on role
+        public string getRole()
         {
             return this.cbRole.Text;
         }
+
+        public void setRole(string role)
+        {
+            this.role = role;
+        }
+
         private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string role = cbRole.text;
-            
+            setRole(cbRole.SelectedIndex.ToString());
+            loadData();
         }
     }
 }

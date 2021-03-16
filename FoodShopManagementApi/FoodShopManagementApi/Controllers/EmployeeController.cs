@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FoodShopManagementApi.Util;
+using DTO.Model;
 
 namespace FoodShopManagementApi.Controllers
 {
@@ -15,8 +16,8 @@ namespace FoodShopManagementApi.Controllers
     public class EmployeeController : ControllerBase
     {
         private IConfiguration _config;
-       
-        
+
+
 
         public EmployeeController(IConfiguration config)
         {
@@ -55,5 +56,30 @@ namespace FoodShopManagementApi.Controllers
             }
             return Unauthorized();
         }
+
+        [HttpGet("Load")]
+        [Produces("application/json")]
+        public IActionResult LoadEmployee([FromQuery] string role)
+        {
+            Boolean isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblEmployeesDAO dao = new TblEmployeesDAO();
+            try
+            {
+                List<TblEmployeesDTO> list = dao.loadEmployee(role);
+                if (list != null)
+                {
+                    return Ok(list);
+                }
+            }
+            catch (Exception)
+            {
+                StatusCode(500);
+            }
+            }
+            return Unauthorized();
+        }
     }
 }
+
