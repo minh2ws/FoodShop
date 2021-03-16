@@ -65,20 +65,10 @@ namespace FoodShopManagement_WF.UI
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-             Employees.idEmployee = txtEmployeeID.Text.Trim();
-            Employees.name = txtFullName.Text.Trim();
-            Employees.password = txtPassword.Text.Trim();
-            Employees.role = cbRole.GetItemText(this.cbRole.SelectedItem);
-            Employees.status = true;
 
-            
-            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("Employee/Insert", Employees,Program.TokenGlobal);
-            if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
-=======
             bool Insert = ManagerDetailPresenter.InsertEmployee(this);
             if (!Insert)
->>>>>>> Han
+
             {
                 MessageBox.Show("invalid password or id", "Warning!");
             }

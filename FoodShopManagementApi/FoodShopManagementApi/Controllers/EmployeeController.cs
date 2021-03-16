@@ -15,27 +15,49 @@ namespace FoodShopManagementApi.Controllers
     public class EmployeeController : ControllerBase
     {
         private IConfiguration _config;
+       
+        
+
+        public EmployeeController(IConfiguration config)
+        {
+            _config = config;
+        }
+
+        public bool ValidateToken()
+        {
+            var header = HttpContext.Request.Headers;//doc header cua request
+            header.TryGetValue("Authorization", out Microsoft.Extensions.Primitives.StringValues value);
+            bool isValid = JwtUtil.ValidateJSONWebToken(value, _config);
+            return isValid;
+        }
+
         [HttpPost("Employee/Insert")]
         [Produces("application/json")]
+        
         public IActionResult AddEmployee([FromBody] TblEmployeesDTO Employee)
         {
-            TblEmployeesDAO dao = new TblEmployeesDAO();
-            IActionResult response = Unauthorized();
-            try
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
             {
-                bool result  = dao.AddEmployee(Employee);
-                if (result ==true)
+                TblEmployeesDAO dao = new TblEmployeesDAO();
+                IActionResult response = Unauthorized();
+                try
                 {
-                    string token = JwtUtil.GenerateJSONWebToken(Employee, _config);
-                    response = Ok(new { token = token });
+                    bool result = dao.AddEmployee(Employee);
+                    if (result == true)
+                    {
+                        return Ok(Employee);
+                    }
+
                 }
-                return response;
+
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            return Unauthorized();
+                return Unauthorized();
+            
         }
     }
 }
