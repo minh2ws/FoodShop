@@ -43,9 +43,12 @@ namespace FoodShopManagement_WF.Util
             if (hashParam != null)
             {
                 function += "?";
-                foreach(var entry in hashParam)
+                foreach (var entry in hashParam)
                 {
-                    function += entry.Key + "=" + entry.Value;
+                    function += entry.Key;
+                    function += "=";
+                    function += entry.Value;
+                    function += "&";
                 }
             }
             HttpClient httpClient = new HttpClient();
