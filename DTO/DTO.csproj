@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ErrorDTO.cs" />
+    <Compile Include="Model\ProductModel.cs" />
     <Compile Include="Model\SearchProductModel.cs" />
     <Compile Include="TblCategoryDTO.cs" />
     <Compile Include="TblEmployeesDTO.cs" />

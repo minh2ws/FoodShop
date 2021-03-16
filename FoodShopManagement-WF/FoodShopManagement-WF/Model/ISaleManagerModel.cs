@@ -10,8 +10,8 @@ namespace FoodShopManagement_WF.Model
 {
     interface ISaleManagerModel
     {
-        List<TblProductsDTO> loadProductsList();
+        List<ProductModel> loadProductsList();
         List<TblCategoryDTO> loadCategoryList();
-        List<TblProductsDTO> searchProduct(SearchProductModel model);
+        List<ProductModel> searchProduct(SearchProductModel model);
     }
 }

@@ -20,13 +20,13 @@ namespace FoodShopManagement_WF.Presenter.impl
             return listCategory;
         }
 
-        public List<TblProductsDTO> GetProducts()
+        public List<ProductModel> GetProducts()
         {
-            List<TblProductsDTO> listProducts = saleManagerModel.loadProductsList();
+            List<ProductModel> listProducts = saleManagerModel.loadProductsList();
             return listProducts;
         }
 
-        public List<TblProductsDTO> searchProduct(frmSaleManager_V2 form)
+        public List<ProductModel> searchProduct(frmSaleManager_V2 form)
         {
             SearchProductModel model = new SearchProductModel
             {
@@ -34,7 +34,7 @@ namespace FoodShopManagement_WF.Presenter.impl
                 productName = form.getProductName(),
             };
 
-            List<TblProductsDTO> searchResult = saleManagerModel.searchProduct(model);
+            List<ProductModel> searchResult = saleManagerModel.searchProduct(model);
             return searchResult;
         }
     }

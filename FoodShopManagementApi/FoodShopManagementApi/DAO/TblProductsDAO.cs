@@ -1,4 +1,5 @@
 ﻿using DTO;
+using DTO.Model;
 using FoodShopManagementApi.DTO;
 using FoodShopManagementApi.Util;
 using System;
@@ -31,10 +32,10 @@ namespace FoodShopManagementApi.DAO
         private SqlDataReader sqlDataReader = null;
 
         SqlCommand sqlCommand = null;
-        public List<TblProductsDTO> findAll()
+        public List<ProductModel> findAll()
         {
 
-            string sql = "select idProduct,name,price,quantity,status,idCategory from tblProducts";
+            string sql = "select idProduct,name,price,quantity from tblProducts";
             try
             {
                 sqlConnection = DBUtil.MakeConnect();
@@ -42,16 +43,14 @@ namespace FoodShopManagementApi.DAO
                 {
                     sqlCommand = new SqlCommand(sql, sqlConnection);
                     sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
-                    List<TblProductsDTO> result = new List<TblProductsDTO>();
+                    List<ProductModel> result = new List<ProductModel>();
                     while (sqlDataReader.Read())
                     {
-                        TblProductsDTO product = new TblProductsDTO();
-                        product.idProduct = sqlDataReader["idProduct"].ToString();
-                        product.name = sqlDataReader["name"].ToString();
-                        product.price = float.Parse(sqlDataReader["price"].ToString());
-                        product.quantity = int.Parse(sqlDataReader["quantity"].ToString());
-                        product.status = bool.Parse(sqlDataReader["status"].ToString());
-                        product.idCategory = sqlDataReader["idCategory"].ToString();
+                        ProductModel product = new ProductModel();
+                        product.ProductId = sqlDataReader["idProduct"].ToString();
+                        product.Name = sqlDataReader["name"].ToString();
+                        product.Price = float.Parse(sqlDataReader["price"].ToString());
+                        product.Quantity = int.Parse(sqlDataReader["quantity"].ToString());
 
                         result.Add(product);
                     }
@@ -69,9 +68,9 @@ namespace FoodShopManagementApi.DAO
             return null;
         }
 
-        public List<TblProductsDTO> searchProduct(string category, string searchValue)
+        public List<ProductModel> searchProduct(string category, string searchValue)
         {
-            string sql = "SELECT idProduct, p.name, price, quantity, status, c.idCategory "
+            string sql = "SELECT idProduct, p.name, price, quantity "
                     + "FROM tblProducts p, tblCategory c "
                     + "WHERE p.idCategory = c.idCategory ";
 
@@ -94,16 +93,14 @@ namespace FoodShopManagementApi.DAO
                 {
                     sqlCommand = new SqlCommand(sql, sqlConnection);
                     sqlDataReader = sqlCommand.ExecuteReader();
-                    List<TblProductsDTO> result = new List<TblProductsDTO>();
+                    List<ProductModel> result = new List<ProductModel>();
                     while (sqlDataReader.Read())
                     {
-                        TblProductsDTO product = new TblProductsDTO();
-                        product.idProduct = sqlDataReader["idProduct"].ToString();
-                        product.name = sqlDataReader["name"].ToString();
-                        product.price = float.Parse(sqlDataReader["price"].ToString());
-                        product.quantity = int.Parse(sqlDataReader["quantity"].ToString());
-                        product.status = bool.Parse(sqlDataReader["status"].ToString());
-                        product.idCategory = sqlDataReader["idCategory"].ToString();
+                        ProductModel product = new ProductModel();
+                        product.ProductId = sqlDataReader["idProduct"].ToString();
+                        product.Name = sqlDataReader["name"].ToString();
+                        product.Price = float.Parse(sqlDataReader["price"].ToString());
+                        product.Quantity = int.Parse(sqlDataReader["quantity"].ToString());
 
                         result.Add(product);
                     }

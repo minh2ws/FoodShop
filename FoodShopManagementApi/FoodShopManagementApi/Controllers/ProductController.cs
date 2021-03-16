@@ -41,7 +41,7 @@ namespace FoodShopManagementApi.DTO
                 TblProductsDAO dao = TblProductsDAO.getInstance();
                 try
                 {
-                    List<TblProductsDTO> listProduct = dao.findAll();
+                    List<ProductModel> listProduct = dao.findAll();
                     if (listProduct != null)
                     {
                         return Ok(listProduct);
@@ -55,17 +55,17 @@ namespace FoodShopManagementApi.DTO
             return Unauthorized();
         }
 
-        [HttpGet("searchProduct")]
+        [HttpPost("searchProduct")]
         [Produces("application/json")]
         public IActionResult SearchProduct([FromBody] SearchProductModel searchModel)
         {
-            //bool isValidToken = ValidateToken();
-            //if (isValidToken)
-            //{
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
                 TblProductsDAO dao = TblProductsDAO.getInstance();
                 try
                 {
-                    List<TblProductsDTO> result = dao.searchProduct(searchModel.categoryName, searchModel.productName);
+                    List<ProductModel> result = dao.searchProduct(searchModel.categoryName, searchModel.productName);
                     if (result != null)
                     {
                         return Ok(result);
@@ -75,7 +75,7 @@ namespace FoodShopManagementApi.DTO
                 {
                     StatusCode(500);
                 }
-            //}
+            }
             return Unauthorized();
         }
     }

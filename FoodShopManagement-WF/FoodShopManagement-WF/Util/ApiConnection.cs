@@ -41,6 +41,7 @@ namespace FoodShopManagement_WF.Util
         public static HttpResponseMessage loadGetJsonObject(string function,object inputObj, string token)
         {
             string json = JsonConvert.SerializeObject(inputObj);
+            StringContent data = new StringContent(json, Encoding.UTF8, "application/json");
             HttpClient httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(URI);
             httpClient.DefaultRequestHeaders.Add("Authorization", token);
