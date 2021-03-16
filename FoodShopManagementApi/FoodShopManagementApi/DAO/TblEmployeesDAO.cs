@@ -1,4 +1,5 @@
 ﻿using DTO;
+using DTO.Model;
 using FoodShopManagementApi.Util;
 using System;
 using System.Collections.Generic;
@@ -90,15 +91,16 @@ namespace FoodShopManagementApi.DAO
             SqlConnection connection = null;
             SqlDataReader sqlDataReader = null;
             SqlCommand sqlCommand = null;
-            string sql = "select idEmployee, name " +
+            string sql = "select idEmployee, name , password, role  " +
                  "from tblEmployees " +
-                 "where role = '" + role +" '";
+                 "where role = @role ";
             try
             {
                 connection = DBUtil.MakeConnect();
                 if (connection != null)
                 {
                     sqlCommand = new SqlCommand(sql, connection);
+                    sqlCommand.Parameters.AddWithValue("@role", role);
                     sqlDataReader = sqlCommand.ExecuteReader();
                     List<TblEmployeesDTO> result = new List<TblEmployeesDTO>();
                     while (sqlDataReader.Read())
@@ -108,10 +110,10 @@ namespace FoodShopManagementApi.DAO
                         emp.name = sqlDataReader["name"].ToString();
                         emp.password = sqlDataReader["password"].ToString();
                         emp.role = sqlDataReader["role"].ToString();
-                        emp.status = sqlDataReader["status"].GetType().IsValueType;
 
                         result.Add(emp);
                     }
+                    return result;
                 }
             }
             catch (SqlException e)
