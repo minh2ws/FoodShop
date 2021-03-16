@@ -55,9 +55,9 @@ namespace FoodShopManagementApi.DTO
             return Unauthorized();
         }
 
-        [HttpPost("searchProduct")]
+        [HttpGet("searchProduct")]
         [Produces("application/json")]
-        public IActionResult SearchProduct([FromBody] SearchProductModel searchModel)
+        public IActionResult SearchProduct([FromQuery(Name ="name")] string name,[FromQuery(Name ="category")] string category)
         {
             bool isValidToken = ValidateToken();
             if (isValidToken)
@@ -65,7 +65,7 @@ namespace FoodShopManagementApi.DTO
                 TblProductsDAO dao = TblProductsDAO.getInstance();
                 try
                 {
-                    List<ProductModel> result = dao.searchProduct(searchModel.categoryName, searchModel.productName);
+                    List<ProductModel> result = dao.searchProduct(category, name);
                     if (result != null)
                     {
                         return Ok(result);
