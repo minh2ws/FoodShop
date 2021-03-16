@@ -85,7 +85,13 @@ namespace FoodShopManagement_WF.UI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            bsProducts.DataSource = null;
+            //binding data to binding source
+            bsProducts.DataSource = saleManagerPresenter.searchProduct(this);
+            dgvProducts.DataSource = bsProducts;
 
+            //binding to navigation
+            bnProducts.BindingSource = bsProducts;
         }
     }
 }
