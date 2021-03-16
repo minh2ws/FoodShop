@@ -14,16 +14,12 @@ namespace FoodShopManagement_WF.Model.impl
     {
         public TblEmployeesDTO InsertEmployee(TblEmployeesDTO Employee)
         {
-            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("Employee/Insert", Employee, Program.TokenGlobal);
+            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("employee/Insert", Employee, Program.TokenGlobal);
             if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
             {
                 var employeeDTO = responseMessage.Content.ReadAsStringAsync();
-                IEnumerable<string> token = responseMessage.Headers.GetValues("token");
-                Program.TokenGlobal = token.FirstOrDefault();
                 TblEmployeesDTO emp = JsonConvert.DeserializeObject<TblEmployeesDTO>(employeeDTO.Result);
                 return emp;
-
-              
             }
             return null;
 

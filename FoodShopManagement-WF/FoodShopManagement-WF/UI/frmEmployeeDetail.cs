@@ -65,15 +65,8 @@ namespace FoodShopManagement_WF.UI
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-
             bool Insert = ManagerDetailPresenter.InsertEmployee(this);
             if (!Insert)
-
-=======
-            bool Insert = ManagerDetailPresenter.InsertEmployee(this);
-            if (!Insert)
->>>>>>> cd3cf57e41c0e067733b9a1657ec5ca0a2d33157
             {
                 MessageBox.Show("invalid password or id", "Warning!");
             }

@@ -59,9 +59,9 @@ namespace FoodShopManagementApi.DTO
         [Produces("application/json")]
         public IActionResult SearchProduct([FromBody] SearchProductModel searchModel)
         {
-            bool isValidToken = ValidateToken();
-            if (isValidToken)
-            {
+            //bool isValidToken = ValidateToken();
+            //if (isValidToken)
+            //{
                 TblProductsDAO dao = TblProductsDAO.getInstance();
                 try
                 {
@@ -75,7 +75,7 @@ namespace FoodShopManagementApi.DTO
                 {
                     StatusCode(500);
                 }
-            }
+            //}
             return Unauthorized();
         }
     }

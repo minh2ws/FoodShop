@@ -10,7 +10,7 @@ using FoodShopManagementApi.Util;
 
 namespace FoodShopManagementApi.Controllers
 {
-    [Route("api/FoodShopManagement")]
+    [Route("api/FoodShopManagement/employee")]
     [ApiController]
     public class EmployeeController : ControllerBase
     {
@@ -31,9 +31,8 @@ namespace FoodShopManagementApi.Controllers
             return isValid;
         }
 
-        [HttpPost("Employee/Insert")]
+        [HttpPost("Insert")]
         [Produces("application/json")]
-        
         public IActionResult AddEmployee([FromBody] TblEmployeesDTO Employee)
         {
             bool isValidToken = ValidateToken();
@@ -48,16 +47,13 @@ namespace FoodShopManagementApi.Controllers
                     {
                         return Ok(Employee);
                     }
-
                 }
-
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
                 }
             }
-                return Unauthorized();
-            
+            return Unauthorized();
         }
     }
 }
