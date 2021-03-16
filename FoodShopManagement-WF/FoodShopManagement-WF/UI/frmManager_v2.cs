@@ -2,6 +2,8 @@
 using System;
 using System.Windows.Forms;
 using System.Data;
+using FoodShopManagement_WF.Presenter;
+using FoodShopManagement_WF.Presenter.impl;
 
 namespace FoodShopManagement_WF.UI
 {
@@ -9,6 +11,7 @@ namespace FoodShopManagement_WF.UI
     {
         private frmLogin loginFrame;
         private TblEmployeesDTO emp;
+        private IManagerDetailPresenter presenter = new IManagerDetailPresenter();
         public frmManager_v2(frmLogin loginFrame, TblEmployeesDTO emp)
         {
             InitializeComponent();
@@ -128,6 +131,14 @@ namespace FoodShopManagement_WF.UI
             frmMyProfileDetailcs ProductDetail = new frmMyProfileDetailcs(true);
             DialogResult r = ProductDetail.ShowDialog();
         }
-
+      public string getRole()
+        {
+            return this.cbRole.Text;
+        }
+        private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string role = cbRole.text;
+            
+        }
     }
 }

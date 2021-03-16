@@ -44,7 +44,10 @@ namespace FoodShopManagement_WF.Model.impl
 
         public List<ProductModel> searchProduct(SearchProductModel model)
         {
-            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("product/searchProduct", model, Program.TokenGlobal);
+            Dictionary<string, string> hashParam = new Dictionary<string, string>();
+            hashParam.Add("name", model.productName);
+            hashParam.Add("category", model.categoryName);
+            HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("product/searchProduct", hashParam, Program.TokenGlobal);
             if (responseMessage.StatusCode != HttpStatusCode.Unauthorized)
             {
                 //get json content

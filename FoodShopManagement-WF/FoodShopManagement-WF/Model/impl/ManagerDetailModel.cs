@@ -1,4 +1,5 @@
 ﻿using DTO;
+using DTO.Model;
 using FoodShopManagement_WF.Util;
 using Newtonsoft.Json;
 using System;
@@ -23,6 +24,19 @@ namespace FoodShopManagement_WF.Model.impl
             }
             return null;
 
+        }
+
+        public List<TblEmployeesDTO> loadData(LoadEmployeeModel model)
+        {
+            HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("employee/Load",  Program.TokenGlobal);
+            if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
+            {
+                var loadResult = responseMessage.Content.ReadAsStringAsync();
+
+                List<TblEmployeesDTO> list = JsonConvert.DeserializeObject<List<TblEmployeesDTO>>(loadResult.Result);
+                return list;
+            }
+            return null;
         }
     }
 }
