@@ -82,7 +82,7 @@ namespace FoodShopManagement_WF.UI
 
         private void ViewProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMyProfileDetailcs ProductDetail = new frmMyProfileDetailcs(true);
+            frmMyProfileDetailcs ProductDetail = new frmMyProfileDetailcs(this.emp);
             DialogResult r = ProductDetail.ShowDialog();
         }
     }

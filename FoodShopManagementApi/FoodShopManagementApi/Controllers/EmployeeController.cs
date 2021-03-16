@@ -39,7 +39,7 @@ namespace FoodShopManagementApi.Controllers
             bool isValidToken = ValidateToken();
             if (isValidToken)
             {
-                TblEmployeesDAO dao = new TblEmployeesDAO();
+                TblEmployeesDAO dao = TblEmployeesDAO.getInstance();
                 IActionResult response = Unauthorized();
                 try
                 {
@@ -64,7 +64,7 @@ namespace FoodShopManagementApi.Controllers
             Boolean isValidToken = ValidateToken();
             if (isValidToken)
             {
-                TblEmployeesDAO dao = new TblEmployeesDAO();
+                TblEmployeesDAO dao = TblEmployeesDAO.getInstance();
             try
             {
                 List<TblEmployeesDTO> list = dao.loadEmployee(role);
@@ -77,6 +77,30 @@ namespace FoodShopManagementApi.Controllers
             {
                 StatusCode(500);
             }
+            }
+            return Unauthorized();
+        }
+
+        [HttpPost("UpdateEmpDetail")]
+        [Produces("application/json")]
+        public IActionResult updateEmployee([FromBody] TblEmployeesDTO emp)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblEmployeesDAO dao = TblEmployeesDAO.getInstance();
+                try
+                {
+                    bool success = dao.UpdateEmployeeDetail(emp);
+                    if (success)
+                    {
+                        return Ok(success);
+                    }
+                }
+                catch (Exception)
+                {
+                    StatusCode(500);
+                }
             }
             return Unauthorized();
         }

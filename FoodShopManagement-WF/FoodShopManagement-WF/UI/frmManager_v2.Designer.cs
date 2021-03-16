@@ -52,6 +52,7 @@ namespace FoodShopManagement_WF.UI
             this.btnDelete = new System.Windows.Forms.Button();
             this.txtSearchEmployeeName = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvListEmployee = new System.Windows.Forms.DataGridView();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -103,13 +104,13 @@ namespace FoodShopManagement_WF.UI
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ViewProfiletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvListEmployee = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -123,7 +124,6 @@ namespace FoodShopManagement_WF.UI
             ((System.ComponentModel.ISupportInitialize)(this.dgvListCustomer)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListEmployee)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -392,6 +392,16 @@ namespace FoodShopManagement_WF.UI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(506, 657);
             this.panel2.TabIndex = 0;
+            // 
+            // dgvListEmployee
+            // 
+            this.dgvListEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListEmployee.Location = new System.Drawing.Point(-1, 117);
+            this.dgvListEmployee.Name = "dgvListEmployee";
+            this.dgvListEmployee.RowHeadersWidth = 51;
+            this.dgvListEmployee.RowTemplate.Height = 24;
+            this.dgvListEmployee.Size = new System.Drawing.Size(505, 535);
+            this.dgvListEmployee.TabIndex = 6;
             // 
             // bindingNavigator1
             // 
@@ -918,16 +928,6 @@ namespace FoodShopManagement_WF.UI
             this.ViewProfiletoolStripMenuItem.Text = "View Profile";
             this.ViewProfiletoolStripMenuItem.Click += new System.EventHandler(this.ViewProfileToolStripMenuItem_Click);
             // 
-            // dgvListEmployee
-            // 
-            this.dgvListEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListEmployee.Location = new System.Drawing.Point(-1, 117);
-            this.dgvListEmployee.Name = "dgvListEmployee";
-            this.dgvListEmployee.RowHeadersWidth = 51;
-            this.dgvListEmployee.RowTemplate.Height = 24;
-            this.dgvListEmployee.Size = new System.Drawing.Size(505, 535);
-            this.dgvListEmployee.TabIndex = 6;
-            // 
             // frmManager_v2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -951,6 +951,7 @@ namespace FoodShopManagement_WF.UI
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
@@ -970,7 +971,6 @@ namespace FoodShopManagement_WF.UI
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListEmployee)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

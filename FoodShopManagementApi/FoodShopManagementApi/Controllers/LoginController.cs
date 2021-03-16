@@ -42,7 +42,7 @@ namespace FoodShopManagementApi.Controllers
         [Produces("application/json")]
         public IActionResult CheckLogin([FromBody]TblEmployeesDTO tblEmployeeDTO)
         {
-            TblEmployeesDAO dao = new TblEmployeesDAO();
+            TblEmployeesDAO dao = TblEmployeesDAO.getInstance();
             IActionResult response = Unauthorized();
             try
             {

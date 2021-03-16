@@ -21,11 +21,11 @@ namespace FoodShopManagementApi.DAO
 
         public static TblProductsDAO getInstance()
         {
-            if (TblProductsDAO.instance == null)
+            if (instance == null)
             {
-                TblProductsDAO.instance = new TblProductsDAO();
+                instance = new TblProductsDAO();
             }
-            return TblProductsDAO.instance;
+            return instance;
         }
 
         private SqlConnection sqlConnection = null;
@@ -75,13 +75,13 @@ namespace FoodShopManagementApi.DAO
                     + "WHERE p.idCategory = c.idCategory ";
 
             //check category field to create sql string
-            if (category.Trim().Length != 0)
+            if (category.Trim().Length != 0 && category != null)
             {
                 sql += "AND c.name = '" + category + "' ";
             }
 
             //check search value field to create sql string
-            if (searchValue.Trim().Length != 0)
+            if (searchValue.Trim().Length != 0 && searchValue != null)
             {
                 sql += "AND p.name like '%" + searchValue + "%' ";
             }

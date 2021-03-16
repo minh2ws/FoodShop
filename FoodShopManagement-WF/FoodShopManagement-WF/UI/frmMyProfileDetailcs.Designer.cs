@@ -65,6 +65,7 @@ namespace FoodShopManagement_WF.UI
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // groupBox1
             // 
@@ -87,6 +88,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.txtPassword.Location = new System.Drawing.Point(164, 178);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(238, 28);
             this.txtPassword.TabIndex = 7;
             // 
