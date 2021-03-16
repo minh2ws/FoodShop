@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using DTO.Model;
 
 namespace FoodShopManagement_WF.Presenter
 {
@@ -12,6 +13,8 @@ namespace FoodShopManagement_WF.Presenter
     {
         bool InsertEmployee(frmEmployeeDetail form);
 
-        List<TblEmployeesDTO> loadData(frmEmployeeDetail form);
+        //List<LoadEmployeeModel> loadData(frmManager_v2 form);
+
+        List<TblEmployeesDTO> loadEmployeeDTO(frmManager_v2 form);
     }
 }

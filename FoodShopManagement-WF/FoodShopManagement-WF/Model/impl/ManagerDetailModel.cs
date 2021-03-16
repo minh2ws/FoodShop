@@ -26,9 +26,26 @@ namespace FoodShopManagement_WF.Model.impl
 
         }
 
-        public List<TblEmployeesDTO> loadData(LoadEmployeeModel model)
+        //public List<LoadEmployeeModel> loadData(TblEmployeesDTO dto)
+        //{
+        //    Dictionary<String, String> role = new Dictionary<string, string>();
+        //    role.Add("role", dto.role);
+        //    HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("employee/Load", role, Program.TokenGlobal);
+        //    if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
+        //    {
+        //        var loadResult = responseMessage.Content.ReadAsStringAsync();
+
+        //        List<LoadEmployeeModel> list = JsonConvert.DeserializeObject<List<LoadEmployeeModel>>(loadResult.Result);
+        //        return list;
+        //    }
+        //    return null;
+        //}
+
+        public List<TblEmployeesDTO> loadEmployeeDTO(TblEmployeesDTO dto)
         {
-            HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("employee/Load",  Program.TokenGlobal);
+            Dictionary<String, String> role = new Dictionary<string, string>();
+            role.Add("role", dto.role);
+            HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("employee/Load", role, Program.TokenGlobal);
             if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
             {
                 var loadResult = responseMessage.Content.ReadAsStringAsync();
