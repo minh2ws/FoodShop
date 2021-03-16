@@ -38,13 +38,20 @@ namespace FoodShopManagement_WF.Util
             HttpResponseMessage responseMessage = httpClient.GetAsync(function).Result;
             return responseMessage;
         }
-        public static HttpResponseMessage loadGetJsonObject(string function,object inputObj, string token)
+        public static HttpResponseMessage loadGetJsonObject(string function,Dictionary<String,String> hashParam, string token)
         {
-            string json = JsonConvert.SerializeObject(inputObj);
+            if (hashParam != null)
+            {
+                function += "?";
+                foreach(var entry in hashParam)
+                {
+                    function += entry.Key + "=" + entry.Value;
+                }
+            }
             HttpClient httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(URI);
             httpClient.DefaultRequestHeaders.Add("Authorization", token);
-            HttpResponseMessage responseMessage = httpClient.GetAsync(function).Result;
+            HttpResponseMessage responseMessage = httpClient.GetAsync(fWunction).Result;
             return responseMessage;
         }
     }
