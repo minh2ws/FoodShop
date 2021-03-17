@@ -124,9 +124,9 @@ namespace FoodShopManagement_WF.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //Tao moi doi tuong va truyen tham so cho Form frmProductDetails ( true la them moi) 
             frmEmployeeDetail ProductDetail = new frmEmployeeDetail(true);
             DialogResult r = ProductDetail.ShowDialog();
+           
 
         }
 
@@ -139,8 +139,8 @@ namespace FoodShopManagement_WF.UI
         {
             frmMyProfileDetailcs ProductDetail = new frmMyProfileDetailcs(this.emp);
             DialogResult r = ProductDetail.ShowDialog();
-        }
 
+        }
         private string role;//var to load emp base on role
         public string getRole()
         {

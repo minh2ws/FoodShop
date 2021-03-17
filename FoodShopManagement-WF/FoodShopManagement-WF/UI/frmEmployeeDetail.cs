@@ -68,13 +68,19 @@ namespace FoodShopManagement_WF.UI
             bool Insert = ManagerDetailPresenter.InsertEmployee(this);
             if (!Insert)
             {
+                this.DialogResult = DialogResult.No;
                 MessageBox.Show("invalid password or id", "Warning!");
             }
-            else MessageBox.Show("Successful Insert ");
+            else
+            {
+                this.DialogResult = DialogResult.OK;
+                MessageBox.Show("Successful Insert ");
+            }
+         
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
