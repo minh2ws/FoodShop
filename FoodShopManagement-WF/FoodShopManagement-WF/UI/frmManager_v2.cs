@@ -31,12 +31,16 @@ namespace FoodShopManagement_WF.UI
             //dgvListEmployee.DataSource = listEmp;
 
             dgvListEmployee.DataSource = listEmp.Select(emp => new {
-            Id = emp.idEmployee, Name = emp.name }).ToList();
+            Id = emp.idEmployee, Name = emp.name,
+                Password = emp.password,
+                Role = emp.role
+            }).ToList();
+             
         }
 
         private void frmManager_v2_Load(object sender, EventArgs e)
         {
-
+            loadData();
         }
 
         private void frmManager_v2_FormClosed(object sender, FormClosedEventArgs e)
@@ -44,10 +48,7 @@ namespace FoodShopManagement_WF.UI
             Application.Exit();
         }
 
-        private void userToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -55,65 +56,7 @@ namespace FoodShopManagement_WF.UI
             loginFrame.Show();
         }
 
-       
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
@@ -127,11 +70,6 @@ namespace FoodShopManagement_WF.UI
             frmEmployeeDetail ProductDetail = new frmEmployeeDetail(true);
             DialogResult r = ProductDetail.ShowDialog();
            
-
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -156,6 +94,24 @@ namespace FoodShopManagement_WF.UI
         {
             setRole(cbRole.SelectedIndex.ToString());
             loadData();
+        }
+
+        private void dgvListEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                txtEmployeeID.Text = dgvListEmployee.SelectedRows[0].Cells[0].Value.ToString();
+                txtFullname.Text = dgvListEmployee.SelectedRows[0].Cells[1].Value.ToString();
+                txtPassword.Text = dgvListEmployee.SelectedRows[0].Cells[2].Value.ToString();
+                txtRole.Text = dgvListEmployee.SelectedRows[0].Cells[3].Value.ToString();
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string id=dgvListEmployee.SelectedRows[0].Cells[0].Value.ToString();
+
+            bool delete = presenter.DeleteEmployee(id);
         }
     }
 }

@@ -81,6 +81,28 @@ namespace FoodShopManagementApi.Controllers
             return Unauthorized();
         }
 
+        [HttpGet("DeleteEmployee")]
+        [Produces("application/json")]
+        public IActionResult deleteEmployee([FromQuery] string id)
+        {
+            //Boolean isValidToken = ValidateToken();
+            //if (isValidToken)
+            {
+                TblEmployeesDAO dao = TblEmployeesDAO.getInstance();
+                try
+                {
+                    bool result = dao.DeleteEmployee(id);
+                    if (result)
+                        return Ok(result);
+                }
+                catch (Exception)
+                {
+                    StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
+
         [HttpPost("UpdateEmpDetail")]
         [Produces("application/json")]
         public IActionResult updateEmployee([FromBody] TblEmployeesDTO emp)

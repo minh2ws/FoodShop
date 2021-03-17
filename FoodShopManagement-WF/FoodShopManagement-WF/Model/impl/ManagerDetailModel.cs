@@ -55,5 +55,19 @@ namespace FoodShopManagement_WF.Model.impl
             }
             return null;
         }
+
+        public TblEmployeesDTO DeleteEmployee(TblEmployeesDTO dto)
+        {
+            Dictionary<String, String> id = new Dictionary<string, string>();
+            id.Add("id", dto.idEmployee);
+            HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("employee/Delete", id, Program.TokenGlobal);
+            if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
+            {
+                var employeeDTO = responseMessage.Content.ReadAsStringAsync();
+                TblEmployeesDTO emp = JsonConvert.DeserializeObject<TblEmployeesDTO>(employeeDTO.Result);
+                return emp;
+            }
+            return null;
+        }
     }
 }

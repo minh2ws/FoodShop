@@ -45,17 +45,7 @@ namespace FoodShopManagement_WF.Presenter.impl
                 return false;
             }
         }
-
-        //public List<LoadEmployeeModel> loadData(frmManager_v2 form)
-        //{
-        //    TblEmployeesDTO model = new TblEmployeesDTO
-        //    {
-        //        role = form.getRole()
-        //    };
-
-        //    List<LoadEmployeeModel> result = ManagerDetail.loadData(model);
-        //        return result;
-        //}
+      
 
         public List<TblEmployeesDTO> loadEmployeeDTO(frmManager_v2 form)
         {
