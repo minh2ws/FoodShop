@@ -1,12 +1,7 @@
 ﻿using DTO;
+using FoodShopManagement_WF.Presenter;
+using FoodShopManagement_WF.Presenter.impl;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FoodShopManagement_WF.UI
@@ -16,21 +11,41 @@ namespace FoodShopManagement_WF.UI
 
         private frmLogin loginFrame;
         private TblEmployeesDTO emp;
+        private ICategoryPresenter categoryPresenter;
         public frmWarehouse_V2()
         {
             InitializeComponent();
+        }
+        public TextBox getIdCategory()
+        {
+            return txtCategoryID;
+        }
+        public TextBox getNameCategory()
+        {
+            return txtCategoryName;
         }
         public frmWarehouse_V2(frmLogin loginFrame, TblEmployeesDTO emp)
         {
             InitializeComponent();
             this.loginFrame = loginFrame;
             this.emp = emp;
-            loadData();
+            categoryPresenter = new CategoryPresenter(this);
+        }
+        public BindingNavigator GetBindingNavigatorCategory()
+        {
+            return this.bindingNavigatorCategory;
+        }
+        
+        
+        public DataGridView GetDataGridViewCategory()
+        {
+            return this.dtgCategories;
         }
         public void loadData()
         {
             msTool.Text = "User: " + emp.name;
-
+            categoryPresenter.getAll();
+            
         }
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
@@ -84,6 +99,11 @@ namespace FoodShopManagement_WF.UI
         {
             frmMyProfileDetailcs ProductDetail = new frmMyProfileDetailcs(this.emp);
             DialogResult r = ProductDetail.ShowDialog();
+        }
+
+        private void frmWarehouse_V2_Load(object sender, EventArgs e)
+        {
+            loadData();
         }
     }
 }

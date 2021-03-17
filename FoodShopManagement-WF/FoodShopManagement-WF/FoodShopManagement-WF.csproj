@@ -61,16 +61,20 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\ICategoryModel.cs" />
     <Compile Include="Model\ILoginModel.cs" />
     <Compile Include="Model\IManagerDetailModel.cs" />
+    <Compile Include="Model\impl\CategoryModel.cs" />
     <Compile Include="Model\impl\LoginModel.cs" />
     <Compile Include="Model\impl\ManagerDetailModel.cs" />
     <Compile Include="Model\impl\MyProfileDetailModel.cs" />
     <Compile Include="Model\impl\SaleManagerModel.cs" />
     <Compile Include="Model\IMyProfileDetailModel.cs" />
     <Compile Include="Model\ISaleManagerModel.cs" />
+    <Compile Include="Presenter\ICategoryPresenter.cs" />
     <Compile Include="Presenter\ILoginPresenter.cs" />
     <Compile Include="Presenter\IManagerDetailPresenter.cs" />
+    <Compile Include="Presenter\impl\CategoryPresenter.cs" />
     <Compile Include="Presenter\impl\ManagerDetailPresenter.cs" />
     <Compile Include="Presenter\impl\LoginPresenter.cs" />
     <Compile Include="Presenter\impl\MyProfileDetailPresenter.cs" />
