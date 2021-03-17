@@ -54,5 +54,49 @@ namespace FoodShopManagementApi.Controllers
             }
             return Unauthorized();
         }
+        [HttpPost("addCategory")]
+        [Produces("application/json")]
+        public IActionResult addCategory([FromBody] TblCategoryDTO categoryDTO)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblCategoryDAO dao = new TblCategoryDAO();
+                try
+                {
+                    if (dao.add(categoryDTO))
+                    {
+                        return Ok(categoryDTO);
+                    }
+                }
+                catch(Exception e)
+                {
+                   return StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
+        [HttpPut("updateCategory")]
+        [Produces("application/json")]
+        public IActionResult updateCategory([FromBody] TblCategoryDTO categoryDTO)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblCategoryDAO dao = new TblCategoryDAO();
+                try
+                {
+                    if (dao.update(categoryDTO))
+                    {
+                        return Ok(categoryDTO);
+                    }
+                }
+                catch (Exception e)
+                {
+                    return StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
     }
 }

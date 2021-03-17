@@ -50,5 +50,54 @@ namespace FoodShopManagementApi.DAO
             }
             return null;
         }
+        public bool add(TblCategoryDTO categoryDTO)
+        {
+            string sql = "Insert into tblCategory(idCategory,name) values (@idCategory,@name) ";
+            try
+            {
+                cn = DBUtil.MakeConnect();
+                if (cn != null)
+                {
+                    cmd = new SqlCommand(sql, cn);
+                    cmd.Parameters.AddWithValue("@idCategory", categoryDTO.idCategory);
+                    cmd.Parameters.AddWithValue("@name", categoryDTO.name);
+                    return cmd.ExecuteNonQuery()>0;
+                }
+                return false;
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                DBUtil.CloseConnection(null, cn);
+            }
+        }
+        public bool update(TblCategoryDTO categoryDTO)
+        {
+            string sql = "Update tblCategory set name=@name where idCategory=@idCategory";
+            try
+            {
+                cn = DBUtil.MakeConnect();
+                if (cn != null)
+                {
+                    cmd = new SqlCommand(sql, cn);
+                    cmd.Parameters.AddWithValue("@name", categoryDTO.name);
+                    cmd.Parameters.AddWithValue("@idCategory", categoryDTO.idCategory);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+                return false;
+               
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                DBUtil.CloseConnection(null, cn);
+            }
+        }
     }
 }
