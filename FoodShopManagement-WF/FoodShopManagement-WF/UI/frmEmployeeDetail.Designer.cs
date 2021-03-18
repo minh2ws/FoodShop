@@ -32,16 +32,16 @@ namespace FoodShopManagement_WF.UI
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbRole = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.txtEmployeeID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbRole = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,10 +93,53 @@ namespace FoodShopManagement_WF.UI
             this.groupBox1.Text = "Employee Details";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // cbStatus
+            // 
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.cbStatus.Location = new System.Drawing.Point(164, 296);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(238, 29);
+            this.cbStatus.TabIndex = 13;
+            this.cbStatus.Text = "         ---- Select Status  ---";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(35, 302);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 23);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Status";
+            // 
+            // cbRole
+            // 
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Items.AddRange(new object[] {
+            "Salesman",
+            "Warehouse Staff"});
+            this.cbRole.Location = new System.Drawing.Point(164, 229);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(238, 29);
+            this.cbRole.TabIndex = 11;
+            this.cbRole.Text = "         ---- Select Role ---";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(35, 232);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 23);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Role";
+            // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(164, 167);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(238, 28);
             this.txtPassword.TabIndex = 7;
             // 
@@ -141,54 +184,12 @@ namespace FoodShopManagement_WF.UI
             this.label1.TabIndex = 5;
             this.label1.Text = "Employee ID";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 232);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 23);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Role";
-            // 
-            // cbRole
-            // 
-            this.cbRole.FormattingEnabled = true;
-            this.cbRole.Items.AddRange(new object[] {
-            "Salesman",
-            "Warehouse Staff"});
-            this.cbRole.Location = new System.Drawing.Point(164, 229);
-            this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(238, 29);
-            this.cbRole.TabIndex = 11;
-            this.cbRole.Text = "         ---- Select Role ---";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 302);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 23);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Status";
-            // 
-            // cbStatus
-            // 
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cbStatus.Location = new System.Drawing.Point(164, 296);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(238, 29);
-            this.cbStatus.TabIndex = 13;
-            this.cbStatus.Text = "         ---- Select Status  ---";
-            // 
             // frmEmployeeDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._182944;
-            this.ClientSize = new System.Drawing.Size(510, 497);
+            this.ClientSize = new System.Drawing.Size(1100, 497);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);

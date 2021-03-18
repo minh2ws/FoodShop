@@ -12,6 +12,8 @@ namespace FoodShopManagement_WF.Model
     {
         TblEmployeesDTO InsertEmployee(TblEmployeesDTO TblEmployeesDTO);
 
+        TblEmployeesDTO DeleteEmployee(TblEmployeesDTO id);
+
         //List<LoadEmployeeModel> loadData(TblEmployeesDTO model);
         List<TblEmployeesDTO> loadEmployeeDTO(TblEmployeesDTO model);
     }

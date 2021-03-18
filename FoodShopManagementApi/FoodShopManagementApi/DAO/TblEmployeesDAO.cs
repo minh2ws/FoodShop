@@ -172,5 +172,33 @@ namespace FoodShopManagementApi.DAO
             }
             return false;
         }
+
+        public bool DeleteEmployee(string id)
+        {
+            SqlConnection cn = null;
+            SqlCommand cmd = null;
+
+            string sql = "UPDATE tblEmployees "
+                    + "SET status = 0 "
+                    + "WHERE idEmployee = @id ";
+            try
+            {
+                cn = DBUtil.MakeConnect();
+                if (cn != null)
+                {
+                    cmd = new SqlCommand(sql, cn);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                DBUtil.CloseConnection(null, cn);
+            }
+            return false;
+        }
     }
 }
