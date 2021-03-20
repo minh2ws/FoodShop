@@ -87,7 +87,7 @@ namespace FoodShopManagement_WF.Presenter.impl
                 categoryModel.updateCategory(categoryDTO);
                 getAll();
             }
-            MessageBox.Show("Save success");
+            MessageBox.Show(MessageUtil.SAVE_SUCCESS);
         }
 
         public void search()
