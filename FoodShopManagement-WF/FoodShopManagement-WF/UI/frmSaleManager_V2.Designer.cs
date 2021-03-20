@@ -87,9 +87,9 @@ namespace FoodShopManagement_WF.UI
             this.panel6 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnSearchCustomer = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtSearchCustomer = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.bnCustomer = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -749,9 +749,9 @@ namespace FoodShopManagement_WF.UI
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.label16);
             this.panel6.Controls.Add(this.btnEdit);
-            this.panel6.Controls.Add(this.button6);
+            this.panel6.Controls.Add(this.btnSearchCustomer);
             this.panel6.Controls.Add(this.btnAdd);
-            this.panel6.Controls.Add(this.textBox9);
+            this.panel6.Controls.Add(this.txtSearchCustomer);
             this.panel6.Location = new System.Drawing.Point(3, 2);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
@@ -784,20 +784,21 @@ namespace FoodShopManagement_WF.UI
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // button6
+            // btnSearchCustomer
             // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.button6.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._1229321;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button6.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(1292, 6);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(54, 55);
-            this.button6.TabIndex = 2;
-            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnSearchCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.btnSearchCustomer.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._1229321;
+            this.btnSearchCustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSearchCustomer.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchCustomer.Location = new System.Drawing.Point(1292, 6);
+            this.btnSearchCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearchCustomer.Name = "btnSearchCustomer";
+            this.btnSearchCustomer.Size = new System.Drawing.Size(54, 55);
+            this.btnSearchCustomer.TabIndex = 2;
+            this.btnSearchCustomer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSearchCustomer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSearchCustomer.UseVisualStyleBackColor = false;
+            this.btnSearchCustomer.Click += new System.EventHandler(this.btnSearchCustomer_Click);
             // 
             // btnAdd
             // 
@@ -815,14 +816,14 @@ namespace FoodShopManagement_WF.UI
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // textBox9
+            // txtSearchCustomer
             // 
-            this.textBox9.Location = new System.Drawing.Point(1061, 18);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox9.MaximumSize = new System.Drawing.Size(272, 50);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(225, 30);
-            this.textBox9.TabIndex = 1;
+            this.txtSearchCustomer.Location = new System.Drawing.Point(1061, 18);
+            this.txtSearchCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearchCustomer.MaximumSize = new System.Drawing.Size(272, 50);
+            this.txtSearchCustomer.Name = "txtSearchCustomer";
+            this.txtSearchCustomer.Size = new System.Drawing.Size(225, 30);
+            this.txtSearchCustomer.TabIndex = 1;
             // 
             // panel7
             // 
@@ -1108,9 +1109,9 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnSearchCustomer;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtSearchCustomer;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.BindingNavigator bnCustomer;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;

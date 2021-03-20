@@ -72,7 +72,7 @@ namespace FoodShopManagement_WF.UI
             
             //customize datagridview
             dgvCustomer.ColumnCount = 2;
-            dgvCustomer.Columns[0].Name = "idCustomer";
+            dgvCustomer.Columns[0].Name = "CustomerID";
             dgvCustomer.Columns[0].DataPropertyName = "idCustomer";
             dgvCustomer.Columns[1].Name = "Customer Name";
             dgvCustomer.Columns[1].DataPropertyName = "name";
@@ -141,6 +141,13 @@ namespace FoodShopManagement_WF.UI
 
             //binding to navigation
             bnProducts.BindingSource = bsProducts;
+        }
+
+        private void btnSearchCustomer_Click(object sender, EventArgs e)
+        {
+            DataView view = dtCustomer.DefaultView;
+            string filter = "name like '%" + txtSearchCustomer.Text + "%'";
+            view.RowFilter = filter;
         }
     }
 }
