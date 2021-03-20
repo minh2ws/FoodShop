@@ -34,7 +34,7 @@ namespace FoodShopManagementApi.DAO
         public List<TblProductsDTO> findAll()
         {
 
-            string sql = "select idProduct,name,price,quantity from tblProducts";
+            string sql = "select p.idProduct,p.name,p.price,p.quantity,p.status,p.idCategory,c.name as categoryName from tblProducts p,tblCategory c where p.idCategory=c.idCategory";
             try
             {
                 sqlConnection = DBUtil.MakeConnect();
@@ -50,7 +50,9 @@ namespace FoodShopManagementApi.DAO
                         product.name = sqlDataReader["name"].ToString();
                         product.price = float.Parse(sqlDataReader["price"].ToString());
                         product.quantity = int.Parse(sqlDataReader["quantity"].ToString());
-
+                        product.status = bool.Parse(sqlDataReader["status"].ToString());
+                        product.idCategory = sqlDataReader["idCategory"].ToString();
+                        product.categoryName = sqlDataReader["categoryName"].ToString();
                         result.Add(product);
                     }
                     return result;
@@ -69,7 +71,7 @@ namespace FoodShopManagementApi.DAO
 
         public List<TblProductsDTO> searchProduct(string category, string searchValue)
         {
-            string sql = "SELECT idProduct, p.name, price, quantity "
+            string sql = "SELECT p.idProduct, p.name, p.price, p.quantity,p.status,p.idCategory, c.name as categoryName "
                     + "FROM tblProducts p, tblCategory c "
                     + "WHERE p.idCategory = c.idCategory ";
 
@@ -100,7 +102,9 @@ namespace FoodShopManagementApi.DAO
                         product.name = sqlDataReader["name"].ToString();
                         product.price = float.Parse(sqlDataReader["price"].ToString());
                         product.quantity = int.Parse(sqlDataReader["quantity"].ToString());
-
+                        product.status = bool.Parse(sqlDataReader["status"].ToString());
+                        product.idCategory = sqlDataReader["idCategory"].ToString();
+                        product.categoryName = sqlDataReader["categoryName"].ToString();
                         result.Add(product);
                     }
                     return result;

@@ -14,5 +14,6 @@ namespace DTO
         public int quantity { get; set; }
         public bool status { get; set; }
         public string idCategory { get; set; }
+        public string categoryName { get; set; }
     }
 }
