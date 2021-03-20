@@ -1,4 +1,5 @@
 ﻿using DTO;
+using FoodShopManagement_WF.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,9 @@ namespace FoodShopManagement_WF.Presenter
     interface ICategoryPresenter
     {
         void getAll();
+        void save(frmCategoryDetail frmCategoryDetail);
+        void edit();
+        void add();
+        void search();
     }
 }

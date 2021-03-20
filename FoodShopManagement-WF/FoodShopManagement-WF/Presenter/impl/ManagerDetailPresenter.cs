@@ -57,5 +57,10 @@ namespace FoodShopManagement_WF.Presenter.impl
             List<TblEmployeesDTO> result = ManagerDetail.loadEmployeeDTO(model);
             return result;
         }
+
+        public bool DeleteEmployee(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

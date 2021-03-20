@@ -50,8 +50,7 @@ namespace FoodShopManagement_WF.UI
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
 
-            frmCategoryDetail ProductDetail = new frmCategoryDetail(true);
-            DialogResult r = ProductDetail.ShowDialog();
+            categoryPresenter.add();
 
         }
 
@@ -74,9 +73,7 @@ namespace FoodShopManagement_WF.UI
         private void btnEditCategory_Click(object sender, EventArgs e)
         {
 
-            frmCategoryDetail ProductDetail = new frmCategoryDetail(true);
-            DialogResult r = ProductDetail.ShowDialog();
-
+            categoryPresenter.edit();
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -105,5 +102,14 @@ namespace FoodShopManagement_WF.UI
         {
             loadData();
         }
+        public ToolStripTextBox getSearchCategoryBox()
+        {
+            return this.txtSearchCategory;
+        }
+        private void txtSearchCategory_TextChanged(object sender, EventArgs e)
+        {
+            categoryPresenter.search();
+        }
+       
     }
 }

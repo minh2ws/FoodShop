@@ -116,5 +116,50 @@ namespace FoodShopManagementApi.DAO
             }
             return null;
         }
+        public bool addProduct(TblProductsDTO dto)
+        {
+            string sql = "insert into tblProducts() values(@)";
+            sqlConnection = DBUtil.MakeConnect();
+            try
+            {
+                if (sqlConnection != null)
+                {
+                    sqlCommand = new SqlCommand(sql, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("", dto.idCategory);
+                    sqlCommand.Parameters.AddWithValue("", dto.idProduct);
+                    sqlCommand.Parameters.AddWithValue("", dto.name);
+                    sqlCommand.Parameters.AddWithValue("", dto.price);
+                    sqlCommand.Parameters.AddWithValue("", dto.quantity);
+                    sqlCommand.Parameters.AddWithValue("", dto.status);
+                    return sqlCommand.ExecuteNonQuery() > 0;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                DBUtil.CloseConnection(null, sqlConnection);
+            }
+        }
+        public bool updateProduct(TblProductsDTO dto)
+        {
+            string sql = "update tblProducts set where idProduct=@idProduct";
+            sqlConnection = DBUtil.MakeConnect();
+            sqlCommand = new SqlCommand(sql, sqlConnection);
+            try
+            {
+                return false;
+            }catch(Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                DBUtil.CloseConnection(null, sqlConnection);
+            }
+        }
     }
 }

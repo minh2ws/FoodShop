@@ -144,6 +144,8 @@
       <DependentUpon>frmProductDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\ApiConnection.cs" />
+    <Compile Include="Util\ConvertCustom.cs" />
+    <Compile Include="Util\MessageUtil.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -185,6 +187,7 @@
       <DependentUpon>frmWarehouse_V2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DTO.TblCategoryDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

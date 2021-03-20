@@ -24,7 +24,7 @@ namespace FoodShopManagement_WF.UI
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
