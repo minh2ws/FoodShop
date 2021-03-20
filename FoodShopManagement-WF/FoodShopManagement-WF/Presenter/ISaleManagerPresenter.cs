@@ -1,5 +1,4 @@
 ﻿using DTO;
-using DTO.Model;
 using FoodShopManagement_WF.UI;
 using System;
 using System.Collections.Generic;
@@ -11,8 +10,8 @@ namespace FoodShopManagement_WF.Presenter
 {
     interface ISaleManagerPresenter
     {
-        List<ProductModel> GetProducts();
+        List<TblProductsDTO> GetProducts();
         List<TblCategoryDTO> GetCategories();
-        List<ProductModel> searchProduct(frmSaleManager_V2 form);
+        List<TblProductsDTO> searchProduct(frmSaleManager_V2 form);
     }
 }

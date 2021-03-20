@@ -11,7 +11,7 @@ namespace FoodShopManagement_WF.UI
 
         private frmLogin loginFrame;
         private TblEmployeesDTO emp;
-        private ICategoryPresenter categoryPresenter;
+        private IWarehousePresenter warehousePresenter;
         public frmWarehouse_V2()
         {
             InitializeComponent();
@@ -24,34 +24,55 @@ namespace FoodShopManagement_WF.UI
         {
             return txtCategoryName;
         }
+        public TextBox getIdProduct()
+        {
+            return txtProductID;
+        }
+        public TextBox getNameProduct()
+        {
+            return txtProductName;
+        }
+        public TextBox getQuantityProduct()
+        {
+            return txtQuantity;
+        }
+        public TextBox getPriceProduct()
+        {
+            return txtPrice;
+        }
         public frmWarehouse_V2(frmLogin loginFrame, TblEmployeesDTO emp)
         {
             InitializeComponent();
             this.loginFrame = loginFrame;
             this.emp = emp;
-            categoryPresenter = new CategoryPresenter(this);
+            warehousePresenter = new WarehousePresenter(this);
         }
         public BindingNavigator GetBindingNavigatorCategory()
         {
             return this.bindingNavigatorCategory;
         }
-        
-        
         public DataGridView GetDataGridViewCategory()
         {
             return this.dtgCategories;
         }
+        public DataGridView GetDataGridViewProduct()
+        {
+            return this.dgvProduct;
+        }
+        public BindingNavigator GetBindingNavigatorProduct()
+        {
+            return this.bindingNavigatorProduct;
+        }
         public void loadData()
         {
             msTool.Text = "User: " + emp.name;
-            categoryPresenter.getAll();
+            warehousePresenter.getAllCategory();
+            warehousePresenter.getAllProduct();
             
         }
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
-
-            categoryPresenter.add();
-
+            warehousePresenter.addCategory();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -73,7 +94,7 @@ namespace FoodShopManagement_WF.UI
         private void btnEditCategory_Click(object sender, EventArgs e)
         {
 
-            categoryPresenter.edit();
+            warehousePresenter.editCategory();
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -108,7 +129,7 @@ namespace FoodShopManagement_WF.UI
         }
         private void txtSearchCategory_TextChanged(object sender, EventArgs e)
         {
-            categoryPresenter.search();
+            warehousePresenter.searchCategory();
         }
        
     }

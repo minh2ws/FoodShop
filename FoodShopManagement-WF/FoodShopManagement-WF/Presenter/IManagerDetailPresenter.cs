@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
-using DTO.Model;
 
 namespace FoodShopManagement_WF.Presenter
 {

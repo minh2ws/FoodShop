@@ -1,5 +1,4 @@
 ﻿using DTO;
-using DTO.Model;
 using FoodShopManagement_WF.Model;
 using FoodShopManagement_WF.Model.impl;
 using FoodShopManagement_WF.UI;
@@ -13,28 +12,23 @@ namespace FoodShopManagement_WF.Presenter.impl
 {
     class SaleManagerPresenter : ISaleManagerPresenter
     {
-        ISaleManagerModel saleManagerModel = new SaleManagerModel();
+        IProductModel productModel = new ProductModel();
+        ICategoryModel categoryModel = new CategoryModel();
         public List<TblCategoryDTO> GetCategories()
         {
-            List<TblCategoryDTO> listCategory = saleManagerModel.loadCategoryList();
+            List<TblCategoryDTO> listCategory = categoryModel.getAll();
             return listCategory;
         }
 
-        public List<ProductModel> GetProducts()
+        public List<TblProductsDTO> GetProducts()
         {
-            List<ProductModel> listProducts = saleManagerModel.loadProductsList();
+            List<TblProductsDTO> listProducts = productModel.getAll();
             return listProducts;
         }
 
-        public List<ProductModel> searchProduct(frmSaleManager_V2 form)
+        public List<TblProductsDTO> searchProduct(frmSaleManager_V2 form)
         {
-            SearchProductModel model = new SearchProductModel
-            {
-                categoryName = form.getCategoryName(),
-                productName = form.getProductName(),
-            };
-
-            List<ProductModel> searchResult = saleManagerModel.searchProduct(model);
+            List<TblProductsDTO> searchResult = productModel.searchProduct(form.getCategoryName(),form.getProductName());
             return searchResult;
         }
     }

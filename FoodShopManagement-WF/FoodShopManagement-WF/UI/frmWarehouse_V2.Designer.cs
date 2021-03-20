@@ -45,6 +45,17 @@ namespace FoodShopManagement_WF.UI
             this.btnEditCategory = new System.Windows.Forms.Button();
             this.btnDeleteCategory = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.bindingNavigatorCategory = new System.Windows.Forms.BindingNavigator(this.components);
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.txtSearchCategory = new System.Windows.Forms.ToolStripTextBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.dtgCategories = new System.Windows.Forms.DataGridView();
@@ -65,10 +76,8 @@ namespace FoodShopManagement_WF.UI
             this.panel14 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.bindingNavigator3 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorProduct = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -81,7 +90,7 @@ namespace FoodShopManagement_WF.UI
             this.label27 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dgvProduct = new System.Windows.Forms.DataGridView();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.btnAddProduct = new System.Windows.Forms.Button();
@@ -94,38 +103,27 @@ namespace FoodShopManagement_WF.UI
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ViewProfiletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tblCategoryDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.txtSearchCategory = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCategory = new System.Windows.Forms.BindingNavigator(this.components);
             this.tabWareHouse.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorCategory)).BeginInit();
+            this.bindingNavigatorCategory.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCategories)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator3)).BeginInit();
-            this.bindingNavigator3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorProduct)).BeginInit();
+            this.bindingNavigatorProduct.SuspendLayout();
             this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.panel12.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblCategoryDTOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorCategory)).BeginInit();
-            this.bindingNavigatorCategory.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabWareHouse
@@ -305,6 +303,109 @@ namespace FoodShopManagement_WF.UI
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(559, 657);
             this.panel10.TabIndex = 0;
+            // 
+            // bindingNavigatorCategory
+            // 
+            this.bindingNavigatorCategory.AddNewItem = null;
+            this.bindingNavigatorCategory.CountItem = this.toolStripLabel1;
+            this.bindingNavigatorCategory.DeleteItem = null;
+            this.bindingNavigatorCategory.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.bindingNavigatorCategory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton3,
+            this.toolStripButton4,
+            this.toolStripSeparator1,
+            this.toolStripTextBox1,
+            this.toolStripLabel1,
+            this.toolStripSeparator2,
+            this.toolStripButton5,
+            this.toolStripButton6,
+            this.toolStripSeparator3,
+            this.txtSearchCategory});
+            this.bindingNavigatorCategory.Location = new System.Drawing.Point(0, 0);
+            this.bindingNavigatorCategory.MoveFirstItem = this.toolStripButton3;
+            this.bindingNavigatorCategory.MoveLastItem = this.toolStripButton6;
+            this.bindingNavigatorCategory.MoveNextItem = this.toolStripButton5;
+            this.bindingNavigatorCategory.MovePreviousItem = this.toolStripButton4;
+            this.bindingNavigatorCategory.Name = "bindingNavigatorCategory";
+            this.bindingNavigatorCategory.PositionItem = this.toolStripTextBox1;
+            this.bindingNavigatorCategory.Size = new System.Drawing.Size(557, 27);
+            this.bindingNavigatorCategory.TabIndex = 5;
+            this.bindingNavigatorCategory.Text = "bindingNavigator2";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(45, 24);
+            this.toolStripLabel1.Text = "of {0}";
+            this.toolStripLabel1.ToolTipText = "Total number of items";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton3.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton3.Text = "Move first";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton4.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton4.Text = "Move previous";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.AccessibleName = "Position";
+            this.toolStripTextBox1.AutoSize = false;
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(50, 27);
+            this.toolStripTextBox1.Text = "0";
+            this.toolStripTextBox1.ToolTipText = "Current position";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton5.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton5.Text = "Move next";
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.RightToLeftAutoMirrorImage = true;
+            this.toolStripButton6.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton6.Text = "Move last";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
+            // 
+            // txtSearchCategory
+            // 
+            this.txtSearchCategory.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSearchCategory.Name = "txtSearchCategory";
+            this.txtSearchCategory.Size = new System.Drawing.Size(100, 27);
+            this.txtSearchCategory.TextChanged += new System.EventHandler(this.txtSearchCategory_TextChanged);
             // 
             // panel11
             // 
@@ -524,24 +625,24 @@ namespace FoodShopManagement_WF.UI
             // panel15
             // 
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel15.Controls.Add(this.bindingNavigator3);
+            this.panel15.Controls.Add(this.bindingNavigatorProduct);
             this.panel15.Controls.Add(this.comboBox8);
             this.panel15.Controls.Add(this.label27);
             this.panel15.Controls.Add(this.panel16);
-            this.panel15.Controls.Add(this.dataGridView3);
+            this.panel15.Controls.Add(this.dgvProduct);
             this.panel15.Location = new System.Drawing.Point(33, 112);
             this.panel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(610, 657);
             this.panel15.TabIndex = 15;
             // 
-            // bindingNavigator3
+            // bindingNavigatorProduct
             // 
-            this.bindingNavigator3.AddNewItem = this.toolStripButton7;
-            this.bindingNavigator3.CountItem = this.toolStripLabel2;
-            this.bindingNavigator3.DeleteItem = this.toolStripButton8;
-            this.bindingNavigator3.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.bindingNavigator3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorProduct.AddNewItem = null;
+            this.bindingNavigatorProduct.CountItem = this.toolStripLabel2;
+            this.bindingNavigatorProduct.DeleteItem = null;
+            this.bindingNavigatorProduct.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.bindingNavigatorProduct.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton9,
             this.toolStripButton10,
             this.toolStripSeparator4,
@@ -550,28 +651,17 @@ namespace FoodShopManagement_WF.UI
             this.toolStripSeparator5,
             this.toolStripButton11,
             this.toolStripButton12,
-            this.toolStripSeparator6,
-            this.toolStripButton7,
-            this.toolStripButton8});
-            this.bindingNavigator3.Location = new System.Drawing.Point(0, 0);
-            this.bindingNavigator3.MoveFirstItem = this.toolStripButton9;
-            this.bindingNavigator3.MoveLastItem = this.toolStripButton12;
-            this.bindingNavigator3.MoveNextItem = this.toolStripButton11;
-            this.bindingNavigator3.MovePreviousItem = this.toolStripButton10;
-            this.bindingNavigator3.Name = "bindingNavigator3";
-            this.bindingNavigator3.PositionItem = this.toolStripTextBox2;
-            this.bindingNavigator3.Size = new System.Drawing.Size(608, 27);
-            this.bindingNavigator3.TabIndex = 5;
-            this.bindingNavigator3.Text = "bindingNavigator3";
-            // 
-            // toolStripButton7
-            // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton7.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton7.Text = "Add new";
+            this.toolStripSeparator6});
+            this.bindingNavigatorProduct.Location = new System.Drawing.Point(0, 0);
+            this.bindingNavigatorProduct.MoveFirstItem = this.toolStripButton9;
+            this.bindingNavigatorProduct.MoveLastItem = this.toolStripButton12;
+            this.bindingNavigatorProduct.MoveNextItem = this.toolStripButton11;
+            this.bindingNavigatorProduct.MovePreviousItem = this.toolStripButton10;
+            this.bindingNavigatorProduct.Name = "bindingNavigatorProduct";
+            this.bindingNavigatorProduct.PositionItem = this.toolStripTextBox2;
+            this.bindingNavigatorProduct.Size = new System.Drawing.Size(608, 27);
+            this.bindingNavigatorProduct.TabIndex = 5;
+            this.bindingNavigatorProduct.Text = "bindingNavigator3";
             // 
             // toolStripLabel2
             // 
@@ -579,15 +669,6 @@ namespace FoodShopManagement_WF.UI
             this.toolStripLabel2.Size = new System.Drawing.Size(45, 24);
             this.toolStripLabel2.Text = "of {0}";
             this.toolStripLabel2.ToolTipText = "Total number of items";
-            // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton8.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton8.Text = "Delete";
             // 
             // toolStripButton9
             // 
@@ -616,6 +697,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.toolStripTextBox2.AccessibleName = "Position";
             this.toolStripTextBox2.AutoSize = false;
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(50, 27);
             this.toolStripTextBox2.Text = "0";
@@ -692,16 +774,16 @@ namespace FoodShopManagement_WF.UI
             this.label28.Text = "List of Product";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridView3
+            // dgvProduct
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(3, 114);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 62;
-            this.dataGridView3.RowTemplate.Height = 28;
-            this.dataGridView3.Size = new System.Drawing.Size(602, 539);
-            this.dataGridView3.TabIndex = 2;
+            this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduct.Location = new System.Drawing.Point(3, 114);
+            this.dgvProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvProduct.Name = "dgvProduct";
+            this.dgvProduct.RowHeadersWidth = 62;
+            this.dgvProduct.RowTemplate.Height = 28;
+            this.dgvProduct.Size = new System.Drawing.Size(602, 539);
+            this.dgvProduct.TabIndex = 2;
             // 
             // panel12
             // 
@@ -843,107 +925,6 @@ namespace FoodShopManagement_WF.UI
             // 
             this.tblCategoryDTOBindingSource.DataSource = typeof(DTO.TblCategoryDTO);
             // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton3.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton3.Text = "Move first";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton4.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton4.Text = "Move previous";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.AccessibleName = "Position";
-            this.toolStripTextBox1.AutoSize = false;
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(50, 27);
-            this.toolStripTextBox1.Text = "0";
-            this.toolStripTextBox1.ToolTipText = "Current position";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(45, 24);
-            this.toolStripLabel1.Text = "of {0}";
-            this.toolStripLabel1.ToolTipText = "Total number of items";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton5.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton5.Text = "Move next";
-            // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton6.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton6.Text = "Move last";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
-            // 
-            // txtSearchCategory
-            // 
-            this.txtSearchCategory.Name = "txtSearchCategory";
-            this.txtSearchCategory.Size = new System.Drawing.Size(100, 27);
-            this.txtSearchCategory.TextChanged += new System.EventHandler(this.txtSearchCategory_TextChanged);
-            // 
-            // bindingNavigatorCategory
-            // 
-            this.bindingNavigatorCategory.AddNewItem = null;
-            this.bindingNavigatorCategory.CountItem = this.toolStripLabel1;
-            this.bindingNavigatorCategory.DeleteItem = null;
-            this.bindingNavigatorCategory.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.bindingNavigatorCategory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripSeparator1,
-            this.toolStripTextBox1,
-            this.toolStripLabel1,
-            this.toolStripSeparator2,
-            this.toolStripButton5,
-            this.toolStripButton6,
-            this.toolStripSeparator3,
-            this.txtSearchCategory});
-            this.bindingNavigatorCategory.Location = new System.Drawing.Point(0, 0);
-            this.bindingNavigatorCategory.MoveFirstItem = this.toolStripButton3;
-            this.bindingNavigatorCategory.MoveLastItem = this.toolStripButton6;
-            this.bindingNavigatorCategory.MoveNextItem = this.toolStripButton5;
-            this.bindingNavigatorCategory.MovePreviousItem = this.toolStripButton4;
-            this.bindingNavigatorCategory.Name = "bindingNavigatorCategory";
-            this.bindingNavigatorCategory.PositionItem = this.toolStripTextBox1;
-            this.bindingNavigatorCategory.Size = new System.Drawing.Size(557, 27);
-            this.bindingNavigatorCategory.TabIndex = 5;
-            this.bindingNavigatorCategory.Text = "bindingNavigator2";
-            // 
             // frmWarehouse_V2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -965,6 +946,9 @@ namespace FoodShopManagement_WF.UI
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorCategory)).EndInit();
+            this.bindingNavigatorCategory.ResumeLayout(false);
+            this.bindingNavigatorCategory.PerformLayout();
             this.panel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgCategories)).EndInit();
             this.tabPage2.ResumeLayout(false);
@@ -974,19 +958,16 @@ namespace FoodShopManagement_WF.UI
             this.panel14.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator3)).EndInit();
-            this.bindingNavigator3.ResumeLayout(false);
-            this.bindingNavigator3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorProduct)).EndInit();
+            this.bindingNavigatorProduct.ResumeLayout(false);
+            this.bindingNavigatorProduct.PerformLayout();
             this.panel16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblCategoryDTOBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorCategory)).EndInit();
-            this.bindingNavigatorCategory.ResumeLayout(false);
-            this.bindingNavigatorCategory.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1025,10 +1006,8 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.BindingNavigator bindingNavigator3;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.BindingNavigator bindingNavigatorProduct;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
         private System.Windows.Forms.ToolStripButton toolStripButton9;
         private System.Windows.Forms.ToolStripButton toolStripButton10;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
@@ -1041,7 +1020,7 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dgvProduct;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btnAddProduct;

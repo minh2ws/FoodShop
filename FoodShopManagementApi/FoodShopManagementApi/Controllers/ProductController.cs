@@ -1,5 +1,4 @@
 ﻿using DTO;
-using DTO.Model;
 using FoodShopManagementApi.DAO;
 using FoodShopManagementApi.Util;
 using Microsoft.AspNetCore.Http;
@@ -41,7 +40,7 @@ namespace FoodShopManagementApi.DTO
                 TblProductsDAO dao = TblProductsDAO.getInstance();
                 try
                 {
-                    List<ProductModel> listProduct = dao.findAll();
+                    List<TblProductsDTO> listProduct = dao.findAll();
                     if (listProduct != null)
                     {
                         return Ok(listProduct);
@@ -73,10 +72,62 @@ namespace FoodShopManagementApi.DTO
                     {
                         category = "";
                     }
-                    List<ProductModel> result = dao.searchProduct(category, name);
+                    List<TblProductsDTO> result = dao.searchProduct(category, name);
                     if (result != null)
                     {
                         return Ok(result);
+                    }
+                }
+                catch (Exception)
+                {
+                    StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
+        [HttpPost("addProduct")]
+        [Produces("application/json")]
+        public IActionResult addProduct([FromBody] TblProductsDTO tblProductsDTO)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblProductsDAO dao = TblProductsDAO.getInstance();
+                try
+                {
+                    if (dao.addProduct(tblProductsDTO))
+                    {
+                        return Ok(tblProductsDTO);
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
+                }
+                catch (Exception)
+                {
+                    StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
+        [HttpPost("updateProduct")]
+        [Produces("application/json")]
+        public IActionResult updateProduct([FromBody] TblProductsDTO tblProductsDTO)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblProductsDAO dao = TblProductsDAO.getInstance();
+                try
+                {
+                    if (dao.updateProduct(tblProductsDTO))
+                    {
+                        return Ok(tblProductsDTO);
+                    }
+                    else
+                    {
+                        return BadRequest();
                     }
                 }
                 catch (Exception)

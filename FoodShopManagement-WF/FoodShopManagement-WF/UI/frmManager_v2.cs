@@ -5,7 +5,6 @@ using System.Data;
 using FoodShopManagement_WF.Presenter;
 using FoodShopManagement_WF.Presenter.impl;
 using System.Collections.Generic;
-using DTO.Model;
 using System.Linq;
 
 namespace FoodShopManagement_WF.UI

@@ -14,7 +14,7 @@ namespace FoodShopManagement_WF.UI
 {
     public partial class frmCategoryDetail : Form
     {
-        private ICategoryPresenter categoryPresenter;
+        private IWarehousePresenter categoryPresenter;
         public frmCategoryDetail()
         {
             InitializeComponent();
@@ -28,13 +28,13 @@ namespace FoodShopManagement_WF.UI
         {
             return this.txtCategoryName;
         }
-        public frmCategoryDetail(bool flag,CategoryPresenter categoryPresenter) : this()
+        public frmCategoryDetail(bool flag,WarehousePresenter categoryPresenter) : this()
         {
             this.categoryPresenter = categoryPresenter;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            categoryPresenter.save(this);
+            categoryPresenter.saveCategory(this);
         }
     }
 }

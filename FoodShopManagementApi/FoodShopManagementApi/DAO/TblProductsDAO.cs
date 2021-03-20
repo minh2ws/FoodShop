@@ -1,5 +1,4 @@
 ﻿using DTO;
-using DTO.Model;
 using FoodShopManagementApi.DTO;
 using FoodShopManagementApi.Util;
 using System;
@@ -32,7 +31,7 @@ namespace FoodShopManagementApi.DAO
         private SqlDataReader sqlDataReader = null;
 
         SqlCommand sqlCommand = null;
-        public List<ProductModel> findAll()
+        public List<TblProductsDTO> findAll()
         {
 
             string sql = "select idProduct,name,price,quantity from tblProducts";
@@ -43,14 +42,14 @@ namespace FoodShopManagementApi.DAO
                 {
                     sqlCommand = new SqlCommand(sql, sqlConnection);
                     sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
-                    List<ProductModel> result = new List<ProductModel>();
+                    List<TblProductsDTO> result = new List<TblProductsDTO>();
                     while (sqlDataReader.Read())
                     {
-                        ProductModel product = new ProductModel();
-                        product.ProductId = sqlDataReader["idProduct"].ToString();
-                        product.Name = sqlDataReader["name"].ToString();
-                        product.Price = float.Parse(sqlDataReader["price"].ToString());
-                        product.Quantity = int.Parse(sqlDataReader["quantity"].ToString());
+                        TblProductsDTO product = new TblProductsDTO();
+                        product.idProduct = sqlDataReader["idProduct"].ToString();
+                        product.name = sqlDataReader["name"].ToString();
+                        product.price = float.Parse(sqlDataReader["price"].ToString());
+                        product.quantity = int.Parse(sqlDataReader["quantity"].ToString());
 
                         result.Add(product);
                     }
@@ -68,7 +67,7 @@ namespace FoodShopManagementApi.DAO
             return null;
         }
 
-        public List<ProductModel> searchProduct(string category, string searchValue)
+        public List<TblProductsDTO> searchProduct(string category, string searchValue)
         {
             string sql = "SELECT idProduct, p.name, price, quantity "
                     + "FROM tblProducts p, tblCategory c "
@@ -93,14 +92,14 @@ namespace FoodShopManagementApi.DAO
                 {
                     sqlCommand = new SqlCommand(sql, sqlConnection);
                     sqlDataReader = sqlCommand.ExecuteReader();
-                    List<ProductModel> result = new List<ProductModel>();
+                    List<TblProductsDTO> result = new List<TblProductsDTO>();
                     while (sqlDataReader.Read())
                     {
-                        ProductModel product = new ProductModel();
-                        product.ProductId = sqlDataReader["idProduct"].ToString();
-                        product.Name = sqlDataReader["name"].ToString();
-                        product.Price = float.Parse(sqlDataReader["price"].ToString());
-                        product.Quantity = int.Parse(sqlDataReader["quantity"].ToString());
+                        TblProductsDTO product = new TblProductsDTO();
+                        product.idProduct = sqlDataReader["idProduct"].ToString();
+                        product.name = sqlDataReader["name"].ToString();
+                        product.price = float.Parse(sqlDataReader["price"].ToString());
+                        product.quantity = int.Parse(sqlDataReader["quantity"].ToString());
 
                         result.Add(product);
                     }

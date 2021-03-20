@@ -1,14 +1,10 @@
 ﻿using DTO;
-using DTO.Model;
 using FoodShopManagement_WF.Model;
 using FoodShopManagement_WF.Model.impl;
 using FoodShopManagement_WF.UI;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace FoodShopManagement_WF.Presenter.impl
 {
