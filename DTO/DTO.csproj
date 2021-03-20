@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="ErrorDTO.cs" />
     <Compile Include="TblCategoryDTO.cs" />
+    <Compile Include="TblCustomerDTO.cs" />
     <Compile Include="TblEmployeesDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TblProductsDTO.cs" />
