@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FoodShopManagement_WF.Presenter;
+using FoodShopManagement_WF.Presenter.impl;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +14,27 @@ namespace FoodShopManagement_WF.UI
 {
     public partial class frmCategoryDetail : Form
     {
+        private ICategoryPresenter categoryPresenter;
         public frmCategoryDetail()
         {
             InitializeComponent();
         }
-        public frmCategoryDetail(bool flag) : this()
+ 
+        public TextBox getCategoryId()
         {
-
-
-
+            return this.txtCategoryID;
+        }
+        public TextBox getCategoryName()
+        {
+            return this.txtCategoryName;
+        }
+        public frmCategoryDetail(bool flag,CategoryPresenter categoryPresenter) : this()
+        {
+            this.categoryPresenter = categoryPresenter;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            categoryPresenter.save(this);
         }
     }
 }

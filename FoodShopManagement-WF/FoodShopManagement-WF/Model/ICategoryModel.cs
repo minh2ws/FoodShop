@@ -10,5 +10,7 @@ namespace FoodShopManagement_WF.Model
     interface ICategoryModel
     {
         List<TblCategoryDTO> getAll();
+        bool updateCategory(TblCategoryDTO categoryDTO);
+        bool addCategory(TblCategoryDTO categoryDTO);
     }
 }
