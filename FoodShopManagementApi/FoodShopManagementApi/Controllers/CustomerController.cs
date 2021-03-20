@@ -34,18 +34,22 @@ namespace FoodShopManagementApi.Controllers
         [Produces("application/json")]
         public IActionResult LoadCustomer()
         {
-            TblCustomerDAO dao = TblCustomerDAO.getInstance();
-            try
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
             {
-                List<TblCustomerDTO> result = dao.loadCustomers();
-                if (result != null)
+                TblCustomerDAO dao = TblCustomerDAO.getInstance();
+                try
                 {
-                    return Ok(result);
+                    List<TblCustomerDTO> result = dao.loadCustomers();
+                    if (result != null)
+                    {
+                        return Ok(result);
+                    }
                 }
-            }
-            catch (Exception)
-            {
-                StatusCode(500);
+                catch (Exception)
+                {
+                    StatusCode(500);
+                }
             }
             return Unauthorized();
         }
