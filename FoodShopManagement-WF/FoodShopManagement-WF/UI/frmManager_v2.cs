@@ -106,12 +106,24 @@ namespace FoodShopManagement_WF.UI
                 txtRole.Text = dgvListEmployee.SelectedRows[0].Cells[3].Value.ToString();
             }
         }
-
+        public string getID()
+        {
+            return this.dgvListEmployee.SelectedRows[0].Cells[0].Value.ToString();
+        }
+        private string ID;
+        public void setID(string ID)
+        {
+            this.ID = ID;
+        }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string id=dgvListEmployee.SelectedRows[0].Cells[0].Value.ToString();
+            bool result = presenter.DeleteEmployee(this);
+            if (result)
+            {
+                this.DialogResult = DialogResult.No;
+                MessageBox.Show("Delete");
+            }
 
-            bool delete = presenter.DeleteEmployee(id);
         }
     }
 }

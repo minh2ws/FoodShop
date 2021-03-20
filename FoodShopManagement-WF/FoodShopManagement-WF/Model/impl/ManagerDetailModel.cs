@@ -26,21 +26,6 @@ namespace FoodShopManagement_WF.Model.impl
 
         }
 
-        //public List<LoadEmployeeModel> loadData(TblEmployeesDTO dto)
-        //{
-        //    Dictionary<String, String> role = new Dictionary<string, string>();
-        //    role.Add("role", dto.role);
-        //    HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("employee/Load", role, Program.TokenGlobal);
-        //    if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
-        //    {
-        //        var loadResult = responseMessage.Content.ReadAsStringAsync();
-
-        //        List<LoadEmployeeModel> list = JsonConvert.DeserializeObject<List<LoadEmployeeModel>>(loadResult.Result);
-        //        return list;
-        //    }
-        //    return null;
-        //}
-
         public List<TblEmployeesDTO> loadEmployeeDTO(TblEmployeesDTO dto)
         {
             Dictionary<String, String> role = new Dictionary<string, string>();
@@ -56,7 +41,7 @@ namespace FoodShopManagement_WF.Model.impl
             return null;
         }
 
-        public TblEmployeesDTO DeleteEmployee(TblEmployeesDTO dto)
+        public bool DeleteEmployee(TblEmployeesDTO dto)
         {
             Dictionary<String, String> id = new Dictionary<string, string>();
             id.Add("id", dto.idEmployee);
@@ -65,9 +50,12 @@ namespace FoodShopManagement_WF.Model.impl
             {
                 var employeeDTO = responseMessage.Content.ReadAsStringAsync();
                 TblEmployeesDTO emp = JsonConvert.DeserializeObject<TblEmployeesDTO>(employeeDTO.Result);
-                return emp;
+                if (emp != null)
+                {
+                    return true;
+                }
             }
-            return null;
+            return false;
         }
     }
 }

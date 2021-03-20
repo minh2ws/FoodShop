@@ -21,6 +21,7 @@ namespace FoodShopManagement_WF.Presenter.impl
                 return false;
             return true;
         }
+        
         public bool InsertEmployee(frmEmployeeDetail form)
         {
             TblEmployeesDTO Employees = new TblEmployeesDTO();
@@ -56,6 +57,16 @@ namespace FoodShopManagement_WF.Presenter.impl
 
             List<TblEmployeesDTO> result = ManagerDetail.loadEmployeeDTO(model);
             return result;
+        }
+
+        public bool DeleteEmployee(frmManager_v2 form)
+        {
+            string id = form.getID();
+            bool result = ManagerDetail.DeleteEmployee(id);
+            if (result)
+                return true;
+            return false;
+           
         }
     }
 }
