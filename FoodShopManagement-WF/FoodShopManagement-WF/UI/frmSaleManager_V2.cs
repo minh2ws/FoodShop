@@ -114,23 +114,24 @@ namespace FoodShopManagement_WF.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmCustomerDetail ProductDetail = new frmCustomerDetail(true);
-            DialogResult r = ProductDetail.ShowDialog();
-
+            frmCustomerDetail CustomerDetail = new frmCustomerDetail();
+            DialogResult r = CustomerDetail.ShowDialog();
+            loadCustomers();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
 
-            frmCustomerDetail ProductDetail = new frmCustomerDetail(true);
-            DialogResult r = ProductDetail.ShowDialog();
-
+            frmCustomerDetail CustomerDetail = new frmCustomerDetail();
+            DialogResult r = CustomerDetail.ShowDialog();
+            loadCustomers();
         }
 
         private void ViewProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMyProfileDetailcs ProductDetail = new frmMyProfileDetailcs(this.emp);
-            DialogResult r = ProductDetail.ShowDialog();
+            frmMyProfileDetailcs ProfileDetail = new frmMyProfileDetailcs(this.emp);
+            DialogResult r = ProfileDetail.ShowDialog();
+            this.Close();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
