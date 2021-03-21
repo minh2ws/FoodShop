@@ -50,5 +50,19 @@ namespace FoodShopManagement_WF.Model.impl
             }
             return null;
         }
+
+        public bool updateProduct(TblProductsDTO dto)
+        {
+            HttpResponseMessage responseMessage = ApiConnection.loadPutJsonObject("product/updateProduct", dto, Program.TokenGlobal);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                //get json content
+                var result = responseMessage.Content.ReadAsStringAsync();
+                //convert json to bool
+                bool isSuccess = JsonConvert.DeserializeObject<bool>(result.Result);
+                return isSuccess;
+            }
+            return false;
+        }
     }
 }

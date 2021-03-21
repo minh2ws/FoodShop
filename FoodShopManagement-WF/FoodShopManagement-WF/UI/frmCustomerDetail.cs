@@ -16,12 +16,11 @@ namespace FoodShopManagement_WF.UI
         {
             InitializeComponent();
         }
-        public frmCustomerDetail(bool flag) : this()
-        {
 
+        //public frmCustomerDetail()
+        //{
 
-
-        }
+        //}
         private void btnSave_Click(object sender, EventArgs e)
         {
 

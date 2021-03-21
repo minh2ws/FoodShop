@@ -12,5 +12,6 @@ namespace FoodShopManagement_WF.Model
         List<TblCategoryDTO> getAll();
         bool updateCategory(TblCategoryDTO categoryDTO);
         bool addCategory(TblCategoryDTO categoryDTO);
+        
     }
 }

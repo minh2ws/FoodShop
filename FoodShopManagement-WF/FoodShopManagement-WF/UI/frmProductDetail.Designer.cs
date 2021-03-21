@@ -94,7 +94,7 @@ namespace FoodShopManagement_WF.UI
             // cbCategory
             // 
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(178, 39);
+            this.cbCategory.Location = new System.Drawing.Point(169, 281);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(121, 29);
             this.cbCategory.TabIndex = 11;
@@ -102,7 +102,7 @@ namespace FoodShopManagement_WF.UI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 42);
+            this.label5.Location = new System.Drawing.Point(25, 284);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 23);
             this.label5.TabIndex = 10;
@@ -110,36 +110,37 @@ namespace FoodShopManagement_WF.UI
             // 
             // txtQuantity
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(178, 275);
+            this.txtQuantity.Location = new System.Drawing.Point(169, 222);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(272, 28);
             this.txtQuantity.TabIndex = 6;
             // 
             // txtUnitPrice
             // 
-            this.txtUnitPrice.Location = new System.Drawing.Point(178, 216);
+            this.txtUnitPrice.Location = new System.Drawing.Point(169, 163);
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.Size = new System.Drawing.Size(265, 28);
             this.txtUnitPrice.TabIndex = 7;
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(178, 158);
+            this.txtProductName.Location = new System.Drawing.Point(169, 105);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(265, 28);
             this.txtProductName.TabIndex = 8;
             // 
             // txtProductID
             // 
-            this.txtProductID.Location = new System.Drawing.Point(178, 101);
+            this.txtProductID.Location = new System.Drawing.Point(169, 48);
             this.txtProductID.Name = "txtProductID";
+            this.txtProductID.ReadOnly = true;
             this.txtProductID.Size = new System.Drawing.Size(265, 28);
             this.txtProductID.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 278);
+            this.label4.Location = new System.Drawing.Point(25, 225);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 23);
             this.label4.TabIndex = 2;
@@ -148,7 +149,7 @@ namespace FoodShopManagement_WF.UI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 219);
+            this.label3.Location = new System.Drawing.Point(25, 166);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 23);
             this.label3.TabIndex = 3;
@@ -157,7 +158,7 @@ namespace FoodShopManagement_WF.UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 158);
+            this.label2.Location = new System.Drawing.Point(25, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 23);
             this.label2.TabIndex = 4;
@@ -166,7 +167,7 @@ namespace FoodShopManagement_WF.UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 101);
+            this.label1.Location = new System.Drawing.Point(25, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 23);
             this.label1.TabIndex = 5;

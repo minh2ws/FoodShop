@@ -121,19 +121,19 @@ namespace FoodShopManagementApi.DAO
         }
         public bool addProduct(TblProductsDTO dto)
         {
-            string sql = "insert into tblProducts() values(@)";
+            string sql = "insert into tblProducts(idCategory,idProduct,name,price,quantity,status) values(@idCategory,@idProduct,@name,@price,@quantity,@status)";
             sqlConnection = DBUtil.MakeConnect();
             try
             {
                 if (sqlConnection != null)
                 {
                     sqlCommand = new SqlCommand(sql, sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("", dto.idCategory);
-                    sqlCommand.Parameters.AddWithValue("", dto.idProduct);
-                    sqlCommand.Parameters.AddWithValue("", dto.name);
-                    sqlCommand.Parameters.AddWithValue("", dto.price);
-                    sqlCommand.Parameters.AddWithValue("", dto.quantity);
-                    sqlCommand.Parameters.AddWithValue("", dto.status);
+                    sqlCommand.Parameters.AddWithValue("@idCategory", dto.idCategory);
+                    sqlCommand.Parameters.AddWithValue("@idProduct", dto.idProduct);
+                    sqlCommand.Parameters.AddWithValue("@name", dto.name);
+                    sqlCommand.Parameters.AddWithValue("@price", dto.price);
+                    sqlCommand.Parameters.AddWithValue("@quantity", dto.quantity);
+                    sqlCommand.Parameters.AddWithValue("@status", dto.status);
                     return sqlCommand.ExecuteNonQuery() > 0;
                 }
                 return false;
@@ -149,20 +149,32 @@ namespace FoodShopManagementApi.DAO
         }
         public bool updateProduct(TblProductsDTO dto)
         {
-            string sql = "update tblProducts set where idProduct=@idProduct";
-            sqlConnection = DBUtil.MakeConnect();
-            sqlCommand = new SqlCommand(sql, sqlConnection);
+            string sql = "UPDATE tblProducts " +
+                "SET name=@name, price=@price, quantity=@quantity, status=@status, idCategory=@idCategory " +
+                "WHERE idProduct=@idProduct";
             try
             {
-                return false;
-            }catch(Exception e)
+                sqlConnection = DBUtil.MakeConnect();
+                if (sqlConnection != null)
+                {
+                    sqlCommand = new SqlCommand(sql, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@name", dto.name);
+                    sqlCommand.Parameters.AddWithValue("@price", dto.price);
+                    sqlCommand.Parameters.AddWithValue("@quantity", dto.quantity);
+                    sqlCommand.Parameters.AddWithValue("@status", dto.status);
+                    sqlCommand.Parameters.AddWithValue("@idCategory", dto.idCategory);
+
+                    return sqlCommand.ExecuteNonQuery() > 0;
+                }
+            }catch(SqlException e)
             {
-                throw e;
+                throw new Exception(e.Message);
             }
             finally
             {
                 DBUtil.CloseConnection(null, sqlConnection);
             }
+            return false;
         }
     }
 }
