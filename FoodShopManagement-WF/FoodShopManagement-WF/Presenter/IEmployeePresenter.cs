@@ -8,11 +8,12 @@ using DTO;
 
 namespace FoodShopManagement_WF.Presenter
 {
-    interface IManagerDetailPresenter
+    interface IEmployeePresenter
     {
         bool InsertEmployee(frmEmployeeDetail form);
         void loadEmp();
         void LoadEmpByRole(frmManager_v2 form);
         void DeleteEmployee(frmManager_v2 form);
+        void searchEmployee();
     }
 }

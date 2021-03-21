@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FoodShopManagement_WF.Model
 {
-    interface IManagerDetailModel
+    interface IEmployeeModel
     {
         TblEmployeesDTO InsertEmployee(TblEmployeesDTO TblEmployeesDTO);
 

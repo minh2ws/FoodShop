@@ -47,12 +47,9 @@ namespace FoodShopManagement_WF.UI
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.txtSearchEmployeeName = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvListEmployee = new System.Windows.Forms.DataGridView();
             this.bnEmployee = new System.Windows.Forms.BindingNavigator(this.components);
@@ -67,7 +64,7 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.txtEmpSearch = new System.Windows.Forms.ToolStripTextBox();
             this.cbRole = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -310,27 +307,14 @@ namespace FoodShopManagement_WF.UI
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.MenuBar;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.btnAdd);
-            this.panel4.Controls.Add(this.btnSearch);
             this.panel4.Controls.Add(this.btnEdit);
             this.panel4.Controls.Add(this.btnDelete);
-            this.panel4.Controls.Add(this.txtSearchEmployeeName);
             this.panel4.Location = new System.Drawing.Point(-2, -2);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1461, 77);
             this.panel4.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(897, 32);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Employee Name:";
             // 
             // btnAdd
             // 
@@ -347,21 +331,6 @@ namespace FoodShopManagement_WF.UI
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
-            this.btnSearch.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._1229321;
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnSearch.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(1297, 14);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(54, 55);
-            this.btnSearch.TabIndex = 2;
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // btnEdit
             // 
@@ -394,15 +363,6 @@ namespace FoodShopManagement_WF.UI
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // txtSearchEmployeeName
-            // 
-            this.txtSearchEmployeeName.Location = new System.Drawing.Point(1040, 26);
-            this.txtSearchEmployeeName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSearchEmployeeName.MaximumSize = new System.Drawing.Size(272, 50);
-            this.txtSearchEmployeeName.Name = "txtSearchEmployeeName";
-            this.txtSearchEmployeeName.Size = new System.Drawing.Size(272, 30);
-            this.txtSearchEmployeeName.TabIndex = 1;
             // 
             // panel2
             // 
@@ -449,7 +409,7 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.toolStripTextBox2});
+            this.txtEmpSearch});
             this.bnEmployee.Location = new System.Drawing.Point(0, 0);
             this.bnEmployee.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bnEmployee.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -547,11 +507,12 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
-            // toolStripTextBox2
+            // txtEmpSearch
             // 
-            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox2.Name = "toolStripTextBox2";
-            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 27);
+            this.txtEmpSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtEmpSearch.Name = "txtEmpSearch";
+            this.txtEmpSearch.Size = new System.Drawing.Size(100, 27);
+            this.txtEmpSearch.TextChanged += new System.EventHandler(this.txtEmpSearch_TextChanged);
             // 
             // cbRole
             // 
@@ -983,7 +944,6 @@ namespace FoodShopManagement_WF.UI
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListEmployee)).EndInit();
@@ -1028,8 +988,6 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtSearchEmployeeName;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtFullname;
         private System.Windows.Forms.TextBox txtEmployeeID;
@@ -1049,7 +1007,6 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
@@ -1087,7 +1044,7 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.DataGridView dgvListEmployee;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripTextBox txtEmpSearch;
         private System.Windows.Forms.BindingSource bsEmployee;
     }
 }

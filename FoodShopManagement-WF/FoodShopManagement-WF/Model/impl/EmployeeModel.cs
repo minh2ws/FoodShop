@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace FoodShopManagement_WF.Model.impl
 {
-    class ManagerDetailModel : IManagerDetailModel
+    class EmployeeModel : IEmployeeModel
     {
         public TblEmployeesDTO InsertEmployee(TblEmployeesDTO Employee)
         {

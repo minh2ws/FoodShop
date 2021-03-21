@@ -18,7 +18,7 @@ namespace FoodShopManagement_WF.UI
 {
     public partial class frmEmployeeDetail : Form
     {
-        IManagerDetailPresenter ManagerDetailPresenter = new ManagerDetailPresenter();
+        IEmployeePresenter ManagerDetailPresenter = new EmployeePresenter();
        
         public string getUserName()
         {
