@@ -25,26 +25,30 @@ namespace FoodShopManagement_WF.Model.impl
 
         }
 
-        //public List<LoadEmployeeModel> loadData(TblEmployeesDTO dto)
-        //{
-        //    Dictionary<String, String> role = new Dictionary<string, string>();
-        //    role.Add("role", dto.role);
-        //    HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("employee/Load", role, Program.TokenGlobal);
-        //    if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
-        //    {
-        //        var loadResult = responseMessage.Content.ReadAsStringAsync();
-
-        //        List<LoadEmployeeModel> list = JsonConvert.DeserializeObject<List<LoadEmployeeModel>>(loadResult.Result);
-        //        return list;
-        //    }
-        //    return null;
-        //}
-
-        public List<TblEmployeesDTO> loadEmployeeDTO(TblEmployeesDTO dto)
+        public List<TblEmployeesDTO> getAll()
         {
-            Dictionary<String, String> role = new Dictionary<string, string>();
-            role.Add("role", dto.role);
-            HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("employee/Load", role, Program.TokenGlobal);
+            try
+            {
+                HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("employee/Load", Program.TokenGlobal);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    var listFromAPI = responseMessage.Content.ReadAsStringAsync();
+                    List<TblEmployeesDTO> listResult = JsonConvert.DeserializeObject<List<TblEmployeesDTO>>(listFromAPI.Result);
+                    return listResult;
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+     
+        public List<TblEmployeesDTO> LoadEmpByRole(string role)
+        {
+            Dictionary<string, string> hashParam = new Dictionary<string, string>();
+            hashParam.Add("role", role);
+            HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("employee/LoadByRole", hashParam, Program.TokenGlobal);
             if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
             {
                 var loadResult = responseMessage.Content.ReadAsStringAsync();

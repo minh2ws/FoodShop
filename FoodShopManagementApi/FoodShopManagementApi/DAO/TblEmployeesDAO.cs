@@ -23,6 +23,43 @@ namespace FoodShopManagementApi.DAO
             return instance;
         }
 
+        public List<TblEmployeesDTO> loadEmp() {
+            string sql = "select idEmployee, name, password, status " +
+                "from tblEmployees ";
+            SqlConnection connection = null;
+            SqlDataReader reader = null;
+            SqlCommand cmd = null;
+            try
+            {
+                connection = DBUtil.MakeConnect();
+                if (connection != null)
+                {
+                    cmd = new SqlCommand(sql, connection);
+                    reader = cmd.ExecuteReader();
+                    List<TblEmployeesDTO> list = new List<TblEmployeesDTO>();
+                    while (reader.Read())
+                    {
+                        TblEmployeesDTO dto = new TblEmployeesDTO();
+                        dto.idEmployee = reader["idEmployee"].ToString();
+                        dto.name = reader["name"].ToString();
+                        dto.password = reader["password"].ToString();
+                        dto.status = bool.Parse(reader["status"].ToString());
+
+                        list.Add(dto);
+                    }
+                    return list;
+                }
+            }
+            catch (SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                DBUtil.CloseConnection(reader, connection);
+            }
+            return null;
+        }
         public TblEmployeesDTO CheckLogin(string idEmployee, string password)
         {
             SqlConnection connection = null;
@@ -46,13 +83,15 @@ namespace FoodShopManagementApi.DAO
                         string passwordCompare = sqlDataReader.GetString("password");
                         if (idEmployeeCompare.Equals(idEmployee) && passwordCompare.Equals(password))
                         {
-                            TblEmployeesDTO employee = new TblEmployeesDTO();
-                            employee.idEmployee = sqlDataReader.GetString("idEmployee");
-                            employee.password = sqlDataReader.GetString("password");
-                            employee.name = sqlDataReader.GetString("name");
-                            employee.role = sqlDataReader.GetString("role");
-                            employee.status = sqlDataReader.GetBoolean("status");
-                            return employee;
+                            TblEmployeesDTO emp = new TblEmployeesDTO()
+                            {
+                                idEmployee = sqlDataReader["idEmployee"].ToString(),
+                                password = sqlDataReader["password"].ToString(),
+                                name = sqlDataReader["name"].ToString(),
+                                role = sqlDataReader["role"].ToString(),
+                                status = bool.Parse(sqlDataReader["status"].ToString())
+                            };
+                            return emp;
                         }
                     }
                 }
@@ -99,7 +138,7 @@ namespace FoodShopManagementApi.DAO
             return result;
         }
 
-        public List<TblEmployeesDTO> loadEmployee(string role)
+        public List<TblEmployeesDTO> loadEmpByRole(string role)
         {
             SqlConnection connection = null;
             SqlDataReader sqlDataReader = null;

@@ -1,6 +1,7 @@
 ﻿using DTO;
 using FoodShopManagement_WF.Presenter;
 using FoodShopManagement_WF.Presenter.impl;
+using FoodShopManagement_WF.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -79,7 +80,7 @@ namespace FoodShopManagement_WF.UI
             bool isSuccess = presenter.UpdateEmpDetail(this);
             if (isSuccess)
             {
-                MessageBox.Show("Update Employee Detail Successful!", "Notify");
+                MessageBox.Show(MessageUtil.SAVE_SUCCESS, "Notify");
             }
         }
     }

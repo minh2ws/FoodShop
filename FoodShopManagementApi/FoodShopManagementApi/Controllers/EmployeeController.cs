@@ -58,6 +58,30 @@ namespace FoodShopManagementApi.Controllers
 
         [HttpGet("Load")]
         [Produces("application/json")]
+        public IActionResult loadEmployee()
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblEmployeesDAO dao = TblEmployeesDAO.getInstance();
+                try
+                {
+                    List<TblEmployeesDTO> listEmp = dao.loadEmp();
+                    if (listEmp != null)
+                    {
+                        return Ok(listEmp);
+                    }
+                }
+                catch (Exception)
+                {
+                    StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
+
+        [HttpGet("LoadByRole")]
+        [Produces("application/json")]
         public IActionResult LoadEmployee([FromQuery] string role)
         {
             Boolean isValidToken = ValidateToken();
@@ -66,7 +90,7 @@ namespace FoodShopManagementApi.Controllers
                 TblEmployeesDAO dao = TblEmployeesDAO.getInstance();
             try
             {
-                List<TblEmployeesDTO> list = dao.loadEmployee(role);
+                List<TblEmployeesDTO> list = dao.loadEmpByRole(role);
                 if (list != null)
                 {
                     return Ok(list);
