@@ -13,30 +13,65 @@ namespace FoodShopManagement_WF.UI
     {
         private frmLogin loginFrame;
         private TblEmployeesDTO emp;
-        private IManagerDetailPresenter presenter = new ManagerDetailPresenter();
+        private IManagerDetailPresenter presenter;
         
         public frmManager_v2(frmLogin loginFrame, TblEmployeesDTO emp)
         {
             InitializeComponent();
             this.loginFrame = loginFrame;
             this.emp = emp;
-            loadData();
+            presenter = new ManagerDetailPresenter(this);
+            txtEmployeeID.Enabled=true;
+            txtFullname.Enabled = true;
+            txtPassword.Enabled = true;
+            txtRole.Enabled = true;
+            txtStatus.Enabled = false;
         }
+
+        public TextBox getIdEmp()
+        {
+            return txtEmployeeID;
+        }
+        public TextBox getEmpName()
+        {
+            return txtFullname;
+        }
+        public TextBox getPassword()
+        {
+            return txtPassword;
+        }
+
         public void loadData()
         {
             msTool.Text = "User: "+ emp.name;
-            //List<LoadEmployeeModel> listEmp = presenter.loadData(this);
-            List<TblEmployeesDTO> listEmp = presenter.loadEmployeeDTO(this);
-            //dgvListEmployee.DataSource = listEmp;
-
-            dgvListEmployee.DataSource = listEmp.Select(emp => new {
-            Id = emp.idEmployee, Name = emp.name,
-                Password = emp.password,
-                Role = emp.role
-            }).ToList();
-             
+           
+            dgvListEmployee.ColumnCount = 2;
+            dgvListEmployee.Columns[0].Name = "ID";
+            dgvListEmployee.Columns[0].DataPropertyName = "idEmployee";
+            dgvListEmployee.Columns[1].Name = "Name";
+            dgvListEmployee.Columns[1].DataPropertyName = "name";
+            dgvListEmployee.AutoGenerateColumns = false;
+            presenter.loadEmp();
         }
+        public void loadAll()
+        {
+            msTool.Text = "User: " + emp.name;
+            presenter.loadEmp();
+        }
+        public void loadEmpByRole()
+        {
+            msTool.Text = "User: " + emp.name;
+            presenter.LoadEmpByRole(this);
 
+        }
+        public DataGridView GetDataGridViewEmployee()
+        {
+            return this.dgvListEmployee;
+        }
+        public BindingNavigator GetBindingNavigator()
+        {
+            return this.bnEmployee;
+        }
         private void frmManager_v2_Load(object sender, EventArgs e)
         {
             loadData();
@@ -92,19 +127,17 @@ namespace FoodShopManagement_WF.UI
         private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
             setRole(cbRole.SelectedIndex.ToString());
-            loadData();
-        }
-
-        private void dgvListEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
+            string role = getRole();
+            if (role.Equals("All"))
             {
-                txtEmployeeID.Text = dgvListEmployee.SelectedRows[0].Cells[0].Value.ToString();
-                txtFullname.Text = dgvListEmployee.SelectedRows[0].Cells[1].Value.ToString();
-                txtPassword.Text = dgvListEmployee.SelectedRows[0].Cells[2].Value.ToString();
-                txtRole.Text = dgvListEmployee.SelectedRows[0].Cells[3].Value.ToString();
+                loadAll();
+            }
+            else
+            {
+                loadEmpByRole();
             }
         }
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
