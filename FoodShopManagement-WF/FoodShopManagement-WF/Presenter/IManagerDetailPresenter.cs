@@ -11,8 +11,6 @@ namespace FoodShopManagement_WF.Presenter
     interface IManagerDetailPresenter
     {
         bool InsertEmployee(frmEmployeeDetail form);
-
-        //List<LoadEmployeeModel> loadData(frmManager_v2 form);
         void loadEmp();
         void LoadEmpByRole(frmManager_v2 form);
         void DeleteEmployee(frmManager_v2 form);

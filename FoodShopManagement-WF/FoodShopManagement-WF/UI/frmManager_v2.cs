@@ -27,6 +27,7 @@ namespace FoodShopManagement_WF.UI
             txtRole.Enabled = false;
             txtStatus.Enabled = false;
             dgvListEmployee.ReadOnly = true;
+            loadAll();
         }
 
         //get Textbox Data
@@ -51,17 +52,6 @@ namespace FoodShopManagement_WF.UI
             return txtStatus;
         }
 
-        //get;set idEmp
-        private string idEmp;
-        public string getID()
-        {
-            return this.txtEmployeeID.Text;
-        }
-        public void setID(string idEmp)
-        {
-
-            this.idEmp = idEmp;
-        } 
         public void loadAll()
         {
             msTool.Text = "User: " + emp.name;
@@ -142,14 +132,31 @@ namespace FoodShopManagement_WF.UI
             }
         }
 
+        private string idEmp;
+        public string getID()
+        {
+            return this.txtEmployeeID.Text;
+        }
+        public void setID(string idEmp)
+        {
 
+            this.idEmp = idEmp;
+        }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string id = getID();
             setID(txtEmployeeID.Text);
+            string id = getID();
             presenter.DeleteEmployee(this);
-            loadAll();
-            loadEmpByRole();
+            setRole(cbRole.SelectedIndex.ToString());
+            string role = getRole();
+            if (role.Equals("All"))
+            {
+                loadAll();
+            }
+            else
+            {
+                loadEmpByRole();
+            }
         }
     }
 }

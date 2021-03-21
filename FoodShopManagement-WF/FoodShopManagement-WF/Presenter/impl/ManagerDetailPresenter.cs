@@ -120,7 +120,7 @@ namespace FoodShopManagement_WF.Presenter.impl
             try
             {
                 string id = form.getID();
-                TblEmployeesDTO emp = model.DeleteEmployee(id);
+                Boolean emp = model.DeleteEmployee(id);
             }catch(Exception e)
             {
                 MessageBox.Show(MessageUtil.ERROR + " Delete Employee");

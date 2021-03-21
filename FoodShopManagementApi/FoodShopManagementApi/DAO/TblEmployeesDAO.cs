@@ -163,7 +163,7 @@ namespace FoodShopManagementApi.DAO
                         emp.name = sqlDataReader["name"].ToString();
                         emp.password = sqlDataReader["password"].ToString();
                         emp.role = sqlDataReader["role"].ToString();
-
+                        emp.status = bool.Parse(sqlDataReader["status"].ToString());
                         result.Add(emp);
                     }
                     return result;

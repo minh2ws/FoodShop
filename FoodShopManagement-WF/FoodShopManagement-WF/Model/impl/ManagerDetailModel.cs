@@ -59,18 +59,18 @@ namespace FoodShopManagement_WF.Model.impl
             return null;
         }
 
-        public TblEmployeesDTO DeleteEmployee(string id)
+        public Boolean DeleteEmployee(string id)
         {
             Dictionary<String, String> hashParam = new Dictionary<string, string>();
-            hashParam.Add("idEmployee", id);
+            hashParam.Add("id", id);
             HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("employee/Delete", hashParam, Program.TokenGlobal);
             if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
             {
-                var employeeDTO = responseMessage.Content.ReadAsStringAsync();
-                TblEmployeesDTO emp = JsonConvert.DeserializeObject<TblEmployeesDTO>(employeeDTO.Result);
+                var result = responseMessage.Content.ReadAsStringAsync();
+                bool emp = JsonConvert.DeserializeObject<bool>(result.Result);
                 return emp;
             }
-            return null;
+            return false;
         }
     }
 }
