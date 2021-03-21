@@ -21,13 +21,15 @@ namespace FoodShopManagement_WF.UI
             this.loginFrame = loginFrame;
             this.emp = emp;
             presenter = new ManagerDetailPresenter(this);
-            txtEmployeeID.Enabled=true;
-            txtFullname.Enabled = true;
-            txtPassword.Enabled = true;
-            txtRole.Enabled = true;
+            txtEmployeeID.Enabled=false;
+            txtFullname.Enabled = false;
+            txtPassword.Enabled = false;
+            txtRole.Enabled = false;
             txtStatus.Enabled = false;
+            dgvListEmployee.ReadOnly = true;
         }
 
+        //get Textbox Data
         public TextBox getIdEmp()
         {
             return txtEmployeeID;
@@ -40,19 +42,26 @@ namespace FoodShopManagement_WF.UI
         {
             return txtPassword;
         }
-
-        public void loadData()
+        public TextBox getEmpRole()
         {
-            msTool.Text = "User: "+ emp.name;
-           
-            dgvListEmployee.ColumnCount = 2;
-            dgvListEmployee.Columns[0].Name = "ID";
-            dgvListEmployee.Columns[0].DataPropertyName = "idEmployee";
-            dgvListEmployee.Columns[1].Name = "Name";
-            dgvListEmployee.Columns[1].DataPropertyName = "name";
-            dgvListEmployee.AutoGenerateColumns = false;
-            presenter.loadEmp();
+            return txtRole;
         }
+        public TextBox getStatus()
+        {
+            return txtStatus;
+        }
+
+        //get;set idEmp
+        private string idEmp;
+        public string getID()
+        {
+            return this.txtEmployeeID.Text;
+        }
+        public void setID(string idEmp)
+        {
+
+            this.idEmp = idEmp;
+        } 
         public void loadAll()
         {
             msTool.Text = "User: " + emp.name;
@@ -74,24 +83,17 @@ namespace FoodShopManagement_WF.UI
         }
         private void frmManager_v2_Load(object sender, EventArgs e)
         {
-            loadData();
+            loadAll();
         }
-
         private void frmManager_v2_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
-
-
-
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             loginFrame.Show();
         }
-
-
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
             frmEmployeeDetail ProductDetail = new frmEmployeeDetail(true);
@@ -103,7 +105,9 @@ namespace FoodShopManagement_WF.UI
         {
             frmEmployeeDetail ProductDetail = new frmEmployeeDetail(true);
             DialogResult r = ProductDetail.ShowDialog();
-           
+
+            loadAll();
+            loadEmpByRole();
 
         }
 
@@ -141,9 +145,11 @@ namespace FoodShopManagement_WF.UI
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string id=dgvListEmployee.SelectedRows[0].Cells[0].Value.ToString();
-
-            bool delete = presenter.DeleteEmployee(id);
+            string id = getID();
+            setID(txtEmployeeID.Text);
+            presenter.DeleteEmployee(this);
+            loadAll();
+            loadEmpByRole();
         }
     }
 }

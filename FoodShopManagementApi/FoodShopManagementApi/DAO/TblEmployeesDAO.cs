@@ -24,7 +24,7 @@ namespace FoodShopManagementApi.DAO
         }
 
         public List<TblEmployeesDTO> loadEmp() {
-            string sql = "select idEmployee, name, password, status " +
+            string sql = "select idEmployee, name, password, role, status " +
                 "from tblEmployees ";
             SqlConnection connection = null;
             SqlDataReader reader = null;
@@ -43,6 +43,7 @@ namespace FoodShopManagementApi.DAO
                         dto.idEmployee = reader["idEmployee"].ToString();
                         dto.name = reader["name"].ToString();
                         dto.password = reader["password"].ToString();
+                        dto.role = reader["role"].ToString();
                         dto.status = bool.Parse(reader["status"].ToString());
 
                         list.Add(dto);
@@ -143,7 +144,7 @@ namespace FoodShopManagementApi.DAO
             SqlConnection connection = null;
             SqlDataReader sqlDataReader = null;
             SqlCommand sqlCommand = null;
-            string sql = "select idEmployee, name , password, role  " +
+            string sql = "select idEmployee, name , password, role, status  " +
                  "from tblEmployees " +
                  "where role = @role ";
             try
@@ -225,6 +226,7 @@ namespace FoodShopManagementApi.DAO
                 if (cn != null)
                 {
                     cmd = new SqlCommand(sql, cn);
+                    cmd.Parameters.AddWithValue("@id", id);
                     return cmd.ExecuteNonQuery() > 0;
                 }
             }

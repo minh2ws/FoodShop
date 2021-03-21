@@ -35,7 +35,7 @@ namespace FoodShopManagement_WF.Presenter.impl
                         frmManager_v2 manager = new frmManager_v2(form,emp);
                         manager.Show();
                         break;
-                    case "WAREHOUSE STAFF":
+                    case "STAFF":
                         frmWarehouse_V2 warehouse = new frmWarehouse_V2(form, emp);
                         warehouse.Show();
                         break;

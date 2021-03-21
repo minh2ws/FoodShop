@@ -59,7 +59,22 @@ namespace FoodShopManagement_WF.Presenter.impl
             form.getIdEmp().DataBindings.Clear();
             form.getEmpName().DataBindings.Clear();
             form.getPassword().DataBindings.Clear();
-
+            form.getEmpRole().DataBindings.Clear();
+            form.getStatus().DataBindings.Clear();
+        }
+        public void bindingSource()
+        {
+            form.GetDataGridViewEmployee().DataSource = bsEmp;
+            form.GetBindingNavigator().BindingSource = bsEmp;
+            clearDataBindingTextEmployee();
+            form.getIdEmp().DataBindings.Add("Text", bsEmp, "idEmployee");
+            form.getEmpName().DataBindings.Add("Text", bsEmp, "name");
+            form.getPassword().DataBindings.Add("Text", bsEmp, "password");
+            form.GetDataGridViewEmployee().Columns["password"].Visible = false;
+            form.getEmpRole().DataBindings.Add("Text", bsEmp, "role");
+            form.GetDataGridViewEmployee().Columns["role"].Visible = false;
+            form.getStatus().DataBindings.Add("Text", bsEmp, "status");
+            form.GetDataGridViewEmployee().Columns["status"].Visible = false;
         }
         public void loadEmp()
         {
@@ -71,9 +86,8 @@ namespace FoodShopManagement_WF.Presenter.impl
                 {
                     DataSource = dataTable
                 };
-                form.GetDataGridViewEmployee().DataSource = bsEmp;
-                form.GetBindingNavigator().BindingSource = bsEmp;
-                clearDataBindingTextEmployee();
+                bindingSource();
+
             }
             catch (Exception e)
             {
@@ -92,7 +106,7 @@ namespace FoodShopManagement_WF.Presenter.impl
                 {
                     DataSource = dataTable
                 };
-                form.GetDataGridViewEmployee().DataSource = bsEmp;
+                bindingSource();
             }
             catch (Exception e)
             {
@@ -100,21 +114,17 @@ namespace FoodShopManagement_WF.Presenter.impl
             }
         }
 
-
-        /* public List<TblEmployeesDTO> loadEmployeeDTO(frmManager_v2 form)
-         {
-             TblEmployeesDTO model = new TblEmployeesDTO
-             {
-                 role = form.getRole()
-             };
-
-             List<TblEmployeesDTO> result = ManagerDetail.loadEmployeeDTO(model);
-             return result;
-         }*/
-
-        public bool DeleteEmployee(string id)
+        public void DeleteEmployee(frmManager_v2 form)
         {
-            throw new NotImplementedException();
+
+            try
+            {
+                string id = form.getID();
+                TblEmployeesDTO emp = model.DeleteEmployee(id);
+            }catch(Exception e)
+            {
+                MessageBox.Show(MessageUtil.ERROR + " Delete Employee");
+            }
         }
     }
 }

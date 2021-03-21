@@ -15,6 +15,6 @@ namespace FoodShopManagement_WF.Presenter
         //List<LoadEmployeeModel> loadData(frmManager_v2 form);
         void loadEmp();
         void LoadEmpByRole(frmManager_v2 form);
-        bool DeleteEmployee(string id);
+        void DeleteEmployee(frmManager_v2 form);
     }
 }

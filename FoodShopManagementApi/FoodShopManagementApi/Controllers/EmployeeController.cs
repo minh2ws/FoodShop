@@ -104,7 +104,7 @@ namespace FoodShopManagementApi.Controllers
             return Unauthorized();
         }
 
-        [HttpGet("DeleteEmployee")]
+        [HttpGet("Delete")]
         [Produces("application/json")]
         public IActionResult deleteEmployee([FromQuery] string id)
         {
