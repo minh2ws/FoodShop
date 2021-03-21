@@ -52,6 +52,8 @@
     <Compile Include="TblCustomerDTO.cs" />
     <Compile Include="TblEmployeesDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TblOrderDetailDTO.cs" />
+    <Compile Include="TblOrderDTO.cs" />
     <Compile Include="TblProductsDTO.cs" />
   </ItemGroup>
   <ItemGroup>
