@@ -53,5 +53,60 @@ namespace FoodShopManagementApi.Controllers
             }
             return Unauthorized();
         }
+
+        [HttpPost("add-customer")]
+        [Produces("application/json")]
+        public IActionResult AddCustomer([FromBody] TblCustomerDTO dto)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblCustomerDAO dao = TblCustomerDAO.getInstance();
+                try
+                {
+                    if (dao.AddCustomer(dto))
+                    {
+                        return Ok(true);
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
+                }
+                catch (Exception)
+                {
+                    StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
+
+        [HttpPut("update-customer")]
+        [Produces("application/json")]
+        public IActionResult UpdateCustomer([FromBody] TblCustomerDTO dto)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblCustomerDAO dao = TblCustomerDAO.getInstance();
+                try
+                {
+                    bool isSuccess = dao.UpdateCustomer(dto);
+                    if (isSuccess)
+                    {
+                        return Ok(isSuccess);
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
+                }
+                catch (Exception)
+                {
+                    StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
     }
 }

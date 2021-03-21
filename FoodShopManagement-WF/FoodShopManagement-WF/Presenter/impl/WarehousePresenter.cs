@@ -63,9 +63,8 @@ namespace FoodShopManagement_WF.Presenter.impl
             }
             catch(Exception e)
             {
-                MessageBox.Show(MessageUtil.ERROR+" Get All Category");
+                MessageBox.Show(MessageUtil.ERROR + " Get All Category");
             }
-           
         }
         private void bindingDataTextCategory()
         {

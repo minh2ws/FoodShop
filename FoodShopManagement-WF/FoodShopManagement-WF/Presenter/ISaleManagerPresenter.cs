@@ -15,5 +15,8 @@ namespace FoodShopManagement_WF.Presenter
         List<TblCategoryDTO> GetCategories();
         List<TblProductsDTO> searchProduct(frmSaleManager_V2 form);
         DataTable GetCustomers();
+        void AddCustomer();
+        void UpdateCustomer();
+        void SaveCustomer(frmCustomerDetail form);
     }
 }

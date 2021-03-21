@@ -73,6 +73,7 @@
     <Compile Include="Model\impl\ProductModel.cs" />
     <Compile Include="Model\IMyProfileDetailModel.cs" />
     <Compile Include="Model\IProductModel.cs" />
+    <Compile Include="Presenter\IProductDetail.cs" />
     <Compile Include="Presenter\IWarehousePresenter.cs" />
     <Compile Include="Presenter\ILoginPresenter.cs" />
     <Compile Include="Presenter\IManagerDetailPresenter.cs" />

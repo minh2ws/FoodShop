@@ -30,5 +30,29 @@ namespace FoodShopManagement_WF.Model.impl
             }
             return null;
         }
+
+        public bool addCustomer(TblCustomerDTO dto)
+        {
+            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("customer/add-customer", dto, Program.TokenGlobal);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var resultFromApi = responseMessage.Content.ReadAsStringAsync();
+                bool isSuccess = JsonConvert.DeserializeObject<bool>(resultFromApi.Result);
+                return isSuccess;
+            }
+            return false;
+        }
+
+        public bool updateCustomer(TblCustomerDTO dto)
+        {
+            HttpResponseMessage responseMessage = ApiConnection.loadPutJsonObject("customer/update-customer", dto, Program.TokenGlobal);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var resultFromApi = responseMessage.Content.ReadAsStringAsync();
+                bool isSuccess = JsonConvert.DeserializeObject<bool>(resultFromApi.Result);
+                return isSuccess;
+            }
+            return false;
+        }
     }
 }

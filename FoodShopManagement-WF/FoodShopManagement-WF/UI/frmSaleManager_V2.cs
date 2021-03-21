@@ -12,7 +12,7 @@ namespace FoodShopManagement_WF.UI
     {
         private frmLogin loginFrame;
         private TblEmployeesDTO emp;
-        private ISaleManagerPresenter saleManagerPresenter = new SaleManagerPresenter();
+        private ISaleManagerPresenter saleManagerPresenter;
         private DataTable dtCustomer;
 
         public string getCategoryName()
@@ -24,6 +24,27 @@ namespace FoodShopManagement_WF.UI
         {
             return this.txtProductName.Text;
         }
+
+        public TextBox getCustomerId()
+        {
+            return txtCustomerID;
+        }
+
+        public TextBox getCustomerName()
+        {
+            return txtCustomerName;
+        }
+
+        public TextBox getCustomerPhone()
+        {
+            return txtPhonenumber;
+        }
+
+        public TextBox getCustomerAddress()
+        {
+            return txtAddress;
+        }
+
         public frmSaleManager_V2()
         {
             InitializeComponent();
@@ -31,6 +52,7 @@ namespace FoodShopManagement_WF.UI
         public frmSaleManager_V2(frmLogin loginFrame, TblEmployeesDTO emp)
         {
             InitializeComponent();
+            saleManagerPresenter = new SaleManagerPresenter(this);
             this.loginFrame = loginFrame;
             this.emp = emp;
             msTool.Text = "User: " + emp.name;
@@ -40,21 +62,14 @@ namespace FoodShopManagement_WF.UI
 
         public void loadProducts()
         {
-            //customize datagridview
-            dgvProducts.ColumnCount = 3;
-            dgvProducts.Columns[0].Name = "Name";
-            dgvProducts.Columns[0].DataPropertyName = "name";
-            dgvProducts.Columns[1].Name = "Price";
-            dgvProducts.Columns[1].DataPropertyName = "price";
-            dgvProducts.Columns[2].Name = "Quantity";
-            dgvProducts.Columns[2].DataPropertyName = "quantity";
-
-            dgvProducts.AutoGenerateColumns = false;
-
-
             //binding data to binding source
             bsProducts.DataSource = saleManagerPresenter.GetProducts();
             dgvProducts.DataSource = bsProducts;
+            dgvProducts.Columns["idProduct"].Visible = false;
+            dgvProducts.Columns["status"].Visible = false;
+            dgvProducts.Columns["idCategory"].Visible = false;
+            dgvProducts.Columns["categoryName"].Visible = false;
+
 
             //binding to navigation
             bnProducts.BindingSource = bsProducts;
@@ -69,19 +84,14 @@ namespace FoodShopManagement_WF.UI
         public void loadCustomers()
         {
             dtCustomer = saleManagerPresenter.GetCustomers();
-            
-            //customize datagridview
-            dgvCustomer.ColumnCount = 2;
-            dgvCustomer.Columns[0].Name = "CustomerID";
-            dgvCustomer.Columns[0].DataPropertyName = "idCustomer";
-            dgvCustomer.Columns[1].Name = "Customer Name";
-            dgvCustomer.Columns[1].DataPropertyName = "name";
-
-            dgvCustomer.AutoGenerateColumns = false;
 
             //binding data to binding source
             bsCustomer.DataSource = dtCustomer;
             dgvCustomer.DataSource = bsCustomer;
+            dgvCustomer.Columns["phone"].Visible = false;
+            dgvCustomer.Columns["address"].Visible = false;
+            dgvCustomer.Columns["point"].Visible = false;
+
 
             //binding to navigation
             bnCustomer.BindingSource = bsCustomer;
@@ -114,24 +124,20 @@ namespace FoodShopManagement_WF.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmCustomerDetail CustomerDetail = new frmCustomerDetail();
-            DialogResult r = CustomerDetail.ShowDialog();
-            loadCustomers();
+            saleManagerPresenter.AddCustomer();
+            //loadCustomers();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
-            frmCustomerDetail CustomerDetail = new frmCustomerDetail();
-            DialogResult r = CustomerDetail.ShowDialog();
-            loadCustomers();
+            saleManagerPresenter.UpdateCustomer();
+            //loadCustomers();
         }
 
         private void ViewProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmMyProfileDetailcs ProfileDetail = new frmMyProfileDetailcs(this.emp);
             DialogResult r = ProfileDetail.ShowDialog();
-            this.Close();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
