@@ -53,7 +53,7 @@ namespace FoodShopManagement_WF.UI
             this.txtSearchEmployeeName = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvListEmployee = new System.Windows.Forms.DataGridView();
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bnEmployee = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -104,6 +104,9 @@ namespace FoodShopManagement_WF.UI
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ViewProfiletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -111,8 +114,8 @@ namespace FoodShopManagement_WF.UI
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListEmployee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bnEmployee)).BeginInit();
+            this.bnEmployee.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -161,6 +164,8 @@ namespace FoodShopManagement_WF.UI
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.txtStatus);
+            this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.txtRole);
             this.panel5.Controls.Add(this.txtPassword);
             this.panel5.Controls.Add(this.label6);
@@ -171,7 +176,7 @@ namespace FoodShopManagement_WF.UI
             this.panel5.Controls.Add(this.txtFullname);
             this.panel5.Location = new System.Drawing.Point(724, 313);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(626, 327);
+            this.panel5.Size = new System.Drawing.Size(626, 398);
             this.panel5.TabIndex = 10;
             // 
             // txtRole
@@ -380,7 +385,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.dgvListEmployee);
-            this.panel2.Controls.Add(this.bindingNavigator1);
+            this.panel2.Controls.Add(this.bnEmployee);
             this.panel2.Controls.Add(this.cbRole);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.panel3);
@@ -402,15 +407,15 @@ namespace FoodShopManagement_WF.UI
             this.dgvListEmployee.RowTemplate.Height = 24;
             this.dgvListEmployee.Size = new System.Drawing.Size(505, 535);
             this.dgvListEmployee.TabIndex = 6;
-            this.dgvListEmployee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListEmployee_CellClick);
+
             // 
-            // bindingNavigator1
+            // bnEmployee
             // 
-            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
-            this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bnEmployee.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bnEmployee.CountItem = this.bindingNavigatorCountItem;
+            this.bnEmployee.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.bnEmployee.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.bnEmployee.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -421,17 +426,18 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
-            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(504, 27);
-            this.bindingNavigator1.TabIndex = 5;
-            this.bindingNavigator1.Text = "bindingNavigator1";
+            this.bindingNavigatorDeleteItem,
+            this.toolStripTextBox2});
+            this.bnEmployee.Location = new System.Drawing.Point(0, 0);
+            this.bnEmployee.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.bnEmployee.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.bnEmployee.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.bnEmployee.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.bnEmployee.Name = "bnEmployee";
+            this.bnEmployee.PositionItem = this.bindingNavigatorPositionItem;
+            this.bnEmployee.Size = new System.Drawing.Size(504, 27);
+            this.bnEmployee.TabIndex = 5;
+            this.bnEmployee.Text = "bindingNavigator1";
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -524,6 +530,7 @@ namespace FoodShopManagement_WF.UI
             this.cbRole.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Items.AddRange(new object[] {
+            "All",
             "SALESMAN",
             "MANAGER",
             "WAREHOUSE STAFF"});
@@ -533,7 +540,7 @@ namespace FoodShopManagement_WF.UI
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(200, 28);
             this.cbRole.TabIndex = 4;
-            this.cbRole.Text = "--- Select Role ---";
+            this.cbRole.Text = "All";
             this.cbRole.SelectedIndexChanged += new System.EventHandler(this.cbRole_SelectedIndexChanged);
             // 
             // label2
@@ -928,6 +935,33 @@ namespace FoodShopManagement_WF.UI
             this.ViewProfiletoolStripMenuItem.Text = "View Profile";
             this.ViewProfiletoolStripMenuItem.Click += new System.EventHandler(this.ViewProfileToolStripMenuItem_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(13, 344);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(72, 24);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Status:";
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtStatus.Font = new System.Drawing.Font("Georgia", 13.8F);
+            this.txtStatus.Location = new System.Drawing.Point(199, 334);
+            this.txtStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(167, 34);
+            this.txtStatus.TabIndex = 9;
+            // 
+            // toolStripTextBox2
+            // 
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 27);
+            // 
             // frmManager_v2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -952,9 +986,9 @@ namespace FoodShopManagement_WF.UI
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListEmployee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bnEmployee)).EndInit();
+            this.bnEmployee.ResumeLayout(false);
+            this.bnEmployee.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -1002,7 +1036,7 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.BindingNavigator bindingNavigator1;
+        private System.Windows.Forms.BindingNavigator bnEmployee;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -1051,5 +1085,8 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.TextBox txtRole;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgvListEmployee;
+        private System.Windows.Forms.TextBox txtStatus;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
     }
 }
