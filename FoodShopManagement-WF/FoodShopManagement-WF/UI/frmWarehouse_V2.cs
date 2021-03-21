@@ -116,19 +116,12 @@ namespace FoodShopManagement_WF.UI
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-
-            frmProductDetail ProductDetail = new frmProductDetail(true);
-            DialogResult r = ProductDetail.ShowDialog();
-
+            warehousePresenter.addProduct();
         }
 
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
-
-            frmProductDetail ProductDetail = new frmProductDetail(true);
-            DialogResult r = ProductDetail.ShowDialog();
-           
-
+            warehousePresenter.editProduct();
         }
 
         private void ViewProfileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -158,6 +151,11 @@ namespace FoodShopManagement_WF.UI
         private void btnGetAll_Click(object sender, EventArgs e)
         {
             loadData();
+        }
+
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            warehousePresenter.deleteProduct();
         }
     }
 }

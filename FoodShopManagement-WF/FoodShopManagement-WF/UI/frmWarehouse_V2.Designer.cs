@@ -86,13 +86,14 @@ namespace FoodShopManagement_WF.UI
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.cbxCategoryTable = new System.Windows.Forms.ComboBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.btnGetAll = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.cbxCategoryTable = new System.Windows.Forms.ComboBox();
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.btnEditProduct = new System.Windows.Forms.Button();
@@ -103,7 +104,6 @@ namespace FoodShopManagement_WF.UI
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ViewProfiletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tblCategoryDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnGetAll = new System.Windows.Forms.Button();
             this.tabWareHouse.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -724,25 +724,6 @@ namespace FoodShopManagement_WF.UI
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
             // 
-            // cbxCategoryTable
-            // 
-            this.cbxCategoryTable.FormattingEnabled = true;
-            this.cbxCategoryTable.Location = new System.Drawing.Point(696, 28);
-            this.cbxCategoryTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbxCategoryTable.MaximumSize = new System.Drawing.Size(156, 0);
-            this.cbxCategoryTable.Name = "cbxCategoryTable";
-            this.cbxCategoryTable.Size = new System.Drawing.Size(156, 32);
-            this.cbxCategoryTable.TabIndex = 4;
-            // 
-            // label27
-            // 
-            this.label27.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(565, 31);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(130, 24);
-            this.label27.TabIndex = 3;
-            this.label27.Text = "Category:";
-            // 
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.Color.Transparent;
@@ -797,6 +778,16 @@ namespace FoodShopManagement_WF.UI
             this.panel12.Size = new System.Drawing.Size(1455, 77);
             this.panel12.TabIndex = 13;
             // 
+            // btnGetAll
+            // 
+            this.btnGetAll.Location = new System.Drawing.Point(233, 10);
+            this.btnGetAll.Name = "btnGetAll";
+            this.btnGetAll.Size = new System.Drawing.Size(75, 59);
+            this.btnGetAll.TabIndex = 5;
+            this.btnGetAll.Text = "Get";
+            this.btnGetAll.UseVisualStyleBackColor = true;
+            this.btnGetAll.Click += new System.EventHandler(this.btnGetAll_Click);
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -806,6 +797,25 @@ namespace FoodShopManagement_WF.UI
             this.label19.Size = new System.Drawing.Size(123, 20);
             this.label19.TabIndex = 4;
             this.label19.Text = "Product Name:";
+            // 
+            // label27
+            // 
+            this.label27.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(565, 31);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(130, 24);
+            this.label27.TabIndex = 3;
+            this.label27.Text = "Category:";
+            // 
+            // cbxCategoryTable
+            // 
+            this.cbxCategoryTable.FormattingEnabled = true;
+            this.cbxCategoryTable.Location = new System.Drawing.Point(696, 28);
+            this.cbxCategoryTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbxCategoryTable.MaximumSize = new System.Drawing.Size(156, 0);
+            this.cbxCategoryTable.Name = "cbxCategoryTable";
+            this.cbxCategoryTable.Size = new System.Drawing.Size(156, 32);
+            this.cbxCategoryTable.TabIndex = 4;
             // 
             // btnAddProduct
             // 
@@ -868,6 +878,7 @@ namespace FoodShopManagement_WF.UI
             this.btnDeleteProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDeleteProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteProduct.UseVisualStyleBackColor = false;
+            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
             // 
             // txtSearchProductName
             // 
@@ -921,16 +932,6 @@ namespace FoodShopManagement_WF.UI
             // tblCategoryDTOBindingSource
             // 
             this.tblCategoryDTOBindingSource.DataSource = typeof(DTO.TblCategoryDTO);
-            // 
-            // btnGetAll
-            // 
-            this.btnGetAll.Location = new System.Drawing.Point(233, 10);
-            this.btnGetAll.Name = "btnGetAll";
-            this.btnGetAll.Size = new System.Drawing.Size(75, 59);
-            this.btnGetAll.TabIndex = 5;
-            this.btnGetAll.Text = "Get";
-            this.btnGetAll.UseVisualStyleBackColor = true;
-            this.btnGetAll.Click += new System.EventHandler(this.btnGetAll_Click);
             // 
             // frmWarehouse_V2
             // 

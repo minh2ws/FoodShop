@@ -129,7 +129,7 @@ namespace FoodShopManagementApi.DAO
                 {
                     sqlCommand = new SqlCommand(sql, sqlConnection);
                     sqlCommand.Parameters.AddWithValue("@idCategory", dto.idCategory);
-                    sqlCommand.Parameters.AddWithValue("@idProduct", dto.idProduct);
+                    sqlCommand.Parameters.AddWithValue("@idProduct", Guid.NewGuid().ToString());
                     sqlCommand.Parameters.AddWithValue("@name", dto.name);
                     sqlCommand.Parameters.AddWithValue("@price", dto.price);
                     sqlCommand.Parameters.AddWithValue("@quantity", dto.quantity);
@@ -163,10 +163,36 @@ namespace FoodShopManagementApi.DAO
                     sqlCommand.Parameters.AddWithValue("@quantity", dto.quantity);
                     sqlCommand.Parameters.AddWithValue("@status", dto.status);
                     sqlCommand.Parameters.AddWithValue("@idCategory", dto.idCategory);
-
+                    sqlCommand.Parameters.AddWithValue("@idProduct", dto.idProduct);
                     return sqlCommand.ExecuteNonQuery() > 0;
                 }
             }catch(SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                DBUtil.CloseConnection(null, sqlConnection);
+            }
+            return false;
+        }
+        public bool updateStatusProduct(TblProductsDTO dto)
+        {
+            string sql = "UPDATE tblProducts " +
+                "SET status=@status " +
+                "WHERE idProduct=@idProduct";
+            try
+            {
+                sqlConnection = DBUtil.MakeConnect();
+                if (sqlConnection != null)
+                {
+                    sqlCommand = new SqlCommand(sql, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@status", dto.status);
+                    sqlCommand.Parameters.AddWithValue("@idProduct", dto.idProduct);
+                    return sqlCommand.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (SqlException e)
             {
                 throw new Exception(e.Message);
             }

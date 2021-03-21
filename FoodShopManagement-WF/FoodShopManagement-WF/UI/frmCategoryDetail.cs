@@ -15,15 +15,20 @@ namespace FoodShopManagement_WF.UI
     public partial class frmCategoryDetail : Form
     {
         private IWarehousePresenter categoryPresenter;
+        private bool update = false;
         public frmCategoryDetail()
         {
             InitializeComponent();
         }
- 
-        public TextBox getCategoryId()
+        public void setStateUpdate(bool value)
         {
-            return this.txtCategoryID;
+            update = value;
         }
+        public bool getStateUpdate()
+        {
+            return this.update;
+        }
+
         public TextBox getCategoryName()
         {
             return this.txtCategoryName;
