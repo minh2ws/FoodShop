@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -74,28 +75,60 @@ namespace FoodShopManagement_WF.Presenter.impl
             DialogResult r = customerDetail.ShowDialog();
         }
 
+        private bool checkCustomerField(string cusName, string cusPhone, string cusAddress)
+        {
+            if (cusName.Trim().Length <= 0 || cusName.Trim().Length > 50)
+            {
+                MessageBox.Show(MessageUtil.INVALID_CUS_NAME);
+                return false;
+            }
+
+            try
+            {
+                int phoneNumber = int.Parse(cusPhone);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show(MessageUtil.INVALID_CUS_PHONE);
+                return false;
+            }
+
+            if (cusAddress.Trim().Length <= 0 || cusAddress.Trim().Length > 200)
+            {
+                MessageBox.Show(MessageUtil.INVALID_CUS_ADDRESS);
+                return false;
+            }
+            return true;
+        }
         public void SaveCustomer(frmCustomerDetail frmCustomerDetail)
         {
             try
             {
-                TblCustomerDTO dto = new TblCustomerDTO()
+                string name = frmCustomerDetail.getCustomerName().Text;
+                string phone = frmCustomerDetail.getCustomerPhone().Text;
+                string address = frmCustomerDetail.getAddress().Text;
+                bool isValid = checkCustomerField(name, phone, address);
+                if (isValid)
                 {
-                    idCustomer = frmCustomerDetail.getCustomerID(),
-                    name = frmCustomerDetail.getCustomerName().Text,
-                    phone = frmCustomerDetail.getCustomerPhone().Text,
-                    address = frmCustomerDetail.getAddress().Text
-                };
-                if (frmCustomerDetail.isAddNew())
-                {
-                    customerModel.addCustomer(dto);
-                    this.form.loadCustomers();
+                    TblCustomerDTO dto = new TblCustomerDTO()
+                    {
+                        idCustomer = frmCustomerDetail.getCustomerID(),
+                        name = name,
+                        phone = phone,
+                        address = address
+                    };
+                    if (frmCustomerDetail.isAddNew())
+                    {
+                        customerModel.addCustomer(dto);
+                        this.form.loadCustomers();
+                    }
+                    else
+                    {
+                        customerModel.updateCustomer(dto);
+                        this.form.loadCustomers();
+                    }
+                    MessageBox.Show(MessageUtil.SAVE_SUCCESS);
                 }
-                else
-                {
-                    customerModel.updateCustomer(dto);
-                    this.form.loadCustomers();
-                }
-                MessageBox.Show(MessageUtil.SAVE_SUCCESS);
             }
             catch (Exception)
             {
