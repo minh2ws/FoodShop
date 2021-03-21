@@ -12,5 +12,7 @@ namespace FoodShopManagement_WF.Model
         List<TblProductsDTO> getAll();
         List<TblProductsDTO> searchProduct(string categoryName, string productName);
         bool updateProduct(TblProductsDTO dto);
+        bool addProduct(TblProductsDTO dto);
+        bool setStatusProduct(TblProductsDTO dto);
     }
 }

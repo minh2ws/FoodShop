@@ -34,17 +34,49 @@ namespace FoodShopManagement_WF.Presenter.impl
         {
             frmCategoryDetail categoryDetail = new frmCategoryDetail(true,this);
             DialogResult r = categoryDetail.ShowDialog();
-            categoryDetail.getCategoryId().Enabled = true;
+            categoryDetail.setStateUpdate(false);
         }
 
         public void editCategory()
         {
             frmCategoryDetail categoryDetail = new frmCategoryDetail(true, this);
-            categoryDetail.getCategoryId().Enabled = false;
-            categoryDetail.getCategoryId().Text = form.getIdCategory().Text;
+            categoryDetail.setStateUpdate(true);
             categoryDetail.getCategoryName().Text = form.getNameCategory().Text;
             DialogResult r = categoryDetail.ShowDialog();
         }
+        public void addProduct()
+        {
+            frmProductDetail ProductDetail = new frmProductDetail(true,this);
+            ProductDetail.setUpdateState(false);
+            ProductDetail.getComboBoxCategory().DataSource = bindingSourceCategory;
+            ProductDetail.getComboBoxCategory().DisplayMember = "name";
+            ProductDetail.getComboBoxCategory().ValueMember = "idCategory";
+            DialogResult r = ProductDetail.ShowDialog();
+        }
+        public void editProduct()
+        {
+            frmProductDetail ProductDetail = new frmProductDetail(true,this);
+            ProductDetail.setUpdateState(true);
+            ProductDetail.getPrice().Text = form.getPriceProduct().Text;
+            ProductDetail.getProductName().Text = form.getNameProduct().Text;
+            ProductDetail.getQuantity().Text = form.getQuantityProduct().Text;
+            ProductDetail.getComboBoxCategory().DataSource = bindingSourceCategory;
+            ProductDetail.getComboBoxCategory().DisplayMember = "name";
+            ProductDetail.getComboBoxCategory().ValueMember = "idCategory";
+            DataTable dataTableCategory = (DataTable)bindingSourceCategory.DataSource;
+            var selectedIdCategory = "";
+            foreach(DataRow row in dataTableCategory.Rows)
+            {
+                if (row["name"].ToString().Equals(form.getCategoryProduct().Text))
+                {
+                    selectedIdCategory = row["idCategory"].ToString();
+                }
+            }
+            ProductDetail.getComboBoxCategory().SelectedValue = selectedIdCategory;
+
+            DialogResult r = ProductDetail.ShowDialog();
+        }
+        
 
         public void getAllCategory()
         {
@@ -57,6 +89,7 @@ namespace FoodShopManagement_WF.Presenter.impl
                     DataSource = dataTable
                 };
                 form.GetDataGridViewCategory().DataSource = bindingSourceCategory;
+                form.GetDataGridViewCategory().Columns["idCategory"].Visible = false;
                 form.GetBindingNavigatorCategory().BindingSource = bindingSourceCategory;
                 clearDataBindingTextCategory();
                 bindingDataTextCategory();
@@ -95,22 +128,24 @@ namespace FoodShopManagement_WF.Presenter.impl
             form.getCategoryProduct().DataBindings.Add("Text", bindingSourceProduct, "categoryName");
             form.getStatusProduct().DataBindings.Add("Text", bindingSourceProduct, "status");
         }
-        public void saveCategory(frmCategoryDetail form)
+        public void saveCategory(frmCategoryDetail frmCategory)
         {
             try
             {
                 TblCategoryDTO categoryDTO = new TblCategoryDTO();
-                categoryDTO.name = form.getCategoryName().Text;
-                categoryDTO.idCategory = form.getCategoryId().Text;
-                if (form.getCategoryId().Enabled)
+                categoryDTO.name = frmCategory.getCategoryName().Text;
+                categoryDTO.idCategory = form.getIdCategory().Text;
+                if (!frmCategory.getStateUpdate())
                 {
                     categoryModel.addCategory(categoryDTO);
                     getAllCategory();
+                    getAllProduct();
                 }
                 else
                 {
                     categoryModel.updateCategory(categoryDTO);
                     getAllCategory();
+                    getAllProduct();
                 }
                 MessageBox.Show(MessageUtil.SAVE_SUCCESS);
             }catch(Exception e)
@@ -169,6 +204,8 @@ namespace FoodShopManagement_WF.Presenter.impl
                
                 form.GetBindingNavigatorProduct().BindingSource = bindingSourceProduct;
                 form.GetDataGridViewProduct().DataSource = bindingSourceProduct;
+                form.GetDataGridViewProduct().Columns["idProduct"].Visible = false;
+                form.GetDataGridViewProduct().Columns["idCategory"].Visible = false;
                 form.GetComboBoxTable().DataSource = bindingSourceCategory;
                 form.GetComboBoxTable().DisplayMember="name";
                 form.GetComboBoxTable().ValueMember = "idCategory";
@@ -179,6 +216,78 @@ namespace FoodShopManagement_WF.Presenter.impl
             {
                 MessageBox.Show(MessageUtil.ERROR + " Get All Product"+e.Message);
             }
+        }
+
+        public void saveProduct(frmProductDetail frmProductDetail)
+        {
+            TblProductsDTO tblProductsDTO = new TblProductsDTO();
+            tblProductsDTO.price = float.Parse(frmProductDetail.getPrice().Text);
+            tblProductsDTO.name = frmProductDetail.getProductName().Text;
+            tblProductsDTO.quantity = int.Parse(frmProductDetail.getQuantity().Text);
+            tblProductsDTO.idCategory = frmProductDetail.getComboBoxCategory().SelectedValue.ToString();
+            tblProductsDTO.status = bool.Parse(form.getStatusProduct().Text);
+            if (!frmProductDetail.getUpdateState())
+            {
+                if (productModel.addProduct(tblProductsDTO))
+                {
+                    MessageBox.Show(MessageUtil.SAVE_SUCCESS);
+                    getAllProduct();
+                }
+                else
+                {
+                    MessageBox.Show(MessageUtil.ERROR + " save Product");
+                }
+            }
+            else
+            {
+                tblProductsDTO.idProduct = form.getIdProduct().Text;
+                if (productModel.updateProduct(tblProductsDTO))
+                {
+                    MessageBox.Show(MessageUtil.SAVE_SUCCESS);
+                    getAllProduct();
+                }
+                else
+                {
+                    MessageBox.Show(MessageUtil.ERROR + " save Product");
+                }
+            }
+        }
+
+        public void deleteCategory()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void deleteProduct()
+        {
+            if (bool.Parse(form.getStatusProduct().Text))
+            {
+                DialogResult dr = MessageBox.Show(MessageUtil.DELETE_CONFIRM, "warning", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    try
+                    {
+                        TblProductsDTO productsDTO = new TblProductsDTO();
+                        productsDTO.idProduct = form.getIdProduct().Text;
+                        productsDTO.status = false;
+
+                        if (productModel.setStatusProduct(productsDTO))
+                        {
+                            MessageBox.Show(MessageUtil.DELETE_SUCCESS);
+                        }
+                        getAllProduct();
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(MessageUtil.ERROR);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(MessageUtil.DELETE_ALREADY);
+            }
+            
         }
     }
 }

@@ -12,10 +12,15 @@ namespace FoodShopManagement_WF.Presenter
     {
         void getAllCategory();
         void saveCategory(frmCategoryDetail frmCategoryDetail);
+        void deleteCategory();
         void editCategory();
         void addCategory();
         void searchCategory();
         void getAllProduct();
         void searchProductName();
+        void editProduct();
+        void addProduct();
+        void saveProduct(frmProductDetail frmProductDetail);
+        void deleteProduct();
     }
 }

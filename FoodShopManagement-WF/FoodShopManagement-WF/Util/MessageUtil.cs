@@ -8,7 +8,10 @@ namespace FoodShopManagement_WF.Util
 {
     public class MessageUtil
     {
-        public static string ERROR = "Có lỗi trong quá trình thực thi";
-        public static string SAVE_SUCCESS = "Lưu thành công";
+        public static string ERROR = "Error processing";
+        public static string SAVE_SUCCESS = "Save success";
+        public static string DELETE_CONFIRM = "Do you want to delete ?";
+        public static string DELETE_SUCCESS = "Delete success";
+        public static string DELETE_ALREADY = "Delete Already";
     }
 }

@@ -48,7 +48,7 @@ namespace FoodShopManagementApi.DTO
                 }
                 catch (Exception)
                 {
-                    StatusCode(500);
+                   return StatusCode(500);
                 }
             }
             return Unauthorized();
@@ -80,7 +80,7 @@ namespace FoodShopManagementApi.DTO
                 }
                 catch (Exception)
                 {
-                    StatusCode(500);
+                   return StatusCode(500);
                 }
             }
             return Unauthorized();
@@ -106,12 +106,12 @@ namespace FoodShopManagementApi.DTO
                 }
                 catch (Exception)
                 {
-                    StatusCode(500);
+                   return StatusCode(500);
                 }
             }
             return Unauthorized();
         }
-        [HttpPost("updateProduct")]
+        [HttpPut("updateProduct")]
         [Produces("application/json")]
         public IActionResult updateProduct([FromBody] TblProductsDTO tblProductsDTO)
         {
@@ -130,9 +130,35 @@ namespace FoodShopManagementApi.DTO
                         return BadRequest();
                     }
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    StatusCode(500);
+                  return StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
+        [HttpPut("updateStatus")]
+        [Produces("application/json")]
+        public IActionResult updateStatusProduct([FromBody] TblProductsDTO tblProductsDTO)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblProductsDAO dao = TblProductsDAO.getInstance();
+                try
+                {
+                    if (dao.updateStatusProduct(tblProductsDTO))
+                    {
+                        return Ok(tblProductsDTO);
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
+                }
+                catch (Exception e)
+                {
+                    return StatusCode(500);
                 }
             }
             return Unauthorized();

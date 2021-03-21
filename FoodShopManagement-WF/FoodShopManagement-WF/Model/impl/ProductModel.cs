@@ -16,6 +16,8 @@ namespace FoodShopManagement_WF.Model.impl
         {
 
         }
+
+       
         public List<TblProductsDTO> getAll()
         {
             try
@@ -56,11 +58,26 @@ namespace FoodShopManagement_WF.Model.impl
             HttpResponseMessage responseMessage = ApiConnection.loadPutJsonObject("product/updateProduct", dto, Program.TokenGlobal);
             if (responseMessage.IsSuccessStatusCode)
             {
-                //get json content
-                var result = responseMessage.Content.ReadAsStringAsync();
-                //convert json to bool
-                bool isSuccess = JsonConvert.DeserializeObject<bool>(result.Result);
-                return isSuccess;
+                return true;
+            }
+            return false;
+        }
+        public bool addProduct(TblProductsDTO dto)
+        {
+            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("product/addProduct", dto, Program.TokenGlobal);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool setStatusProduct(TblProductsDTO dto)
+        {
+            HttpResponseMessage responseMessage = ApiConnection.loadPutJsonObject("product/updateStatus", dto, Program.TokenGlobal);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return true;
             }
             return false;
         }

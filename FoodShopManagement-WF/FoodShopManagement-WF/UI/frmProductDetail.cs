@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FoodShopManagement_WF.Presenter;
+using FoodShopManagement_WF.Presenter.impl;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +14,16 @@ namespace FoodShopManagement_WF.UI
 {
     public partial class frmProductDetail : Form
     {
-        public TextBox getIdProduct()
+        private bool update = false;
+        private IWarehousePresenter warehousePresenter;
+        public bool getUpdateState()
         {
-            return txtProductID;
+            return this.update;
         }
-
+        public void setUpdateState(bool value)
+        {
+            this.update = value;
+        }
         public TextBox getProductName()
         {
             return txtProductName;
@@ -32,7 +39,7 @@ namespace FoodShopManagement_WF.UI
             return txtQuantity;
         }
 
-        public ComboBox getIdCategory()
+        public ComboBox getComboBoxCategory()
         {
             return cbCategory;
         }
@@ -41,13 +48,13 @@ namespace FoodShopManagement_WF.UI
         {
             InitializeComponent();
         }
-        public frmProductDetail(bool flag) : this()
+        public frmProductDetail(bool flag, WarehousePresenter warehousePresenter) : this()
         {
-
+            this.warehousePresenter = warehousePresenter;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
+            warehousePresenter.saveProduct(this);
         }
     }
 }

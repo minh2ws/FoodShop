@@ -59,7 +59,7 @@ namespace FoodShopManagementApi.DAO
                 if (cn != null)
                 {
                     cmd = new SqlCommand(sql, cn);
-                    cmd.Parameters.AddWithValue("@idCategory", categoryDTO.idCategory);
+                    cmd.Parameters.AddWithValue("@idCategory",Guid.NewGuid().ToString());
                     cmd.Parameters.AddWithValue("@name", categoryDTO.name);
                     return cmd.ExecuteNonQuery()>0;
                 }
