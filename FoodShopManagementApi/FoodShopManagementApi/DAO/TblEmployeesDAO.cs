@@ -83,13 +83,15 @@ namespace FoodShopManagementApi.DAO
                         string passwordCompare = sqlDataReader.GetString("password");
                         if (idEmployeeCompare.Equals(idEmployee) && passwordCompare.Equals(password))
                         {
-                            TblEmployeesDTO employee = new TblEmployeesDTO();
-                            employee.idEmployee = sqlDataReader.GetString("idEmployee");
-                            employee.password = sqlDataReader.GetString("password");
-                            employee.name = sqlDataReader.GetString("name");
-                            employee.role = sqlDataReader.GetString("role");
-                            employee.status = sqlDataReader.GetBoolean("status");
-                            return employee;
+                            TblEmployeesDTO emp = new TblEmployeesDTO()
+                            {
+                                idEmployee = sqlDataReader["idEmployee"].ToString(),
+                                password = sqlDataReader["password"].ToString(),
+                                name = sqlDataReader["name"].ToString(),
+                                role = sqlDataReader["role"].ToString(),
+                                status = bool.Parse(sqlDataReader["status"].ToString())
+                            };
+                            return emp;
                         }
                     }
                 }
