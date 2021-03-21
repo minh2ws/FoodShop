@@ -69,7 +69,7 @@ namespace FoodShopManagementApi.Controllers
                         return Ok(categoryDTO);
                     }
                 }
-                catch(Exception e)
+                catch(Exception)
                 {
                    return StatusCode(500);
                 }

@@ -3,6 +3,7 @@ using FoodShopManagement_WF.Presenter;
 using FoodShopManagement_WF.Presenter.impl;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace FoodShopManagement_WF.UI
@@ -12,6 +13,7 @@ namespace FoodShopManagement_WF.UI
         private frmLogin loginFrame;
         private TblEmployeesDTO emp;
         private ISaleManagerPresenter saleManagerPresenter = new SaleManagerPresenter();
+        private DataTable dtCustomer;
 
         public string getCategoryName()
         {
@@ -31,12 +33,24 @@ namespace FoodShopManagement_WF.UI
             InitializeComponent();
             this.loginFrame = loginFrame;
             this.emp = emp;
-            loadData();
+            msTool.Text = "User: " + emp.name;
+            loadProducts();
+            loadCustomers();
         }
 
-        public void loadData()
+        public void loadProducts()
         {
-            msTool.Text = "User: " + emp.name;
+            //customize datagridview
+            dgvProducts.ColumnCount = 3;
+            dgvProducts.Columns[0].Name = "Name";
+            dgvProducts.Columns[0].DataPropertyName = "name";
+            dgvProducts.Columns[1].Name = "Price";
+            dgvProducts.Columns[1].DataPropertyName = "price";
+            dgvProducts.Columns[2].Name = "Quantity";
+            dgvProducts.Columns[2].DataPropertyName = "quantity";
+
+            dgvProducts.AutoGenerateColumns = false;
+
 
             //binding data to binding source
             bsProducts.DataSource = saleManagerPresenter.GetProducts();
@@ -50,6 +64,41 @@ namespace FoodShopManagement_WF.UI
             {
                 cmbCategory.Items.Add(category.name);
             }
+        }
+
+        public void loadCustomers()
+        {
+            dtCustomer = saleManagerPresenter.GetCustomers();
+            
+            //customize datagridview
+            dgvCustomer.ColumnCount = 2;
+            dgvCustomer.Columns[0].Name = "CustomerID";
+            dgvCustomer.Columns[0].DataPropertyName = "idCustomer";
+            dgvCustomer.Columns[1].Name = "Customer Name";
+            dgvCustomer.Columns[1].DataPropertyName = "name";
+
+            dgvCustomer.AutoGenerateColumns = false;
+
+            //binding data to binding source
+            bsCustomer.DataSource = dtCustomer;
+            dgvCustomer.DataSource = bsCustomer;
+
+            //binding to navigation
+            bnCustomer.BindingSource = bsCustomer;
+
+            //clear binding
+            txtCustomerID.DataBindings.Clear();
+            txtCustomerName.DataBindings.Clear();
+            txtPhonenumber.DataBindings.Clear();
+            txtAddress.DataBindings.Clear();
+            txtPoint.DataBindings.Clear();
+
+            //binding data to text field
+            txtCustomerID.DataBindings.Add("Text", bsCustomer, "idCustomer");
+            txtCustomerName.DataBindings.Add("Text", bsCustomer, "name");
+            txtPhonenumber.DataBindings.Add("Text", bsCustomer, "phone");
+            txtAddress.DataBindings.Add("Text", bsCustomer, "address");
+            txtPoint.DataBindings.Add("Text", bsCustomer, "point");
         }
         
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -92,6 +141,13 @@ namespace FoodShopManagement_WF.UI
 
             //binding to navigation
             bnProducts.BindingSource = bsProducts;
+        }
+
+        private void btnSearchCustomer_Click(object sender, EventArgs e)
+        {
+            DataView view = dtCustomer.DefaultView;
+            string filter = "name like '%" + txtSearchCustomer.Text + "%'";
+            view.RowFilter = filter;
         }
     }
 }

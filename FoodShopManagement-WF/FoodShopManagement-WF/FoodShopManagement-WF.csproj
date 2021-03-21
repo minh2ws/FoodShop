@@ -62,9 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\ICategoryModel.cs" />
+    <Compile Include="Model\ICustomerModel.cs" />
     <Compile Include="Model\ILoginModel.cs" />
     <Compile Include="Model\IManagerDetailModel.cs" />
     <Compile Include="Model\impl\CategoryModel.cs" />
+    <Compile Include="Model\impl\CustomerModel.cs" />
     <Compile Include="Model\impl\LoginModel.cs" />
     <Compile Include="Model\impl\ManagerDetailModel.cs" />
     <Compile Include="Model\impl\MyProfileDetailModel.cs" />
