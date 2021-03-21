@@ -36,9 +36,25 @@ namespace FoodShopManagement_WF.UI
         {
             return txtQuantity;
         }
+        public TextBox getSearchProductName()
+        {
+            return txtSearchProductName;
+        }
         public TextBox getPriceProduct()
         {
             return txtPrice;
+        }
+        public TextBox getStatusProduct()
+        {
+            return txtStatusProduct;
+        }
+        public TextBox getCategoryProduct()
+        {
+            return txtCategoryProduct;
+        }
+        public ComboBox GetComboBoxTable()
+        {
+            return cbxCategoryTable;
         }
         public frmWarehouse_V2(frmLogin loginFrame, TblEmployeesDTO emp)
         {
@@ -59,6 +75,7 @@ namespace FoodShopManagement_WF.UI
         {
             return this.dgvProduct;
         }
+        
         public BindingNavigator GetBindingNavigatorProduct()
         {
             return this.bindingNavigatorProduct;
@@ -110,6 +127,7 @@ namespace FoodShopManagement_WF.UI
 
             frmProductDetail ProductDetail = new frmProductDetail(true);
             DialogResult r = ProductDetail.ShowDialog();
+           
 
         }
 
@@ -131,6 +149,15 @@ namespace FoodShopManagement_WF.UI
         {
             warehousePresenter.searchCategory();
         }
-       
+
+        private void txtSearchProductName_TextChanged(object sender, EventArgs e)
+        {
+            warehousePresenter.searchProductName();
+        }
+
+        private void btnGetAll_Click(object sender, EventArgs e)
+        {
+            loadData();
+        }
     }
 }

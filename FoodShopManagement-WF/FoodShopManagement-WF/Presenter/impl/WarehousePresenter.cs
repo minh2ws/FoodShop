@@ -59,14 +59,18 @@ namespace FoodShopManagement_WF.Presenter.impl
                 form.GetDataGridViewCategory().DataSource = bindingSourceCategory;
                 form.GetBindingNavigatorCategory().BindingSource = bindingSourceCategory;
                 clearDataBindingTextCategory();
-                form.getIdCategory().DataBindings.Add("Text", bindingSourceCategory, "idCategory");
-                form.getNameCategory().DataBindings.Add("Text", bindingSourceCategory, "name");
+                bindingDataTextCategory();
             }
             catch(Exception e)
             {
                 MessageBox.Show(MessageUtil.ERROR+" Get All Category");
             }
            
+        }
+        private void bindingDataTextCategory()
+        {
+            form.getIdCategory().DataBindings.Add("Text", bindingSourceCategory, "idCategory");
+            form.getNameCategory().DataBindings.Add("Text", bindingSourceCategory, "name");
         }
         private void clearDataBindingTextCategory()
         {
@@ -79,8 +83,18 @@ namespace FoodShopManagement_WF.Presenter.impl
             form.getNameProduct().DataBindings.Clear();
             form.getPriceProduct().DataBindings.Clear();
             form.getQuantityProduct().DataBindings.Clear();
+            form.getCategoryProduct().DataBindings.Clear();
+            form.getStatusProduct().DataBindings.Clear();
         }
-
+        private void bindingDataTextProduct()
+        {
+            form.getIdProduct().DataBindings.Add("Text", bindingSourceProduct, "idProduct");
+            form.getNameProduct().DataBindings.Add("Text", bindingSourceProduct, "name");
+            form.getPriceProduct().DataBindings.Add("Text", bindingSourceProduct, "price");
+            form.getQuantityProduct().DataBindings.Add("Text", bindingSourceProduct, "quantity");
+            form.getCategoryProduct().DataBindings.Add("Text", bindingSourceProduct, "categoryName");
+            form.getStatusProduct().DataBindings.Add("Text", bindingSourceProduct, "status");
+        }
         public void saveCategory(frmCategoryDetail form)
         {
             try
@@ -108,10 +122,11 @@ namespace FoodShopManagement_WF.Presenter.impl
 
         public void searchCategory()
         {
+            
             try
             {
                 string searchValue = form.getSearchCategoryBox().Text;
-                bindingSourceCategory.Filter="name LIKE '%" + searchValue + "%'";
+                bindingSourceCategory.Filter = "name LIKE '%" + searchValue + "%'";
                 
             }
             catch(Exception e)
@@ -119,6 +134,26 @@ namespace FoodShopManagement_WF.Presenter.impl
                 MessageBox.Show(MessageUtil.ERROR+" Search Category");
             }
             
+        }
+        public void searchProductName()
+        {
+            try
+            {
+                string searchValue = form.getSearchProductName().Text;
+                if (searchValue.Equals(""))
+                {
+                    bindingSourceProduct.Filter = "";
+                }
+                else
+                {
+                    bindingSourceProduct.Filter = "name LIKE '%" + searchValue + "%' and idCategory = " + form.GetComboBoxTable().SelectedValue;
+                }
+               
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(MessageUtil.ERROR+" Search Category"+e.Message);
+            }
         }
         public void getAllProduct()
         {
@@ -129,14 +164,20 @@ namespace FoodShopManagement_WF.Presenter.impl
                 bindingSourceProduct = new BindingSource()
                 {
                     DataSource = dataTable
+                
                 };
+               
                 form.GetBindingNavigatorProduct().BindingSource = bindingSourceProduct;
                 form.GetDataGridViewProduct().DataSource = bindingSourceProduct;
+                form.GetComboBoxTable().DataSource = bindingSourceCategory;
+                form.GetComboBoxTable().DisplayMember="name";
+                form.GetComboBoxTable().ValueMember = "idCategory";
                 clearDataBindingTextProduct();
+                bindingDataTextProduct();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                MessageBox.Show(MessageUtil.ERROR + " Get All Product");
+                MessageBox.Show(MessageUtil.ERROR + " Get All Product"+e.Message);
             }
         }
     }

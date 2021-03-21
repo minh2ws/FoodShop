@@ -16,5 +16,6 @@ namespace FoodShopManagement_WF.Presenter
         void addCategory();
         void searchCategory();
         void getAllProduct();
+        void searchProductName();
     }
 }
