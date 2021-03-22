@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace FoodShopManagementApi.DTO
@@ -94,8 +95,9 @@ namespace FoodShopManagementApi.DTO
             {
                 TblProductsDAO dao = TblProductsDAO.getInstance();
                 try
-                {
-                    if (dao.addProduct(tblProductsDTO))
+                {   
+                    Claim idEmployeeClaim= getClaims()[0];
+                    if (dao.addProduct(tblProductsDTO, idEmployeeClaim.Value))
                     {
                         return Ok(tblProductsDTO);
                     }
@@ -121,7 +123,8 @@ namespace FoodShopManagementApi.DTO
                 TblProductsDAO dao = TblProductsDAO.getInstance();
                 try
                 {
-                    if (dao.updateProduct(tblProductsDTO))
+                    Claim idEmployeeClaim = getClaims()[0];
+                    if (dao.updateProduct(tblProductsDTO, idEmployeeClaim.Value))
                     {
                         return Ok(tblProductsDTO);
                     }
@@ -144,10 +147,11 @@ namespace FoodShopManagementApi.DTO
             bool isValidToken = ValidateToken();
             if (isValidToken)
             {
+                Claim idEmployeeClaim = getClaims()[0];
                 TblProductsDAO dao = TblProductsDAO.getInstance();
                 try
                 {
-                    if (dao.updateStatusProduct(tblProductsDTO))
+                    if (dao.updateStatusProduct(tblProductsDTO, idEmployeeClaim.Value))
                     {
                         return Ok(tblProductsDTO);
                     }
@@ -162,6 +166,14 @@ namespace FoodShopManagementApi.DTO
                 }
             }
             return Unauthorized();
+        }
+        private List<Claim> getClaims()
+        {
+            var header = HttpContext.Request.Headers;//doc header cua request
+            header.TryGetValue("Authorization", out Microsoft.Extensions.Primitives.StringValues value);
+            ClaimsPrincipal claims= JwtUtil.getClaims(value, _config);
+            ClaimsIdentity identity = (ClaimsIdentity)claims.Identity;
+            return identity.Claims.ToList();
         }
     }
 }

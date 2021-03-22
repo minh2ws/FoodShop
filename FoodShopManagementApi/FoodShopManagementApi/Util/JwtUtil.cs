@@ -48,8 +48,6 @@ namespace FoodShopManagementApi.Util
                 return false;
             }
             return true;
-            
-            
         }
         public static SigningCredentials GetCredentials(IConfiguration _config)
         {
@@ -57,6 +55,30 @@ namespace FoodShopManagementApi.Util
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             return new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
         }
-
+        public static ClaimsPrincipal getClaims(string token,IConfiguration _config)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            try
+            {
+                // lay securityKey từ appsetting json
+                var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+                // check token
+                ClaimsPrincipal claims = handler.ValidateToken(token, new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidIssuer = _config["Jwt:Issuer"],
+                    ValidAudience = _config["Jwt:Issuer"],
+                    IssuerSigningKey = securityKey
+                }, out SecurityToken validatedToken);
+                return claims;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            
+        }
     }
 }

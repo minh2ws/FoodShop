@@ -51,12 +51,22 @@ namespace FoodShopManagement_WF.Presenter.impl
             ProductDetail.getComboBoxCategory().DataSource = bindingSourceCategory;
             ProductDetail.getComboBoxCategory().DisplayMember = "name";
             ProductDetail.getComboBoxCategory().ValueMember = "idCategory";
+            ProductDetail.getRadioButtonTrue().Checked = true;
+            ProductDetail.getRadioButtonFalse().Visible = false;
             DialogResult r = ProductDetail.ShowDialog();
         }
         public void editProduct()
         {
             frmProductDetail ProductDetail = new frmProductDetail(true,this);
             ProductDetail.setUpdateState(true);
+            if (bool.Parse(form.getStatusProduct().Text))
+            {
+                ProductDetail.getRadioButtonTrue().Checked=true;
+            }
+            else
+            {
+                ProductDetail.getRadioButtonFalse().Checked = true;
+            }
             ProductDetail.getPrice().Text = form.getPriceProduct().Text;
             ProductDetail.getProductName().Text = form.getNameProduct().Text;
             ProductDetail.getQuantity().Text = form.getQuantityProduct().Text;
@@ -224,7 +234,14 @@ namespace FoodShopManagement_WF.Presenter.impl
             tblProductsDTO.name = frmProductDetail.getProductName().Text;
             tblProductsDTO.quantity = int.Parse(frmProductDetail.getQuantity().Text);
             tblProductsDTO.idCategory = frmProductDetail.getComboBoxCategory().SelectedValue.ToString();
-            tblProductsDTO.status = bool.Parse(form.getStatusProduct().Text);
+            if (frmProductDetail.getRadioButtonFalse().Checked)
+            {
+                tblProductsDTO.status = false;
+            }
+            else
+            {
+                tblProductsDTO.status = true;
+            }
             if (!frmProductDetail.getUpdateState())
             {
                 if (productModel.addProduct(tblProductsDTO))
