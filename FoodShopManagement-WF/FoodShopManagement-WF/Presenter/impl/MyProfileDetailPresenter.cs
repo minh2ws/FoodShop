@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace FoodShopManagement_WF.Presenter.impl
 {
-    class MyProfileDetailPresenter : IMyProfileDetailPresenter
+    public class MyProfileDetailPresenter : IMyProfileDetailPresenter
     {
         IMyProfileDetailModel model = new MyProfileDetailModel();
         

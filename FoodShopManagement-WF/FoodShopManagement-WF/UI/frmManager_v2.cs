@@ -99,15 +99,13 @@ namespace FoodShopManagement_WF.UI
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            frmEmployeeDetail ProductDetail = new frmEmployeeDetail(true);
-            DialogResult r = ProductDetail.ShowDialog();
-
+            presenter.updateEmp();
+            loadData();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmEmployeeDetail ProductDetail = new frmEmployeeDetail(true);
-            DialogResult r = ProductDetail.ShowDialog();
+            presenter.InsertEmployee();
             loadData();
 
         }

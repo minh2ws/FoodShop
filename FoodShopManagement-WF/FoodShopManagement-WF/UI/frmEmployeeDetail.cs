@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using DevExpress.XtraExport;
+using DTO;
 using FoodShopManagement_WF.Presenter;
 using FoodShopManagement_WF.Presenter.impl;
 using FoodShopManagement_WF.Util;
@@ -18,8 +19,16 @@ namespace FoodShopManagement_WF.UI
 {
     public partial class frmEmployeeDetail : Form
     {
-        IEmployeePresenter ManagerDetailPresenter = new EmployeePresenter();
-       
+        IEmployeePresenter presenter;
+        private bool flag = false; //khai báo biến cờ để check event
+        public bool getIsUpdate()
+        {
+            return this.flag;
+        }
+        public void setIsUpdate(bool value)
+        {
+            this.flag = value;
+        }
         public string getUserName()
         {
             return this.txtEmployeeID.Text;
@@ -35,6 +44,10 @@ namespace FoodShopManagement_WF.UI
         public string getRole()
         {
             return this.cbRole.GetItemText(this.cbRole.SelectedItem);
+        }
+        public string getStatus()
+        {
+            return this.cbStatus.GetItemText(this.cbStatus.SelectedItem);
         }
         public void setUsername(string username)
         {
@@ -52,31 +65,32 @@ namespace FoodShopManagement_WF.UI
         {
             this.cbRole.Items.Add(Role);
         }
+        public TextBox getID()
+        {
+           return  this.txtEmployeeID;
+        }
+        public TextBox getName()
+        {
+            return this.txtFullName;
+        }
+        public TextBox getPwd()
+        {
+            return this.txtPassword;
+        }
         public frmEmployeeDetail() 
         {
             InitializeComponent();
             
             
         }
-        public frmEmployeeDetail(bool flag): this()        {
-          
-
+        public frmEmployeeDetail(bool flag, EmployeePresenter presenter): this()        {
+            this.presenter = presenter;
+            this.flag = flag;
 
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bool Insert = ManagerDetailPresenter.InsertEmployee(this);
-            if (!Insert)
-            {
-                this.DialogResult = DialogResult.No;
-                MessageBox.Show("invalid password or id", "Warning!");
-            }
-            else
-            {
-                this.DialogResult = DialogResult.OK;
-                MessageBox.Show("Successful Insert ");
-            }
-         
+            presenter.saveEmployee(this);
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
