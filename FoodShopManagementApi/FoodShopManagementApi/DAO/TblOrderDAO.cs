@@ -15,7 +15,7 @@ namespace FoodShopManagementApi.DAO
 
         private TblOrderDAO() { }
 
-        public TblOrderDAO getInstance()
+        public static TblOrderDAO getInstance()
         {
             if (instance == null)
             {
