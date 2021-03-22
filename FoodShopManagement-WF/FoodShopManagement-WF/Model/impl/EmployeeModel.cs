@@ -25,6 +25,19 @@ namespace FoodShopManagement_WF.Model.impl
 
         }
 
+        public bool UpdateEmployee(TblEmployeesDTO Employee)
+        {
+            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("employee/UpdateEmployee", Employee, Program.TokenGlobal);
+            if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
+            {
+                var employeeDTO = responseMessage.Content.ReadAsStringAsync();
+                bool result = JsonConvert.DeserializeObject<bool>(employeeDTO.Result);
+                return result;
+            }
+            return false;
+
+        }
+
         public List<TblEmployeesDTO> getAll()
         {
             try

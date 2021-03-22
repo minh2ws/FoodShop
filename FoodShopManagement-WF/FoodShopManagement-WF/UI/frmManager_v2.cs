@@ -99,7 +99,7 @@ namespace FoodShopManagement_WF.UI
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            presenter.InsertEmployee();
+            presenter.updateEmp();
             loadData();
         }
 

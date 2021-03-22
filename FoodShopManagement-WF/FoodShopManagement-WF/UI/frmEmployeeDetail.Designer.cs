@@ -189,7 +189,7 @@ namespace FoodShopManagement_WF.UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._182944;
-            this.ClientSize = new System.Drawing.Size(1100, 497);
+            this.ClientSize = new System.Drawing.Size(514, 497);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
