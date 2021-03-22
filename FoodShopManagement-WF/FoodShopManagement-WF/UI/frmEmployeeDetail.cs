@@ -16,9 +16,15 @@ namespace FoodShopManagement_WF.UI
 {
     public partial class frmEmployeeDetail : Form
     {
+<<<<<<< HEAD
         private bool flag = false;
         private IEmployeePresenter presenter;
         public bool getFlag()
+=======
+        IEmployeePresenter ManagerDetailPresenter = new EmployeePresenter();
+       
+        public string getUserName()
+>>>>>>> ab954045bfaee2e036f5bc8c03efead4cdf0cc1b
         {
             return this.flag;
         }

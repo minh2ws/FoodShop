@@ -64,7 +64,11 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+<<<<<<< HEAD
             this.txtSearchEmp = new System.Windows.Forms.ToolStripTextBox();
+=======
+            this.txtEmpSearch = new System.Windows.Forms.ToolStripTextBox();
+>>>>>>> ab954045bfaee2e036f5bc8c03efead4cdf0cc1b
             this.cbRole = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -409,7 +413,11 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
+<<<<<<< HEAD
             this.txtSearchEmp});
+=======
+            this.txtEmpSearch});
+>>>>>>> ab954045bfaee2e036f5bc8c03efead4cdf0cc1b
             this.bnEmployee.Location = new System.Drawing.Point(0, 0);
             this.bnEmployee.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bnEmployee.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -507,12 +515,21 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
+<<<<<<< HEAD
             // txtSearchEmp
             // 
             this.txtSearchEmp.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearchEmp.Name = "txtSearchEmp";
             this.txtSearchEmp.Size = new System.Drawing.Size(100, 27);
             this.txtSearchEmp.TextChanged += new System.EventHandler(this.txtSearchEmp_TextChanged);
+=======
+            // txtEmpSearch
+            // 
+            this.txtEmpSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtEmpSearch.Name = "txtEmpSearch";
+            this.txtEmpSearch.Size = new System.Drawing.Size(100, 27);
+            this.txtEmpSearch.TextChanged += new System.EventHandler(this.txtEmpSearch_TextChanged);
+>>>>>>> ab954045bfaee2e036f5bc8c03efead4cdf0cc1b
             // 
             // cbRole
             // 
@@ -1044,7 +1061,11 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.DataGridView dgvListEmployee;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label9;
+<<<<<<< HEAD
         private System.Windows.Forms.ToolStripTextBox txtSearchEmp;
+=======
+        private System.Windows.Forms.ToolStripTextBox txtEmpSearch;
+>>>>>>> ab954045bfaee2e036f5bc8c03efead4cdf0cc1b
         private System.Windows.Forms.BindingSource bsEmployee;
     }
 }

@@ -15,14 +15,22 @@ namespace FoodShopManagement_WF.UI
         private frmLogin loginFrame;
         private TblEmployeesDTO emp;
         private IEmployeePresenter presenter;
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> ab954045bfaee2e036f5bc8c03efead4cdf0cc1b
         public frmManager_v2(frmLogin loginFrame, TblEmployeesDTO emp)
         {
             InitializeComponent();
             this.loginFrame = loginFrame;
             this.emp = emp;
             presenter = new EmployeePresenter(this);
+<<<<<<< HEAD
             txtEmployeeID.Enabled = false;
+=======
+            txtEmployeeID.Enabled=false;
+>>>>>>> ab954045bfaee2e036f5bc8c03efead4cdf0cc1b
             txtFullname.Enabled = false;
             txtPassword.Enabled = false;
             txtRole.Enabled = false;
@@ -62,6 +70,19 @@ namespace FoodShopManagement_WF.UI
         {
             msTool.Text = "User: " + emp.name;
             presenter.LoadEmpByRole(this);
+        }
+        public void loadData()
+        {
+            setRole(cbRole.SelectedIndex.ToString());
+            string role = getRole();
+            if (role.Equals("All"))
+            {
+                loadAll();
+            }
+            else
+            {
+                loadEmpByRole();
+            }
         }
         public void loadData()
         {
@@ -119,10 +140,21 @@ namespace FoodShopManagement_WF.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             presenter.InsertEmployee();
             loadData();
-        }
+=======
+            frmEmployeeDetail ProductDetail = new frmEmployeeDetail(true);
+            DialogResult r = ProductDetail.ShowDialog();
+            loadData();
 
+>>>>>>> ab954045bfaee2e036f5bc8c03efead4cdf0cc1b
+        }
+        public ToolStripTextBox getSearchEmpBox()
+        {
+            return this.txtEmpSearch;
+        }
+     
         private void ViewProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmMyProfileDetailcs ProductDetail = new frmMyProfileDetailcs(this.emp);
@@ -196,7 +228,11 @@ namespace FoodShopManagement_WF.UI
             loadData();
         }
 
+<<<<<<< HEAD
         private void txtSearchEmp_TextChanged(object sender, EventArgs e)
+=======
+        private void txtEmpSearch_TextChanged(object sender, EventArgs e)
+>>>>>>> ab954045bfaee2e036f5bc8c03efead4cdf0cc1b
         {
             presenter.searchEmployee();
         }

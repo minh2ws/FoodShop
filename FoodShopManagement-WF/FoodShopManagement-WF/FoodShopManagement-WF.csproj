@@ -69,7 +69,11 @@
     <Compile Include="Model\impl\CustomerModel.cs" />
     <Compile Include="Model\impl\LoginModel.cs" />
     <Compile Include="Model\impl\EmployeeModel.cs" />
+<<<<<<< HEAD
     <Compile Include="Model\impl\ProfileModel.cs" />
+=======
+    <Compile Include="Model\impl\MyProfileDetailModel.cs" />
+>>>>>>> ab954045bfaee2e036f5bc8c03efead4cdf0cc1b
     <Compile Include="Model\impl\ProductModel.cs" />
     <Compile Include="Model\IMyProfileDetailModel.cs" />
     <Compile Include="Model\IProductModel.cs" />

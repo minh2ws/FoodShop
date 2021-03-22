@@ -10,7 +10,11 @@ using System.Windows.Forms;
 
 namespace FoodShopManagement_WF.Presenter.impl
 {
+<<<<<<< HEAD:FoodShopManagement-WF/FoodShopManagement-WF/Presenter/impl/EmployeePresenter.cs
     public class EmployeePresenter : IEmployeePresenter
+=======
+    class EmployeePresenter : IEmployeePresenter
+>>>>>>> ab954045bfaee2e036f5bc8c03efead4cdf0cc1b:FoodShopManagement-WF/FoodShopManagement-WF/Presenter/impl/ManagerDetailPresenter.cs
     {
         private frmManager_v2 form;
         private BindingSource bsEmp;
@@ -84,7 +88,19 @@ namespace FoodShopManagement_WF.Presenter.impl
             }
            
         }
+        public void searchEmployee()
+        {
+            try
+            {
+                string search = form.getSearchEmpBox().Text;
+                bsEmp.Filter = "name like '%" + search + "%'";
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(MessageUtil.ERROR + " Search Employee");
+            }
 
+        }
         private void clearDataBindingTextEmployee()
         {
             form.getIdEmp().DataBindings.Clear();
