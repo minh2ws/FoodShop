@@ -14,6 +14,10 @@ namespace FoodShopManagementApi.DAO
     {
         //Using SINGLETON pattern
         private static TblProductsDAO instance = null;
+        private static readonly string STATUS_ADD = "ADD";
+        private static readonly string STATUS_UPDATE = "UPDATE";
+        private static readonly string STATUS_ACTIVE = "ACTIVE";
+        private static readonly string STATUS_INACTIVE = "INACTIVE";
 
         //default constructor with private access
         private TblProductsDAO() { }
@@ -119,55 +123,102 @@ namespace FoodShopManagementApi.DAO
             }
             return null;
         }
-        public bool addProduct(TblProductsDTO dto)
+        private bool writeLog(SqlCommand sqlCommand,SqlTransaction transaction, SqlConnection sqlConnection,string idProduct,string status,string idEmployee)
         {
+            string logSql = "insert into tblProductLogs(idEmployee,idProduct,status,modifyDate,idLog) values(@idEmployee,@idProduct,@status,@modifyDate,@idLog)";
+            try
+            {
+                sqlCommand = new SqlCommand(logSql, sqlConnection, transaction);
+                sqlCommand.Parameters.AddWithValue("@idEmployee", idEmployee);
+                sqlCommand.Parameters.AddWithValue("@idProduct", idProduct);
+                sqlCommand.Parameters.AddWithValue("@status", status);
+                sqlCommand.Parameters.AddWithValue("@modifyDate", DateTime.Now);
+                sqlCommand.Parameters.AddWithValue("@idLog", Guid.NewGuid().ToString());
+                return sqlCommand.ExecuteNonQuery()>0;
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public bool addProduct(TblProductsDTO dto,string idEmployee)
+        {
+            
             string sql = "insert into tblProducts(idCategory,idProduct,name,price,quantity,status) values(@idCategory,@idProduct,@name,@price,@quantity,@status)";
+            
             sqlConnection = DBUtil.MakeConnect();
+            SqlTransaction transaction=null;
             try
             {
                 if (sqlConnection != null)
                 {
-                    sqlCommand = new SqlCommand(sql, sqlConnection);
+                    string idProduct = Guid.NewGuid().ToString();
+                    transaction =sqlConnection.BeginTransaction();
+                    sqlCommand = new SqlCommand(sql, sqlConnection,transaction);
                     sqlCommand.Parameters.AddWithValue("@idCategory", dto.idCategory);
-                    sqlCommand.Parameters.AddWithValue("@idProduct", Guid.NewGuid().ToString());
+                    sqlCommand.Parameters.AddWithValue("@idProduct", idProduct);
                     sqlCommand.Parameters.AddWithValue("@name", dto.name);
                     sqlCommand.Parameters.AddWithValue("@price", dto.price);
                     sqlCommand.Parameters.AddWithValue("@quantity", dto.quantity);
                     sqlCommand.Parameters.AddWithValue("@status", dto.status);
-                    return sqlCommand.ExecuteNonQuery() > 0;
+                    bool check = sqlCommand.ExecuteNonQuery()>0;
+                    if (check)
+                    {
+                        check=writeLog(sqlCommand,transaction,sqlConnection,idProduct,STATUS_ADD, idEmployee);
+                    }
+                    transaction.Commit();
+                    return check;
                 }
                 return false;
             }
             catch (Exception e)
             {
-                throw e;
+                if (transaction != null)
+                {
+                    transaction.Rollback();
+                }
+                throw new Exception(e.Message);
             }
             finally
             {
                 DBUtil.CloseConnection(null, sqlConnection);
             }
         }
-        public bool updateProduct(TblProductsDTO dto)
+        public bool updateProduct(TblProductsDTO dto,string idEmployee)
         {
             string sql = "UPDATE tblProducts " +
                 "SET name=@name, price=@price, quantity=@quantity, status=@status, idCategory=@idCategory " +
                 "WHERE idProduct=@idProduct";
+            SqlTransaction transaction = null;
             try
             {
+                
                 sqlConnection = DBUtil.MakeConnect();
                 if (sqlConnection != null)
                 {
-                    sqlCommand = new SqlCommand(sql, sqlConnection);
+                    transaction = sqlConnection.BeginTransaction();
+                    sqlCommand = new SqlCommand(sql, sqlConnection,transaction);
                     sqlCommand.Parameters.AddWithValue("@name", dto.name);
                     sqlCommand.Parameters.AddWithValue("@price", dto.price);
                     sqlCommand.Parameters.AddWithValue("@quantity", dto.quantity);
                     sqlCommand.Parameters.AddWithValue("@status", dto.status);
                     sqlCommand.Parameters.AddWithValue("@idCategory", dto.idCategory);
                     sqlCommand.Parameters.AddWithValue("@idProduct", dto.idProduct);
-                    return sqlCommand.ExecuteNonQuery() > 0;
+                    bool check=sqlCommand.ExecuteNonQuery() > 0;
+                    
+                    if (check)
+                    {
+                       check= writeLog(sqlCommand, transaction, sqlConnection, dto.idProduct, STATUS_UPDATE, idEmployee);
+                    }
+                    transaction.Commit();
+                    return check;
                 }
             }catch(SqlException e)
             {
+                if (transaction != null)
+                {
+                    transaction.Rollback();
+                }
                 throw new Exception(e.Message);
             }
             finally
@@ -176,24 +227,44 @@ namespace FoodShopManagementApi.DAO
             }
             return false;
         }
-        public bool updateStatusProduct(TblProductsDTO dto)
+        public bool updateStatusProduct(TblProductsDTO dto,string idEmployee)
         {
             string sql = "UPDATE tblProducts " +
                 "SET status=@status " +
                 "WHERE idProduct=@idProduct";
+            SqlTransaction transaction = null;
             try
             {
                 sqlConnection = DBUtil.MakeConnect();
                 if (sqlConnection != null)
                 {
-                    sqlCommand = new SqlCommand(sql, sqlConnection);
+                    transaction = sqlConnection.BeginTransaction();
+                    sqlCommand = new SqlCommand(sql, sqlConnection,transaction);
                     sqlCommand.Parameters.AddWithValue("@status", dto.status);
                     sqlCommand.Parameters.AddWithValue("@idProduct", dto.idProduct);
-                    return sqlCommand.ExecuteNonQuery() > 0;
+                    bool check= sqlCommand.ExecuteNonQuery() > 0;
+                    if (check)
+                    {
+                        if (dto.status)
+                        {
+                            check = writeLog(sqlCommand, transaction, sqlConnection, dto.idProduct, STATUS_ACTIVE, idEmployee);
+                        }
+                        else
+                        {
+                            check = writeLog(sqlCommand, transaction, sqlConnection, dto.idProduct, STATUS_INACTIVE, idEmployee);
+                        }
+                        
+                    }
+                    transaction.Commit();
+                    return check;
                 }
             }
             catch (SqlException e)
             {
+                if (transaction != null)
+                {
+                    transaction.Rollback();
+                }
                 throw new Exception(e.Message);
             }
             finally

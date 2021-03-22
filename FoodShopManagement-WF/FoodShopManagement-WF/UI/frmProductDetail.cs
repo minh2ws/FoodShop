@@ -28,6 +28,14 @@ namespace FoodShopManagement_WF.UI
         {
             return txtProductName;
         }
+        public RadioButton getRadioButtonTrue()
+        {
+            return rdoStatusTrue;
+        }
+        public RadioButton getRadioButtonFalse()
+        {
+            return rdoStatusFalse;
+        }
 
         public TextBox getPrice()
         {
