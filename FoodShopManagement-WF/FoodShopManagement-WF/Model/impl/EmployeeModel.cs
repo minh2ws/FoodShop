@@ -12,16 +12,16 @@ namespace FoodShopManagement_WF.Model.impl
 {
     class EmployeeModel : IEmployeeModel
     {
-        public TblEmployeesDTO InsertEmployee(TblEmployeesDTO Employee)
+        public bool InsertEmployee(TblEmployeesDTO Employee)
         {
             HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("employee/Insert", Employee, Program.TokenGlobal);
             if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
             {
                 var employeeDTO = responseMessage.Content.ReadAsStringAsync();
-                TblEmployeesDTO emp = JsonConvert.DeserializeObject<TblEmployeesDTO>(employeeDTO.Result);
-                return emp;
+                bool result = JsonConvert.DeserializeObject<bool>(employeeDTO.Result);
+                return result;
             }
-            return null;
+            return false ;
 
         }
 

@@ -45,7 +45,7 @@ namespace FoodShopManagementApi.Controllers
                     bool result = dao.AddEmployee(Employee);
                     if (result == true)
                     {
-                        return Ok(Employee);
+                        return Ok(result);
                     }
                 }
                 catch (Exception e)

@@ -124,7 +124,7 @@ namespace FoodShopManagementApi.DAO
                     sqlCommand.Parameters.AddWithValue("@password", emp.password);
                     sqlCommand.Parameters.AddWithValue("@name", emp.name);
                     sqlCommand.Parameters.AddWithValue("@role", emp.role);
-                    sqlCommand.Parameters.AddWithValue("@status", true);
+                    sqlCommand.Parameters.AddWithValue("@status", emp.status);
 
                     //sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
                     result = sqlCommand.ExecuteNonQuery() > 0;

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace FoodShopManagement_WF.Presenter.impl
 {
-    class EmployeePresenter : IEmployeePresenter
+    public class EmployeePresenter : IEmployeePresenter
     {
         private frmManager_v2 form;
         private BindingSource bsEmp;
@@ -29,28 +29,42 @@ namespace FoodShopManagement_WF.Presenter.impl
                 return false;
             return true;
         }
-        public bool InsertEmployee(frmEmployeeDetail form)
+        public void InsertEmployee()
         {
-            TblEmployeesDTO Employees = new TblEmployeesDTO();
-            Employees.idEmployee = form.getUserName().Trim();
-            Employees.name = form.getFullName().Trim();
-            Employees.password = form.getPassword().Trim();
-            Employees.role = form.getRole().Trim();
-            Employees.status = true;
-            bool validate = ValidateEmplpyee(Employees);
-            if (validate == true)
+            frmEmployeeDetail detail = new frmEmployeeDetail(true, this);
+            DialogResult r = detail.ShowDialog();
+            TblEmployeesDTO emp = new TblEmployeesDTO();
+            emp.idEmployee = detail.getUserName();
+            emp.name = detail.getFullName();
+            emp.password = detail.getPassword();
+            emp.role = detail.getRole().Trim();
+            bool status = false;
+            if (detail.getStatus().Trim().Equals("True"))
             {
-                TblEmployeesDTO emp = model.InsertEmployee(Employees);
-                if (emp != null)
-                {
-                    return true;
-                }
-                return false;
-
+                status = true;
             }
             else
             {
-                return false;
+                status = false;
+            }
+            emp.status = status ;
+            
+            bool validate = ValidateEmplpyee(emp);
+            if (validate == true)
+            {
+                bool result = model.InsertEmployee(emp);
+                if (result)
+                {
+                    MessageBox.Show("Successfull!");
+                }
+                else
+                {
+                    MessageBox.Show("Fail");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error information!");
             }
         }
         public void searchEmployee()
