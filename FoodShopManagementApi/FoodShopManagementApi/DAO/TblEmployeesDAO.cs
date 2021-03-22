@@ -29,6 +29,7 @@ namespace FoodShopManagementApi.DAO
             SqlConnection connection = null;
             SqlDataReader reader = null;
             SqlCommand cmd = null;
+
             try
             {
                 connection = DBUtil.MakeConnect();
