@@ -138,7 +138,37 @@ namespace FoodShopManagementApi.DAO
             }
             return result;
         }
+        public bool UpdateEmployee(TblEmployeesDTO emp)
+        {
+            SqlConnection connection = null;
+            SqlDataReader sqlDataReader = null;
+            bool result = false;
+            try
+            {
+                connection = DBUtil.MakeConnect();
+                if (connection != null)
+                {
+                    String sql = "UPDATE tblEmployees " +
+                        "SET name=@name, password=@password, role=@role, status=@status " +
+                        "WHERE idEmployee=@idEmployee";
+                    SqlCommand sqlCommand = new SqlCommand(sql, connection);
+                    sqlCommand.Parameters.AddWithValue("@password", emp.password);
+                    sqlCommand.Parameters.AddWithValue("@name", emp.name);
+                    sqlCommand.Parameters.AddWithValue("@role", emp.role);
+                    sqlCommand.Parameters.AddWithValue("@status", emp.status);
+                    sqlCommand.Parameters.AddWithValue("@idEmployee", emp.idEmployee);
+                    //sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                    result = sqlCommand.ExecuteNonQuery() > 0;
+                }
 
+            }
+            catch (SqlException e) { throw new Exception(e.Message); }
+            finally
+            {
+                DBUtil.CloseConnection(sqlDataReader, connection);
+            }
+            return result;
+        }
         public List<TblEmployeesDTO> loadEmpByRole(string role)
         {
             SqlConnection connection = null;

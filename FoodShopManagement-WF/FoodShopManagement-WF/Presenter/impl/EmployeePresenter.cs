@@ -32,7 +32,12 @@ namespace FoodShopManagement_WF.Presenter.impl
         public void InsertEmployee()
         {
             frmEmployeeDetail detail = new frmEmployeeDetail(true, this);
+            detail.setIsUpdate(false);
             DialogResult r = detail.ShowDialog();
+
+        }
+        public void saveEmployee(frmEmployeeDetail detail)
+        {
             TblEmployeesDTO emp = new TblEmployeesDTO();
             emp.idEmployee = detail.getUserName();
             emp.name = detail.getFullName();
@@ -47,24 +52,32 @@ namespace FoodShopManagement_WF.Presenter.impl
             {
                 status = false;
             }
-            emp.status = status ;
-            
+            emp.status = status;
+
             bool validate = ValidateEmplpyee(emp);
-            if (validate == true)
+            if (!detail.getIsUpdate())
             {
-                bool result = model.InsertEmployee(emp);
-                if (result)
+                if (model.InsertEmployee(emp))
                 {
-                    MessageBox.Show("Successfull!");
+                    MessageBox.Show(MessageUtil
+                        .SAVE_SUCCESS);
                 }
                 else
                 {
-                    MessageBox.Show("Fail");
+                    MessageBox.Show(MessageUtil.ERROR + " add Employee");
                 }
             }
             else
             {
-                MessageBox.Show("Error information!");
+                if (model.UpdateEmployee(emp))
+                {
+                    MessageBox.Show(MessageUtil
+                        .SAVE_SUCCESS);
+                }
+                else
+                {
+                    MessageBox.Show(MessageUtil.ERROR + " update Employee");
+                }
             }
         }
         public void searchEmployee()
@@ -147,10 +160,25 @@ namespace FoodShopManagement_WF.Presenter.impl
             {
                 string id = form.getID();
                 Boolean emp = model.DeleteEmployee(id);
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 MessageBox.Show(MessageUtil.ERROR + " Delete Employee");
             }
+        }
+
+        public void updateEmp()
+        {
+            frmEmployeeDetail detail = new frmEmployeeDetail(true, this);
+            detail.setIsUpdate(true);
+
+            //lấy dữ liệu gán vào textbox
+            detail.getID().Text = form.getIdEmp().Text;
+            detail.getName().Text = form.getEmpName().Text;
+            detail.getPwd().Text = form.getPassword().Text;
+            
+            DialogResult r = detail.ShowDialog();
+          
         }
     }
 }
