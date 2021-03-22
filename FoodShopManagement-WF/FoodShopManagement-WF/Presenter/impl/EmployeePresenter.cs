@@ -10,18 +10,48 @@ using System.Windows.Forms;
 
 namespace FoodShopManagement_WF.Presenter.impl
 {
-    class ManagerDetailPresenter : IManagerDetailPresenter
+    public class EmployeePresenter : IEmployeePresenter
     {
         private frmManager_v2 form;
         private BindingSource bsEmp;
-        private IManagerDetailModel model = new ManagerDetailModel();
-        public ManagerDetailPresenter(frmManager_v2 form)
+        private IEmployeeModel model = new EmployeeModel();
+        public EmployeePresenter(frmManager_v2 form)
         {
             this.form = form;
         }
-        public ManagerDetailPresenter()
+        public EmployeePresenter()
         {
 
+        }
+
+        public bool checkField(TblEmployeesDTO emp)
+        {
+            if (emp.name.Trim().Length == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Name can't empty!!", "Error");
+                return false;
+            }
+
+            if (emp.password.Trim().Length == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Password can't empty!!", "Error");
+                return false;
+            }
+            return true;
+        }
+        public bool UpdateEmpDetail(frmMyProfileDetailcs form)
+        {
+            TblEmployeesDTO emp = new TblEmployeesDTO
+            {
+                name = form.getTxtName(),
+                password = form.getTxtPassword(),
+            };
+            bool isSuccess = checkField(emp);
+            if (isSuccess)
+            {
+                return model.UpdateProfile(emp);//return true if update sucess
+            }
+            return false;
         }
         bool ValidateEmplpyee(TblEmployeesDTO e)
         {
@@ -29,29 +59,30 @@ namespace FoodShopManagement_WF.Presenter.impl
                 return false;
             return true;
         }
-        public bool InsertEmployee(frmEmployeeDetail form)
-        {
-            TblEmployeesDTO Employees = new TblEmployeesDTO();
-            Employees.idEmployee = form.getUserName().Trim();
-            Employees.name = form.getFullName().Trim();
-            Employees.password = form.getPassword().Trim();
-            Employees.role = form.getRole().Trim();
-            Employees.status = true;
-            bool validate = ValidateEmplpyee(Employees);
-            if (validate == true)
-            {
-                TblEmployeesDTO emp = model.InsertEmployee(Employees);
-                if (emp != null)
-                {
-                    return true;
-                }
-                return false;
 
+        public void InsertEmployee()
+        {
+            frmEmployeeDetail empDetail = new frmEmployeeDetail(true,this);
+            DialogResult r = empDetail.ShowDialog();
+            empDetail.setFlag(false);
+            TblEmployeesDTO emp = new TblEmployeesDTO();
+            emp.idEmployee = empDetail.getUserName().Text;
+            emp.name = empDetail.getFullName().Text;
+            emp.password = empDetail.getPassword().Text;
+            emp.role = empDetail.getEmpRole();
+            emp.status = true;
+     
+            
+            bool dto = model.InsertEmployee(emp);
+            if (dto==true)
+            {
+                MessageBox.Show("Insert complete!");
             }
             else
             {
-                return false;
+                MessageBox.Show("Insert fail!");
             }
+           
         }
 
         private void clearDataBindingTextEmployee()
@@ -114,6 +145,19 @@ namespace FoodShopManagement_WF.Presenter.impl
             }
         }
 
+        public void searchEmployee()
+        {
+            try
+            {
+                string search = form.getSearchEmpBox().Text;
+                bsEmp.Filter = "name like '%" + search + "%'";
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(MessageUtil.ERROR + " Search Employee");
+            }
+
+        }
         public void DeleteEmployee(frmManager_v2 form)
         {
 
@@ -125,6 +169,22 @@ namespace FoodShopManagement_WF.Presenter.impl
             {
                 MessageBox.Show(MessageUtil.ERROR + " Delete Employee");
             }
+        }
+
+        public void UpdateEmployee()
+        {
+            //get Emp from form
+            frmEmployeeDetail empDetail = new frmEmployeeDetail(true,this);
+            
+            
+            empDetail.getUserName().Text = form.getIdEmp().Text;
+            empDetail.getFullName().Text = form.getEmpName().Text;
+            empDetail.getPassword().Text = form.getPassword().Text;
+           // empDetail.setRole = form.getEmpRole().Text;
+            DialogResult r = empDetail.ShowDialog();
+
+
+
         }
     }
 }

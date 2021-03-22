@@ -6,6 +6,7 @@ using FoodShopManagement_WF.Presenter;
 using FoodShopManagement_WF.Presenter.impl;
 using System.Collections.Generic;
 using System.Linq;
+using DevExpress.DirectX.Common.DirectWrite;
 
 namespace FoodShopManagement_WF.UI
 {
@@ -13,15 +14,15 @@ namespace FoodShopManagement_WF.UI
     {
         private frmLogin loginFrame;
         private TblEmployeesDTO emp;
-        private IManagerDetailPresenter presenter;
-        
+        private IEmployeePresenter presenter;
+
         public frmManager_v2(frmLogin loginFrame, TblEmployeesDTO emp)
         {
             InitializeComponent();
             this.loginFrame = loginFrame;
             this.emp = emp;
-            presenter = new ManagerDetailPresenter(this);
-            txtEmployeeID.Enabled=false;
+            presenter = new EmployeePresenter(this);
+            txtEmployeeID.Enabled = false;
             txtFullname.Enabled = false;
             txtPassword.Enabled = false;
             txtRole.Enabled = false;
@@ -61,7 +62,19 @@ namespace FoodShopManagement_WF.UI
         {
             msTool.Text = "User: " + emp.name;
             presenter.LoadEmpByRole(this);
-
+        }
+        public void loadData()
+        {
+            setRole(cbRole.SelectedIndex.ToString());
+            string role = getRole();
+            if (role.Equals("All"))
+            {
+                loadAll();
+            }
+            else
+            {
+                loadEmpByRole();
+            }
         }
         public DataGridView GetDataGridViewEmployee()
         {
@@ -84,21 +97,30 @@ namespace FoodShopManagement_WF.UI
             this.Hide();
             loginFrame.Show();
         }
+
+        public TblEmployeesDTO getEmp()
+        {
+            TblEmployeesDTO emp = new TblEmployeesDTO
+            {
+                idEmployee = getID(),
+                name = getName(),
+                password = getEmpPass(),
+                role = getRole(),
+                status = bool.Parse(getEmpStatus())
+            };
+            return emp;
+        }
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            frmEmployeeDetail ProductDetail = new frmEmployeeDetail(true);
-            DialogResult r = ProductDetail.ShowDialog();
-
+            presenter.UpdateEmployee();
+            loadData();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmEmployeeDetail ProductDetail = new frmEmployeeDetail(true);
-            DialogResult r = ProductDetail.ShowDialog();
-
-            loadAll();
-            loadEmpByRole();
-
+            presenter.InsertEmployee();
+            loadData();
         }
 
         private void ViewProfileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,32 +129,18 @@ namespace FoodShopManagement_WF.UI
             DialogResult r = ProductDetail.ShowDialog();
 
         }
-        private string role;//var to load emp base on role
-        public string getRole()
-        {
-            return this.cbRole.Text;
-        }
-
-        public void setRole(string role)
-        {
-            this.role = role;
-        }
-
         private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
             setRole(cbRole.SelectedIndex.ToString());
             string role = getRole();
-            if (role.Equals("All"))
-            {
-                loadAll();
-            }
-            else
-            {
-                loadEmpByRole();
-            }
+            loadData();
         }
-
+        //lấy dữ liệu từ textbox đang có trên datagridview
         private string idEmp;
+        private string EmpName;
+        private string EmpPassword;
+        private string role;//var to load emp base on role
+        private string EmpStatus;
         public string getID()
         {
             return this.txtEmployeeID.Text;
@@ -142,6 +150,42 @@ namespace FoodShopManagement_WF.UI
 
             this.idEmp = idEmp;
         }
+        public string getName()
+        {
+            return this.txtFullname.Text;
+        }
+        public void setName(string name)
+        {
+            this.EmpName = name;
+        }
+        public string getEmpPass()
+        {
+            return this.txtPassword.Text;
+        }
+        public void setEmpPass(string password)
+        {
+            this.EmpPassword = password;
+        }
+        public string getRole()
+        {
+            return this.cbRole.Text;
+        }
+        public void setRole(string role)
+        {
+            this.role = role;
+        }
+        public string getEmpStatus()
+        {
+            return this.txtStatus.Text;
+        }
+        public void setEmpStatus(string status)
+        {
+            this.EmpStatus = status;
+        }
+        public ToolStripTextBox getSearchEmpBox()
+        {
+            return this.txtSearchEmp;
+        }
         private void btnDelete_Click(object sender, EventArgs e)
         {
             setID(txtEmployeeID.Text);
@@ -149,14 +193,12 @@ namespace FoodShopManagement_WF.UI
             presenter.DeleteEmployee(this);
             setRole(cbRole.SelectedIndex.ToString());
             string role = getRole();
-            if (role.Equals("All"))
-            {
-                loadAll();
-            }
-            else
-            {
-                loadEmpByRole();
-            }
+            loadData();
+        }
+
+        private void txtSearchEmp_TextChanged(object sender, EventArgs e)
+        {
+            presenter.searchEmployee();
         }
     }
 }

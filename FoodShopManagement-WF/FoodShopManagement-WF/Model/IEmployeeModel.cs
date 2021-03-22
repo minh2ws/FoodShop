@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace FoodShopManagement_WF.Model
 {
-    interface IManagerDetailModel
+    interface IEmployeeModel
     {
-        TblEmployeesDTO InsertEmployee(TblEmployeesDTO TblEmployeesDTO);
+        bool InsertEmployee(TblEmployeesDTO TblEmployeesDTO);
 
         Boolean DeleteEmployee(string idEmployee);
 
         List<TblEmployeesDTO> LoadEmpByRole(string role);
 
         List<TblEmployeesDTO> getAll();
-
+        bool UpdateProfile(TblEmployeesDTO model);
     }
 }

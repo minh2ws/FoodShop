@@ -12,7 +12,7 @@ namespace FoodShopManagement_WF.Presenter.impl
 {
     class MyProfileDetailPresenter : IMyProfileDetailPresenter
     {
-        IMyProfileDetailModel model = new MyProfileDetailModel();
+        IMyProfileDetailModel model = new ProfileModel();
         
         public bool checkField(TblEmployeesDTO emp)
         {

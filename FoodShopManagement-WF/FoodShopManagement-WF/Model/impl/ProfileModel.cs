@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace FoodShopManagement_WF.Model.impl
 {
-    class MyProfileDetailModel : IMyProfileDetailModel
+    class ProfileModel : IMyProfileDetailModel
     {
         public bool UpdateEmpDetail(TblEmployeesDTO model)
         {

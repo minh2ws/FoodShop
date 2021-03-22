@@ -10,18 +10,31 @@ using System.Threading.Tasks;
 
 namespace FoodShopManagement_WF.Model.impl
 {
-    class ManagerDetailModel : IManagerDetailModel
+    class EmployeeModel : IEmployeeModel
     {
-        public TblEmployeesDTO InsertEmployee(TblEmployeesDTO Employee)
+        public bool UpdateProfile(TblEmployeesDTO model)
+        {
+            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("employee/UpdateProfile", model, Program.TokenGlobal);
+            if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
+            {
+                //get json content
+                var body = responseMessage.Content.ReadAsStringAsync();
+                bool result = JsonConvert.DeserializeObject<bool>(body.Result);
+                return result;
+            }
+            return false;
+        }
+
+        public bool InsertEmployee(TblEmployeesDTO Employee)
         {
             HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("employee/Insert", Employee, Program.TokenGlobal);
             if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
             {
-                var employeeDTO = responseMessage.Content.ReadAsStringAsync();
-                TblEmployeesDTO emp = JsonConvert.DeserializeObject<TblEmployeesDTO>(employeeDTO.Result);
+                var result = responseMessage.Content.ReadAsStringAsync();
+                bool emp = JsonConvert.DeserializeObject<bool>(result.Result);
                 return emp;
             }
-            return null;
+            return false;
 
         }
 

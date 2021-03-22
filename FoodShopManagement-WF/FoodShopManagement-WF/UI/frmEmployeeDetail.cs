@@ -1,7 +1,5 @@
-﻿using DTO;
-using FoodShopManagement_WF.Presenter;
+﻿using FoodShopManagement_WF.Presenter;
 using FoodShopManagement_WF.Presenter.impl;
-using FoodShopManagement_WF.Util;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -18,64 +16,61 @@ namespace FoodShopManagement_WF.UI
 {
     public partial class frmEmployeeDetail : Form
     {
-        IManagerDetailPresenter ManagerDetailPresenter = new ManagerDetailPresenter();
-       
-        public string getUserName()
+        private bool flag = false;
+        private IEmployeePresenter presenter;
+        public bool getFlag()
         {
-            return this.txtEmployeeID.Text;
+            return this.flag;
         }
-        public string getPassword()
+        public void setFlag(bool flag)
         {
-            return this.txtPassword.Text;
+            this.flag = flag;
         }
-        public string getFullName()
+        public TextBox getUserName()
         {
-            return this.txtFullName.Text;
+            return this.txtEmployeeID;
         }
+        public TextBox getPassword()
+        {
+            return this.txtPassword;
+        }
+        public TextBox getFullName()
+        {
+            return this.txtFullName;
+        }
+        private string role;
         public string getRole()
         {
-            return this.cbRole.GetItemText(this.cbRole.SelectedItem);
+            return this.cbRole.Text;
         }
-        public void setUsername(string username)
+        public void setRole(string role)
         {
-            this.txtEmployeeID.Text = username;
+            this.role = role;
         }
-        public void setPassword(string password)
+        public string getEmpRole()
         {
-            this.txtPassword.Text = password;
+            setRole(cbRole.SelectedIndex.ToString());
+            string role = getRole();
+            return role;
         }
-        public void setFullname(string fullname)
+        public ComboBox GetComboBoxStatus()
         {
-            this.txtFullName.Text = fullname;
+            return cbStatus;
         }
-        public void setRole(string Role)
-        {
-            this.cbRole.Items.Add(Role);
-        }
+
         public frmEmployeeDetail() 
         {
             InitializeComponent();
-            
-            
         }
-        public frmEmployeeDetail(bool flag): this()        {
-          
 
-
+        public frmEmployeeDetail(bool flag, EmployeePresenter presenter): this()
+        {
+            this.presenter = presenter; 
         }
+       
         private void btnSave_Click(object sender, EventArgs e)
         {
-            bool Insert = ManagerDetailPresenter.InsertEmployee(this);
-            if (!Insert)
-            {
-                this.DialogResult = DialogResult.No;
-                MessageBox.Show("invalid password or id", "Warning!");
-            }
-            else
-            {
-                this.DialogResult = DialogResult.OK;
-                MessageBox.Show("Successful Insert ");
-            }
+           
          
         }
         private void btnCancel_Click(object sender, EventArgs e)
@@ -86,6 +81,12 @@ namespace FoodShopManagement_WF.UI
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setRole(cbRole.SelectedIndex.ToString());
+            string role = getRole();
         }
     }
 }

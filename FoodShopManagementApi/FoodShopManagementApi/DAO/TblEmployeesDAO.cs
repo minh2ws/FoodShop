@@ -11,7 +11,7 @@ namespace FoodShopManagementApi.DAO
     {
         //Using SINGLETON pattern
         private static TblEmployeesDAO instance = null;
-        
+
         private TblEmployeesDAO() { }
 
         public static TblEmployeesDAO getInstance()
@@ -23,7 +23,8 @@ namespace FoodShopManagementApi.DAO
             return instance;
         }
 
-        public List<TblEmployeesDTO> loadEmp() {
+        public List<TblEmployeesDTO> loadEmp()
+        {
             string sql = "select idEmployee, name, password, role, status " +
                 "from tblEmployees ";
             SqlConnection connection = null;
@@ -111,7 +112,6 @@ namespace FoodShopManagementApi.DAO
         {
             SqlConnection connection = null;
             SqlDataReader sqlDataReader = null;
-            bool result = false;
             try
             {
                 connection = DBUtil.MakeConnect();
@@ -124,10 +124,9 @@ namespace FoodShopManagementApi.DAO
                     sqlCommand.Parameters.AddWithValue("@password", emp.password);
                     sqlCommand.Parameters.AddWithValue("@name", emp.name);
                     sqlCommand.Parameters.AddWithValue("@role", emp.role);
-                    sqlCommand.Parameters.AddWithValue("@status", true);
+                    sqlCommand.Parameters.AddWithValue("@status", emp.status);
 
-                    //sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
-                    result = sqlCommand.ExecuteNonQuery() > 0;
+                    return sqlCommand.ExecuteNonQuery() > 0;
                 }
 
             }
@@ -136,7 +135,7 @@ namespace FoodShopManagementApi.DAO
             {
                 DBUtil.CloseConnection(sqlDataReader, connection);
             }
-            return result;
+            return false;
         }
 
         public List<TblEmployeesDTO> loadEmpByRole(string role)
@@ -184,8 +183,8 @@ namespace FoodShopManagementApi.DAO
         {
             SqlConnection cn = null;
             SqlCommand cmd = null;
-            
-            string sql = "UPDATE tblEmployees " 
+
+            string sql = "UPDATE tblEmployees "
                     + "SET name = @name, password = @pwd "
                     + "WHERE idEmployee = @id ";
             try
@@ -240,5 +239,40 @@ namespace FoodShopManagementApi.DAO
             }
             return false;
         }
+        public bool UpdateEmployee(TblEmployeesDTO emp)
+        {
+            SqlConnection cn = null;
+            SqlCommand cmd = null;
+
+            string sql = "UPDATE tblEmployees "
+                    + "SET name = @name, password = @pwd, role = @role, status = @status "
+                    + "WHERE idEmployee = @id ";
+            try
+            {
+                cn = DBUtil.MakeConnect();
+                if (cn != null)
+                {
+                    cmd = new SqlCommand(sql, cn);
+                    cmd.Parameters.AddWithValue("@name", emp.name);
+                    cmd.Parameters.AddWithValue("@pwd", emp.password);
+                    cmd.Parameters.AddWithValue("@role", emp.role);
+                    cmd.Parameters.AddWithValue("@status", emp.status);
+                    cmd.Parameters.AddWithValue("@id", emp.idEmployee);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                DBUtil.CloseConnection(null, cn);
+            }
+            return false;
+        }
+
     }
+
 }
