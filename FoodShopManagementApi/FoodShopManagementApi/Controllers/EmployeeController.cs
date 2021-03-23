@@ -45,7 +45,7 @@ namespace FoodShopManagementApi.Controllers
                     bool result = dao.AddEmployee(Employee);
                     if (result == true)
                     {
-                        return Ok(Employee);
+                        return Ok(result);
                     }
                 }
                 catch (Exception e)
@@ -55,7 +55,30 @@ namespace FoodShopManagementApi.Controllers
             }
             return Unauthorized();
         }
-
+        [HttpPost("UpdateEmployee")]
+        [Produces("application/json")]
+        public IActionResult UpdateEmployee([FromBody] TblEmployeesDTO Employee)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblEmployeesDAO dao = TblEmployeesDAO.getInstance();
+                IActionResult response = Unauthorized();
+                try
+                {
+                    bool result = dao.UpdateEmployee(Employee);
+                    if (result == true)
+                    {
+                        return Ok(result);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+            return Unauthorized();
+        }
         [HttpGet("Load")]
         [Produces("application/json")]
         public IActionResult loadEmployee()

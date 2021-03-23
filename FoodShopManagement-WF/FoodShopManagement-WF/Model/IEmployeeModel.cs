@@ -9,7 +9,9 @@ namespace FoodShopManagement_WF.Model
 {
     interface IEmployeeModel
     {
-        TblEmployeesDTO InsertEmployee(TblEmployeesDTO TblEmployeesDTO);
+        bool InsertEmployee(TblEmployeesDTO TblEmployeesDTO);
+
+        bool UpdateEmployee(TblEmployeesDTO emp);
 
         Boolean DeleteEmployee(string idEmployee);
 

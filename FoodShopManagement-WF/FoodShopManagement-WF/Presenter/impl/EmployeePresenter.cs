@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace FoodShopManagement_WF.Presenter.impl
 {
-    class EmployeePresenter : IEmployeePresenter
+    public class EmployeePresenter : IEmployeePresenter
     {
         private frmManager_v2 form;
         private BindingSource bsEmp;
@@ -29,28 +29,55 @@ namespace FoodShopManagement_WF.Presenter.impl
                 return false;
             return true;
         }
-        public bool InsertEmployee(frmEmployeeDetail form)
+        public void InsertEmployee()
         {
-            TblEmployeesDTO Employees = new TblEmployeesDTO();
-            Employees.idEmployee = form.getUserName().Trim();
-            Employees.name = form.getFullName().Trim();
-            Employees.password = form.getPassword().Trim();
-            Employees.role = form.getRole().Trim();
-            Employees.status = true;
-            bool validate = ValidateEmplpyee(Employees);
-            if (validate == true)
-            {
-                TblEmployeesDTO emp = model.InsertEmployee(Employees);
-                if (emp != null)
-                {
-                    return true;
-                }
-                return false;
+            frmEmployeeDetail detail = new frmEmployeeDetail(true, this);
+            detail.setIsUpdate(false);
+            DialogResult r = detail.ShowDialog();
 
+        }
+        public void saveEmployee(frmEmployeeDetail detail)
+        {
+            TblEmployeesDTO emp = new TblEmployeesDTO();
+            emp.idEmployee = detail.getUserName();
+            emp.name = detail.getFullName();
+            emp.password = detail.getPassword();
+            emp.role = detail.getRole().Trim();
+            bool status = false;
+            if (detail.getStatus().Trim().Equals("True"))
+            {
+                status = true;
             }
             else
             {
-                return false;
+                status = false;
+            }
+            emp.status = status;
+
+            bool validate = ValidateEmplpyee(emp);
+            if (!detail.getIsUpdate())
+            {
+                if (model.InsertEmployee(emp))
+                {
+                    MessageBox.Show(MessageUtil
+                        .SAVE_SUCCESS);
+                }
+                else
+                {
+                    MessageBox.Show(MessageUtil.ERROR + " add Employee");
+                }
+            }
+            else
+            {
+                if (model.UpdateEmployee(emp))
+                {
+                    MessageBox.Show(MessageUtil
+                        .SAVE_SUCCESS);
+                }
+                else
+                {
+                    MessageBox.Show(MessageUtil.ERROR + " update Employee");
+                }
             }
         }
         public void searchEmployee()
@@ -133,10 +160,25 @@ namespace FoodShopManagement_WF.Presenter.impl
             {
                 string id = form.getID();
                 Boolean emp = model.DeleteEmployee(id);
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 MessageBox.Show(MessageUtil.ERROR + " Delete Employee");
             }
+        }
+
+        public void updateEmp()
+        {
+            frmEmployeeDetail detail = new frmEmployeeDetail(true, this);
+            detail.setIsUpdate(true);
+
+            //lấy dữ liệu gán vào textbox
+            detail.getID().Text = form.getIdEmp().Text;
+            detail.getName().Text = form.getEmpName().Text;
+            detail.getPwd().Text = form.getPassword().Text;
+            
+            DialogResult r = detail.ShowDialog();
+          
         }
     }
 }
