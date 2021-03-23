@@ -125,6 +125,10 @@ namespace FoodShopManagement_WF.UI
         {
             return this.cbRole.Text;
         }
+        public string getRoletext()
+        {
+            return this.txtRole.Text;
+        }
 
         public void setRole(string role)
         {
