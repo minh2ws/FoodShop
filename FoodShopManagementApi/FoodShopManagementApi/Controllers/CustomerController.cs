@@ -108,5 +108,33 @@ namespace FoodShopManagementApi.Controllers
             }
             return Unauthorized();
         }
+
+        [HttpPut("update-point")]
+        [Produces("application/json")]
+        public IActionResult UpdatePoint([FromBody] TblCustomerDTO dto)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblCustomerDAO dao = TblCustomerDAO.getInstance();
+                try
+                {
+                    bool isSuccess = dao.UpdatePoint(dto);
+                    if (isSuccess)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
+                }
+                catch (Exception)
+                {
+                    StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
     }
 }

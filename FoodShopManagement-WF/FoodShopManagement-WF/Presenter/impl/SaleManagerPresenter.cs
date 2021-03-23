@@ -334,7 +334,12 @@ namespace FoodShopManagement_WF.Presenter.impl
 
         public void CheckoutCart()
         {
-            
+            string customerOrder = form.getCustomerOrder().Text;
+            if (customerOrder.Equals(""))
+            {
+                MessageBox.Show(MessageUtil.CUSTOMER_INVALID);
+            }
+            else CreateOrder();
         }
 
         private void CreateOrder()
@@ -374,7 +379,7 @@ namespace FoodShopManagement_WF.Presenter.impl
                 isSuccess = orderModel.AddOrderDetail(cart);
                 if (isSuccess)
                 {
-                    MessageBox.Show("Checkout Success!!");
+                    MessageBox.Show(MessageUtil.CHECKOUT_SUCCESS);
                     updateCustomerPoint();
                 }
                 else 
@@ -390,7 +395,7 @@ namespace FoodShopManagement_WF.Presenter.impl
         {
             //calculate point for customer
             int amount = int.Parse(form.getAmount().Text);
-            int point = amount / 1000;
+            int point = amount / 100;
             string customerId = form.getCustomerId().Text;
 
             TblCustomerDTO dto = new TblCustomerDTO()
@@ -399,6 +404,15 @@ namespace FoodShopManagement_WF.Presenter.impl
                 point = point,
             };
             customerModel.updatePoint(dto);
+        }
+
+        public void GetCustomerInfo()
+        {
+            string customerId = form.getCustomerId().Text;
+            if (customerId.Equals(""))
+                MessageBox.Show(MessageUtil.CUSTOMER_EMPTY);
+            else
+                form.getCustomerOrder().Text = form.getCustomerName().Text;
         }
     }
 }

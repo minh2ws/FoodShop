@@ -130,5 +130,33 @@ namespace FoodShopManagementApi.DAO
             }
             return false;
         }
+
+        public bool UpdatePoint(TblCustomerDTO dto)
+        {
+            string sql = "UPDATE tblCustomers " +
+                "SET point = @point " +
+                "WHERE idCustomer = @id ";
+            try
+            {
+                cn = DBUtil.MakeConnect();
+                if (cn != null)
+                {
+                    cmd = new SqlCommand(sql, cn);
+                    cmd.Parameters.AddWithValue("@point", dto.point);
+                    cmd.Parameters.AddWithValue("@id", dto.idCustomer);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                DBUtil.CloseConnection(null, cn);
+            }
+            return false;
+        }
     }
 }

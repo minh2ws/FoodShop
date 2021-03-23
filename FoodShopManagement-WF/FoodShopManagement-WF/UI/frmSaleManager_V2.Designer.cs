@@ -50,7 +50,7 @@ namespace FoodShopManagement_WF.UI
             this.txtDiscount = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvItemOfOrder = new System.Windows.Forms.DataGridView();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCustomerOrder = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.bnProducts = new System.Windows.Forms.BindingNavigator(this.components);
@@ -72,6 +72,7 @@ namespace FoodShopManagement_WF.UI
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnGetCustomer = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -111,7 +112,6 @@ namespace FoodShopManagement_WF.UI
             this.ViewProfiletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bsProducts = new System.Windows.Forms.BindingSource(this.components);
             this.bsCustomer = new System.Windows.Forms.BindingSource(this.components);
-            this.btnGetCustomer = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -179,6 +179,7 @@ namespace FoodShopManagement_WF.UI
             this.btnCheckOut.TabIndex = 10;
             this.btnCheckOut.Text = "Check Out";
             this.btnCheckOut.UseVisualStyleBackColor = true;
+            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
             // 
             // btnDeleteProduct
             // 
@@ -236,7 +237,7 @@ namespace FoodShopManagement_WF.UI
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.TOTAL);
             this.panel1.Controls.Add(this.dgvItemOfOrder);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.txtCustomerOrder);
             this.panel1.Location = new System.Drawing.Point(784, 21);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
@@ -321,7 +322,6 @@ namespace FoodShopManagement_WF.UI
             this.txtCurrentAmount.Location = new System.Drawing.Point(333, 137);
             this.txtCurrentAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCurrentAmount.Name = "txtCurrentAmount";
-            this.txtCurrentAmount.ReadOnly = true;
             this.txtCurrentAmount.Size = new System.Drawing.Size(204, 27);
             this.txtCurrentAmount.TabIndex = 7;
             // 
@@ -355,10 +355,8 @@ namespace FoodShopManagement_WF.UI
             this.txtDiscount.Location = new System.Drawing.Point(333, 70);
             this.txtDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.ReadOnly = true;
             this.txtDiscount.Size = new System.Drawing.Size(204, 20);
             this.txtDiscount.TabIndex = 5;
-            this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
             // 
             // label7
             // 
@@ -382,16 +380,17 @@ namespace FoodShopManagement_WF.UI
             this.dgvItemOfOrder.Size = new System.Drawing.Size(577, 377);
             this.dgvItemOfOrder.TabIndex = 10;
             // 
-            // textBox3
+            // txtCustomerOrder
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Georgia", 10.2F);
-            this.textBox3.Location = new System.Drawing.Point(313, 105);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(223, 20);
-            this.textBox3.TabIndex = 5;
+            this.txtCustomerOrder.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtCustomerOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCustomerOrder.Font = new System.Drawing.Font("Georgia", 10.2F);
+            this.txtCustomerOrder.Location = new System.Drawing.Point(313, 105);
+            this.txtCustomerOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCustomerOrder.Name = "txtCustomerOrder";
+            this.txtCustomerOrder.ReadOnly = true;
+            this.txtCustomerOrder.Size = new System.Drawing.Size(223, 20);
+            this.txtCustomerOrder.TabIndex = 5;
             // 
             // panel2
             // 
@@ -481,7 +480,6 @@ namespace FoodShopManagement_WF.UI
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(49, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -635,10 +633,20 @@ namespace FoodShopManagement_WF.UI
             this.panel5.Size = new System.Drawing.Size(626, 562);
             this.panel5.TabIndex = 15;
             // 
+            // btnGetCustomer
+            // 
+            this.btnGetCustomer.Location = new System.Drawing.Point(266, 494);
+            this.btnGetCustomer.Name = "btnGetCustomer";
+            this.btnGetCustomer.Size = new System.Drawing.Size(120, 33);
+            this.btnGetCustomer.TabIndex = 13;
+            this.btnGetCustomer.Text = "Get";
+            this.btnGetCustomer.UseVisualStyleBackColor = true;
+            this.btnGetCustomer.Click += new System.EventHandler(this.btnGetCustomer_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(331, 603);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(191, 52);
             this.button1.TabIndex = 12;
@@ -926,7 +934,6 @@ namespace FoodShopManagement_WF.UI
             // 
             this.toolStripTextBox1.AccessibleName = "Position";
             this.toolStripTextBox1.AutoSize = false;
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(49, 27);
             this.toolStripTextBox1.Text = "0";
@@ -1035,15 +1042,6 @@ namespace FoodShopManagement_WF.UI
             this.ViewProfiletoolStripMenuItem.Text = "View Profile";
             this.ViewProfiletoolStripMenuItem.Click += new System.EventHandler(this.ViewProfileToolStripMenuItem_Click);
             // 
-            // btnGetCustomer
-            // 
-            this.btnGetCustomer.Location = new System.Drawing.Point(266, 494);
-            this.btnGetCustomer.Name = "btnGetCustomer";
-            this.btnGetCustomer.Size = new System.Drawing.Size(120, 33);
-            this.btnGetCustomer.TabIndex = 13;
-            this.btnGetCustomer.Text = "Get";
-            this.btnGetCustomer.UseVisualStyleBackColor = true;
-            // 
             // frmSaleManager_V2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1131,7 +1129,7 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCustomerOrder;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtCurrentAmount;
         private System.Windows.Forms.Label label5;

@@ -78,7 +78,10 @@ namespace FoodShopManagement_WF.UI
         {
             return this.txtSearchCustomer;
         }
-
+        public TextBox getCustomerOrder()
+        {
+            return this.txtCustomerOrder;
+        }
         public TextBox getAmount()
         {
             return this.txtAmount;
@@ -154,16 +157,21 @@ namespace FoodShopManagement_WF.UI
             saleManagerPresenter.UpdateAmount();
         }
 
-        private void txtDiscount_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
             saleManagerPresenter.RemoveProductFromOrder();
             saleManagerPresenter.LoadProductsOrder();
             saleManagerPresenter.UpdateAmount();
+        }
+
+        private void btnGetCustomer_Click(object sender, EventArgs e)
+        {
+            saleManagerPresenter.GetCustomerInfo();
+        }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            saleManagerPresenter.CheckoutCart();
         }
     }
 }

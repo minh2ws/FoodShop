@@ -16,6 +16,8 @@ namespace FoodShopManagement_WF.Util
         public static string DELETE_CONFIRM = "Do you want to delete ?";
         public static string DELETE_SUCCESS = "Delete success";
         public static string DELETE_ALREADY = "Delete Already";
-        
+        public static string CUSTOMER_INVALID = "Please choose a customer to checkout!!";
+        public static string CUSTOMER_EMPTY = "Please choose a customer or create a new one!!";
+        public static string CHECKOUT_SUCCESS = "checkout success!!";
     }
 }

@@ -24,5 +24,6 @@ namespace FoodShopManagement_WF.Presenter
         void UpdateAmount();
         void RemoveProductFromOrder();
         void CheckoutCart();
+        void GetCustomerInfo();
     }
 }
