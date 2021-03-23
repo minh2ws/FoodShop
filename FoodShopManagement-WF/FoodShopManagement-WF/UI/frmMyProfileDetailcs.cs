@@ -23,7 +23,10 @@ namespace FoodShopManagement_WF.UI
         {
             return this.emp;
         }
-
+        public string getId()
+        {
+            return txtEmployeeID.Text;
+        }
         public string getTxtName()
         {
             return txtFullName.Text;

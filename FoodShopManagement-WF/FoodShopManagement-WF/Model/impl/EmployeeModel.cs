@@ -87,9 +87,9 @@ namespace FoodShopManagement_WF.Model.impl
             return false;
         }
 
-        public bool UpdateEmpDetail(TblEmployeesDTO model)
+        public bool UpdateEmpDetail(TblEmployeesDTO emp)
         {
-            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("employee/UpdateEmpDetail", model, Program.TokenGlobal);
+            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("employee/UpdateEmpDetail", emp, Program.TokenGlobal);
             if (responseMessage.StatusCode != HttpStatusCode.Unauthorized)
             {
                 //get json content

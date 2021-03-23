@@ -51,16 +51,18 @@ namespace FoodShopManagement_WF.Presenter.impl
             }
             return true;
         }
-        public bool UpdateEmpDetail(frmMyProfileDetailcs form)
+        public bool UpdateEmpDetail(frmMyProfileDetailcs detail)
         {
             TblEmployeesDTO emp = new TblEmployeesDTO
             {
-                name = form.getTxtName(),
-                password = form.getTxtPassword(),
+                idEmployee= detail.getId(),
+                name = detail.getTxtName(),
+                password = detail.getTxtPassword(),
             };
             bool isSuccess = checkField(emp);
             if (isSuccess)
             {
+              
                 return model.UpdateEmpDetail(emp);//return true if update sucess
             }
             return false;
