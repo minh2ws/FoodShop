@@ -50,6 +50,7 @@ namespace FoodShopManagement_WF.UI
         {
             InitializeComponent();
         }
+
         public frmSaleManager_V2(frmLogin loginFrame, TblEmployeesDTO emp)
         {
             InitializeComponent();
