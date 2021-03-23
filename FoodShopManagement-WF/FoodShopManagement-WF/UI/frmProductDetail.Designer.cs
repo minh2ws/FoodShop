@@ -212,6 +212,7 @@ namespace FoodShopManagement_WF.UI
             this.Controls.Add(this.groupBox1);
             this.Name = "frmProductDetail";
             this.Text = "Product";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmProductDetail_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmProductDetail_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
