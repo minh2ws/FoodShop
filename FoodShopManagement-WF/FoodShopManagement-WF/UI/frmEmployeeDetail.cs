@@ -45,6 +45,15 @@ namespace FoodShopManagement_WF.UI
         {
             return this.cbRole.GetItemText(this.cbRole.SelectedItem);
         }
+        public void selectrole(String role)
+        {
+             this.cbRole.SelectedIndex = cbRole.FindString(role);
+          
+        }
+        public void selectstatus(String status)
+        {
+            this.cbStatus.SelectedIndex = cbStatus.FindString(status);
+        }
         public string getStatus()
         {
             return this.cbStatus.GetItemText(this.cbStatus.SelectedItem);
@@ -101,5 +110,7 @@ namespace FoodShopManagement_WF.UI
         {
 
         }
+
+        
     }
 }
