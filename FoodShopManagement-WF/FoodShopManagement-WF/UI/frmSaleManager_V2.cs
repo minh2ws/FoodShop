@@ -13,37 +13,62 @@ namespace FoodShopManagement_WF.UI
         private frmLogin loginFrame;
         private TblEmployeesDTO emp;
         private ISaleManagerPresenter saleManagerPresenter;
-        private DataTable dtCustomer;
-        private DataTable dtOrder;
 
-        public string getCategoryName()
+        public ComboBox getCmbCategory()
         {
-            return this.cmbCategory.Text;
+            return this.cmbCategory;
         }
-
-        public string getProductName()
+        public TextBox getProductName()
         {
-            return this.txtProductName.Text;
+            return this.txtProductName;
         }
-
         public TextBox getCustomerId()
         {
             return txtCustomerID;
         }
-
         public TextBox getCustomerName()
         {
             return txtCustomerName;
         }
-
         public TextBox getCustomerPhone()
         {
             return txtPhonenumber;
         }
-
         public TextBox getCustomerAddress()
         {
             return txtAddress;
+        }
+        public TextBox getCustomerPoint()
+        {
+            return this.txtPoint;
+        }
+        public DataGridView getDgvProduct()
+        {
+            return this.dgvProducts;
+        }
+        public DataGridView getDgvCustomer()
+        {
+            return this.dgvCustomer;
+        }
+        public BindingSource getBindingSourceProduct()
+        {
+            return this.bsProducts;
+        }
+        public BindingSource getBindingSourceCustomer()
+        {
+            return this.bsCustomer;
+        }
+        public BindingNavigator getBnProduct()
+        {
+            return this.bnProducts;
+        }
+        public BindingNavigator getBnCustomer()
+        {
+            return this.bnCustomer;
+        }
+        public TextBox getSearchCustomer()
+        {
+            return this.txtSearchCustomer;
         }
 
         public frmSaleManager_V2()
@@ -58,59 +83,8 @@ namespace FoodShopManagement_WF.UI
             this.loginFrame = loginFrame;
             this.emp = emp;
             msTool.Text = "User: " + emp.name;
-            loadProducts();
-            loadCustomers();
-        }
-
-        public void loadProducts()
-        {
-            //binding data to binding source
-            bsProducts.DataSource = saleManagerPresenter.GetProducts();
-            dgvProducts.DataSource = bsProducts;
-            dgvProducts.Columns["idProduct"].Visible = false;
-            dgvProducts.Columns["status"].Visible = false;
-            dgvProducts.Columns["idCategory"].Visible = false;
-            dgvProducts.Columns["categoryName"].Visible = false;
-
-
-            //binding to navigation
-            bnProducts.BindingSource = bsProducts;
-
-            List<TblCategoryDTO> listCategory = saleManagerPresenter.GetCategories();
-            foreach (var category in listCategory)
-            {
-                cmbCategory.Items.Add(category.name);
-            }
-        }
-
-        public void loadCustomers()
-        {
-            dtCustomer = saleManagerPresenter.GetCustomers();
-
-            //binding data to binding source
-            bsCustomer.DataSource = dtCustomer;
-            dgvCustomer.DataSource = bsCustomer;
-            dgvCustomer.Columns["phone"].Visible = false;
-            dgvCustomer.Columns["address"].Visible = false;
-            dgvCustomer.Columns["point"].Visible = false;
-
-
-            //binding to navigation
-            bnCustomer.BindingSource = bsCustomer;
-
-            //clear binding
-            txtCustomerID.DataBindings.Clear();
-            txtCustomerName.DataBindings.Clear();
-            txtPhonenumber.DataBindings.Clear();
-            txtAddress.DataBindings.Clear();
-            txtPoint.DataBindings.Clear();
-
-            //binding data to text field
-            txtCustomerID.DataBindings.Add("Text", bsCustomer, "idCustomer");
-            txtCustomerName.DataBindings.Add("Text", bsCustomer, "name");
-            txtPhonenumber.DataBindings.Add("Text", bsCustomer, "phone");
-            txtAddress.DataBindings.Add("Text", bsCustomer, "address");
-            txtPoint.DataBindings.Add("Text", bsCustomer, "point");
+            saleManagerPresenter.LoadProducts();
+            saleManagerPresenter.LoadCustomers();
         }
         
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -144,19 +118,12 @@ namespace FoodShopManagement_WF.UI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //binding data to binding source
-            bsProducts.DataSource = saleManagerPresenter.searchProduct(this);
-            dgvProducts.DataSource = bsProducts;
-
-            //binding to navigation
-            bnProducts.BindingSource = bsProducts;
+            saleManagerPresenter.searchProduct();
         }
 
         private void btnSearchCustomer_Click(object sender, EventArgs e)
         {
-            DataView view = dtCustomer.DefaultView;
-            string filter = "name like '%" + txtSearchCustomer.Text + "%'";
-            view.RowFilter = filter;
+            saleManagerPresenter.SearchCustomer();
         }
 
         private void btnAddtocart_Click(object sender, EventArgs e)

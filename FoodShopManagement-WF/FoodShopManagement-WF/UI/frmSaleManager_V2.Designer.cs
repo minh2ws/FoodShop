@@ -72,6 +72,7 @@ namespace FoodShopManagement_WF.UI
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -450,7 +451,7 @@ namespace FoodShopManagement_WF.UI
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -475,7 +476,7 @@ namespace FoodShopManagement_WF.UI
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -490,7 +491,7 @@ namespace FoodShopManagement_WF.UI
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -513,7 +514,7 @@ namespace FoodShopManagement_WF.UI
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // cmbCategory
             // 
@@ -618,6 +619,7 @@ namespace FoodShopManagement_WF.UI
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.button1);
             this.panel5.Controls.Add(this.label15);
             this.panel5.Controls.Add(this.label17);
             this.panel5.Controls.Add(this.txtAddress);
@@ -633,6 +635,15 @@ namespace FoodShopManagement_WF.UI
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(470, 457);
             this.panel5.TabIndex = 15;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(248, 490);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(143, 42);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -1163,5 +1174,6 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.ToolStripMenuItem ViewProfiletoolStripMenuItem;
         private System.Windows.Forms.BindingSource bsProducts;
         private System.Windows.Forms.BindingSource bsCustomer;
+        private System.Windows.Forms.Button button1;
     }
 }

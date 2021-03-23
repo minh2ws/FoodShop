@@ -18,6 +18,7 @@ namespace FoodShopManagement_WF.Model
         List<TblEmployeesDTO> LoadEmpByRole(string role);
 
         List<TblEmployeesDTO> getAll();
+        bool UpdateEmpDetail(TblEmployeesDTO model);
 
     }
 }

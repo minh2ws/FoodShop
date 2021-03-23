@@ -36,6 +36,37 @@ namespace FoodShopManagement_WF.Presenter.impl
             DialogResult r = detail.ShowDialog();
 
         }
+        public bool checkField(TblEmployeesDTO emp)
+        {
+            if (emp.name.Trim().Length == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Name can't empty!!", "Error");
+                return false;
+            }
+
+            if (emp.password.Trim().Length == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Password can't empty!!", "Error");
+                return false;
+            }
+            return true;
+        }
+        public bool UpdateEmpDetail(frmMyProfileDetailcs detail)
+        {
+            TblEmployeesDTO emp = new TblEmployeesDTO
+            {
+                idEmployee= detail.getId(),
+                name = detail.getTxtName(),
+                password = detail.getTxtPassword(),
+            };
+            bool isSuccess = checkField(emp);
+            if (isSuccess)
+            {
+              
+                return model.UpdateEmpDetail(emp);//return true if update sucess
+            }
+            return false;
+        }
         public void saveEmployee(frmEmployeeDetail detail)
         {
             TblEmployeesDTO emp = new TblEmployeesDTO();
@@ -176,7 +207,9 @@ namespace FoodShopManagement_WF.Presenter.impl
             detail.getID().Text = form.getIdEmp().Text;
             detail.getName().Text = form.getEmpName().Text;
             detail.getPwd().Text = form.getPassword().Text;
-            
+            detail.selectrole(form.getRoletext());
+            detail.selectstatus(form.getStatus().Text);
+           // detail.selectstatus(bool.Parse(form.getStatus().Text));
             DialogResult r = detail.ShowDialog();
           
         }
