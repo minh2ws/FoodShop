@@ -34,9 +34,9 @@ namespace FoodShopManagementApi.Controllers
         [Produces("application/json")]
         public IActionResult addOrder([FromBody] TblOrderDTO order)
         {
-            //bool isValidToken = ValidateToken();
-            //if (isValidToken)
-            //{
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
                 TblOrderDAO dao = TblOrderDAO.getInstance();
                 try
                 {
@@ -53,7 +53,34 @@ namespace FoodShopManagementApi.Controllers
                 {
                     StatusCode(500);
                 }
-            //}
+            }
+            return Unauthorized();
+        }
+
+        [HttpPost("add-order-detail")]
+        [Produces("application/json")]
+        public IActionResult addOrderDetail([FromBody] CartDTO dto)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblOrderDetailDAO dao = TblOrderDetailDAO.getInstance();
+                try
+                {
+                    if (dao.AddOrderDetail(dto))
+                    {
+                        return Ok(true);
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
+                }
+                catch (Exception)
+                {
+                    StatusCode(500);
+                }
+            }
             return Unauthorized();
         }
     }

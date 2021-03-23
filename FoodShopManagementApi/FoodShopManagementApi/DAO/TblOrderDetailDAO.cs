@@ -15,7 +15,7 @@ namespace FoodShopManagementApi.DAO
 
         private TblOrderDetailDAO() { }
 
-        public TblOrderDetailDAO getInstance()
+        public static TblOrderDetailDAO getInstance()
         {
             if (instance == null)
             {
@@ -27,7 +27,7 @@ namespace FoodShopManagementApi.DAO
         private SqlConnection cn = null;
         private SqlCommand cmd = null;
 
-        public bool AddOrderDetail(string orderId, List<TblOrderDetailDTO> itemsList)
+        public bool AddOrderDetail(CartDTO cart)
         {
             string sql = "INSERT tblOrderDetail(idOrder, idProduct, quantity, price) " +
                 "VALUES (@idOrder, @idProduct, @quantity, @price) ";
@@ -36,17 +36,22 @@ namespace FoodShopManagementApi.DAO
                 cn = DBUtil.MakeConnect();
                 if (cn != null)
                 {
-                    SqlTransaction transaction = cn.BeginTransaction();
-                    foreach (var orderDetail in itemsList)
+                    int row = 0;
+                    foreach (var item in cart.itemsList)
                     {
-                        cmd = new SqlCommand(sql, cn, transaction);
-                        cmd.Parameters.AddWithValue("@idOrder", orderDetail.idOrder);
-                        cmd.Parameters.AddWithValue("@idProduct", orderDetail.idProduct);
-                        cmd.Parameters.AddWithValue("@quantity", orderDetail.quantity);
-                        cmd.Parameters.AddWithValue("@price", orderDetail.price);
+                        cmd = new SqlCommand(sql, cn);
+                        cmd.Parameters.AddWithValue("@idOrder", item.idOrder);
+                        cmd.Parameters.AddWithValue("@idProduct", item.idProduct);
+                        cmd.Parameters.AddWithValue("@quantity", item.quantity);
+                        cmd.Parameters.AddWithValue("@price", item.price);
                         cmd.ExecuteNonQuery();
+                        row++;
                     }
-                    transaction.Commit();
+
+                    if (row == cart.itemsList.Count)
+                    {
+                        return true;
+                    }
                 }
             }
             catch (SqlException e)
