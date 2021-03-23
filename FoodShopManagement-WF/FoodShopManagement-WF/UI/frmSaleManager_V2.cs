@@ -14,6 +14,7 @@ namespace FoodShopManagement_WF.UI
         private TblEmployeesDTO emp;
         private ISaleManagerPresenter saleManagerPresenter;
         private DataTable dtCustomer;
+        private DataTable dtOrder;
 
         public string getCategoryName()
         {
@@ -155,6 +156,11 @@ namespace FoodShopManagement_WF.UI
             DataView view = dtCustomer.DefaultView;
             string filter = "name like '%" + txtSearchCustomer.Text + "%'";
             view.RowFilter = filter;
+        }
+
+        private void btnAddtocart_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
