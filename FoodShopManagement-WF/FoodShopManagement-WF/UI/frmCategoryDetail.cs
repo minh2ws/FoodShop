@@ -41,5 +41,14 @@ namespace FoodShopManagement_WF.UI
         {
             categoryPresenter.saveCategory(this);
         }
+
+        private void frmCategoryDetail_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.None)
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
     }
 }

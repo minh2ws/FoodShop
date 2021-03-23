@@ -30,26 +30,59 @@ namespace FoodShopManagement_WF.Presenter.impl
 
         public void addCategory()
         {
-            Thread th = new Thread(runFormAddCategory);
-            th.Start();
+            frmCategoryDetail categoryDetail = new frmCategoryDetail(true, this);
+            categoryDetail.setStateUpdate(false);
+            categoryDetail.ShowDialog();
         }
 
         public void editCategory()
         {
-            Thread th = new Thread(runFormUpdateCategory);
-            th.Start();
-            
+            frmCategoryDetail categoryDetail = new frmCategoryDetail(true, this);
+            categoryDetail.setStateUpdate(true);
+            categoryDetail.getCategoryName().Text = form.getNameCategory().Text;
+            categoryDetail.ShowDialog();
+
         }
         public void addProduct()
         {
-            
-            Thread th = new Thread(runFormAddProductDetail);
-            th.Start();
+            frmProductDetail ProductDetail = new frmProductDetail(true, this);
+            ProductDetail.setUpdateState(false);
+            ProductDetail.getComboBoxCategory().DataSource = bindingSourceCategory;
+            ProductDetail.getComboBoxCategory().DisplayMember = "name";
+            ProductDetail.getComboBoxCategory().ValueMember = "idCategory";
+            ProductDetail.getRadioButtonTrue().Checked = true;
+            ProductDetail.getRadioButtonFalse().Visible = false;
+            ProductDetail.ShowDialog();
         }
         public void editProduct()
         {
-            Thread th = new Thread(runFormUpdateProductDetail);
-            th.Start();
+            frmProductDetail ProductDetail = new frmProductDetail(true, this);
+            ProductDetail.setUpdateState(true);
+            if (bool.Parse(form.getStatusProduct().Text))
+            {
+                ProductDetail.getRadioButtonTrue().Checked = true;
+            }
+            else
+            {
+                ProductDetail.getRadioButtonFalse().Checked = true;
+            }
+            ProductDetail.getPrice().Text = form.getPriceProduct().Text;
+            ProductDetail.getProductName().Text = form.getNameProduct().Text;
+            ProductDetail.getQuantity().Text = form.getQuantityProduct().Text;
+            ProductDetail.getComboBoxCategory().DataSource = bindingSourceCategory;
+            ProductDetail.getComboBoxCategory().DisplayMember = "name";
+            ProductDetail.getComboBoxCategory().ValueMember = "idCategory";
+            DataTable dataTableCategory = (DataTable)bindingSourceCategory.DataSource;
+            var selectedIdCategory = "";
+            foreach (DataRow row in dataTableCategory.Rows)
+            {
+                if (row["name"].ToString().Equals(form.getCategoryProduct().Text))
+                {
+                    selectedIdCategory = row["idCategory"].ToString();
+                }
+            }
+            ProductDetail.getComboBoxCategory().SelectedValue = selectedIdCategory;
+            ProductDetail.ShowDialog();
         }
         public void getAllCategory()
         {
@@ -104,22 +137,26 @@ namespace FoodShopManagement_WF.Presenter.impl
         {
             try
             {
-                TblCategoryDTO categoryDTO = new TblCategoryDTO();
-                categoryDTO.name = frmCategory.getCategoryName().Text;
-                categoryDTO.idCategory = form.getIdCategory().Text;
-                if (!frmCategory.getStateUpdate())
+                if (validateCategory(frmCategory))
                 {
-                    categoryModel.addCategory(categoryDTO);
-                    getAllCategory();
-                    getAllProduct();
+                    TblCategoryDTO categoryDTO = new TblCategoryDTO();
+                    categoryDTO.name = frmCategory.getCategoryName().Text;
+                    categoryDTO.idCategory = form.getIdCategory().Text;
+                    if (!frmCategory.getStateUpdate())
+                    {
+                        categoryModel.addCategory(categoryDTO);
+                        MessageBox.Show(MessageUtil.SAVE_SUCCESS);
+                        getAllCategory();
+                        getAllProduct();
+                    }
+                    else
+                    {
+                        categoryModel.updateCategory(categoryDTO);
+                        MessageBox.Show(MessageUtil.SAVE_SUCCESS);
+                        getAllCategory();
+                        getAllProduct();
+                    }
                 }
-                else
-                {
-                    categoryModel.updateCategory(categoryDTO);
-                    getAllCategory();
-                    getAllProduct();
-                }
-                MessageBox.Show(MessageUtil.SAVE_SUCCESS);
             }catch(Exception e)
             {
                 MessageBox.Show(MessageUtil.ERROR + " Save Category");
@@ -216,6 +253,7 @@ namespace FoodShopManagement_WF.Presenter.impl
                 {
                     MessageBox.Show(MessageUtil.SAVE_SUCCESS);
                     getAllProduct();
+                    
                 }
                 else
                 {
@@ -229,6 +267,7 @@ namespace FoodShopManagement_WF.Presenter.impl
                 {
                     MessageBox.Show(MessageUtil.SAVE_SUCCESS);
                     getAllProduct();
+                    
                 }
                 else
                 {
@@ -258,8 +297,9 @@ namespace FoodShopManagement_WF.Presenter.impl
                         if (productModel.setStatusProduct(productsDTO))
                         {
                             MessageBox.Show(MessageUtil.DELETE_SUCCESS);
+                            getAllProduct();
                         }
-                        getAllProduct();
+                       
                     }
                     catch (Exception e)
                     {
@@ -313,60 +353,6 @@ namespace FoodShopManagement_WF.Presenter.impl
                 return false;
             }
             return true;
-        }
-        private void runFormAddProductDetail()
-        {
-            frmProductDetail ProductDetail = new frmProductDetail(true, this);
-            ProductDetail.setUpdateState(false);
-            ProductDetail.getComboBoxCategory().DataSource = bindingSourceCategory;
-            ProductDetail.getComboBoxCategory().DisplayMember = "name";
-            ProductDetail.getComboBoxCategory().ValueMember = "idCategory";
-            ProductDetail.getRadioButtonTrue().Checked = true;
-            ProductDetail.getRadioButtonFalse().Visible = false;
-            Application.Run(ProductDetail);
-        }
-        private void runFormUpdateProductDetail()
-        {
-            frmProductDetail ProductDetail = new frmProductDetail(true, this);
-            ProductDetail.setUpdateState(true);
-            if (bool.Parse(form.getStatusProduct().Text))
-            {
-                ProductDetail.getRadioButtonTrue().Checked = true;
-            }
-            else
-            {
-                ProductDetail.getRadioButtonFalse().Checked = true;
-            }
-            ProductDetail.getPrice().Text = form.getPriceProduct().Text;
-            ProductDetail.getProductName().Text = form.getNameProduct().Text;
-            ProductDetail.getQuantity().Text = form.getQuantityProduct().Text;
-            ProductDetail.getComboBoxCategory().DataSource = bindingSourceCategory;
-            ProductDetail.getComboBoxCategory().DisplayMember = "name";
-            ProductDetail.getComboBoxCategory().ValueMember = "idCategory";
-            DataTable dataTableCategory = (DataTable)bindingSourceCategory.DataSource;
-            var selectedIdCategory = "";
-            foreach (DataRow row in dataTableCategory.Rows)
-            {
-                if (row["name"].ToString().Equals(form.getCategoryProduct().Text))
-                {
-                    selectedIdCategory = row["idCategory"].ToString();
-                }
-            }
-            ProductDetail.getComboBoxCategory().SelectedValue = selectedIdCategory;
-            Application.Run(ProductDetail);
-        }
-        private void runFormAddCategory()
-        {
-            frmCategoryDetail categoryDetail = new frmCategoryDetail(true, this);
-            categoryDetail.setStateUpdate(false);
-            Application.Run(categoryDetail);
-        }
-        private void runFormUpdateCategory()
-        {
-            frmCategoryDetail categoryDetail = new frmCategoryDetail(true, this);
-            categoryDetail.setStateUpdate(true);
-            categoryDetail.getCategoryName().Text = form.getNameCategory().Text;
-            Application.Run(categoryDetail);
-        }
+        }  
     }
 }

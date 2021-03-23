@@ -63,11 +63,22 @@ namespace FoodShopManagement_WF.UI
         private void btnSave_Click(object sender, EventArgs e)
         {
             warehousePresenter.saveProduct(this);
+            
         }
 
         private void frmProductDetail_FormClosed(object sender, FormClosedEventArgs e)
         {
            
+        }
+
+        private void frmProductDetail_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           
+            if (e.CloseReason == CloseReason.None)
+            {
+                e.Cancel = true;
+                return;
+            }
         }
     }
 }
