@@ -11,12 +11,12 @@ namespace FoodShopManagement_WF.Presenter
 {
     interface ISaleManagerPresenter
     {
-        List<TblProductsDTO> GetProducts();
-        List<TblCategoryDTO> GetCategories();
-        List<TblProductsDTO> searchProduct(frmSaleManager_V2 form);
-        DataTable GetCustomers();
+        void searchProduct();
         void AddCustomer();
         void UpdateCustomer();
         void SaveCustomer(frmCustomerDetail form);
+        void LoadProducts();
+        void LoadCustomers();
+        void SearchCustomer();
     }
 }

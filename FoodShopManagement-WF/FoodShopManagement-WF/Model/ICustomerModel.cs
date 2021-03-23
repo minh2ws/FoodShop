@@ -9,7 +9,7 @@ namespace FoodShopManagement_WF.Model
 {
     interface ICustomerModel
     {
-        List<TblCustomerDTO> loadCustomers();
+        List<TblCustomerDTO> getCustomers();
         bool addCustomer(TblCustomerDTO dto);
         bool updateCustomer(TblCustomerDTO dto);
        

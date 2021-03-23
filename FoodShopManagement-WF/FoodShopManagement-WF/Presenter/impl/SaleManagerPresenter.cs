@@ -20,39 +20,27 @@ namespace FoodShopManagement_WF.Presenter.impl
         private ICategoryModel categoryModel = new CategoryModel();
         private ICustomerModel customerModel = new CustomerModel();
         private frmSaleManager_V2 form;
+        private BindingSource bsProduct;
+        private BindingSource bsCustomer;
 
-        public SaleManagerPresenter()
-        {
-        }
+        public SaleManagerPresenter() { }
 
         public SaleManagerPresenter(frmSaleManager_V2 form)
         {
             this.form = form;
         }
 
-        public List<TblCategoryDTO> GetCategories()
+        public void searchProduct()
         {
-            List<TblCategoryDTO> listCategory = categoryModel.getAll();
-            return listCategory;
-        }
+            string categoryName = form.getCmbCategory().Text;
+            string productName = form.getProductName().Text;
+            List<TblProductsDTO> searchResult = productModel.searchProduct(categoryName, productName);
 
-        public List<TblProductsDTO> GetProducts()
-        {
-            List<TblProductsDTO> listProducts = productModel.getAll();
-            return listProducts;
-        }
+            bsProduct.DataSource = searchResult;
 
-        public List<TblProductsDTO> searchProduct(frmSaleManager_V2 form)
-        {
-            List<TblProductsDTO> searchResult = productModel.searchProduct(form.getCategoryName(),form.getProductName());
-            return searchResult;
-        }
-
-        public DataTable GetCustomers()
-        {
-            List<TblCustomerDTO> listResult = customerModel.loadCustomers();
-            //convert from list to datatable and return it
-            return ConvertCustom.ListToDataTable<TblCustomerDTO>(listResult);
+            //binding data
+            form.getDgvProduct().DataSource = bsProduct;
+            form.getBnProduct().BindingSource = bsProduct;
         }
 
         public void AddCustomer()
@@ -120,12 +108,12 @@ namespace FoodShopManagement_WF.Presenter.impl
                     if (frmCustomerDetail.isAddNew())
                     {
                         customerModel.addCustomer(dto);
-                        this.form.loadCustomers();
+                        LoadCustomers();
                     }
                     else
                     {
                         customerModel.updateCustomer(dto);
-                        this.form.loadCustomers();
+                        LoadCustomers();
                     }
                     MessageBox.Show(MessageUtil.SAVE_SUCCESS);
                 }
@@ -133,6 +121,86 @@ namespace FoodShopManagement_WF.Presenter.impl
             catch (Exception)
             {
                 MessageBox.Show(MessageUtil.ERROR + " Save Customer!");
+            }
+        }
+
+        public void LoadProducts()
+        {
+            List<TblProductsDTO> listProducts = productModel.getProducts();
+            DataTable dtProduct = ConvertCustom.ListToDataTable<TblProductsDTO>(listProducts);
+            bsProduct = new BindingSource()
+            {
+                DataSource = dtProduct
+            };
+
+            //binding data to data grid view
+            form.getBnProduct().BindingSource = bsProduct;
+            form.getDgvProduct().DataSource = bsProduct;
+
+            //hide unessesary column
+            form.getDgvProduct().Columns["idProduct"].Visible = false;
+            form.getDgvProduct().Columns["status"].Visible = false;
+            form.getDgvProduct().Columns["idCategory"].Visible = false;
+            form.getDgvProduct().Columns["categoryName"].Visible = false;
+
+            List<TblCategoryDTO> listCategory = categoryModel.getAll();
+            foreach (var category in listCategory)
+            {
+                form.getCmbCategory().Items.Add(category.name);
+            }
+        }
+
+        public void LoadCustomers()
+        {
+            List<TblCustomerDTO> listCustomers = customerModel.getCustomers();
+            DataTable dtCustomer = ConvertCustom.ListToDataTable<TblCustomerDTO>(listCustomers);
+            bsCustomer = new BindingSource()
+            {
+                DataSource = dtCustomer
+            };
+
+            //binding data to data grid view
+            form.getBnCustomer().BindingSource = bsCustomer;
+            form.getDgvCustomer().DataSource = bsCustomer;
+
+            //hide unnecessary column
+            form.getDgvCustomer().Columns["phone"].Visible = false;
+            form.getDgvCustomer().Columns["address"].Visible = false;
+            form.getDgvCustomer().Columns["point"].Visible = false;
+
+            //clear and add new data binding
+            clearDataBindingTextCustomer();
+            bindingDataTextCustomer();
+        }
+
+        public void clearDataBindingTextCustomer()
+        {
+            form.getCustomerId().DataBindings.Clear();
+            form.getCustomerName().DataBindings.Clear();
+            form.getCustomerPhone().DataBindings.Clear();
+            form.getCustomerAddress().DataBindings.Clear();
+            form.getCustomerPoint().DataBindings.Clear();
+        }
+
+        public void bindingDataTextCustomer()
+        {
+            form.getCustomerId().DataBindings.Add("Text", bsCustomer, "idCustomer");
+            form.getCustomerName().DataBindings.Add("Text", bsCustomer, "name");
+            form.getCustomerPhone().DataBindings.Add("Text", bsCustomer, "phone");
+            form.getCustomerAddress().DataBindings.Add("Text", bsCustomer, "address");
+            form.getCustomerPoint().DataBindings.Add("Text", bsCustomer, "point");
+        }
+
+        public void SearchCustomer()
+        {
+            string searchValue = form.getSearchCustomer().Text;
+            if (searchValue.Equals(""))
+            {
+                bsCustomer.Filter = "";
+            }
+            else
+            {
+                bsCustomer.Filter = "name like '%" + searchValue + "%'";
             }
         }
     }

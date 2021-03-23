@@ -13,7 +13,7 @@ namespace FoodShopManagement_WF.Model.impl
 {
     public class CustomerModel : ICustomerModel
     {
-        public List<TblCustomerDTO> loadCustomers()
+        public List<TblCustomerDTO> getCustomers()
         {
             try
             {
