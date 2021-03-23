@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace FoodShopManagement_WF.Presenter.impl
         private frmSaleManager_V2 form;
         private BindingSource bsProduct;
         private BindingSource bsCustomer;
+        private List<TblProductsDTO> listProducts;
+        private List<CartItemDTO> listProductOrder;
 
         public SaleManagerPresenter() { }
 
@@ -30,13 +33,13 @@ namespace FoodShopManagement_WF.Presenter.impl
             this.form = form;
         }
 
-        public void searchProduct()
+        public void SearchProduct()
         {
             string categoryName = form.getCmbCategory().Text;
             string productName = form.getProductName().Text;
-            List<TblProductsDTO> searchResult = productModel.searchProduct(categoryName, productName);
+            listProducts = productModel.searchProduct(categoryName, productName);
 
-            bsProduct.DataSource = searchResult;
+            bsProduct.DataSource = listProducts;
 
             //binding data
             form.getDgvProduct().DataSource = bsProduct;
@@ -126,7 +129,7 @@ namespace FoodShopManagement_WF.Presenter.impl
 
         public void LoadProducts()
         {
-            List<TblProductsDTO> listProducts = productModel.getProducts();
+            listProducts = productModel.getProducts();
             DataTable dtProduct = ConvertCustom.ListToDataTable<TblProductsDTO>(listProducts);
             bsProduct = new BindingSource()
             {
@@ -201,6 +204,129 @@ namespace FoodShopManagement_WF.Presenter.impl
             else
             {
                 bsCustomer.Filter = "name like '%" + searchValue + "%'";
+            }
+        }
+
+        public void AddProductToOrder()
+        {
+            DataGridView dgvProducts = form.getDgvProduct();
+            //Get number of selected grow
+            Int32 selectedRowCount = dgvProducts.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount > 0)
+            {
+                for (int i = 0; i < selectedRowCount; i++)
+                {
+                    //get selected row
+                    String row = dgvProducts.SelectedRows[i].Index.ToString();
+                    int rowInt = int.Parse(row);
+
+                    //get product from list product
+                    TblProductsDTO product = listProducts[rowInt];
+
+                                        //new list product order
+                    if (listProductOrder == null)
+                        listProductOrder = new List<CartItemDTO>();
+
+                    CartItemDTO item = findProductInOrder(product.idProduct);
+
+                    if (item != null)
+                    {
+                        //increase quantity
+                        item.quantity++;
+                        //update totalPrice
+                        item.totalPrice = item.quantity * item.price;
+                    } else
+                    {
+                        item = new CartItemDTO()
+                        {
+                            idProduct = product.idProduct,
+                            name = product.name,
+                            price = product.price,
+                            quantity = 1,
+                            totalPrice = product.price * 1
+                        };
+                        //add product to list product order
+                        listProductOrder.Add(item);
+                    }
+                }
+            } else
+            {
+                MessageBox.Show("Select product you want to add", "Notification");
+            }
+        }
+
+        public void LoadProductsOrder()
+        {
+            DataTable dtProduct = ConvertCustom.ListToDataTable<CartItemDTO>(listProductOrder);
+            bsProduct = new BindingSource()
+            {
+                DataSource = dtProduct
+            };
+
+            //binding data to data grid view
+            form.getBnProduct().BindingSource = bsProduct;
+            form.getDgvItemOfOrder().DataSource = bsProduct;
+
+            form.getDgvItemOfOrder().Columns["idProduct"].Visible = false;
+
+
+        }
+
+        private float calculateTotalPrice()
+        {
+            if (listProductOrder == null)
+                return 0;
+
+            float totalPrice = 0;
+            for (int i = 0; i < listProductOrder.Count; i++)
+            {
+                totalPrice += listProductOrder[i].totalPrice;
+            }
+            return totalPrice;
+        }
+
+        private CartItemDTO findProductInOrder(string idProduct)
+        {
+            for (int i = 0; i < listProductOrder.Count; i++)
+            {
+                if (listProductOrder[i].idProduct.Equals(idProduct))
+                {
+                    return listProductOrder[i];
+                }
+            }
+            return null;
+        }
+
+        public void UpdateAmount()
+        {
+            form.getAmount().Text = calculateTotalPrice().ToString();
+        }
+
+        public void RemoveProductToOrder()
+        {
+            DataGridView dgvItemOfOrder = form.getDgvItemOfOrder();
+            //Get number of selected grow
+            Int32 selectedRowCount = dgvItemOfOrder.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount > 0)
+            {
+                for (int i = 0; i < selectedRowCount; i++)
+                {
+                    //get selected row
+                    String row = dgvItemOfOrder.SelectedRows[i].Index.ToString();
+                    int rowInt = int.Parse(row);
+
+                    //get product from list product
+                    CartItemDTO item = listProductOrder[rowInt];
+                    listProductOrder.Remove(item);
+
+                    //remove list
+                    if (listProductOrder.Count == 0)
+                        listProductOrder = null;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select product you want to remove", "Notification");
             }
         }
     }

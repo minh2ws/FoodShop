@@ -6,17 +6,22 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FoodShopManagement_WF.Presenter
 {
     interface ISaleManagerPresenter
     {
-        void searchProduct();
+        void SearchProduct();
         void AddCustomer();
         void UpdateCustomer();
         void SaveCustomer(frmCustomerDetail form);
         void LoadProducts();
         void LoadCustomers();
         void SearchCustomer();
+        void AddProductToOrder();
+        void LoadProductsOrder();
+        void UpdateAmount();
+        void RemoveProductToOrder();
     }
 }

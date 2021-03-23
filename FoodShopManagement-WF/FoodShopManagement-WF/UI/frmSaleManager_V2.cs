@@ -50,6 +50,10 @@ namespace FoodShopManagement_WF.UI
         {
             return this.dgvCustomer;
         }
+        public DataGridView getDgvItemOfOrder()
+        {
+            return this.dgvItemOfOrder;
+        }
         public BindingSource getBindingSourceProduct()
         {
             return this.bsProducts;
@@ -69,6 +73,11 @@ namespace FoodShopManagement_WF.UI
         public TextBox getSearchCustomer()
         {
             return this.txtSearchCustomer;
+        }
+
+        public TextBox getAmount()
+        {
+            return this.txtAmount;
         }
 
         public frmSaleManager_V2()
@@ -118,7 +127,7 @@ namespace FoodShopManagement_WF.UI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            saleManagerPresenter.searchProduct();
+            saleManagerPresenter.SearchProduct();
         }
 
         private void btnSearchCustomer_Click(object sender, EventArgs e)
@@ -128,7 +137,21 @@ namespace FoodShopManagement_WF.UI
 
         private void btnAddtocart_Click(object sender, EventArgs e)
         {
+            saleManagerPresenter.AddProductToOrder();
+            saleManagerPresenter.LoadProductsOrder();
+            saleManagerPresenter.UpdateAmount();
+        }
 
+        private void txtDiscount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            saleManagerPresenter.RemoveProductToOrder();
+            saleManagerPresenter.LoadProductsOrder();
+            saleManagerPresenter.UpdateAmount();
         }
     }
 }

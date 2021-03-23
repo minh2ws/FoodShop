@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CartDTO.cs" />
+    <Compile Include="CartItemDTO.cs" />
     <Compile Include="ErrorDTO.cs" />
     <Compile Include="TblCategoryDTO.cs" />
     <Compile Include="TblCustomerDTO.cs" />
