@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,10 +22,7 @@ namespace FoodShopManagement_WF.Presenter.impl
         private frmWarehouse_V2 form;
         private BindingSource bindingSourceCategory;
         private BindingSource bindingSourceProduct;
-        public WarehousePresenter()
-        {
-
-        }
+        public WarehousePresenter(){}
         public WarehousePresenter (frmWarehouse_V2 form)
         {
             this.form = form;
@@ -32,62 +30,27 @@ namespace FoodShopManagement_WF.Presenter.impl
 
         public void addCategory()
         {
-            frmCategoryDetail categoryDetail = new frmCategoryDetail(true,this);
-            DialogResult r = categoryDetail.ShowDialog();
-            categoryDetail.setStateUpdate(false);
+            Thread th = new Thread(runFormAddCategory);
+            th.Start();
         }
 
         public void editCategory()
         {
-            frmCategoryDetail categoryDetail = new frmCategoryDetail(true, this);
-            categoryDetail.setStateUpdate(true);
-            categoryDetail.getCategoryName().Text = form.getNameCategory().Text;
-            DialogResult r = categoryDetail.ShowDialog();
+            Thread th = new Thread(runFormUpdateCategory);
+            th.Start();
+            
         }
         public void addProduct()
         {
-            frmProductDetail ProductDetail = new frmProductDetail(true,this);
-            ProductDetail.setUpdateState(false);
-            ProductDetail.getComboBoxCategory().DataSource = bindingSourceCategory;
-            ProductDetail.getComboBoxCategory().DisplayMember = "name";
-            ProductDetail.getComboBoxCategory().ValueMember = "idCategory";
-            ProductDetail.getRadioButtonTrue().Checked = true;
-            ProductDetail.getRadioButtonFalse().Visible = false;
-            DialogResult r = ProductDetail.ShowDialog();
+            
+            Thread th = new Thread(runFormAddProductDetail);
+            th.Start();
         }
         public void editProduct()
         {
-            frmProductDetail ProductDetail = new frmProductDetail(true,this);
-            ProductDetail.setUpdateState(true);
-            if (bool.Parse(form.getStatusProduct().Text))
-            {
-                ProductDetail.getRadioButtonTrue().Checked=true;
-            }
-            else
-            {
-                ProductDetail.getRadioButtonFalse().Checked = true;
-            }
-            ProductDetail.getPrice().Text = form.getPriceProduct().Text;
-            ProductDetail.getProductName().Text = form.getNameProduct().Text;
-            ProductDetail.getQuantity().Text = form.getQuantityProduct().Text;
-            ProductDetail.getComboBoxCategory().DataSource = bindingSourceCategory;
-            ProductDetail.getComboBoxCategory().DisplayMember = "name";
-            ProductDetail.getComboBoxCategory().ValueMember = "idCategory";
-            DataTable dataTableCategory = (DataTable)bindingSourceCategory.DataSource;
-            var selectedIdCategory = "";
-            foreach(DataRow row in dataTableCategory.Rows)
-            {
-                if (row["name"].ToString().Equals(form.getCategoryProduct().Text))
-                {
-                    selectedIdCategory = row["idCategory"].ToString();
-                }
-            }
-            ProductDetail.getComboBoxCategory().SelectedValue = selectedIdCategory;
-
-            DialogResult r = ProductDetail.ShowDialog();
+            Thread th = new Thread(runFormUpdateProductDetail);
+            th.Start();
         }
-        
-
         public void getAllCategory()
         {
             try
@@ -183,14 +146,14 @@ namespace FoodShopManagement_WF.Presenter.impl
         {
             try
             {
+                var s = form.GetComboBoxTable().SelectedValue;
                 string searchValue = form.getSearchProductName().Text;
                 if (searchValue.Equals(""))
                 {
-                    bindingSourceProduct.Filter = "";
+                    bindingSourceProduct.Filter = "idCategory Like '" + form.GetComboBoxTable().SelectedValue+"'";
                 }
-                else
-                {
-                    bindingSourceProduct.Filter = "name LIKE '%" + searchValue + "%' and idCategory = " + form.GetComboBoxTable().SelectedValue;
+                else{
+                    bindingSourceProduct.Filter = "name LIKE '%" + searchValue + "%' and idCategory Like '" + form.GetComboBoxTable().SelectedValue+"'";
                 }
                
             }
@@ -215,6 +178,7 @@ namespace FoodShopManagement_WF.Presenter.impl
                 form.GetDataGridViewProduct().DataSource = bindingSourceProduct;
                 form.GetDataGridViewProduct().Columns["idProduct"].Visible = false;
                 form.GetDataGridViewProduct().Columns["idCategory"].Visible = false;
+                form.GetDataGridViewProduct().Columns["status"].Visible = false;
                 form.GetComboBoxTable().DataSource = bindingSourceCategory;
                 form.GetComboBoxTable().DisplayMember="name";
                 form.GetComboBoxTable().ValueMember = "idCategory";
@@ -229,6 +193,10 @@ namespace FoodShopManagement_WF.Presenter.impl
 
         public void saveProduct(frmProductDetail frmProductDetail)
         {
+            if (!validateProduct(frmProductDetail))
+            {
+                return;
+            }
             TblProductsDTO tblProductsDTO = new TblProductsDTO();
             tblProductsDTO.price = float.Parse(frmProductDetail.getPrice().Text);
             tblProductsDTO.name = frmProductDetail.getProductName().Text;
@@ -304,6 +272,101 @@ namespace FoodShopManagement_WF.Presenter.impl
                 MessageBox.Show(MessageUtil.DELETE_ALREADY);
             }
             
+        }
+        public bool validateProduct(frmProductDetail frmProductDetail)
+        {
+            StringBuilder checkMessage = new StringBuilder();
+          
+            if (frmProductDetail.getProductName().Text.Equals(""))
+            {
+                checkMessage.Append("Product name invalid\n");
+            }
+            try
+            {
+                float.Parse(frmProductDetail.getPrice().Text);
+            }catch(Exception e)
+            {
+                checkMessage.Append("Product price invalid\n");
+            }
+            try
+            {
+                int.Parse(frmProductDetail.getQuantity().Text);
+            }catch(Exception e)
+            {
+                checkMessage.Append("Product quantity invalid\n");
+            }
+            if (checkMessage.Length > 0)
+            {
+                MessageBox.Show(checkMessage.ToString());
+                return false;
+            }
+            return true;
+        }
+        public bool validateCategory(frmCategoryDetail frmCategoryDetail)
+        {
+            StringBuilder checkMessage = new StringBuilder();
+
+            if (frmCategoryDetail.getCategoryName().Text.Equals(""))
+            {
+                checkMessage.Append("Category name invalid\n");
+                MessageBox.Show(checkMessage.ToString());
+                return false;
+            }
+            return true;
+        }
+        private void runFormAddProductDetail()
+        {
+            frmProductDetail ProductDetail = new frmProductDetail(true, this);
+            ProductDetail.setUpdateState(false);
+            ProductDetail.getComboBoxCategory().DataSource = bindingSourceCategory;
+            ProductDetail.getComboBoxCategory().DisplayMember = "name";
+            ProductDetail.getComboBoxCategory().ValueMember = "idCategory";
+            ProductDetail.getRadioButtonTrue().Checked = true;
+            ProductDetail.getRadioButtonFalse().Visible = false;
+            Application.Run(ProductDetail);
+        }
+        private void runFormUpdateProductDetail()
+        {
+            frmProductDetail ProductDetail = new frmProductDetail(true, this);
+            ProductDetail.setUpdateState(true);
+            if (bool.Parse(form.getStatusProduct().Text))
+            {
+                ProductDetail.getRadioButtonTrue().Checked = true;
+            }
+            else
+            {
+                ProductDetail.getRadioButtonFalse().Checked = true;
+            }
+            ProductDetail.getPrice().Text = form.getPriceProduct().Text;
+            ProductDetail.getProductName().Text = form.getNameProduct().Text;
+            ProductDetail.getQuantity().Text = form.getQuantityProduct().Text;
+            ProductDetail.getComboBoxCategory().DataSource = bindingSourceCategory;
+            ProductDetail.getComboBoxCategory().DisplayMember = "name";
+            ProductDetail.getComboBoxCategory().ValueMember = "idCategory";
+            DataTable dataTableCategory = (DataTable)bindingSourceCategory.DataSource;
+            var selectedIdCategory = "";
+            foreach (DataRow row in dataTableCategory.Rows)
+            {
+                if (row["name"].ToString().Equals(form.getCategoryProduct().Text))
+                {
+                    selectedIdCategory = row["idCategory"].ToString();
+                }
+            }
+            ProductDetail.getComboBoxCategory().SelectedValue = selectedIdCategory;
+            Application.Run(ProductDetail);
+        }
+        private void runFormAddCategory()
+        {
+            frmCategoryDetail categoryDetail = new frmCategoryDetail(true, this);
+            categoryDetail.setStateUpdate(false);
+            Application.Run(categoryDetail);
+        }
+        private void runFormUpdateCategory()
+        {
+            frmCategoryDetail categoryDetail = new frmCategoryDetail(true, this);
+            categoryDetail.setStateUpdate(true);
+            categoryDetail.getCategoryName().Text = form.getNameCategory().Text;
+            Application.Run(categoryDetail);
         }
     }
 }
