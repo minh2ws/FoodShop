@@ -70,8 +70,10 @@
     <Compile Include="Model\impl\LoginModel.cs" />
     <Compile Include="Model\impl\EmployeeModel.cs" />
     <Compile Include="Model\impl\MyProfileDetailModel.cs" />
+    <Compile Include="Model\impl\OrderModel.cs" />
     <Compile Include="Model\impl\ProductModel.cs" />
     <Compile Include="Model\IMyProfileDetailModel.cs" />
+    <Compile Include="Model\IOrderModel.cs" />
     <Compile Include="Model\IProductModel.cs" />
     <Compile Include="Presenter\IWarehousePresenter.cs" />
     <Compile Include="Presenter\ILoginPresenter.cs" />
