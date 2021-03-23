@@ -12,5 +12,6 @@ namespace FoodShopManagement_WF.Model
         List<TblCustomerDTO> loadCustomers();
         bool addCustomer(TblCustomerDTO dto);
         bool updateCustomer(TblCustomerDTO dto);
+       
     }
 }

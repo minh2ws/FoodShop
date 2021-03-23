@@ -99,11 +99,30 @@ namespace FoodShopManagement_WF.UI
             this.panel9 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.dgvListCustomer = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.msTool = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ViewProfiletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bsEmployee = new System.Windows.Forms.BindingSource(this.components);
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -122,16 +141,20 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigator2.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListCustomer)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsEmployee)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.ItemSize = new System.Drawing.Size(80, 40);
+            this.tabControl1.ItemSize = new System.Drawing.Size(100, 30);
             this.tabControl1.Location = new System.Drawing.Point(145, 89);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
@@ -150,11 +173,11 @@ namespace FoodShopManagement_WF.UI
             this.tabPage1.Controls.Add(this.panel4);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.ImageKey = "(none)";
-            this.tabPage1.Location = new System.Drawing.Point(4, 44);
+            this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1464, 794);
+            this.tabPage1.Size = new System.Drawing.Size(1464, 804);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Employee";
             // 
@@ -184,7 +207,7 @@ namespace FoodShopManagement_WF.UI
             this.txtStatus.Location = new System.Drawing.Point(199, 334);
             this.txtStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(95, 34);
+            this.txtStatus.Size = new System.Drawing.Size(149, 34);
             this.txtStatus.TabIndex = 9;
             // 
             // label9
@@ -205,7 +228,7 @@ namespace FoodShopManagement_WF.UI
             this.txtRole.Location = new System.Drawing.Point(199, 270);
             this.txtRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRole.Name = "txtRole";
-            this.txtRole.Size = new System.Drawing.Size(233, 34);
+            this.txtRole.Size = new System.Drawing.Size(252, 34);
             this.txtRole.TabIndex = 7;
             // 
             // txtPassword
@@ -313,7 +336,7 @@ namespace FoodShopManagement_WF.UI
             this.panel4.Location = new System.Drawing.Point(-2, -2);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1461, 77);
+            this.panel4.Size = new System.Drawing.Size(1461, 86);
             this.panel4.TabIndex = 3;
             // 
             // btnAdd
@@ -473,7 +496,6 @@ namespace FoodShopManagement_WF.UI
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -509,7 +531,6 @@ namespace FoodShopManagement_WF.UI
             // 
             // txtEmpSearch
             // 
-            this.txtEmpSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtEmpSearch.Name = "txtEmpSearch";
             this.txtEmpSearch.Size = new System.Drawing.Size(100, 27);
             this.txtEmpSearch.TextChanged += new System.EventHandler(this.txtEmpSearch_TextChanged);
@@ -520,9 +541,9 @@ namespace FoodShopManagement_WF.UI
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Items.AddRange(new object[] {
             "All",
-            "SALESMAN",
-            "MANAGER",
-            "WAREHOUSE STAFF"});
+            "Salesman",
+            "Manager",
+            "Warehouse Staff"});
             this.cbRole.Location = new System.Drawing.Point(62, 75);
             this.cbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbRole.MaximumSize = new System.Drawing.Size(200, 0);
@@ -567,15 +588,14 @@ namespace FoodShopManagement_WF.UI
             // 
             // tabPage2
             // 
-            this.tabPage2.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.Untitled12;
             this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Controls.Add(this.panel7);
             this.tabPage2.Controls.Add(this.panel8);
-            this.tabPage2.Location = new System.Drawing.Point(4, 44);
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1464, 794);
+            this.tabPage2.Size = new System.Drawing.Size(1464, 804);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Customer";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -816,7 +836,6 @@ namespace FoodShopManagement_WF.UI
             // 
             this.toolStripTextBox1.AccessibleName = "Position";
             this.toolStripTextBox1.AutoSize = false;
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(50, 27);
             this.toolStripTextBox1.Text = "0";
@@ -885,6 +904,17 @@ namespace FoodShopManagement_WF.UI
             this.dgvListCustomer.Size = new System.Drawing.Size(552, 493);
             this.dgvListCustomer.TabIndex = 2;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.flowLayoutPanel1);
+            this.tabPage3.Controls.Add(this.panel10);
+            this.tabPage3.Location = new System.Drawing.Point(4, 34);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1464, 804);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.InactiveBorder;
@@ -923,6 +953,163 @@ namespace FoodShopManagement_WF.UI
             this.ViewProfiletoolStripMenuItem.Size = new System.Drawing.Size(203, 28);
             this.ViewProfiletoolStripMenuItem.Text = "View Profile";
             this.ViewProfiletoolStripMenuItem.Click += new System.EventHandler(this.ViewProfileToolStripMenuItem_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Location = new System.Drawing.Point(0, 2);
+            this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1461, 101);
+            this.panel10.TabIndex = 4;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.panel11);
+            this.flowLayoutPanel1.Controls.Add(this.panel12);
+            this.flowLayoutPanel1.Controls.Add(this.panel13);
+            this.flowLayoutPanel1.Controls.Add(this.panel14);
+            this.flowLayoutPanel1.Controls.Add(this.panel15);
+            this.flowLayoutPanel1.Controls.Add(this.panel16);
+            this.flowLayoutPanel1.Controls.Add(this.panel17);
+            this.flowLayoutPanel1.Controls.Add(this.panel18);
+            this.flowLayoutPanel1.Controls.Add(this.panel19);
+            this.flowLayoutPanel1.Controls.Add(this.panel20);
+            this.flowLayoutPanel1.Controls.Add(this.panel21);
+            this.flowLayoutPanel1.Controls.Add(this.panel22);
+            this.flowLayoutPanel1.Controls.Add(this.panel23);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(43, 130);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1380, 629);
+            this.flowLayoutPanel1.TabIndex = 5;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel11.Controls.Add(this.textBox2);
+            this.panel11.Controls.Add(this.textBox1);
+            this.panel11.Controls.Add(this.maskedTextBox1);
+            this.panel11.Location = new System.Drawing.Point(3, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(358, 183);
+            this.panel11.TabIndex = 0;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel14.Location = new System.Drawing.Point(1041, 3);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(330, 183);
+            this.panel14.TabIndex = 3;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel15.Location = new System.Drawing.Point(3, 192);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(358, 154);
+            this.panel15.TabIndex = 4;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel13.Location = new System.Drawing.Point(700, 3);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(335, 183);
+            this.panel13.TabIndex = 2;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel12.Location = new System.Drawing.Point(367, 3);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(327, 183);
+            this.panel12.TabIndex = 1;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel16.Location = new System.Drawing.Point(367, 192);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(327, 154);
+            this.panel16.TabIndex = 0;
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel17.Location = new System.Drawing.Point(700, 192);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(335, 154);
+            this.panel17.TabIndex = 0;
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel18.Location = new System.Drawing.Point(1041, 192);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(330, 154);
+            this.panel18.TabIndex = 0;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel19.Location = new System.Drawing.Point(3, 352);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(358, 155);
+            this.panel19.TabIndex = 0;
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel20.Location = new System.Drawing.Point(367, 352);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(327, 155);
+            this.panel20.TabIndex = 0;
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel21.Location = new System.Drawing.Point(700, 352);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(335, 155);
+            this.panel21.TabIndex = 0;
+            // 
+            // panel22
+            // 
+            this.panel22.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel22.Location = new System.Drawing.Point(1041, 352);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(330, 155);
+            this.panel22.TabIndex = 0;
+            // 
+            // panel23
+            // 
+            this.panel23.Location = new System.Drawing.Point(3, 513);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(1368, 102);
+            this.panel23.TabIndex = 5;
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(154, 37);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(164, 30);
+            this.maskedTextBox1.TabIndex = 6;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(154, 73);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(164, 30);
+            this.textBox1.TabIndex = 7;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(54, 135);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(246, 30);
+            this.textBox2.TabIndex = 8;
             // 
             // frmManager_v2
             // 
@@ -963,9 +1150,13 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigator2.PerformLayout();
             this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListCustomer)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsEmployee)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1046,5 +1237,24 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ToolStripTextBox txtEmpSearch;
         private System.Windows.Forms.BindingSource bsEmployee;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Panel panel23;
     }
 }
