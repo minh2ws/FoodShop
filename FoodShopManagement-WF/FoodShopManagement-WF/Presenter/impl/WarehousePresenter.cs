@@ -166,7 +166,7 @@ namespace FoodShopManagement_WF.Presenter.impl
         {
             try
             {
-                List<TblProductsDTO> listProducts= productModel.getAll();
+                List<TblProductsDTO> listProducts= productModel.getProducts();
                 DataTable dataTable = ConvertCustom.ListToDataTable(listProducts);
                 bindingSourceProduct = new BindingSource()
                 {

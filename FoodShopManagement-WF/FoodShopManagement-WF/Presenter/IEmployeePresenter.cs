@@ -15,5 +15,8 @@ namespace FoodShopManagement_WF.Presenter
         void LoadEmpByRole(frmManager_v2 form);
         void DeleteEmployee(frmManager_v2 form);
         void searchEmployee();
+        void updateEmp();
+        void saveEmployee(frmEmployeeDetail detail);
+        bool UpdateEmpDetail(frmMyProfileDetailcs form);
     }
 }

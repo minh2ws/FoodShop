@@ -18,7 +18,7 @@ namespace FoodShopManagement_WF.Model.impl
         }
 
        
-        public List<TblProductsDTO> getAll()
+        public List<TblProductsDTO> getProducts()
         {
             try
             {

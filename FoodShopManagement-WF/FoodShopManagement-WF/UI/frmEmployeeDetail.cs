@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using DevExpress.XtraExport;
+using DTO;
 using FoodShopManagement_WF.Presenter;
 using FoodShopManagement_WF.Presenter.impl;
 using FoodShopManagement_WF.Util;
@@ -44,6 +45,15 @@ namespace FoodShopManagement_WF.UI
         {
             return this.cbRole.GetItemText(this.cbRole.SelectedItem);
         }
+        public void selectrole(String role)
+        {
+             this.cbRole.SelectedIndex = cbRole.FindString(role);
+          
+        }
+        public void selectstatus(String status)
+        {
+            this.cbStatus.SelectedIndex = cbStatus.FindString(status);
+        }
         public string getStatus()
         {
             return this.cbStatus.GetItemText(this.cbStatus.SelectedItem);
@@ -64,6 +74,18 @@ namespace FoodShopManagement_WF.UI
         {
             this.cbRole.Items.Add(Role);
         }
+        public TextBox getID()
+        {
+           return  this.txtEmployeeID;
+        }
+        public TextBox getName()
+        {
+            return this.txtFullName;
+        }
+        public TextBox getPwd()
+        {
+            return this.txtPassword;
+        }
         public frmEmployeeDetail() 
         {
             InitializeComponent();
@@ -72,19 +94,12 @@ namespace FoodShopManagement_WF.UI
         }
         public frmEmployeeDetail(bool flag, EmployeePresenter presenter): this()        {
             this.presenter = presenter;
-
+            this.flag = flag;
 
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (flag == true)
-            {
-                presenter.InsertEmployee();
-            }
-            else
-            {
-
-            }
+            presenter.saveEmployee(this);
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -95,5 +110,7 @@ namespace FoodShopManagement_WF.UI
         {
 
         }
+
+        
     }
 }

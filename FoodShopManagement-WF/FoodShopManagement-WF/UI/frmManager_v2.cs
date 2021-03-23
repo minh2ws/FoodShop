@@ -51,7 +51,11 @@ namespace FoodShopManagement_WF.UI
         {
             return txtStatus;
         }
-
+        public void setmsTool(TblEmployeesDTO emp)
+        {
+            this.emp = emp;
+            msTool.Text = "User: " + emp.name;
+        }
         public void loadAll()
         {
             msTool.Text = "User: " + emp.name;
@@ -99,7 +103,7 @@ namespace FoodShopManagement_WF.UI
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            presenter.InsertEmployee();
+            presenter.updateEmp();
             loadData();
         }
 
@@ -118,12 +122,26 @@ namespace FoodShopManagement_WF.UI
         {
             frmMyProfileDetailcs ProductDetail = new frmMyProfileDetailcs(this.emp);
             DialogResult r = ProductDetail.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+               
+                if (MessageBox.Show("Do you want to logout?", "Confirmation", MessageBoxButtons.YesNo)
+                  == DialogResult.Yes)
+                {
+                    this.Hide();
+                    loginFrame.Show();
+                }
+            }
 
         }
         private string role;//var to load emp base on role
         public string getRole()
         {
             return this.cbRole.Text;
+        }
+        public string getRoletext()
+        {
+            return this.txtRole.Text;
         }
 
         public void setRole(string role)

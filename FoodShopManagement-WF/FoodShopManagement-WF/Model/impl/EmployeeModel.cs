@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,19 @@ namespace FoodShopManagement_WF.Model.impl
                 return result;
             }
             return false ;
+
+        }
+
+        public bool UpdateEmployee(TblEmployeesDTO Employee)
+        {
+            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("employee/UpdateEmployee", Employee, Program.TokenGlobal);
+            if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
+            {
+                var employeeDTO = responseMessage.Content.ReadAsStringAsync();
+                bool result = JsonConvert.DeserializeObject<bool>(employeeDTO.Result);
+                return result;
+            }
+            return false;
 
         }
 
@@ -69,6 +83,19 @@ namespace FoodShopManagement_WF.Model.impl
                 var result = responseMessage.Content.ReadAsStringAsync();
                 bool emp = JsonConvert.DeserializeObject<bool>(result.Result);
                 return emp;
+            }
+            return false;
+        }
+
+        public bool UpdateEmpDetail(TblEmployeesDTO emp)
+        {
+            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("employee/UpdateEmpDetail", emp, Program.TokenGlobal);
+            if (responseMessage.StatusCode != HttpStatusCode.Unauthorized)
+            {
+                //get json content
+                var body = responseMessage.Content.ReadAsStringAsync();
+                bool result = JsonConvert.DeserializeObject<bool>(body.Result);
+                return result;
             }
             return false;
         }

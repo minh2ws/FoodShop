@@ -11,11 +11,14 @@ namespace FoodShopManagement_WF.Model
     {
         bool InsertEmployee(TblEmployeesDTO TblEmployeesDTO);
 
+        bool UpdateEmployee(TblEmployeesDTO emp);
+
         Boolean DeleteEmployee(string idEmployee);
 
         List<TblEmployeesDTO> LoadEmpByRole(string role);
 
         List<TblEmployeesDTO> getAll();
+        bool UpdateEmpDetail(TblEmployeesDTO model);
 
     }
 }

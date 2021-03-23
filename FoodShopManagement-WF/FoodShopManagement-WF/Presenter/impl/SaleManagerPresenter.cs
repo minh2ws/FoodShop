@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -20,39 +21,29 @@ namespace FoodShopManagement_WF.Presenter.impl
         private ICategoryModel categoryModel = new CategoryModel();
         private ICustomerModel customerModel = new CustomerModel();
         private frmSaleManager_V2 form;
+        private BindingSource bsProduct;
+        private BindingSource bsCustomer;
+        private List<TblProductsDTO> listProducts;
+        private List<CartItemDTO> listProductOrder;
 
-        public SaleManagerPresenter()
-        {
-        }
+        public SaleManagerPresenter() { }
 
         public SaleManagerPresenter(frmSaleManager_V2 form)
         {
             this.form = form;
         }
 
-        public List<TblCategoryDTO> GetCategories()
+        public void SearchProduct()
         {
-            List<TblCategoryDTO> listCategory = categoryModel.getAll();
-            return listCategory;
-        }
+            string categoryName = form.getCmbCategory().Text;
+            string productName = form.getProductName().Text;
+            listProducts = productModel.searchProduct(categoryName, productName);
 
-        public List<TblProductsDTO> GetProducts()
-        {
-            List<TblProductsDTO> listProducts = productModel.getAll();
-            return listProducts;
-        }
+            bsProduct.DataSource = listProducts;
 
-        public List<TblProductsDTO> searchProduct(frmSaleManager_V2 form)
-        {
-            List<TblProductsDTO> searchResult = productModel.searchProduct(form.getCategoryName(),form.getProductName());
-            return searchResult;
-        }
-
-        public DataTable GetCustomers()
-        {
-            List<TblCustomerDTO> listResult = customerModel.loadCustomers();
-            //convert from list to datatable and return it
-            return ConvertCustom.ListToDataTable<TblCustomerDTO>(listResult);
+            //binding data
+            form.getDgvProduct().DataSource = bsProduct;
+            form.getBnProduct().BindingSource = bsProduct;
         }
 
         public void AddCustomer()
@@ -120,12 +111,12 @@ namespace FoodShopManagement_WF.Presenter.impl
                     if (frmCustomerDetail.isAddNew())
                     {
                         customerModel.addCustomer(dto);
-                        this.form.loadCustomers();
+                        LoadCustomers();
                     }
                     else
                     {
                         customerModel.updateCustomer(dto);
-                        this.form.loadCustomers();
+                        LoadCustomers();
                     }
                     MessageBox.Show(MessageUtil.SAVE_SUCCESS);
                 }
@@ -133,6 +124,209 @@ namespace FoodShopManagement_WF.Presenter.impl
             catch (Exception)
             {
                 MessageBox.Show(MessageUtil.ERROR + " Save Customer!");
+            }
+        }
+
+        public void LoadProducts()
+        {
+            listProducts = productModel.getProducts();
+            DataTable dtProduct = ConvertCustom.ListToDataTable<TblProductsDTO>(listProducts);
+            bsProduct = new BindingSource()
+            {
+                DataSource = dtProduct
+            };
+
+            //binding data to data grid view
+            form.getBnProduct().BindingSource = bsProduct;
+            form.getDgvProduct().DataSource = bsProduct;
+
+            //hide unessesary column
+            form.getDgvProduct().Columns["idProduct"].Visible = false;
+            form.getDgvProduct().Columns["status"].Visible = false;
+            form.getDgvProduct().Columns["idCategory"].Visible = false;
+            form.getDgvProduct().Columns["categoryName"].Visible = false;
+
+            List<TblCategoryDTO> listCategory = categoryModel.getAll();
+            foreach (var category in listCategory)
+            {
+                form.getCmbCategory().Items.Add(category.name);
+            }
+        }
+
+        public void LoadCustomers()
+        {
+            List<TblCustomerDTO> listCustomers = customerModel.getCustomers();
+            DataTable dtCustomer = ConvertCustom.ListToDataTable<TblCustomerDTO>(listCustomers);
+            bsCustomer = new BindingSource()
+            {
+                DataSource = dtCustomer
+            };
+
+            //binding data to data grid view
+            form.getBnCustomer().BindingSource = bsCustomer;
+            form.getDgvCustomer().DataSource = bsCustomer;
+
+            //hide unnecessary column
+            form.getDgvCustomer().Columns["phone"].Visible = false;
+            form.getDgvCustomer().Columns["address"].Visible = false;
+            form.getDgvCustomer().Columns["point"].Visible = false;
+
+            //clear and add new data binding
+            clearDataBindingTextCustomer();
+            bindingDataTextCustomer();
+        }
+
+        public void clearDataBindingTextCustomer()
+        {
+            form.getCustomerId().DataBindings.Clear();
+            form.getCustomerName().DataBindings.Clear();
+            form.getCustomerPhone().DataBindings.Clear();
+            form.getCustomerAddress().DataBindings.Clear();
+            form.getCustomerPoint().DataBindings.Clear();
+        }
+
+        public void bindingDataTextCustomer()
+        {
+            form.getCustomerId().DataBindings.Add("Text", bsCustomer, "idCustomer");
+            form.getCustomerName().DataBindings.Add("Text", bsCustomer, "name");
+            form.getCustomerPhone().DataBindings.Add("Text", bsCustomer, "phone");
+            form.getCustomerAddress().DataBindings.Add("Text", bsCustomer, "address");
+            form.getCustomerPoint().DataBindings.Add("Text", bsCustomer, "point");
+        }
+
+        public void SearchCustomer()
+        {
+            string searchValue = form.getSearchCustomer().Text;
+            if (searchValue.Equals(""))
+            {
+                bsCustomer.Filter = "";
+            }
+            else
+            {
+                bsCustomer.Filter = "name like '%" + searchValue + "%'";
+            }
+        }
+
+        public void AddProductToOrder()
+        {
+            DataGridView dgvProducts = form.getDgvProduct();
+            //Get number of selected grow
+            Int32 selectedRowCount = dgvProducts.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount > 0)
+            {
+                for (int i = 0; i < selectedRowCount; i++)
+                {
+                    //get selected row
+                    String row = dgvProducts.SelectedRows[i].Index.ToString();
+                    int rowInt = int.Parse(row);
+
+                    //get product from list product
+                    TblProductsDTO product = listProducts[rowInt];
+
+                                        //new list product order
+                    if (listProductOrder == null)
+                        listProductOrder = new List<CartItemDTO>();
+
+                    CartItemDTO item = findProductInOrder(product.idProduct);
+
+                    if (item != null)
+                    {
+                        //increase quantity
+                        item.quantity++;
+                        //update totalPrice
+                        item.totalPrice = item.quantity * item.price;
+                    } else
+                    {
+                        item = new CartItemDTO()
+                        {
+                            idProduct = product.idProduct,
+                            name = product.name,
+                            price = product.price,
+                            quantity = 1,
+                            totalPrice = product.price * 1
+                        };
+                        //add product to list product order
+                        listProductOrder.Add(item);
+                    }
+                }
+            } else
+            {
+                MessageBox.Show("Select product you want to add", "Notification");
+            }
+        }
+
+        public void LoadProductsOrder()
+        {
+            DataTable dtProduct = ConvertCustom.ListToDataTable<CartItemDTO>(listProductOrder);
+            bsProduct = new BindingSource()
+            {
+                DataSource = dtProduct
+            };
+
+            //binding data to data grid view
+            form.getBnProduct().BindingSource = bsProduct;
+            form.getDgvItemOfOrder().DataSource = bsProduct;
+
+            form.getDgvItemOfOrder().Columns["idProduct"].Visible = false;
+
+
+        }
+
+        private float calculateTotalPrice()
+        {
+            if (listProductOrder == null)
+                return 0;
+
+            float totalPrice = 0;
+            for (int i = 0; i < listProductOrder.Count; i++)
+            {
+                totalPrice += listProductOrder[i].totalPrice;
+            }
+            return totalPrice;
+        }
+
+        private CartItemDTO findProductInOrder(string idProduct)
+        {
+            for (int i = 0; i < listProductOrder.Count; i++)
+            {
+                if (listProductOrder[i].idProduct.Equals(idProduct))
+                {
+                    return listProductOrder[i];
+                }
+            }
+            return null;
+        }
+
+        public void UpdateAmount()
+        {
+            form.getAmount().Text = calculateTotalPrice().ToString();
+        }
+
+        public void RemoveProductToOrder()
+        {
+            DataGridView dgvItemOfOrder = form.getDgvItemOfOrder();
+            //Get number of selected grow
+            Int32 selectedRowCount = dgvItemOfOrder.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount > 0)
+            {
+                for (int i = 0; i < selectedRowCount; i++)
+                {
+                    //get selected row
+                    String row = dgvItemOfOrder.SelectedRows[i].Index.ToString();
+                    int rowInt = int.Parse(row);
+
+                    //get product from list product
+                    CartItemDTO item = listProductOrder[rowInt];
+                    listProductOrder.Remove(item);
+
+                    //remove list
+                    if (listProductOrder.Count == 0)
+                        listProductOrder = null;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select product you want to remove", "Notification");
             }
         }
     }
