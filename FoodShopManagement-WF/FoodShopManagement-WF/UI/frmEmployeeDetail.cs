@@ -111,6 +111,14 @@ namespace FoodShopManagement_WF.UI
 
         }
 
-        
+        private void frmEmployeeDetail_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //if(e.CloseReason== CloseReason.None)
+            //{
+            //    e.Cancel = true;
+            //    return;
+            //}    
+
+        }
     }
 }

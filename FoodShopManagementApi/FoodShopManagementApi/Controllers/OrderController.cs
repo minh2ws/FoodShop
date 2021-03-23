@@ -83,5 +83,29 @@ namespace FoodShopManagementApi.Controllers
             }
             return Unauthorized();
         }
+
+        //[HttpGet("load-Order")]
+        //[Produces("application/json")]
+        //public IActionResult LoadCustomer()
+        //{
+        //    bool isValidToken = ValidateToken();
+        //    if (isValidToken)
+        //    {
+        //        TblOrderDAO dao = TblOrderDAO.getInstance();
+        //        try
+        //        {
+        //            List<TblCustomerDTO> result = dao.loadOrder();
+        //            if (result != null)
+        //            {
+        //                return Ok(result);
+        //            }
+        //        }
+        //        catch (Exception)
+        //        {
+        //            StatusCode(500);
+        //        }
+        //    }
+        //    return Unauthorized();
+        //}
     }
 }

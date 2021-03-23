@@ -15,19 +15,28 @@ namespace FoodShopManagement_WF.UI
         private TblEmployeesDTO emp;
         private IEmployeePresenter presenter;
         
+
         public frmManager_v2(frmLogin loginFrame, TblEmployeesDTO emp)
         {
             InitializeComponent();
             this.loginFrame = loginFrame;
             this.emp = emp;
             presenter = new EmployeePresenter(this);
+           
             txtEmployeeID.Enabled=false;
             txtFullname.Enabled = false;
             txtPassword.Enabled = false;
             txtRole.Enabled = false;
             txtStatus.Enabled = false;
             dgvListEmployee.ReadOnly = true;
+            txtCustomerID.Enabled = false;
+            txtCustomerName.Enabled = false;
+            txtAddress.Enabled = false;
+            txtPoint.Enabled = false;
+            txtPoint.Enabled = false;
+            dgvCustomer.ReadOnly = true;
             loadAll();
+            presenter.LoadCustomers();
         }
 
         //get Textbox Data
@@ -60,6 +69,38 @@ namespace FoodShopManagement_WF.UI
         {
             msTool.Text = "User: " + emp.name;
             presenter.loadEmp();
+        }
+        public TextBox getCustomerId()
+        {
+            return txtCustomerID;
+        }
+        public TextBox getCustomerName()
+        {
+            return txtCustomerName;
+        }
+        public TextBox getCustomerPhone()
+        {
+            return txtPhonenumber;
+        }
+        public TextBox getCustomerAddress()
+        {
+            return txtAddress;
+        }
+        public TextBox getCustomerPoint()
+        {
+            return this.txtPoint;
+        }
+        public DataGridView getDgvCustomer()
+        {
+            return this.dgvCustomer;
+        }
+        public BindingNavigator getBnCustomer()
+        {
+            return this.bnCustomer;
+        }
+        public ToolStripTextBox getSearchCustomer()
+        {
+            return this.txtSearchCustomer;
         }
         public void loadEmpByRole()
         {
@@ -179,6 +220,16 @@ namespace FoodShopManagement_WF.UI
         private void txtEmpSearch_TextChanged(object sender, EventArgs e)
         {
             presenter.searchEmployee();
+        }
+
+        private void dgvCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtSearchCustomer_TextChanged(object sender, EventArgs e)
+        {
+            presenter.SearchCustomer();
         }
     }
 }

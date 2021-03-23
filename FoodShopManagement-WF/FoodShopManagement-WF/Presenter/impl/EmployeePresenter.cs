@@ -13,8 +13,11 @@ namespace FoodShopManagement_WF.Presenter.impl
     public class EmployeePresenter : IEmployeePresenter
     {
         private frmManager_v2 form;
+       
         private BindingSource bsEmp;
+        private BindingSource bsCustomer;
         private IEmployeeModel model = new EmployeeModel();
+        private ICustomerModel customerModel = new CustomerModel();
         public EmployeePresenter(frmManager_v2 form)
         {
             this.form = form;
@@ -25,9 +28,34 @@ namespace FoodShopManagement_WF.Presenter.impl
         }
         bool ValidateEmplpyee(TblEmployeesDTO e)
         {
-            if (e.idEmployee == null || e.name == null || e.password == null)
+            if (e.idEmployee.Trim().Length == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("username can't empty!!", "Error");
                 return false;
+            }
+            if (e.name.Trim().Length == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Name can't empty!!", "Error");
+                return false;
+            }
+
+            if (e.password.Trim().Length == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Password can't empty!!", "Error");
+                return false;
+            }
+            if (e.role.Trim().Length == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Role can't empty!!", "Error");
+                return false;
+            }
             return true;
+            //if (e.status.Trim().Length == 0)
+            //{
+            //    System.Windows.Forms.MessageBox.Show("status can't empty!!", "Error");
+            //    return false;
+            //}
+            //return true;
         }
         public void InsertEmployee()
         {
@@ -74,40 +102,44 @@ namespace FoodShopManagement_WF.Presenter.impl
             emp.name = detail.getFullName();
             emp.password = detail.getPassword();
             emp.role = detail.getRole().Trim();
-            bool status = false;
+            bool status = true ;
             if (detail.getStatus().Trim().Equals("True"))
             {
                 status = true;
             }
-            else
+            else 
             {
                 status = false;
             }
+          
             emp.status = status;
 
             bool validate = ValidateEmplpyee(emp);
-            if (!detail.getIsUpdate())
+            if (validate)
             {
-                if (model.InsertEmployee(emp))
+                if (!detail.getIsUpdate())
                 {
-                    MessageBox.Show(MessageUtil
-                        .SAVE_SUCCESS);
+                    if (model.InsertEmployee(emp))
+                    {
+                        MessageBox.Show(MessageUtil
+                            .SAVE_SUCCESS);
+                    }
+                    else
+                    {
+                        MessageBox.Show(MessageUtil.ERROR + " add Employee");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(MessageUtil.ERROR + " add Employee");
-                }
-            }
-            else
-            {
-                if (model.UpdateEmployee(emp))
-                {
-                    MessageBox.Show(MessageUtil
-                        .SAVE_SUCCESS);
-                }
-                else
-                {
-                    MessageBox.Show(MessageUtil.ERROR + " update Employee");
+                    if (model.UpdateEmployee(emp))
+                    {
+                        MessageBox.Show(MessageUtil
+                            .SAVE_SUCCESS);
+                    }
+                    else
+                    {
+                        MessageBox.Show(MessageUtil.ERROR + " update Employee");
+                    }
                 }
             }
         }
@@ -212,6 +244,59 @@ namespace FoodShopManagement_WF.Presenter.impl
            // detail.selectstatus(bool.Parse(form.getStatus().Text));
             DialogResult r = detail.ShowDialog();
           
+        }
+        public void LoadCustomers()
+        {
+            List<TblCustomerDTO> listCustomers = customerModel.getCustomers();
+            DataTable dtCustomer = ConvertCustom.ListToDataTable<TblCustomerDTO>(listCustomers);
+            bsCustomer = new BindingSource()
+            {
+                DataSource = dtCustomer
+            };
+
+            //binding data to data grid view
+            form.getBnCustomer().BindingSource = bsCustomer;
+            form.getDgvCustomer().DataSource = bsCustomer;
+
+            //hide unnecessary column
+            form.getDgvCustomer().Columns["phone"].Visible = false;
+            form.getDgvCustomer().Columns["address"].Visible = false;
+            form.getDgvCustomer().Columns["point"].Visible = false;
+
+            //clear and add new data binding
+            clearDataBindingTextCustomer();
+            bindingDataTextCustomer();
+        }
+
+        public void clearDataBindingTextCustomer()
+        {
+            form.getCustomerId().DataBindings.Clear();
+            form.getCustomerName().DataBindings.Clear();
+            form.getCustomerPhone().DataBindings.Clear();
+            form.getCustomerAddress().DataBindings.Clear();
+            form.getCustomerPoint().DataBindings.Clear();
+        }
+
+        public void bindingDataTextCustomer()
+        {
+            form.getCustomerId().DataBindings.Add("Text", bsCustomer, "idCustomer");
+            form.getCustomerName().DataBindings.Add("Text", bsCustomer, "name");
+            form.getCustomerPhone().DataBindings.Add("Text", bsCustomer, "phone");
+            form.getCustomerAddress().DataBindings.Add("Text", bsCustomer, "address");
+            form.getCustomerPoint().DataBindings.Add("Text", bsCustomer, "point");
+        }
+
+        public void SearchCustomer()
+        {
+            string searchValue = form.getSearchCustomer().Text;
+            if (searchValue.Equals(""))
+            {
+                bsCustomer.Filter = "";
+            }
+            else
+            {
+                bsCustomer.Filter = "name like '%" + searchValue + "%'";
+            }
         }
     }
 }

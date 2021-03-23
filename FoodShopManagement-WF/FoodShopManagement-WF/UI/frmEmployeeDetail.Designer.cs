@@ -195,6 +195,7 @@ namespace FoodShopManagement_WF.UI
             this.Controls.Add(this.groupBox1);
             this.Name = "frmEmployeeDetail";
             this.Text = "Employee";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmEmployeeDetail_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
