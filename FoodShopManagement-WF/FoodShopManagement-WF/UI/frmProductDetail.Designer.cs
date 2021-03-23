@@ -32,7 +32,11 @@ namespace FoodShopManagement_WF.UI
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdoStatusTrue = new System.Windows.Forms.RadioButton();
+            this.rdoStatusFalse = new System.Windows.Forms.RadioButton();
             this.cbCategory = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
@@ -40,10 +44,6 @@ namespace FoodShopManagement_WF.UI
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rdoStatusTrue = new System.Windows.Forms.RadioButton();
-            this.rdoStatusFalse = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +94,39 @@ namespace FoodShopManagement_WF.UI
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " Product Details";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rdoStatusTrue);
+            this.groupBox2.Controls.Add(this.rdoStatusFalse);
+            this.groupBox2.Location = new System.Drawing.Point(176, 272);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(228, 72);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            // 
+            // rdoStatusTrue
+            // 
+            this.rdoStatusTrue.AutoSize = true;
+            this.rdoStatusTrue.Location = new System.Drawing.Point(17, 31);
+            this.rdoStatusTrue.Name = "rdoStatusTrue";
+            this.rdoStatusTrue.Size = new System.Drawing.Size(71, 27);
+            this.rdoStatusTrue.TabIndex = 12;
+            this.rdoStatusTrue.TabStop = true;
+            this.rdoStatusTrue.Text = "True";
+            this.rdoStatusTrue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rdoStatusTrue.UseVisualStyleBackColor = true;
+            // 
+            // rdoStatusFalse
+            // 
+            this.rdoStatusFalse.AutoSize = true;
+            this.rdoStatusFalse.Location = new System.Drawing.Point(120, 31);
+            this.rdoStatusFalse.Name = "rdoStatusFalse";
+            this.rdoStatusFalse.Size = new System.Drawing.Size(74, 27);
+            this.rdoStatusFalse.TabIndex = 12;
+            this.rdoStatusFalse.TabStop = true;
+            this.rdoStatusFalse.Text = "False";
+            this.rdoStatusFalse.UseVisualStyleBackColor = true;
+            // 
             // cbCategory
             // 
             this.cbCategory.FormattingEnabled = true;
@@ -101,6 +134,15 @@ namespace FoodShopManagement_WF.UI
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(121, 29);
             this.cbCategory.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(32, 300);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 23);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Status";
             // 
             // label5
             // 
@@ -159,48 +201,6 @@ namespace FoodShopManagement_WF.UI
             this.label2.TabIndex = 4;
             this.label2.Text = "ProductName";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 300);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 23);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Status";
-            // 
-            // rdoStatusTrue
-            // 
-            this.rdoStatusTrue.AutoSize = true;
-            this.rdoStatusTrue.Location = new System.Drawing.Point(17, 31);
-            this.rdoStatusTrue.Name = "rdoStatusTrue";
-            this.rdoStatusTrue.Size = new System.Drawing.Size(71, 27);
-            this.rdoStatusTrue.TabIndex = 12;
-            this.rdoStatusTrue.TabStop = true;
-            this.rdoStatusTrue.Text = "True";
-            this.rdoStatusTrue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rdoStatusTrue.UseVisualStyleBackColor = true;
-            // 
-            // rdoStatusFalse
-            // 
-            this.rdoStatusFalse.AutoSize = true;
-            this.rdoStatusFalse.Location = new System.Drawing.Point(120, 31);
-            this.rdoStatusFalse.Name = "rdoStatusFalse";
-            this.rdoStatusFalse.Size = new System.Drawing.Size(74, 27);
-            this.rdoStatusFalse.TabIndex = 12;
-            this.rdoStatusFalse.TabStop = true;
-            this.rdoStatusFalse.Text = "False";
-            this.rdoStatusFalse.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rdoStatusTrue);
-            this.groupBox2.Controls.Add(this.rdoStatusFalse);
-            this.groupBox2.Location = new System.Drawing.Point(176, 272);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(228, 72);
-            this.groupBox2.TabIndex = 13;
-            this.groupBox2.TabStop = false;
-            // 
             // frmProductDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -212,6 +212,7 @@ namespace FoodShopManagement_WF.UI
             this.Controls.Add(this.groupBox1);
             this.Name = "frmProductDetail";
             this.Text = "Product";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmProductDetail_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

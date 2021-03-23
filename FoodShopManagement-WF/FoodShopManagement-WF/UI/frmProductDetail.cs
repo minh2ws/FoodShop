@@ -64,5 +64,10 @@ namespace FoodShopManagement_WF.UI
         {
             warehousePresenter.saveProduct(this);
         }
+
+        private void frmProductDetail_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+        }
     }
 }

@@ -133,6 +133,15 @@ namespace FoodShopManagement_WF.UI
         private void frmWarehouse_V2_Load(object sender, EventArgs e)
         {
             loadData();
+            txtCategoryID.ReadOnly = true;
+            txtCategoryName.ReadOnly = true;
+            txtProductID.ReadOnly = true;
+            txtProductName.ReadOnly = true;
+            txtQuantity.ReadOnly = true;
+            txtPrice.ReadOnly = true;
+            txtCategoryProduct.ReadOnly = true;
+            txtStatusProduct.ReadOnly = true;
+            
         }
         public ToolStripTextBox getSearchCategoryBox()
         {
@@ -156,6 +165,11 @@ namespace FoodShopManagement_WF.UI
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
             warehousePresenter.deleteProduct();
+        }
+
+        private void cbxCategoryTable_DropDownClosed(object sender, EventArgs e)
+        {
+            warehousePresenter.searchProductName();
         }
     }
 }
