@@ -14,6 +14,10 @@ namespace FoodShopManagement_WF.UI
         private TblEmployeesDTO emp;
         private ISaleManagerPresenter saleManagerPresenter;
 
+        public TblEmployeesDTO getEmployee()
+        {
+            return this.emp;
+        }
         public ComboBox getCmbCategory()
         {
             return this.cmbCategory;
@@ -78,6 +82,14 @@ namespace FoodShopManagement_WF.UI
         public TextBox getAmount()
         {
             return this.txtAmount;
+        }
+        public TextBox getDiscount()
+        {
+            return this.txtDiscount;
+        }
+        public TextBox getCurrentAmount()
+        {
+            return this.txtCurrentAmount;
         }
 
         public frmSaleManager_V2()
@@ -149,7 +161,7 @@ namespace FoodShopManagement_WF.UI
 
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
-            saleManagerPresenter.RemoveProductToOrder();
+            saleManagerPresenter.RemoveProductFromOrder();
             saleManagerPresenter.LoadProductsOrder();
             saleManagerPresenter.UpdateAmount();
         }

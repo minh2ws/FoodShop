@@ -9,6 +9,12 @@ namespace DTO
     public class CartDTO
     {
         public string orderId { get; set; }
-        public List<CartItemDTO> itemsList { get; set; }
+        public List<TblOrderDetailDTO> itemsList { get; set; }
+
+        public CartDTO(string orderId, List<TblOrderDetailDTO> itemsList)
+        {
+            this.orderId = orderId;
+            this.itemsList = itemsList;
+        }
     }
 }

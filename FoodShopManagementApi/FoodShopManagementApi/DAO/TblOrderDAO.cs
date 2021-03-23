@@ -26,7 +26,6 @@ namespace FoodShopManagementApi.DAO
 
         SqlConnection cn = null;
         SqlCommand cmd = null;
-        SqlDataReader reader = null;
 
         public bool AddOrder(TblOrderDTO dto)
         {

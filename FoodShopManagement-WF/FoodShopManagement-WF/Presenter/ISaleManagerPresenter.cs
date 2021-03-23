@@ -22,6 +22,7 @@ namespace FoodShopManagement_WF.Presenter
         void AddProductToOrder();
         void LoadProductsOrder();
         void UpdateAmount();
-        void RemoveProductToOrder();
+        void RemoveProductFromOrder();
+        void CheckoutCart();
     }
 }

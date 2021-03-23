@@ -67,5 +67,15 @@ namespace FoodShopManagement_WF.Model.impl
             }
             return false;
         }
+
+        public bool updatePoint(TblCustomerDTO dto)
+        {
+            HttpResponseMessage responseMessage = ApiConnection.loadPutJsonObject("customer/update-point", dto, Program.TokenGlobal);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

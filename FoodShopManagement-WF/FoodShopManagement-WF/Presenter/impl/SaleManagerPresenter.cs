@@ -20,6 +20,7 @@ namespace FoodShopManagement_WF.Presenter.impl
         private IProductModel productModel = new ProductModel();
         private ICategoryModel categoryModel = new CategoryModel();
         private ICustomerModel customerModel = new CustomerModel();
+        private IOrderModel orderModel = new OrderModel();
         private frmSaleManager_V2 form;
         private BindingSource bsProduct;
         private BindingSource bsCustomer;
@@ -91,6 +92,7 @@ namespace FoodShopManagement_WF.Presenter.impl
             }
             return true;
         }
+
         public void SaveCustomer(frmCustomerDetail frmCustomerDetail)
         {
             try
@@ -212,7 +214,7 @@ namespace FoodShopManagement_WF.Presenter.impl
             DataGridView dgvProducts = form.getDgvProduct();
             //Get number of selected grow
             Int32 selectedRowCount = dgvProducts.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (selectedRowCount > 0)
+            if (selectedRowCount > 0 && selectedRowCount <= 1)
             {
                 for (int i = 0; i < selectedRowCount; i++)
                 {
@@ -302,12 +304,12 @@ namespace FoodShopManagement_WF.Presenter.impl
             form.getAmount().Text = calculateTotalPrice().ToString();
         }
 
-        public void RemoveProductToOrder()
+        public void RemoveProductFromOrder()
         {
             DataGridView dgvItemOfOrder = form.getDgvItemOfOrder();
             //Get number of selected grow
             Int32 selectedRowCount = dgvItemOfOrder.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (selectedRowCount > 0)
+            if (selectedRowCount > 0 && selectedRowCount <= 1)
             {
                 for (int i = 0; i < selectedRowCount; i++)
                 {
@@ -328,6 +330,75 @@ namespace FoodShopManagement_WF.Presenter.impl
             {
                 MessageBox.Show("Select product you want to remove", "Notification");
             }
+        }
+
+        public void CheckoutCart()
+        {
+            
+        }
+
+        private void CreateOrder()
+        {
+            //create order id
+            string idOrder = new Random().Next(999999).ToString();
+            TblOrderDTO order = new TblOrderDTO()
+            {
+
+                idOrder = idOrder,
+                idEmployee = form.getEmployee().idEmployee,
+                idCustomer = form.getCustomerId().Text,
+                priceSum = float.Parse(form.getAmount().Text),
+                discount = float.Parse(form.getDiscount().Text),
+                total = float.Parse(form.getCurrentAmount().Text),
+                orderDate = DateTime.Now,
+            };
+            
+            bool isSuccess = orderModel.AddOrder(order);
+            if (isSuccess)
+            {
+                //create order detail dto for insert to database
+                List<TblOrderDetailDTO> itemList = new List<TblOrderDetailDTO>();
+                foreach (var item in listProductOrder)
+                {
+                    TblOrderDetailDTO dto = new TblOrderDetailDTO()
+                    {
+                        idOrder = idOrder,
+                        idProduct = item.idProduct,
+                        quantity = item.quantity,
+                        price = item.price,
+                    };
+                    itemList.Add(dto);
+                }
+
+                CartDTO cart = new CartDTO(idOrder, itemList);
+                isSuccess = orderModel.AddOrderDetail(cart);
+                if (isSuccess)
+                {
+                    MessageBox.Show("Checkout Success!!");
+                    updateCustomerPoint();
+                }
+                else 
+                    MessageBox.Show(MessageUtil.ERROR);
+            }
+            else
+            {
+                MessageBox.Show(MessageUtil.ERROR);
+            }
+        }
+
+        private void updateCustomerPoint()
+        {
+            //calculate point for customer
+            int amount = int.Parse(form.getAmount().Text);
+            int point = amount / 1000;
+            string customerId = form.getCustomerId().Text;
+
+            TblCustomerDTO dto = new TblCustomerDTO()
+            {
+                idCustomer = customerId,
+                point = point,
+            };
+            customerModel.updatePoint(dto);
         }
     }
 }
