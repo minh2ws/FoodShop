@@ -74,7 +74,7 @@ namespace FoodShopManagementApi.DAO
                 {
                     String sql = "Select idEmployee, password, name, role, status " +
                         "From tblEmployees " +
-                        "Where idEmployee = @idEmployee and password = @password";
+                        "Where idEmployee = @idEmployee and password = @password ";
                     SqlCommand sqlCommand = new SqlCommand(sql, connection);
                     sqlCommand.Parameters.AddWithValue("@idEmployee", idEmployee);
                     sqlCommand.Parameters.AddWithValue("@password", password);

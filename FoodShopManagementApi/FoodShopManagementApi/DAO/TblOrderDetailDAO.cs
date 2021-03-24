@@ -64,5 +64,52 @@ namespace FoodShopManagementApi.DAO
             }
             return false;
         }
+
+        public List<RevenuesDTO> SelectOrderDetail(DateTime date)
+        {
+            SqlConnection connection = null;
+            SqlDataReader sqlDataReader = null;
+            SqlCommand sqlCommand = null;
+            string sql = "P.name as product,P.price,D.quantity,O.idEmployee,C.name as customer" +
+                "from tblOrderDetail D join tblOrder O" +
+                "on D.idOrder = O.idOrder" +
+                "join tblCustomers C" +
+                "on O.idCustomer = C.idCustomer" +
+                "join tblProducts P" +
+                "on D.idProduct = P.idProduct" +
+                "where CAST(O.orderDate as DATE) = @date ";
+            try
+            {
+                connection = DBUtil.MakeConnect();
+                if (connection != null)
+                {
+                    sqlCommand = new SqlCommand(sql, connection);
+                    sqlCommand.Parameters.AddWithValue("@date", date);
+                    sqlDataReader = sqlCommand.ExecuteReader();
+                    List<RevenuesDTO> result = new List<RevenuesDTO>();
+                    while (sqlDataReader.Read())
+                    {
+                        RevenuesDTO detail = new RevenuesDTO();
+                        detail.Productname = sqlDataReader["product"].ToString();
+                        detail.Price = float.Parse(sqlDataReader["price"].ToString());
+                        detail.Quantity = int.Parse(sqlDataReader["quantity"].ToString());
+                        detail.Salesman = sqlDataReader["idEmployee"].ToString();
+                        detail.Customer = sqlDataReader["customer"].ToString();
+                        result.Add(detail);
+                    }
+                    return result;
+                }
+            }
+            catch (SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                DBUtil.CloseConnection(sqlDataReader, connection);
+            }
+            return null;
+        }
+
     }
 }

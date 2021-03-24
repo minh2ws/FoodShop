@@ -16,8 +16,10 @@ namespace FoodShopManagement_WF.Presenter.impl
        
         private BindingSource bsEmp;
         private BindingSource bsCustomer;
+        private BindingSource bsOrderdetail;
         private IEmployeeModel model = new EmployeeModel();
         private ICustomerModel customerModel = new CustomerModel();
+        private IOrderModel orderModel = new OrderModel();
         public EmployeePresenter(frmManager_v2 form)
         {
             this.form = form;
@@ -296,6 +298,79 @@ namespace FoodShopManagement_WF.Presenter.impl
             else
             {
                 bsCustomer.Filter = "name like '%" + searchValue + "%'";
+            }
+        }
+
+        public void LoadRevenues(DateTime date)
+        {
+            float total = orderModel.LoadTotal(date);
+            List<RevenuesDTO> listDetail = orderModel.LoadOrderDetail(date);
+            if (listDetail != null)
+            {
+                DataTable dtOrderDetail = ConvertCustom.ListToDataTable<RevenuesDTO>(listDetail);
+                bsOrderdetail = new BindingSource()
+                {
+                    DataSource = dtOrderDetail
+                };
+            
+            //binding data to data grid view
+            form.getBnOrderDetail().BindingSource = bsOrderdetail;
+            form.getDgvOrderDetail().DataSource = bsOrderdetail;
+            form.gettotal().Text = total.ToString();
+            //hide unnecessary column
+            form.getDgvOrderDetail().Columns["Customer"].Visible = false;
+            form.getDgvOrderDetail().Columns["Salesman"].Visible = false;
+            form.getDgvOrderDetail().Columns["total"].Visible = false;
+
+            //clear and add new data binding
+            clearDataBindingTextOrderdetail();
+            bindingDataTextOrderdetail();}
+        }
+
+        public void clearDataBindingTextOrderdetail()
+        {
+            form.getcustomer().DataBindings.Clear();
+            form.getsalesman().DataBindings.Clear();
+            form.getproductname().DataBindings.Clear();
+            form.getquantity().DataBindings.Clear();
+            form.getprice().DataBindings.Clear();
+            form.getsum().DataBindings.Clear();
+        }
+
+        public void bindingDataTextOrderdetail()
+        {
+            form.getcustomer().DataBindings.Add("Text", bsOrderdetail, "Customer");
+            form.getsalesman().DataBindings.Add("Text", bsOrderdetail, "Salesman");
+            form.getproductname().DataBindings.Add("Text", bsOrderdetail, "Productname");
+            form.getquantity().DataBindings.Add("Text", bsOrderdetail, "Price");
+            form.getprice().DataBindings.Add("Text", bsOrderdetail, "Quantity");
+            form.getsum().DataBindings.Add("Text", bsOrderdetail, "total");
+        }
+
+        public void SearchRevenues(DateTime date)
+        {
+            float total = orderModel.LoadTotal(date);
+            List<RevenuesDTO> listDetail = orderModel.LoadOrderDetail(date);
+            if (listDetail != null)
+            {
+                DataTable dtOrderDetail = ConvertCustom.ListToDataTable<RevenuesDTO>(listDetail);
+                bsOrderdetail = new BindingSource()
+                {
+                    DataSource = dtOrderDetail
+                };
+
+                //binding data to data grid view
+                form.getBnOrderDetail().BindingSource = bsOrderdetail;
+                form.getDgvOrderDetail().DataSource = bsOrderdetail;
+                form.gettotal().Text = total.ToString();
+                //hide unnecessary column
+                form.getDgvOrderDetail().Columns["Customer"].Visible = false;
+                form.getDgvOrderDetail().Columns["Salesman"].Visible = false;
+                form.getDgvOrderDetail().Columns["total"].Visible = false;
+
+                //clear and add new data binding
+                clearDataBindingTextOrderdetail();
+                bindingDataTextOrderdetail();
             }
         }
     }

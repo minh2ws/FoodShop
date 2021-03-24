@@ -2,6 +2,7 @@
 using FoodShopManagementApi.Util;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
@@ -57,6 +58,41 @@ namespace FoodShopManagementApi.DAO
                 DBUtil.CloseConnection(null, cn);
             }
             return false;
+        }
+
+        public float SelectTotalOrder(String date)
+        {
+            SqlConnection connection = null;
+            SqlDataReader sqlDataReader = null;
+
+            try
+            {
+                connection = DBUtil.MakeConnect();
+                if (connection != null)
+                {
+                    String sql = "select sum(priceTotal) as total from tblOrder where CAST(orderDate as DATE) = @date  ";
+                    SqlCommand sqlCommand = new SqlCommand(sql, connection);
+                    sqlCommand.Parameters.AddWithValue("@date", date);
+                   
+                    sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                    if (sqlDataReader.Read())
+                    {
+                        float total =float.Parse(sqlDataReader.GetString("total"));
+                       
+                       
+                           
+                            return total;
+                        
+                    }
+                }
+            }
+            catch (SqlException e) { throw new Exception(e.Message); }
+            finally
+            {
+                DBUtil.CloseConnection(sqlDataReader, connection);
+
+            }
+            return 0;
         }
     }
 }

@@ -40,7 +40,7 @@ namespace FoodShopManagement_WF.Util
             HttpResponseMessage responseMessage = httpClient.PutAsync(function, data).Result;
             return responseMessage;
         }
-        public static HttpResponseMessage loadGetJsonObject(string function,string token)
+        public static HttpResponseMessage loadGetJsonObject(string function, string token)
         {
             HttpClient httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(URI);
