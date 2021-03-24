@@ -73,11 +73,50 @@ namespace FoodShopManagementApi.DAO
             return null;
         }
 
+        public List<TblProductsDTO> loadProductToSale()
+        {
+            string sql = "select p.idProduct,p.name,p.price,p.quantity,p.status,p.idCategory,c.name as categoryName " +
+                "from tblProducts p,tblCategory c " +
+                "where p.idCategory=c.idCategory AND p.status = 1";
+            try
+            {
+                sqlConnection = DBUtil.MakeConnect();
+                if (sqlConnection != null)
+                {
+                    sqlCommand = new SqlCommand(sql, sqlConnection);
+                    sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                    List<TblProductsDTO> result = new List<TblProductsDTO>();
+                    while (sqlDataReader.Read())
+                    {
+                        TblProductsDTO product = new TblProductsDTO();
+                        product.idProduct = sqlDataReader["idProduct"].ToString();
+                        product.name = sqlDataReader["name"].ToString();
+                        product.price = float.Parse(sqlDataReader["price"].ToString());
+                        product.quantity = int.Parse(sqlDataReader["quantity"].ToString());
+                        product.status = bool.Parse(sqlDataReader["status"].ToString());
+                        product.idCategory = sqlDataReader["idCategory"].ToString();
+                        product.categoryName = sqlDataReader["categoryName"].ToString();
+                        result.Add(product);
+                    }
+                    return result;
+                }
+            }
+            catch (SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                DBUtil.CloseConnection(sqlDataReader, sqlConnection);
+            }
+            return null;
+        }
+
         public List<TblProductsDTO> searchProduct(string category, string searchValue)
         {
             string sql = "SELECT p.idProduct, p.name, p.price, p.quantity,p.status,p.idCategory, c.name as categoryName "
                     + "FROM tblProducts p, tblCategory c "
-                    + "WHERE p.idCategory = c.idCategory ";
+                    + "WHERE p.idCategory = c.idCategory AND p.status = 1 ";
 
             //check category field to create sql string
             if (category.Trim().Length != 0 && category != null)

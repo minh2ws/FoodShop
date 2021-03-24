@@ -175,5 +175,29 @@ namespace FoodShopManagementApi.DTO
             ClaimsIdentity identity = (ClaimsIdentity)claims.Identity;
             return identity.Claims.ToList();
         }
+
+        [HttpGet("load-products-to-sale")]
+        [Produces("application/json")]
+        public IActionResult LoadProductsToSale()
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblProductsDAO dao = TblProductsDAO.getInstance();
+                try
+                {
+                    List<TblProductsDTO> listProduct = dao.loadProductToSale();
+                    if (listProduct != null)
+                    {
+                        return Ok(listProduct);
+                    }
+                }
+                catch (Exception)
+                {
+                    return StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
     }
 }

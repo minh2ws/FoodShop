@@ -131,7 +131,7 @@ namespace FoodShopManagement_WF.Presenter.impl
 
         public void LoadProducts()
         {
-            listProducts = productModel.getProducts();
+            listProducts = productModel.getProductsToSale();
             DataTable dtProduct = ConvertCustom.ListToDataTable<TblProductsDTO>(listProducts);
             bsProduct = new BindingSource()
             {

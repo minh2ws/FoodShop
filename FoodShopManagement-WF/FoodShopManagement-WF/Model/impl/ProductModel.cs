@@ -81,5 +81,17 @@ namespace FoodShopManagement_WF.Model.impl
             }
             return false;
         }
+
+        public List<TblProductsDTO> getProductsToSale()
+        {
+            HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("product/load-products-to-sale", Program.TokenGlobal);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var listFromAPI = responseMessage.Content.ReadAsStringAsync();
+                List<TblProductsDTO> listProducts = JsonConvert.DeserializeObject<List<TblProductsDTO>>(listFromAPI.Result);
+                return listProducts;
+            }
+            return null;
+        }
     }
 }
