@@ -20,5 +20,6 @@ namespace FoodShopManagement_WF.Presenter
         bool UpdateEmpDetail(frmMyProfileDetailcs form);
         void LoadCustomers();
         void SearchCustomer();
+        void LoadRevenues(DateTime date);
     }
 }

@@ -84,28 +84,53 @@ namespace FoodShopManagementApi.Controllers
             return Unauthorized();
         }
 
-        //[HttpGet("load-Order")]
-        //[Produces("application/json")]
-        //public IActionResult LoadCustomer()
-        //{
-        //    bool isValidToken = ValidateToken();
-        //    if (isValidToken)
-        //    {
-        //        TblOrderDAO dao = TblOrderDAO.getInstance();
-        //        try
-        //        {
-        //            List<TblCustomerDTO> result = dao.loadOrder();
-        //            if (result != null)
-        //            {
-        //                return Ok(result);
-        //            }
-        //        }
-        //        catch (Exception)
-        //        {
-        //            StatusCode(500);
-        //        }
-        //    }
-        //    return Unauthorized();
-        //}
+        [HttpPost("load-total")]
+        [Produces("application/json")]
+        public IActionResult LoadTotal([FromBody] DateTime date)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblOrderDAO dao = TblOrderDAO.getInstance();
+                try
+                {
+                    float result = dao.SelectTotalOrder("2021-03-23");
+                    if (result != null)
+                    {
+                        return Ok(result);
+                    }
+                    else return BadRequest();
+                }
+                catch (Exception)
+                {
+                    StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
+        [HttpPost("load-listOrderdetail")]
+        [Produces("application/json")]
+        public IActionResult LoadlistOrderdetail([FromBody] DateTime date)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                TblOrderDetailDAO dao = TblOrderDetailDAO.getInstance();
+                try
+                {
+                    List<RevenuesDTO> result = dao.SelectOrderDetail(date);
+                    if (result != null)
+                    {
+                        return Ok(result);
+                    }
+                    else return BadRequest();
+                }
+                catch (Exception)
+                {
+                    StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
     }
 }

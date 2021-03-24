@@ -38,6 +38,7 @@ namespace FoodShopManagement_WF.UI
             dgvCustomer.ReadOnly = true;
             loadAll();
             presenter.LoadCustomers();
+            presenter.LoadRevenues(datetimepicker.Value);
         }
 
         //get Textbox Data
@@ -56,6 +57,38 @@ namespace FoodShopManagement_WF.UI
         public TextBox getEmpRole()
         {
             return txtRole;
+        }
+        public TextBox getproductname()
+        {
+            return txtproductname;
+        }
+        public TextBox getcustomer()
+        {
+            return txtcustomer;
+        }
+        public TextBox getprice()
+        {
+            return txtPrice;
+        }
+        public TextBox getquantity()
+        {
+            return txtQuantity;
+        }
+        public TextBox gettotal()
+        {
+            return txttotal;
+        }
+        public TextBox getsum()
+        {
+            return txtSum;
+        }
+        public TextBox getsalesman()
+        {
+            return txtsalesman;
+        }
+        public DateTime getDate()
+        {
+            return datetimepicker.Value;
         }
         public TextBox getStatus()
         {
@@ -129,6 +162,14 @@ namespace FoodShopManagement_WF.UI
         public BindingNavigator GetBindingNavigator()
         {
             return this.bnEmployee;
+        }
+        public DataGridView getDgvOrderDetail()
+        {
+            return this.dgrOrderDetail;
+        }
+        public BindingNavigator getBnOrderDetail()
+        {
+            return this.bnOrderDetail;
         }
         private void frmManager_v2_Load(object sender, EventArgs e)
         {
@@ -231,6 +272,31 @@ namespace FoodShopManagement_WF.UI
         private void txtSearchCustomer_TextChanged(object sender, EventArgs e)
         {
             presenter.SearchCustomer();
+        }
+
+        private void Search(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchDate(object sender, EventArgs e)
+        {
+            presenter.LoadRevenues(datetimepicker.Value);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            presenter.LoadRevenues(datetimepicker.Value);
         }
     }
 }
