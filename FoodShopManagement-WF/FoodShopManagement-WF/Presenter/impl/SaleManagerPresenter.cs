@@ -153,6 +153,11 @@ namespace FoodShopManagement_WF.Presenter.impl
             {
                 form.getCmbCategory().Items.Add(category.name);
             }
+
+            foreach (DataGridViewColumn column in form.getDgvProduct().Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
 
         public void LoadCustomers()
@@ -214,7 +219,7 @@ namespace FoodShopManagement_WF.Presenter.impl
             DataGridView dgvProducts = form.getDgvProduct();
             //Get number of selected grow
             Int32 selectedRowCount = dgvProducts.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (selectedRowCount > 0 && selectedRowCount <= 1)
+            if (selectedRowCount > 0)
             {
                 for (int i = 0; i < selectedRowCount; i++)
                 {
@@ -271,7 +276,10 @@ namespace FoodShopManagement_WF.Presenter.impl
 
             form.getDgvItemOfOrder().Columns["idProduct"].Visible = false;
 
-
+            foreach (DataGridViewColumn column in form.getDgvItemOfOrder().Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
 
         private float calculateTotalPrice()
@@ -309,7 +317,7 @@ namespace FoodShopManagement_WF.Presenter.impl
             DataGridView dgvItemOfOrder = form.getDgvItemOfOrder();
             //Get number of selected grow
             Int32 selectedRowCount = dgvItemOfOrder.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (selectedRowCount > 0 && selectedRowCount <= 1)
+            if (selectedRowCount > 0)
             {
                 for (int i = 0; i < selectedRowCount; i++)
                 {
