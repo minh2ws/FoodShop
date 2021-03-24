@@ -366,6 +366,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.toolStripTextBox1.AccessibleName = "Position";
             this.toolStripTextBox1.AutoSize = false;
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(50, 27);
             this.toolStripTextBox1.Text = "0";
@@ -401,6 +402,7 @@ namespace FoodShopManagement_WF.UI
             // 
             // txtSearchCategory
             // 
+            this.txtSearchCategory.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearchCategory.Name = "txtSearchCategory";
             this.txtSearchCategory.Size = new System.Drawing.Size(100, 27);
             this.txtSearchCategory.TextChanged += new System.EventHandler(this.txtSearchCategory_TextChanged);
@@ -436,6 +438,7 @@ namespace FoodShopManagement_WF.UI
             this.dtgCategories.Location = new System.Drawing.Point(3, 72);
             this.dtgCategories.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgCategories.Name = "dtgCategories";
+            this.dtgCategories.RowHeadersVisible = false;
             this.dtgCategories.RowHeadersWidth = 62;
             this.dtgCategories.RowTemplate.Height = 28;
             this.dtgCategories.Size = new System.Drawing.Size(551, 581);
@@ -687,6 +690,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.toolStripTextBox2.AccessibleName = "Position";
             this.toolStripTextBox2.AutoSize = false;
+            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(50, 27);
             this.toolStripTextBox2.Text = "0";

@@ -138,6 +138,16 @@ namespace FoodShopManagement_WF.UI
         {
             frmMyProfileDetailcs ProfileDetail = new frmMyProfileDetailcs(this.emp);
             DialogResult r = ProfileDetail.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+
+                if (MessageBox.Show("Do you want to logout?", "Confirmation", MessageBoxButtons.YesNo)
+                  == DialogResult.Yes)
+                {
+                    this.Hide();
+                    loginFrame.Show();
+                }
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

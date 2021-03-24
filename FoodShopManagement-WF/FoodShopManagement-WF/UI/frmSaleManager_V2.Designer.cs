@@ -480,6 +480,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(49, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -591,6 +592,7 @@ namespace FoodShopManagement_WF.UI
             this.dgvProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
+            this.dgvProducts.RowHeadersVisible = false;
             this.dgvProducts.RowHeadersWidth = 62;
             this.dgvProducts.RowTemplate.Height = 28;
             this.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -934,6 +936,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.toolStripTextBox1.AccessibleName = "Position";
             this.toolStripTextBox1.AutoSize = false;
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(49, 27);
             this.toolStripTextBox1.Text = "0";
@@ -998,6 +1001,7 @@ namespace FoodShopManagement_WF.UI
             this.dgvCustomer.Location = new System.Drawing.Point(3, 94);
             this.dgvCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCustomer.Name = "dgvCustomer";
+            this.dgvCustomer.RowHeadersVisible = false;
             this.dgvCustomer.RowHeadersWidth = 62;
             this.dgvCustomer.RowTemplate.Height = 28;
             this.dgvCustomer.Size = new System.Drawing.Size(552, 559);

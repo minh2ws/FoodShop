@@ -128,6 +128,16 @@ namespace FoodShopManagement_WF.UI
         {
             frmMyProfileDetailcs ProductDetail = new frmMyProfileDetailcs(this.emp);
             DialogResult r = ProductDetail.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+
+                if (MessageBox.Show("Do you want to logout?", "Confirmation", MessageBoxButtons.YesNo)
+                  == DialogResult.Yes)
+                {
+                    this.Hide();
+                    loginFrame.Show();
+                }
+            }
         }
 
         private void frmWarehouse_V2_Load(object sender, EventArgs e)

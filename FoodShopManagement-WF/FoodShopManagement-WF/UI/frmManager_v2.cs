@@ -34,6 +34,7 @@ namespace FoodShopManagement_WF.UI
             txtAddress.Enabled = false;
             txtPoint.Enabled = false;
             txtPoint.Enabled = false;
+            txtPhonenumber.Enabled = false;
             dgvCustomer.ReadOnly = true;
             loadAll();
             presenter.LoadCustomers();

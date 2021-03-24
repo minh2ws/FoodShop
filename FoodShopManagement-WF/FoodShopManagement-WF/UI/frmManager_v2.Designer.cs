@@ -70,6 +70,7 @@ namespace FoodShopManagement_WF.UI
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -93,6 +94,7 @@ namespace FoodShopManagement_WF.UI
             this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.txtSearchCustomer = new System.Windows.Forms.ToolStripTextBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.dgvCustomer = new System.Windows.Forms.DataGridView();
@@ -118,8 +120,6 @@ namespace FoodShopManagement_WF.UI
             this.ViewProfiletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bsEmployee = new System.Windows.Forms.BindingSource(this.components);
             this.bsCustomer = new System.Windows.Forms.BindingSource(this.components);
-            this.txtSearchCustomer = new System.Windows.Forms.ToolStripTextBox();
-            this.panel12 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -409,6 +409,7 @@ namespace FoodShopManagement_WF.UI
             this.dgvListEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListEmployee.Location = new System.Drawing.Point(-1, 117);
             this.dgvListEmployee.Name = "dgvListEmployee";
+            this.dgvListEmployee.RowHeadersVisible = false;
             this.dgvListEmployee.RowHeadersWidth = 51;
             this.dgvListEmployee.RowTemplate.Height = 24;
             this.dgvListEmployee.Size = new System.Drawing.Size(505, 535);
@@ -602,6 +603,16 @@ namespace FoodShopManagement_WF.UI
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Customer";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel12.Location = new System.Drawing.Point(0, 4);
+            this.panel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1461, 93);
+            this.panel12.TabIndex = 19;
             // 
             // panel6
             // 
@@ -844,6 +855,13 @@ namespace FoodShopManagement_WF.UI
             this.toolStripSeparator9.Name = "toolStripSeparator9";
             this.toolStripSeparator9.Size = new System.Drawing.Size(6, 27);
             // 
+            // txtSearchCustomer
+            // 
+            this.txtSearchCustomer.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSearchCustomer.Name = "txtSearchCustomer";
+            this.txtSearchCustomer.Size = new System.Drawing.Size(100, 27);
+            this.txtSearchCustomer.TextChanged += new System.EventHandler(this.txtSearchCustomer_TextChanged);
+            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.Transparent;
@@ -870,10 +888,12 @@ namespace FoodShopManagement_WF.UI
             // 
             // dgvCustomer
             // 
+            this.dgvCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomer.Location = new System.Drawing.Point(6, 115);
             this.dgvCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCustomer.Name = "dgvCustomer";
+            this.dgvCustomer.RowHeadersVisible = false;
             this.dgvCustomer.RowHeadersWidth = 62;
             this.dgvCustomer.RowTemplate.Height = 28;
             this.dgvCustomer.Size = new System.Drawing.Size(552, 470);
@@ -1076,23 +1096,6 @@ namespace FoodShopManagement_WF.UI
             this.ViewProfiletoolStripMenuItem.Size = new System.Drawing.Size(203, 28);
             this.ViewProfiletoolStripMenuItem.Text = "View Profile";
             this.ViewProfiletoolStripMenuItem.Click += new System.EventHandler(this.ViewProfileToolStripMenuItem_Click);
-            // 
-            // txtSearchCustomer
-            // 
-            this.txtSearchCustomer.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtSearchCustomer.Name = "txtSearchCustomer";
-            this.txtSearchCustomer.Size = new System.Drawing.Size(100, 27);
-            this.txtSearchCustomer.TextChanged += new System.EventHandler(this.txtSearchCustomer_TextChanged);
-            // 
-            // panel12
-            // 
-            this.panel12.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel12.Location = new System.Drawing.Point(0, 4);
-            this.panel12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(1461, 93);
-            this.panel12.TabIndex = 19;
             // 
             // frmManager_v2
             // 
