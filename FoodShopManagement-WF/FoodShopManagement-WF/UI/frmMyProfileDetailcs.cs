@@ -75,6 +75,7 @@ namespace FoodShopManagement_WF.UI
             {
                 //reload field
                 loadEmpDetail();
+                btnEdit.Text = "Edit";
             }
         }
 
