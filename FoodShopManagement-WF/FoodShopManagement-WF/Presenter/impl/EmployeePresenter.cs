@@ -305,7 +305,7 @@ namespace FoodShopManagement_WF.Presenter.impl
         {
             float total = orderModel.LoadTotal(date);
             List<RevenuesDTO> listDetail = orderModel.LoadOrderDetail(date);
-            if (listDetail != null)
+            if (listDetail.Count >0)
             {
                 DataTable dtOrderDetail = ConvertCustom.ListToDataTable<RevenuesDTO>(listDetail);
                 bsOrderdetail = new BindingSource()
@@ -316,7 +316,7 @@ namespace FoodShopManagement_WF.Presenter.impl
             //binding data to data grid view
             form.getBnOrderDetail().BindingSource = bsOrderdetail;
             form.getDgvOrderDetail().DataSource = bsOrderdetail;
-            form.gettotal().Text = total.ToString();
+            form.gettotal().Text = total.ToString() +".000";
             //hide unnecessary column
             form.getDgvOrderDetail().Columns["Customer"].Visible = false;
             form.getDgvOrderDetail().Columns["Salesman"].Visible = false;
@@ -324,7 +324,8 @@ namespace FoodShopManagement_WF.Presenter.impl
 
             //clear and add new data binding
             clearDataBindingTextOrderdetail();
-            bindingDataTextOrderdetail();}
+            bindingDataTextOrderdetail();
+            }
         }
 
         public void clearDataBindingTextOrderdetail()
@@ -334,7 +335,7 @@ namespace FoodShopManagement_WF.Presenter.impl
             form.getproductname().DataBindings.Clear();
             form.getquantity().DataBindings.Clear();
             form.getprice().DataBindings.Clear();
-            form.getsum().DataBindings.Clear();
+          
         }
 
         public void bindingDataTextOrderdetail()
@@ -342,9 +343,9 @@ namespace FoodShopManagement_WF.Presenter.impl
             form.getcustomer().DataBindings.Add("Text", bsOrderdetail, "Customer");
             form.getsalesman().DataBindings.Add("Text", bsOrderdetail, "Salesman");
             form.getproductname().DataBindings.Add("Text", bsOrderdetail, "Productname");
-            form.getquantity().DataBindings.Add("Text", bsOrderdetail, "Price");
-            form.getprice().DataBindings.Add("Text", bsOrderdetail, "Quantity");
-            form.getsum().DataBindings.Add("Text", bsOrderdetail, "total");
+            form.getprice().DataBindings.Add("Text", bsOrderdetail, "Price");
+            form.getquantity().DataBindings.Add("Text", bsOrderdetail, "Quantity");
+     
         }
 
         public void SearchRevenues(DateTime date)

@@ -102,11 +102,9 @@ namespace FoodShopManagement_WF.UI
             this.txttotal = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.txtsalesman = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.txtproductname = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtSum = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -140,13 +138,8 @@ namespace FoodShopManagement_WF.UI
             this.ViewProfiletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bsEmployee = new System.Windows.Forms.BindingSource(this.components);
             this.bsCustomer = new System.Windows.Forms.BindingSource(this.components);
-<<<<<<< HEAD
-=======
             this.entityInstantFeedbackSource1 = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
             this.bsOrderDetal = new System.Windows.Forms.BindingSource(this.components);
-            this.txtsalesman = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
->>>>>>> 2403Han
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -935,6 +928,7 @@ namespace FoodShopManagement_WF.UI
             // 
             // DataRevenues
             // 
+            this.DataRevenues.BackColor = System.Drawing.Color.White;
             this.DataRevenues.Controls.Add(this.txttotal);
             this.DataRevenues.Controls.Add(this.label24);
             this.DataRevenues.Controls.Add(this.panel13);
@@ -946,19 +940,19 @@ namespace FoodShopManagement_WF.UI
             this.DataRevenues.Size = new System.Drawing.Size(1464, 799);
             this.DataRevenues.TabIndex = 2;
             this.DataRevenues.Text = "Data Revenues";
-            this.DataRevenues.UseVisualStyleBackColor = true;
             // 
             // txttotal
             // 
-            this.txttotal.Location = new System.Drawing.Point(976, 719);
+            this.txttotal.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttotal.Location = new System.Drawing.Point(970, 689);
             this.txttotal.Name = "txttotal";
-            this.txttotal.Size = new System.Drawing.Size(362, 30);
+            this.txttotal.Size = new System.Drawing.Size(362, 35);
             this.txttotal.TabIndex = 22;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(851, 719);
+            this.label24.Location = new System.Drawing.Point(868, 696);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(64, 24);
             this.label24.TabIndex = 21;
@@ -970,9 +964,6 @@ namespace FoodShopManagement_WF.UI
             this.panel13.Controls.Add(this.txtsalesman);
             this.panel13.Controls.Add(this.label25);
             this.panel13.Controls.Add(this.txtproductname);
-            this.panel13.Controls.Add(this.label3);
-            this.panel13.Controls.Add(this.label10);
-            this.panel13.Controls.Add(this.txtSum);
             this.panel13.Controls.Add(this.txtPrice);
             this.panel13.Controls.Add(this.label16);
             this.panel13.Controls.Add(this.label19);
@@ -981,14 +972,23 @@ namespace FoodShopManagement_WF.UI
             this.panel13.Controls.Add(this.txtQuantity);
             this.panel13.Location = new System.Drawing.Point(741, 228);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(626, 451);
+            this.panel13.Size = new System.Drawing.Size(626, 393);
             this.panel13.TabIndex = 20;
+            // 
+            // txtsalesman
+            // 
+            this.txtsalesman.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtsalesman.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtsalesman.Location = new System.Drawing.Point(369, 60);
+            this.txtsalesman.Name = "txtsalesman";
+            this.txtsalesman.Size = new System.Drawing.Size(204, 20);
+            this.txtsalesman.TabIndex = 14;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(25, 88);
+            this.label25.Location = new System.Drawing.Point(23, 201);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(141, 24);
             this.label25.TabIndex = 12;
@@ -997,50 +997,20 @@ namespace FoodShopManagement_WF.UI
             // txtproductname
             // 
             this.txtproductname.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtproductname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtproductname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtproductname.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtproductname.Location = new System.Drawing.Point(211, 88);
+            this.txtproductname.Location = new System.Drawing.Point(209, 201);
             this.txtproductname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtproductname.Name = "txtproductname";
-            this.txtproductname.Size = new System.Drawing.Size(400, 34);
+            this.txtproductname.Size = new System.Drawing.Size(400, 27);
             this.txtproductname.TabIndex = 13;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(-15, 347);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(878, 24);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "______________________________________________________________";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(16, 392);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 24);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Sum :";
-            // 
-            // txtSum
-            // 
-            this.txtSum.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtSum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSum.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSum.Location = new System.Drawing.Point(211, 388);
-            this.txtSum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSum.Name = "txtSum";
-            this.txtSum.Size = new System.Drawing.Size(400, 34);
-            this.txtSum.TabIndex = 10;
             // 
             // txtPrice
             // 
             this.txtPrice.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPrice.Font = new System.Drawing.Font("Georgia", 13.8F);
-            this.txtPrice.Location = new System.Drawing.Point(211, 286);
+            this.txtPrice.Location = new System.Drawing.Point(209, 328);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(400, 34);
@@ -1050,7 +1020,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(25, 219);
+            this.label16.Location = new System.Drawing.Point(23, 261);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(95, 24);
             this.label16.TabIndex = 1;
@@ -1060,28 +1030,28 @@ namespace FoodShopManagement_WF.UI
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(25, 149);
+            this.label19.Location = new System.Drawing.Point(23, 108);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(141, 24);
+            this.label19.Size = new System.Drawing.Size(104, 24);
             this.label19.TabIndex = 0;
-            this.label19.Text = "Product name:";
+            this.label19.Text = "Customer:";
             // 
             // txtcustomer
             // 
             this.txtcustomer.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtcustomer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtcustomer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtcustomer.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcustomer.Location = new System.Drawing.Point(211, 149);
+            this.txtcustomer.Location = new System.Drawing.Point(209, 120);
             this.txtcustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtcustomer.Name = "txtcustomer";
-            this.txtcustomer.Size = new System.Drawing.Size(400, 34);
+            this.txtcustomer.Size = new System.Drawing.Size(400, 27);
             this.txtcustomer.TabIndex = 4;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(25, 286);
+            this.label20.Location = new System.Drawing.Point(23, 328);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(60, 24);
             this.label20.TabIndex = 2;
@@ -1091,7 +1061,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.txtQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQuantity.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(211, 219);
+            this.txtQuantity.Location = new System.Drawing.Point(209, 261);
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(400, 34);
@@ -1124,6 +1094,7 @@ namespace FoodShopManagement_WF.UI
             this.panel11.Controls.Add(this.panel15);
             this.panel11.Controls.Add(this.bnOrderDetail);
             this.panel11.Controls.Add(this.dgrOrderDetail);
+            this.panel11.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel11.Location = new System.Drawing.Point(75, 130);
             this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
@@ -1153,7 +1124,6 @@ namespace FoodShopManagement_WF.UI
             this.label23.TabIndex = 0;
             this.label23.Text = "List Products\'s order";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // bnOrderDetail
             // 
@@ -1190,13 +1160,13 @@ namespace FoodShopManagement_WF.UI
             this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
             this.toolStripButton7.Name = "toolStripButton7";
             this.toolStripButton7.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton7.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButton7.Size = new System.Drawing.Size(29, 24);
             this.toolStripButton7.Text = "Add new";
             // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(45, 28);
+            this.toolStripLabel2.Size = new System.Drawing.Size(45, 24);
             this.toolStripLabel2.Text = "of {0}";
             this.toolStripLabel2.ToolTipText = "Total number of items";
             // 
@@ -1206,7 +1176,7 @@ namespace FoodShopManagement_WF.UI
             this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
             this.toolStripButton8.Name = "toolStripButton8";
             this.toolStripButton8.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton8.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButton8.Size = new System.Drawing.Size(29, 24);
             this.toolStripButton8.Text = "Delete";
             // 
             // toolStripButton9
@@ -1215,7 +1185,7 @@ namespace FoodShopManagement_WF.UI
             this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
             this.toolStripButton9.Name = "toolStripButton9";
             this.toolStripButton9.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton9.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButton9.Size = new System.Drawing.Size(29, 24);
             this.toolStripButton9.Text = "Move first";
             // 
             // toolStripButton10
@@ -1224,13 +1194,13 @@ namespace FoodShopManagement_WF.UI
             this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
             this.toolStripButton10.Name = "toolStripButton10";
             this.toolStripButton10.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton10.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButton10.Size = new System.Drawing.Size(29, 24);
             this.toolStripButton10.Text = "Move previous";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 31);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripTextBox2
             // 
@@ -1245,7 +1215,7 @@ namespace FoodShopManagement_WF.UI
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripButton11
             // 
@@ -1253,7 +1223,7 @@ namespace FoodShopManagement_WF.UI
             this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
             this.toolStripButton11.Name = "toolStripButton11";
             this.toolStripButton11.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton11.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButton11.Size = new System.Drawing.Size(29, 24);
             this.toolStripButton11.Text = "Move next";
             // 
             // toolStripButton12
@@ -1262,16 +1232,17 @@ namespace FoodShopManagement_WF.UI
             this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
             this.toolStripButton12.Name = "toolStripButton12";
             this.toolStripButton12.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton12.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButton12.Size = new System.Drawing.Size(29, 24);
             this.toolStripButton12.Text = "Move last";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 31);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
             // 
             // dgrOrderDetail
             // 
+            this.dgrOrderDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrOrderDetail.Location = new System.Drawing.Point(3, 90);
             this.dgrOrderDetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1280,13 +1251,11 @@ namespace FoodShopManagement_WF.UI
             this.dgrOrderDetail.RowTemplate.Height = 28;
             this.dgrOrderDetail.Size = new System.Drawing.Size(586, 503);
             this.dgrOrderDetail.TabIndex = 2;
-            this.dgrOrderDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.SystemColors.MenuBar;
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Controls.Add(this.button1);
             this.panel10.Controls.Add(this.label22);
             this.panel10.Controls.Add(this.datetimepicker);
             this.panel10.Location = new System.Drawing.Point(0, 2);
@@ -1298,7 +1267,7 @@ namespace FoodShopManagement_WF.UI
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(708, 42);
+            this.label22.Location = new System.Drawing.Point(825, 42);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(65, 24);
             this.label22.TabIndex = 1;
@@ -1306,11 +1275,17 @@ namespace FoodShopManagement_WF.UI
             // 
             // datetimepicker
             // 
-            this.datetimepicker.CalendarFont = new System.Drawing.Font("Georgia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datetimepicker.Location = new System.Drawing.Point(816, 42);
+            this.datetimepicker.CalendarFont = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datetimepicker.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.datetimepicker.Font = new System.Drawing.Font("Georgia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datetimepicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datetimepicker.Location = new System.Drawing.Point(937, 42);
+            this.datetimepicker.MaxDate = new System.DateTime(2021, 3, 24, 0, 0, 0, 0);
+            this.datetimepicker.MinDate = new System.DateTime(2020, 3, 24, 0, 0, 0, 0);
             this.datetimepicker.Name = "datetimepicker";
-            this.datetimepicker.Size = new System.Drawing.Size(282, 30);
+            this.datetimepicker.Size = new System.Drawing.Size(161, 28);
             this.datetimepicker.TabIndex = 0;
+            this.datetimepicker.Value = new System.DateTime(2021, 3, 24, 0, 0, 0, 0);
             this.datetimepicker.ValueChanged += new System.EventHandler(this.SearchDate);
             // 
             // menuStrip1
@@ -1348,37 +1323,17 @@ namespace FoodShopManagement_WF.UI
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(203, 28);
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // ViewProfiletoolStripMenuItem
             // 
             this.ViewProfiletoolStripMenuItem.Name = "ViewProfiletoolStripMenuItem";
-            this.ViewProfiletoolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.ViewProfiletoolStripMenuItem.Size = new System.Drawing.Size(203, 28);
             this.ViewProfiletoolStripMenuItem.Text = "View Profile";
             this.ViewProfiletoolStripMenuItem.Click += new System.EventHandler(this.ViewProfileToolStripMenuItem_Click);
             // 
-<<<<<<< HEAD
-=======
-            // txtsalesman
-            // 
-            this.txtsalesman.Location = new System.Drawing.Point(407, 44);
-            this.txtsalesman.Name = "txtsalesman";
-            this.txtsalesman.Size = new System.Drawing.Size(204, 30);
-            this.txtsalesman.TabIndex = 14;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1169, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
->>>>>>> 2403Han
             // frmManager_v2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1536,8 +1491,6 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.DateTimePicker datetimepicker;
         private DevExpress.Data.Linq.EntityInstantFeedbackSource entityInstantFeedbackSource1;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtSum;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label19;
@@ -1554,8 +1507,6 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox txtproductname;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtsalesman;
-        private System.Windows.Forms.Button button1;
     }
 }

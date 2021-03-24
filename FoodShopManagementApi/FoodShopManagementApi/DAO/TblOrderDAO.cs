@@ -60,7 +60,7 @@ namespace FoodShopManagementApi.DAO
             return false;
         }
 
-        public float SelectTotalOrder(String date)
+        public float SelectTotalOrder(DateTime date)
         {
             SqlConnection connection = null;
             SqlDataReader sqlDataReader = null;
@@ -72,12 +72,13 @@ namespace FoodShopManagementApi.DAO
                 {
                     String sql = "select sum(priceTotal) as total from tblOrder where CAST(orderDate as DATE) = @date  ";
                     SqlCommand sqlCommand = new SqlCommand(sql, connection);
-                    sqlCommand.Parameters.AddWithValue("@date", date);
+                    string date_str = date.ToString("yyyy-MM-dd");
+                    sqlCommand.Parameters.AddWithValue("@date", date_str);
                    
                     sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
                     if (sqlDataReader.Read())
                     {
-                        float total =float.Parse(sqlDataReader.GetString("total"));
+                        float total =float.Parse(sqlDataReader["total"].ToString());
                        
                        
                            

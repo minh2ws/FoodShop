@@ -78,10 +78,7 @@ namespace FoodShopManagement_WF.UI
         {
             return txttotal;
         }
-        public TextBox getsum()
-        {
-            return txtSum;
-        }
+        
         public TextBox getsalesman()
         {
             return txtsalesman;
@@ -274,29 +271,17 @@ namespace FoodShopManagement_WF.UI
             presenter.SearchCustomer();
         }
 
-        private void Search(object sender, EventArgs e)
-        {
+      
 
-        }
+       
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label23_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void SearchDate(object sender, EventArgs e)
         {
             presenter.LoadRevenues(datetimepicker.Value);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            presenter.LoadRevenues(datetimepicker.Value);
-        }
+        
     }
 }

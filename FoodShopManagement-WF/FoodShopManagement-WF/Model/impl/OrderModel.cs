@@ -50,7 +50,7 @@ namespace FoodShopManagement_WF.Model.impl
         public float LoadTotal(DateTime date)
         {
            
-            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("order/load-listOrderdetail", date, Program.TokenGlobal);
+            HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("order/load-total", date, Program.TokenGlobal);
             if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
             {
                 var loadResult = responseMessage.Content.ReadAsStringAsync();
