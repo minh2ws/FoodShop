@@ -94,7 +94,7 @@ namespace FoodShopManagementApi.Controllers
                 TblOrderDAO dao = TblOrderDAO.getInstance();
                 try
                 {
-                    float result = dao.SelectTotalOrder("2021-03-23");
+                    float result = dao.SelectTotalOrder(date);
                     if (result != null)
                     {
                         return Ok(result);

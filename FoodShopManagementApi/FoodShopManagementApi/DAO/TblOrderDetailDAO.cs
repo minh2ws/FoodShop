@@ -70,21 +70,23 @@ namespace FoodShopManagementApi.DAO
             SqlConnection connection = null;
             SqlDataReader sqlDataReader = null;
             SqlCommand sqlCommand = null;
-            string sql = "P.name as product,P.price,D.quantity,O.idEmployee,C.name as customer" +
-                "from tblOrderDetail D join tblOrder O" +
-                "on D.idOrder = O.idOrder" +
-                "join tblCustomers C" +
-                "on O.idCustomer = C.idCustomer" +
-                "join tblProducts P" +
-                "on D.idProduct = P.idProduct" +
-                "where CAST(O.orderDate as DATE) = @date ";
+            string sql = "select tblProducts.name as product,tblProducts.price,tblOrderDetail.quantity,tblOrder.idEmployee,tblCustomers.name as customer" +
+                " from tblOrderDetail  " +
+                "left join tblOrder " +
+                " on tblOrderDetail.idOrder = tblOrder.idOrder " +
+                "left join tblCustomers " +
+                " on tblCustomers.idCustomer = tblOrder.idCustomer " +
+                " left join tblProducts " +
+                " on tblOrderDetail.idProduct = tblProducts.idProduct " +
+                " where CAST(tblOrder.orderDate as DATE) = @date ";
             try
             {
                 connection = DBUtil.MakeConnect();
                 if (connection != null)
                 {
+                    string date_str = date.ToString("yyyy-MM-dd");
                     sqlCommand = new SqlCommand(sql, connection);
-                    sqlCommand.Parameters.AddWithValue("@date", date);
+                    sqlCommand.Parameters.AddWithValue("@date", date_str);
                     sqlDataReader = sqlCommand.ExecuteReader();
                     List<RevenuesDTO> result = new List<RevenuesDTO>();
                     while (sqlDataReader.Read())
