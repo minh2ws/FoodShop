@@ -140,13 +140,10 @@ namespace FoodShopManagement_WF.UI
             this.ViewProfiletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bsEmployee = new System.Windows.Forms.BindingSource(this.components);
             this.bsCustomer = new System.Windows.Forms.BindingSource(this.components);
-<<<<<<< HEAD
-=======
             this.entityInstantFeedbackSource1 = new DevExpress.Data.Linq.EntityInstantFeedbackSource();
             this.bsOrderDetal = new System.Windows.Forms.BindingSource(this.components);
             this.txtsalesman = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
->>>>>>> 2403Han
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -1359,8 +1356,6 @@ namespace FoodShopManagement_WF.UI
             this.ViewProfiletoolStripMenuItem.Text = "View Profile";
             this.ViewProfiletoolStripMenuItem.Click += new System.EventHandler(this.ViewProfileToolStripMenuItem_Click);
             // 
-<<<<<<< HEAD
-=======
             // txtsalesman
             // 
             this.txtsalesman.Location = new System.Drawing.Point(407, 44);
@@ -1378,7 +1373,6 @@ namespace FoodShopManagement_WF.UI
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
->>>>>>> 2403Han
             // frmManager_v2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

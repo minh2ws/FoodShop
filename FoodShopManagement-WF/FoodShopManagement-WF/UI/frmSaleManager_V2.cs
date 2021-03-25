@@ -177,6 +177,7 @@ namespace FoodShopManagement_WF.UI
         private void btnGetCustomer_Click(object sender, EventArgs e)
         {
             saleManagerPresenter.GetCustomerInfo();
+            saleManagerPresenter.UpdateCurrentAmount();
         }
 
         private void btnCheckOut_Click(object sender, EventArgs e)
@@ -186,26 +187,14 @@ namespace FoodShopManagement_WF.UI
 
         private void btnUpdateCart_Click(object sender, EventArgs e)
         {
-            CartItemDTO item = saleManagerPresenter.FindProductToOrder();
-            frmProductItemDetail productItemDetail = new frmProductItemDetail(this.emp, item);
-            DialogResult r = productItemDetail.ShowDialog();
-            if (r == DialogResult.OK)
-            {
+            saleManagerPresenter.UpdateQuantityOfItem();
+            saleManagerPresenter.LoadProductsOrder();
+            saleManagerPresenter.UpdateAmount();
+        }
 
-            }
-
-            frmMyProfileDetailcs ProfileDetail = new frmMyProfileDetailcs(this.emp);
-            DialogResult r = ProfileDetail.ShowDialog();
-            if (r == DialogResult.OK)
-            {
-
-                if (MessageBox.Show("Do you want to logout?", "Confirmation", MessageBoxButtons.YesNo)
-                  == DialogResult.Yes)
-                {
-                    this.Hide();
-                    loginFrame.Show();
-                }
-            }
+        private void txtDiscount_TextChanged(object sender, EventArgs e)
+        {
+            saleManagerPresenter.UpdateCurrentAmount();
         }
     }
 }

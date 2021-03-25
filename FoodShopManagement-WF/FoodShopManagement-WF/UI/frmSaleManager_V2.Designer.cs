@@ -328,6 +328,7 @@ namespace FoodShopManagement_WF.UI
             this.txtCurrentAmount.Location = new System.Drawing.Point(250, 111);
             this.txtCurrentAmount.Margin = new System.Windows.Forms.Padding(2);
             this.txtCurrentAmount.Name = "txtCurrentAmount";
+            this.txtCurrentAmount.ReadOnly = true;
             this.txtCurrentAmount.Size = new System.Drawing.Size(153, 21);
             this.txtCurrentAmount.TabIndex = 7;
             // 
@@ -364,6 +365,7 @@ namespace FoodShopManagement_WF.UI
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(153, 16);
             this.txtDiscount.TabIndex = 5;
+            this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
             // 
             // label7
             // 

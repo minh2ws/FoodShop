@@ -301,7 +301,7 @@ namespace FoodShopManagement_WF.Presenter.impl
             return totalPrice;
         }
 
-        public CartItemDTO findProductInOrder(string idProduct)
+        private CartItemDTO findProductInOrder(string idProduct)
         {
             for (int i = 0; i < listProductOrder.Count; i++)
             {
@@ -358,7 +358,10 @@ namespace FoodShopManagement_WF.Presenter.impl
             {
                 MessageBox.Show(MessageUtil.CUSTOMER_INVALID);
             }
-            else CreateOrder();
+            else
+            {
+                CreateOrder();
+            }
         }
 
         private void CreateOrder()
@@ -431,17 +434,13 @@ namespace FoodShopManagement_WF.Presenter.impl
             if (customerId.Equals(""))
                 MessageBox.Show(MessageUtil.CUSTOMER_EMPTY);
             else
+            {
                 form.getCustomerOrder().Text = form.getCustomerName().Text;
+                form.getDiscount().Text = form.getCustomerPoint().Text;
+            }
         }
 
-        public void UpdateQuantity(string idProduct, int quantity)
-        {
-            CartItemDTO item = findProductInOrder(idProduct);
-            if (item != null)
-                item.quantity = quantity;
-        }
-
-        public CartItemDTO FindProductToOrder()
+        public void UpdateQuantityOfItem()
         {
             DataGridView dgvItemOfOrder = form.getDgvItemOfOrder();
             //Get number of selected grow
@@ -457,14 +456,49 @@ namespace FoodShopManagement_WF.Presenter.impl
                     //get product from list product
                     CartItemDTO item = listProductOrder[rowInt];
 
-                    return item;
+                    //decrease quantity
+                    item.quantity--;
+                    //update totalprice
+                    item.totalPrice = item.quantity * item.price;
+
+                    //remove item
+                    if (item.quantity == 0)
+                        listProductOrder.Remove(item);
+
+                    //remove list
+                    if (listProductOrder.Count == 0)
+                        listProductOrder = null;
                 }
             }
             else
             {
-                MessageBox.Show("Select product you want to add", "Notification");
+                MessageBox.Show("Select product you want to decrease", "Notification");
             }
-            return null;
+        }
+
+        public float CalculateTotalCurrentAmount()
+        {
+            float amount = calculateTotalPrice();
+            int discount = int.Parse(form.getCustomerPoint().Text);
+            if (form.getDiscount().Text.Trim().Length != 0)
+            {    
+                try
+                {
+                    discount = int.Parse(form.getDiscount().Text);
+                }
+                catch (FormatException)
+                {
+                    form.getDiscount().Text = form.getCustomerPoint().Text;
+                    MessageBox.Show("Discount must be number only", "Error");
+                }
+            }
+
+            return amount - discount;
+        }
+
+        public void UpdateCurrentAmount()
+        {
+            form.getCurrentAmount().Text = CalculateTotalCurrentAmount().ToString();
         }
     }
 }
