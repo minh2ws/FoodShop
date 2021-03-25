@@ -1035,6 +1035,7 @@ namespace FoodShopManagement_WF.UI
             this.dgvCustomer.RowTemplate.Height = 28;
             this.dgvCustomer.Size = new System.Drawing.Size(414, 454);
             this.dgvCustomer.TabIndex = 2;
+            this.dgvCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomer_CellClick);
             // 
             // menuStrip1
             // 

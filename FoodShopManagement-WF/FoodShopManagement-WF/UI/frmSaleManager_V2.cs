@@ -165,6 +165,7 @@ namespace FoodShopManagement_WF.UI
             saleManagerPresenter.AddProductToOrder();
             saleManagerPresenter.LoadProductsOrder();
             saleManagerPresenter.UpdateAmount();
+            saleManagerPresenter.UpdateCurrentAmount();
         }
 
         private void btnDeleteProduct_Click(object sender, EventArgs e)
@@ -172,6 +173,7 @@ namespace FoodShopManagement_WF.UI
             saleManagerPresenter.RemoveProductFromOrder();
             saleManagerPresenter.LoadProductsOrder();
             saleManagerPresenter.UpdateAmount();
+            saleManagerPresenter.UpdateCurrentAmount();
         }
 
         private void btnGetCustomer_Click(object sender, EventArgs e)
@@ -190,10 +192,17 @@ namespace FoodShopManagement_WF.UI
             saleManagerPresenter.UpdateQuantityOfItem();
             saleManagerPresenter.LoadProductsOrder();
             saleManagerPresenter.UpdateAmount();
+            saleManagerPresenter.UpdateCurrentAmount();
         }
 
         private void txtDiscount_TextChanged(object sender, EventArgs e)
         {
+            saleManagerPresenter.UpdateCurrentAmount();
+        }
+
+        private void dgvCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            saleManagerPresenter.GetCustomerInfo();
             saleManagerPresenter.UpdateCurrentAmount();
         }
     }
