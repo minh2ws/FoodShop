@@ -102,7 +102,7 @@ namespace FoodShopManagement_WF.UI
 
         public frmSaleManager_V2(frmLogin loginFrame, TblEmployeesDTO emp)
         {
-            InitializeComponent();
+            InitializeComponent();  
             saleManagerPresenter = new SaleManagerPresenter(this);
             this.loginFrame = loginFrame;
             this.emp = emp;
@@ -182,6 +182,30 @@ namespace FoodShopManagement_WF.UI
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
             saleManagerPresenter.CheckoutCart();
+        }
+
+        private void btnUpdateCart_Click(object sender, EventArgs e)
+        {
+            CartItemDTO item = saleManagerPresenter.FindProductToOrder();
+            frmProductItemDetail productItemDetail = new frmProductItemDetail(this.emp, item);
+            DialogResult r = productItemDetail.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+
+            }
+
+            frmMyProfileDetailcs ProfileDetail = new frmMyProfileDetailcs(this.emp);
+            DialogResult r = ProfileDetail.ShowDialog();
+            if (r == DialogResult.OK)
+            {
+
+                if (MessageBox.Show("Do you want to logout?", "Confirmation", MessageBoxButtons.YesNo)
+                  == DialogResult.Yes)
+                {
+                    this.Hide();
+                    loginFrame.Show();
+                }
+            }
         }
     }
 }

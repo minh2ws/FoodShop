@@ -25,5 +25,7 @@ namespace FoodShopManagement_WF.Presenter
         void RemoveProductFromOrder();
         void CheckoutCart();
         void GetCustomerInfo();
+        void UpdateQuantity(string idProduct, int quantity);
+        CartItemDTO FindProductToOrder();
     }
 }

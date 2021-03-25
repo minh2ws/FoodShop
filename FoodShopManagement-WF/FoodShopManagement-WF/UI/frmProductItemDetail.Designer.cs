@@ -32,6 +32,7 @@ namespace FoodShopManagement_WF.UI
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
@@ -39,7 +40,6 @@ namespace FoodShopManagement_WF.UI
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtTotalPrice = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +68,7 @@ namespace FoodShopManagement_WF.UI
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // groupBox1
             // 
@@ -89,6 +90,15 @@ namespace FoodShopManagement_WF.UI
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " Product Details";
+            // 
+            // txtTotalPrice
+            // 
+            this.txtTotalPrice.Location = new System.Drawing.Point(132, 182);
+            this.txtTotalPrice.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTotalPrice.Name = "txtTotalPrice";
+            this.txtTotalPrice.ReadOnly = true;
+            this.txtTotalPrice.Size = new System.Drawing.Size(200, 24);
+            this.txtTotalPrice.TabIndex = 14;
             // 
             // label5
             // 
@@ -113,6 +123,7 @@ namespace FoodShopManagement_WF.UI
             this.txtUnitPrice.Location = new System.Drawing.Point(132, 89);
             this.txtUnitPrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtUnitPrice.Name = "txtUnitPrice";
+            this.txtUnitPrice.ReadOnly = true;
             this.txtUnitPrice.Size = new System.Drawing.Size(200, 24);
             this.txtUnitPrice.TabIndex = 7;
             // 
@@ -121,6 +132,7 @@ namespace FoodShopManagement_WF.UI
             this.txtProductName.Location = new System.Drawing.Point(132, 40);
             this.txtProductName.Margin = new System.Windows.Forms.Padding(2);
             this.txtProductName.Name = "txtProductName";
+            this.txtProductName.ReadOnly = true;
             this.txtProductName.Size = new System.Drawing.Size(200, 24);
             this.txtProductName.TabIndex = 8;
             // 
@@ -153,14 +165,6 @@ namespace FoodShopManagement_WF.UI
             this.label2.Size = new System.Drawing.Size(101, 18);
             this.label2.TabIndex = 4;
             this.label2.Text = "ProductName";
-            // 
-            // txtTotalPrice
-            // 
-            this.txtTotalPrice.Location = new System.Drawing.Point(132, 182);
-            this.txtTotalPrice.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTotalPrice.Name = "txtTotalPrice";
-            this.txtTotalPrice.Size = new System.Drawing.Size(200, 24);
-            this.txtTotalPrice.TabIndex = 14;
             // 
             // frmProductItemDetail
             // 

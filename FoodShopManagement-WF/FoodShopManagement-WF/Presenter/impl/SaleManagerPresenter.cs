@@ -301,7 +301,7 @@ namespace FoodShopManagement_WF.Presenter.impl
             return totalPrice;
         }
 
-        private CartItemDTO findProductInOrder(string idProduct)
+        public CartItemDTO findProductInOrder(string idProduct)
         {
             for (int i = 0; i < listProductOrder.Count; i++)
             {
@@ -432,6 +432,39 @@ namespace FoodShopManagement_WF.Presenter.impl
                 MessageBox.Show(MessageUtil.CUSTOMER_EMPTY);
             else
                 form.getCustomerOrder().Text = form.getCustomerName().Text;
+        }
+
+        public void UpdateQuantity(string idProduct, int quantity)
+        {
+            CartItemDTO item = findProductInOrder(idProduct);
+            if (item != null)
+                item.quantity = quantity;
+        }
+
+        public CartItemDTO FindProductToOrder()
+        {
+            DataGridView dgvItemOfOrder = form.getDgvItemOfOrder();
+            //Get number of selected grow
+            Int32 selectedRowCount = dgvItemOfOrder.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount > 0)
+            {
+                for (int i = 0; i < selectedRowCount; i++)
+                {
+                    //get selected row
+                    String row = dgvItemOfOrder.SelectedRows[i].Index.ToString();
+                    int rowInt = int.Parse(row);
+
+                    //get product from list product
+                    CartItemDTO item = listProductOrder[rowInt];
+
+                    return item;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select product you want to add", "Notification");
+            }
+            return null;
         }
     }
 }

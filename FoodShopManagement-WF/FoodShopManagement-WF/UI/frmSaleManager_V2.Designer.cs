@@ -211,6 +211,7 @@ namespace FoodShopManagement_WF.UI
             this.btnUpdateCart.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnUpdateCart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpdateCart.UseVisualStyleBackColor = false;
+            this.btnUpdateCart.Click += new System.EventHandler(this.btnUpdateCart_Click);
             // 
             // btnAddtocart
             // 
