@@ -25,7 +25,8 @@ namespace FoodShopManagementApi.DAO
 
         public List<TblEmployeesDTO> loadEmp() {
             string sql = "select idEmployee, name, password, role, status " +
-                "from tblEmployees ";
+                "from tblEmployees " +
+                "where role not like 'Manager'";
             SqlConnection connection = null;
             SqlDataReader reader = null;
             SqlCommand cmd = null;

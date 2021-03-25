@@ -26,6 +26,7 @@ namespace FoodShopManagement_WF.Presenter.impl
         private BindingSource bsCustomer;
         private List<TblProductsDTO> listProducts;
         private List<CartItemDTO> listProductOrder;
+        private int customerPoint = -1;
 
         public SaleManagerPresenter() { }
 
@@ -256,7 +257,7 @@ namespace FoodShopManagement_WF.Presenter.impl
                         listProductOrder.Add(item);
                     }
 
-                    UpdateAmount();
+                    
                 }
             } else
             {
@@ -372,7 +373,8 @@ namespace FoodShopManagement_WF.Presenter.impl
                 LoadProducts();
                 form.getAmount().Text = "";
                 form.getDiscount().Text = "";
-                form.getCurrentAmount().Text = "";  
+                form.getCurrentAmount().Text = "";
+                form.getCustomerName().Text = "";
             }
         }
 
@@ -413,8 +415,8 @@ namespace FoodShopManagement_WF.Presenter.impl
                 isSuccess = orderModel.AddOrderDetail(cart);
                 if (isSuccess)
                 {
-                    MessageBox.Show(MessageUtil.CHECKOUT_SUCCESS);
                     updateCustomerPoint();
+                    MessageBox.Show(MessageUtil.CHECKOUT_SUCCESS);
                 }
                 else 
                     MessageBox.Show(MessageUtil.ERROR);
@@ -428,13 +430,16 @@ namespace FoodShopManagement_WF.Presenter.impl
         private void updateCustomerPoint()
         {
             //calculate point for customer
-            int amount = int.Parse(form.getAmount().Text);
+            int amount = int.Parse(form.getCurrentAmount().Text);
             int point = amount / 100;
             int customerPoint = int.Parse(form.getCustomerPoint().Text);
             int discount = int.Parse(form.getDiscount().Text);
 
             if (discount == 0)
-                point += customerPoint;        
+                point += customerPoint;
+            else
+                point += customerPoint - discount;
+
 
             string customerId = form.getCustomerId().Text;
 
@@ -454,6 +459,7 @@ namespace FoodShopManagement_WF.Presenter.impl
             else
             {
                 form.getCustomerOrder().Text = form.getCustomerName().Text;
+                customerPoint = int.Parse(form.getCustomerPoint().Text);
                 form.getDiscount().Text = form.getCustomerPoint().Text;
             }
         }
@@ -494,23 +500,39 @@ namespace FoodShopManagement_WF.Presenter.impl
             }
         }
 
-        public float CalculateTotalCurrentAmount()
+        private int ValidateDiscount()
         {
-            float amount = calculateTotalPrice();
-            int discount = int.Parse(form.getCustomerPoint().Text);
+            int discount = 0;
             if (form.getDiscount().Text.Trim().Length != 0)
-            {    
+            {
                 try
                 {
                     discount = int.Parse(form.getDiscount().Text);
                 }
                 catch (FormatException)
                 {
-                    form.getDiscount().Text = form.getCustomerPoint().Text;
+                    form.getDiscount().Text = customerPoint.ToString();
                     MessageBox.Show("Discount must be number only", "Error");
                 }
             }
 
+            if (customerPoint != -1)
+            {
+                if (discount > customerPoint)
+                {
+                    discount = customerPoint;
+                    form.getDiscount().Text = customerPoint.ToString();
+                    MessageBox.Show("Discount must be less than point of customer", "Error");
+                }
+            }
+
+            return discount;
+        }
+
+        private float CalculateTotalCurrentAmount()
+        {
+            float amount = calculateTotalPrice();
+            int discount = ValidateDiscount();
             return amount - discount;
         }
 
