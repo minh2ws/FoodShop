@@ -264,6 +264,13 @@ namespace FoodShopManagement_WF.Presenter.impl
 
         public void LoadProductsOrder()
         {
+            if (listProductOrder == null)
+            {
+                form.getDgvItemOfOrder().DataSource = null;
+                form.getDgvItemOfOrder().Rows.Clear();
+                return;
+            }
+
             DataTable dtProduct = ConvertCustom.ListToDataTable<CartItemDTO>(listProductOrder);
             bsProduct = new BindingSource()
             {
@@ -271,7 +278,6 @@ namespace FoodShopManagement_WF.Presenter.impl
             };
 
             //binding data to data grid view
-            form.getBnProduct().BindingSource = bsProduct;
             form.getDgvItemOfOrder().DataSource = bsProduct;
 
             form.getDgvItemOfOrder().Columns["idProduct"].Visible = false;
@@ -314,30 +320,35 @@ namespace FoodShopManagement_WF.Presenter.impl
 
         public void RemoveProductFromOrder()
         {
-            DataGridView dgvItemOfOrder = form.getDgvItemOfOrder();
-            //Get number of selected grow
-            Int32 selectedRowCount = dgvItemOfOrder.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (selectedRowCount > 0)
+            
+            if (MessageBox.Show("Do you want to delete?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                for (int i = 0; i < selectedRowCount; i++)
+                DataGridView dgvItemOfOrder = form.getDgvItemOfOrder();
+                //Get number of selected grow
+                Int32 selectedRowCount = dgvItemOfOrder.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                if (selectedRowCount > 0)
                 {
-                    //get selected row
-                    String row = dgvItemOfOrder.SelectedRows[i].Index.ToString();
-                    int rowInt = int.Parse(row);
+                    for (int i = 0; i < selectedRowCount; i++)
+                    {
+                        //get selected row
+                        String row = dgvItemOfOrder.SelectedRows[i].Index.ToString();
+                        int rowInt = int.Parse(row);
 
-                    //get product from list product
-                    CartItemDTO item = listProductOrder[rowInt];
-                    listProductOrder.Remove(item);
+                        //get product from list product
+                        CartItemDTO item = listProductOrder[rowInt];
+                        listProductOrder.Remove(item);
 
-                    //remove list
-                    if (listProductOrder.Count == 0)
-                        listProductOrder = null;
+                        //remove list
+                        if (listProductOrder.Count == 0)
+                            listProductOrder = null;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Select product you want to remove", "Notification");
                 }
             }
-            else
-            {
-                MessageBox.Show("Select product you want to remove", "Notification");
-            }
+            
         }
 
         public void CheckoutCart()
