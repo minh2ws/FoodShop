@@ -142,13 +142,8 @@ namespace FoodShopManagement_WF.UI
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(80, 40);
-<<<<<<< HEAD
-            this.tabControl1.Location = new System.Drawing.Point(157, 59);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.tabControl1.Location = new System.Drawing.Point(118, 48);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(30, 3);
             this.tabControl1.SelectedIndex = 0;
@@ -168,29 +163,17 @@ namespace FoodShopManagement_WF.UI
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.ImageKey = "(none)";
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
-<<<<<<< HEAD
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1413, 860);
-=======
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(1058, 690);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Order";
             // 
             // btnCheckOut
             // 
-<<<<<<< HEAD
-            this.btnCheckOut.Location = new System.Drawing.Point(961, 779);
-            this.btnCheckOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.btnCheckOut.Location = new System.Drawing.Point(721, 633);
             this.btnCheckOut.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(275, 65);
             this.btnCheckOut.TabIndex = 10;
@@ -204,13 +187,8 @@ namespace FoodShopManagement_WF.UI
             this.btnDeleteProduct.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.delete1;
             this.btnDeleteProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDeleteProduct.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btnDeleteProduct.Location = new System.Drawing.Point(708, 282);
-            this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.btnDeleteProduct.Location = new System.Drawing.Point(531, 229);
             this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.btnDeleteProduct.Name = "btnDeleteProduct";
             this.btnDeleteProduct.Size = new System.Drawing.Size(56, 54);
             this.btnDeleteProduct.TabIndex = 2;
@@ -225,13 +203,8 @@ namespace FoodShopManagement_WF.UI
             this.btnUpdateCart.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.edit2;
             this.btnUpdateCart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnUpdateCart.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btnUpdateCart.Location = new System.Drawing.Point(708, 219);
-            this.btnUpdateCart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.btnUpdateCart.Location = new System.Drawing.Point(531, 178);
             this.btnUpdateCart.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.btnUpdateCart.Name = "btnUpdateCart";
             this.btnUpdateCart.Size = new System.Drawing.Size(56, 59);
             this.btnUpdateCart.TabIndex = 3;
@@ -246,13 +219,8 @@ namespace FoodShopManagement_WF.UI
             this.btnAddtocart.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.add1;
             this.btnAddtocart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAddtocart.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btnAddtocart.Location = new System.Drawing.Point(707, 167);
-            this.btnAddtocart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.btnAddtocart.Location = new System.Drawing.Point(530, 136);
             this.btnAddtocart.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.btnAddtocart.Name = "btnAddtocart";
             this.btnAddtocart.Size = new System.Drawing.Size(59, 48);
             this.btnAddtocart.TabIndex = 0;
@@ -271,13 +239,8 @@ namespace FoodShopManagement_WF.UI
             this.panel1.Controls.Add(this.TOTAL);
             this.panel1.Controls.Add(this.dgvItemOfOrder);
             this.panel1.Controls.Add(this.txtCustomerOrder);
-<<<<<<< HEAD
-            this.panel1.Location = new System.Drawing.Point(784, 21);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.panel1.Location = new System.Drawing.Point(588, 17);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(587, 740);
             this.panel1.TabIndex = 9;
@@ -323,19 +286,11 @@ namespace FoodShopManagement_WF.UI
             this.TOTAL.Controls.Add(this.label4);
             this.TOTAL.Controls.Add(this.txtDiscount);
             this.TOTAL.Controls.Add(this.label7);
-<<<<<<< HEAD
-            this.TOTAL.Location = new System.Drawing.Point(7, 528);
-            this.TOTAL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TOTAL.Name = "TOTAL";
-            this.TOTAL.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TOTAL.Size = new System.Drawing.Size(569, 201);
-=======
             this.TOTAL.Location = new System.Drawing.Point(5, 429);
             this.TOTAL.Margin = new System.Windows.Forms.Padding(2);
             this.TOTAL.Name = "TOTAL";
             this.TOTAL.Padding = new System.Windows.Forms.Padding(2);
             this.TOTAL.Size = new System.Drawing.Size(427, 163);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.TOTAL.TabIndex = 11;
             this.TOTAL.TabStop = false;
             this.TOTAL.Text = "Current Charges";
@@ -365,18 +320,11 @@ namespace FoodShopManagement_WF.UI
             this.txtCurrentAmount.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtCurrentAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCurrentAmount.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.txtCurrentAmount.Location = new System.Drawing.Point(333, 137);
-            this.txtCurrentAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCurrentAmount.Name = "txtCurrentAmount";
-            this.txtCurrentAmount.Size = new System.Drawing.Size(204, 27);
-=======
             this.txtCurrentAmount.Location = new System.Drawing.Point(250, 111);
             this.txtCurrentAmount.Margin = new System.Windows.Forms.Padding(2);
             this.txtCurrentAmount.Name = "txtCurrentAmount";
             this.txtCurrentAmount.ReadOnly = true;
             this.txtCurrentAmount.Size = new System.Drawing.Size(153, 21);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.txtCurrentAmount.TabIndex = 7;
             // 
             // txtAmount
@@ -384,13 +332,8 @@ namespace FoodShopManagement_WF.UI
             this.txtAmount.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAmount.Font = new System.Drawing.Font("Georgia", 10.2F);
-<<<<<<< HEAD
-            this.txtAmount.Location = new System.Drawing.Point(333, 26);
-            this.txtAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.txtAmount.Location = new System.Drawing.Point(250, 21);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.ReadOnly = true;
             this.txtAmount.Size = new System.Drawing.Size(204, 20);
@@ -411,13 +354,8 @@ namespace FoodShopManagement_WF.UI
             this.txtDiscount.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtDiscount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDiscount.Font = new System.Drawing.Font("Georgia", 10.2F);
-<<<<<<< HEAD
-            this.txtDiscount.Location = new System.Drawing.Point(333, 70);
-            this.txtDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.txtDiscount.Location = new System.Drawing.Point(250, 57);
             this.txtDiscount.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(204, 20);
             this.txtDiscount.TabIndex = 5;
@@ -439,13 +377,8 @@ namespace FoodShopManagement_WF.UI
             this.dgvItemOfOrder.AllowUserToDeleteRows = false;
             this.dgvItemOfOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvItemOfOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-<<<<<<< HEAD
-            this.dgvItemOfOrder.Location = new System.Drawing.Point(3, 146);
-            this.dgvItemOfOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.dgvItemOfOrder.Location = new System.Drawing.Point(2, 119);
             this.dgvItemOfOrder.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.dgvItemOfOrder.MultiSelect = false;
             this.dgvItemOfOrder.Name = "dgvItemOfOrder";
             this.dgvItemOfOrder.ReadOnly = true;
@@ -460,13 +393,8 @@ namespace FoodShopManagement_WF.UI
             this.txtCustomerOrder.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtCustomerOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCustomerOrder.Font = new System.Drawing.Font("Georgia", 10.2F);
-<<<<<<< HEAD
-            this.txtCustomerOrder.Location = new System.Drawing.Point(313, 105);
-            this.txtCustomerOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.txtCustomerOrder.Location = new System.Drawing.Point(235, 85);
             this.txtCustomerOrder.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.txtCustomerOrder.Name = "txtCustomerOrder";
             this.txtCustomerOrder.ReadOnly = true;
             this.txtCustomerOrder.Size = new System.Drawing.Size(223, 20);
@@ -483,13 +411,8 @@ namespace FoodShopManagement_WF.UI
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.txtProductName);
             this.panel2.Controls.Add(this.dgvProducts);
-<<<<<<< HEAD
-            this.panel2.Location = new System.Drawing.Point(27, 21);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.panel2.Location = new System.Drawing.Point(20, 17);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(659, 740);
             this.panel2.TabIndex = 0;
@@ -603,15 +526,9 @@ namespace FoodShopManagement_WF.UI
             this.cmbCategory.BackColor = System.Drawing.SystemColors.HighlightText;
             this.cmbCategory.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.FormattingEnabled = true;
-<<<<<<< HEAD
-            this.cmbCategory.Location = new System.Drawing.Point(227, 94);
-            this.cmbCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbCategory.MaximumSize = new System.Drawing.Size(156, 0);
-=======
             this.cmbCategory.Location = new System.Drawing.Point(170, 76);
             this.cmbCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCategory.MaximumSize = new System.Drawing.Size(118, 0);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(156, 32);
             this.cmbCategory.TabIndex = 4;
@@ -622,13 +539,8 @@ namespace FoodShopManagement_WF.UI
             this.btnSearch.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._1229321;
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnSearch.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btnSearch.Location = new System.Drawing.Point(531, 100);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.btnSearch.Location = new System.Drawing.Point(398, 81);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(53, 60);
             this.btnSearch.TabIndex = 2;
@@ -654,13 +566,8 @@ namespace FoodShopManagement_WF.UI
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label1);
             this.panel3.ForeColor = System.Drawing.Color.Yellow;
-<<<<<<< HEAD
-            this.panel3.Location = new System.Drawing.Point(0, 30);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.panel3.Location = new System.Drawing.Point(0, 24);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(694, 50);
             this.panel3.TabIndex = 1;
@@ -677,15 +584,9 @@ namespace FoodShopManagement_WF.UI
             // 
             // txtProductName
             // 
-<<<<<<< HEAD
-            this.txtProductName.Location = new System.Drawing.Point(227, 139);
-            this.txtProductName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtProductName.MaximumSize = new System.Drawing.Size(272, 50);
-=======
             this.txtProductName.Location = new System.Drawing.Point(170, 113);
             this.txtProductName.Margin = new System.Windows.Forms.Padding(2);
             this.txtProductName.MaximumSize = new System.Drawing.Size(205, 50);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(272, 30);
             this.txtProductName.TabIndex = 1;
@@ -696,13 +597,8 @@ namespace FoodShopManagement_WF.UI
             this.dgvProducts.AllowUserToDeleteRows = false;
             this.dgvProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-<<<<<<< HEAD
-            this.dgvProducts.Location = new System.Drawing.Point(3, 187);
-            this.dgvProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.dgvProducts.Location = new System.Drawing.Point(2, 152);
             this.dgvProducts.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.dgvProducts.MultiSelect = false;
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.ReadOnly = true;
@@ -720,17 +616,10 @@ namespace FoodShopManagement_WF.UI
             this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Controls.Add(this.panel7);
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
-<<<<<<< HEAD
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1413, 860);
-=======
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(1058, 690);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Customer";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -750,26 +639,16 @@ namespace FoodShopManagement_WF.UI
             this.panel5.Controls.Add(this.txtCustomerID);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.txtCustomerName);
-<<<<<<< HEAD
-            this.panel5.Location = new System.Drawing.Point(724, 198);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.panel5.Location = new System.Drawing.Point(543, 161);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(626, 562);
             this.panel5.TabIndex = 15;
             // 
             // btnGetCustomer
             // 
-<<<<<<< HEAD
-            this.btnGetCustomer.Location = new System.Drawing.Point(267, 494);
-            this.btnGetCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.btnGetCustomer.Location = new System.Drawing.Point(200, 401);
             this.btnGetCustomer.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.btnGetCustomer.Name = "btnGetCustomer";
             this.btnGetCustomer.Size = new System.Drawing.Size(120, 33);
             this.btnGetCustomer.TabIndex = 13;
@@ -813,13 +692,8 @@ namespace FoodShopManagement_WF.UI
             this.txtAddress.BackColor = System.Drawing.SystemColors.Info;
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAddress.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.txtAddress.Location = new System.Drawing.Point(201, 330);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.txtAddress.Location = new System.Drawing.Point(151, 268);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(399, 34);
             this.txtAddress.TabIndex = 10;
@@ -828,13 +702,8 @@ namespace FoodShopManagement_WF.UI
             // 
             this.txtPoint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPoint.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.txtPoint.Location = new System.Drawing.Point(201, 427);
-            this.txtPoint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.txtPoint.Location = new System.Drawing.Point(151, 347);
             this.txtPoint.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.txtPoint.Name = "txtPoint";
             this.txtPoint.Size = new System.Drawing.Size(399, 34);
             this.txtPoint.TabIndex = 11;
@@ -844,13 +713,8 @@ namespace FoodShopManagement_WF.UI
             this.txtPhonenumber.BackColor = System.Drawing.SystemColors.Info;
             this.txtPhonenumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPhonenumber.Font = new System.Drawing.Font("Georgia", 13.8F);
-<<<<<<< HEAD
-            this.txtPhonenumber.Location = new System.Drawing.Point(201, 241);
-            this.txtPhonenumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.txtPhonenumber.Location = new System.Drawing.Point(151, 196);
             this.txtPhonenumber.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.txtPhonenumber.Name = "txtPhonenumber";
             this.txtPhonenumber.Size = new System.Drawing.Size(399, 34);
             this.txtPhonenumber.TabIndex = 6;
@@ -880,13 +744,8 @@ namespace FoodShopManagement_WF.UI
             this.txtCustomerID.BackColor = System.Drawing.SystemColors.Info;
             this.txtCustomerID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCustomerID.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.txtCustomerID.Location = new System.Drawing.Point(201, 46);
-            this.txtCustomerID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.txtCustomerID.Location = new System.Drawing.Point(151, 37);
             this.txtCustomerID.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.txtCustomerID.Name = "txtCustomerID";
             this.txtCustomerID.Size = new System.Drawing.Size(399, 34);
             this.txtCustomerID.TabIndex = 4;
@@ -905,13 +764,8 @@ namespace FoodShopManagement_WF.UI
             // 
             this.txtCustomerName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCustomerName.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.txtCustomerName.Location = new System.Drawing.Point(201, 144);
-            this.txtCustomerName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.txtCustomerName.Location = new System.Drawing.Point(151, 117);
             this.txtCustomerName.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(399, 34);
             this.txtCustomerName.TabIndex = 5;
@@ -921,13 +775,8 @@ namespace FoodShopManagement_WF.UI
             this.panel4.BackColor = System.Drawing.Color.Transparent;
             this.panel4.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._182944;
             this.panel4.Controls.Add(this.label14);
-<<<<<<< HEAD
-            this.panel4.Location = new System.Drawing.Point(724, 103);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.panel4.Location = new System.Drawing.Point(543, 84);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(627, 89);
             this.panel4.TabIndex = 14;
@@ -952,13 +801,8 @@ namespace FoodShopManagement_WF.UI
             this.panel6.Controls.Add(this.btnSearchCustomer);
             this.panel6.Controls.Add(this.btnAdd);
             this.panel6.Controls.Add(this.txtSearchCustomer);
-<<<<<<< HEAD
-            this.panel6.Location = new System.Drawing.Point(3, 2);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.panel6.Location = new System.Drawing.Point(2, 2);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1461, 67);
             this.panel6.TabIndex = 13;
@@ -979,13 +823,8 @@ namespace FoodShopManagement_WF.UI
             this.btnEdit.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.edit2;
             this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnEdit.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btnEdit.Location = new System.Drawing.Point(91, 2);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.btnEdit.Location = new System.Drawing.Point(68, 2);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(57, 59);
             this.btnEdit.TabIndex = 3;
@@ -1000,13 +839,8 @@ namespace FoodShopManagement_WF.UI
             this.btnSearchCustomer.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._1229321;
             this.btnSearchCustomer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnSearchCustomer.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btnSearchCustomer.Location = new System.Drawing.Point(1292, 6);
-            this.btnSearchCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.btnSearchCustomer.Location = new System.Drawing.Point(969, 5);
             this.btnSearchCustomer.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.btnSearchCustomer.Name = "btnSearchCustomer";
             this.btnSearchCustomer.Size = new System.Drawing.Size(53, 55);
             this.btnSearchCustomer.TabIndex = 2;
@@ -1021,13 +855,8 @@ namespace FoodShopManagement_WF.UI
             this.btnAdd.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.add1;
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAdd.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btnAdd.Location = new System.Drawing.Point(27, 2);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.btnAdd.Location = new System.Drawing.Point(20, 2);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(57, 59);
             this.btnAdd.TabIndex = 0;
@@ -1038,15 +867,9 @@ namespace FoodShopManagement_WF.UI
             // 
             // txtSearchCustomer
             // 
-<<<<<<< HEAD
-            this.txtSearchCustomer.Location = new System.Drawing.Point(1061, 18);
-            this.txtSearchCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSearchCustomer.MaximumSize = new System.Drawing.Size(272, 50);
-=======
             this.txtSearchCustomer.Location = new System.Drawing.Point(796, 15);
             this.txtSearchCustomer.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearchCustomer.MaximumSize = new System.Drawing.Size(205, 50);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.txtSearchCustomer.Name = "txtSearchCustomer";
             this.txtSearchCustomer.Size = new System.Drawing.Size(225, 30);
             this.txtSearchCustomer.TabIndex = 1;
@@ -1057,13 +880,8 @@ namespace FoodShopManagement_WF.UI
             this.panel7.Controls.Add(this.bnCustomer);
             this.panel7.Controls.Add(this.panel8);
             this.panel7.Controls.Add(this.dgvCustomer);
-<<<<<<< HEAD
-            this.panel7.Location = new System.Drawing.Point(31, 103);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.panel7.Location = new System.Drawing.Point(23, 84);
             this.panel7.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(559, 657);
             this.panel7.TabIndex = 12;
@@ -1170,13 +988,8 @@ namespace FoodShopManagement_WF.UI
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel8.Controls.Add(this.label18);
             this.panel8.ForeColor = System.Drawing.Color.Yellow;
-<<<<<<< HEAD
-            this.panel8.Location = new System.Drawing.Point(0, 30);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.panel8.Location = new System.Drawing.Point(0, 24);
             this.panel8.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(557, 59);
             this.panel8.TabIndex = 1;
@@ -1195,13 +1008,8 @@ namespace FoodShopManagement_WF.UI
             // 
             this.dgvCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-<<<<<<< HEAD
-            this.dgvCustomer.Location = new System.Drawing.Point(3, 94);
-            this.dgvCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.dgvCustomer.Location = new System.Drawing.Point(2, 76);
             this.dgvCustomer.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.dgvCustomer.Name = "dgvCustomer";
             this.dgvCustomer.RowHeadersVisible = false;
             this.dgvCustomer.RowHeadersWidth = 62;
@@ -1257,11 +1065,7 @@ namespace FoodShopManagement_WF.UI
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-<<<<<<< HEAD
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
             this.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> e3331ce9fa0b0096ceeae878ad3bc01cd8f483ed
             this.Name = "frmSaleManager_V2";
             this.Text = "frmSaleManager_V2";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSaleManager_V2_FormClosed);
