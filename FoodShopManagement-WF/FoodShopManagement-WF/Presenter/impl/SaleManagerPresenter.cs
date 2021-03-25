@@ -265,14 +265,14 @@ namespace FoodShopManagement_WF.Presenter.impl
         public void LoadProductsOrder()
         {
             DataTable dtProduct = ConvertCustom.ListToDataTable<CartItemDTO>(listProductOrder);
-            bsProduct = new BindingSource()
-            {
-                DataSource = dtProduct
-            };
+            //bsProduct = new BindingSource()
+            //{
+            //    DataSource = dtProduct
+            //};
 
             //binding data to data grid view
-            form.getBnProduct().BindingSource = bsProduct;
-            form.getDgvItemOfOrder().DataSource = bsProduct;
+            //form.getBnProduct().BindingSource = dtProduct;
+            form.getDgvItemOfOrder().DataSource = dtProduct;
 
             form.getDgvItemOfOrder().Columns["idProduct"].Visible = false;
 

@@ -77,7 +77,7 @@ namespace FoodShopManagementApi.DAO
         {
             string sql = "select p.idProduct,p.name,p.price,p.quantity,p.status,p.idCategory,c.name as categoryName " +
                 "from tblProducts p,tblCategory c " +
-                "where p.idCategory=c.idCategory AND p.status = 1";
+                "where p.idCategory=c.idCategory AND p.status = 1 AND p.quantity > 0";
             try
             {
                 sqlConnection = DBUtil.MakeConnect();

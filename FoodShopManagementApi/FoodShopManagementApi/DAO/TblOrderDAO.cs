@@ -78,11 +78,7 @@ namespace FoodShopManagementApi.DAO
                     if (sqlDataReader.Read())
                     {
                         float total =float.Parse(sqlDataReader.GetString("total"));
-                       
-                       
-                           
-                            return total;
-                        
+                        return total;
                     }
                 }
             }
@@ -90,7 +86,6 @@ namespace FoodShopManagementApi.DAO
             finally
             {
                 DBUtil.CloseConnection(sqlDataReader, connection);
-
             }
             return 0;
         }

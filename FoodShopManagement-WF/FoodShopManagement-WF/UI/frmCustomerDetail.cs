@@ -63,5 +63,14 @@ namespace FoodShopManagement_WF.UI
         {
             presenter.SaveCustomer(this);
         }
+
+        private void frmCustomerDetail_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.None)
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
     }
 }
