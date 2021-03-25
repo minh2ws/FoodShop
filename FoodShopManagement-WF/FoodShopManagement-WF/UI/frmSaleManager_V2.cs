@@ -102,7 +102,7 @@ namespace FoodShopManagement_WF.UI
 
         public frmSaleManager_V2(frmLogin loginFrame, TblEmployeesDTO emp)
         {
-            InitializeComponent();
+            InitializeComponent();  
             saleManagerPresenter = new SaleManagerPresenter(this);
             this.loginFrame = loginFrame;
             this.emp = emp;
@@ -177,11 +177,24 @@ namespace FoodShopManagement_WF.UI
         private void btnGetCustomer_Click(object sender, EventArgs e)
         {
             saleManagerPresenter.GetCustomerInfo();
+            saleManagerPresenter.UpdateCurrentAmount();
         }
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
             saleManagerPresenter.CheckoutCart();
+        }
+
+        private void btnUpdateCart_Click(object sender, EventArgs e)
+        {
+            saleManagerPresenter.UpdateQuantityOfItem();
+            saleManagerPresenter.LoadProductsOrder();
+            saleManagerPresenter.UpdateAmount();
+        }
+
+        private void txtDiscount_TextChanged(object sender, EventArgs e)
+        {
+            saleManagerPresenter.UpdateCurrentAmount();
         }
     }
 }

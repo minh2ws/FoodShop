@@ -43,7 +43,7 @@ namespace FoodShopManagementApi.DAO
                     cmd.Parameters.AddWithValue("@idEmp", dto.idEmployee);
                     cmd.Parameters.AddWithValue("@price", dto.priceSum);
                     cmd.Parameters.AddWithValue("@discount", dto.discount);
-                    cmd.Parameters.AddWithValue("@priceTotal", dto.priceSum);
+                    cmd.Parameters.AddWithValue("@priceTotal", dto.total);
                     cmd.Parameters.AddWithValue("@orderDate", dto.orderDate);
 
                     return cmd.ExecuteNonQuery() > 0;
