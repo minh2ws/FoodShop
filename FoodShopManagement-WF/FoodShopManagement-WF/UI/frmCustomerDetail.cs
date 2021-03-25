@@ -72,5 +72,10 @@ namespace FoodShopManagement_WF.UI
                 return;
             }
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

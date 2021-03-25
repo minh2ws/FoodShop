@@ -199,5 +199,34 @@ namespace FoodShopManagementApi.DTO
             }
             return Unauthorized();
         }
+
+        [HttpGet("getProduct")]
+        [Produces("application/json")]
+        public IActionResult getProduct([FromQuery(Name = "idProduct")] string idProduct)
+        {
+            bool isValidToken = ValidateToken();
+            if (isValidToken)
+            {
+                Claim idEmployeeClaim = getClaims()[0];
+                TblProductsDAO dao = TblProductsDAO.getInstance();
+                try
+                {
+                    TblProductsDTO dto = dao.getProduct(idProduct);
+                    if (dto != null)
+                    {
+                        return Ok(dto);
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
+                }
+                catch (Exception e)
+                {
+                    return StatusCode(500);
+                }
+            }
+            return Unauthorized();
+        }
     }
 }

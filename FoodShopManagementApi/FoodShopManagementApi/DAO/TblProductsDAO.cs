@@ -77,7 +77,7 @@ namespace FoodShopManagementApi.DAO
         {
             string sql = "select p.idProduct,p.name,p.price,p.quantity,p.status,p.idCategory,c.name as categoryName " +
                 "from tblProducts p,tblCategory c " +
-                "where p.idCategory=c.idCategory AND p.status = 1 AND p.quantity > 0";
+                "where p.idCategory = c.idCategory AND p.status = 1 AND p.quantity > 0 ";
             try
             {
                 sqlConnection = DBUtil.MakeConnect();
@@ -116,7 +116,7 @@ namespace FoodShopManagementApi.DAO
         {
             string sql = "SELECT p.idProduct, p.name, p.price, p.quantity,p.status,p.idCategory, c.name as categoryName "
                     + "FROM tblProducts p, tblCategory c "
-                    + "WHERE p.idCategory = c.idCategory AND p.status = 1 ";
+                    + "WHERE p.idCategory = c.idCategory AND p.status = 1  AND p.quantity > 0 ";
 
             //check category field to create sql string
             if (category.Trim().Length != 0 && category != null)
@@ -311,6 +311,44 @@ namespace FoodShopManagementApi.DAO
                 DBUtil.CloseConnection(null, sqlConnection);
             }
             return false;
+        }
+
+        public TblProductsDTO getProduct(string idProduct)
+        {
+            string sql = "select p.idProduct,p.name,p.price,p.quantity,p.status,p.idCategory,c.name as categoryName " +
+                "from tblProducts p,tblCategory c " +
+                "where p.idCategory = c.idCategory AND p.status = 1 AND p.quantity > 0 AND idProduct = @idProduct";
+            try
+            {
+                sqlConnection = DBUtil.MakeConnect();
+                if (sqlConnection != null)
+                {
+                    sqlCommand = new SqlCommand(sql, sqlConnection);
+                    sqlCommand.Parameters.AddWithValue("@idProduct", idProduct);
+                    sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
+                    if (sqlDataReader.Read())
+                    {
+                        TblProductsDTO product = new TblProductsDTO();
+                        product.idProduct = sqlDataReader["idProduct"].ToString();
+                        product.name = sqlDataReader["name"].ToString();
+                        product.price = float.Parse(sqlDataReader["price"].ToString());
+                        product.quantity = int.Parse(sqlDataReader["quantity"].ToString());
+                        product.status = bool.Parse(sqlDataReader["status"].ToString());
+                        product.idCategory = sqlDataReader["idCategory"].ToString();
+                        product.categoryName = sqlDataReader["categoryName"].ToString();
+                        return product;
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                DBUtil.CloseConnection(sqlDataReader, sqlConnection);
+            }
+            return null;
         }
     }
 }

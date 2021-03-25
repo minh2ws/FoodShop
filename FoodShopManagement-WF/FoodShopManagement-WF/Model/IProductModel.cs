@@ -15,5 +15,6 @@ namespace FoodShopManagement_WF.Model
         bool addProduct(TblProductsDTO dto);
         bool setStatusProduct(TblProductsDTO dto);
         List<TblProductsDTO> getProductsToSale();
+        TblProductsDTO getProduct(string idProduct);
     }
 }

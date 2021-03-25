@@ -46,21 +46,24 @@ namespace FoodShopManagement_WF.UI
             this.btnCancel.BackColor = System.Drawing.SystemColors.Info;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Georgia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(349, 295);
+            this.btnCancel.Location = new System.Drawing.Point(262, 240);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(89, 46);
+            this.btnCancel.Size = new System.Drawing.Size(67, 37);
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.SystemColors.Info;
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSave.Font = new System.Drawing.Font("Georgia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(63, 295);
+            this.btnSave.Location = new System.Drawing.Point(47, 240);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(95, 46);
+            this.btnSave.Size = new System.Drawing.Size(71, 37);
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -76,9 +79,11 @@ namespace FoodShopManagement_WF.UI
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Georgia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(21, 28);
+            this.groupBox1.Location = new System.Drawing.Point(16, 23);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(487, 241);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(365, 196);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CustomerDetails";
@@ -86,64 +91,71 @@ namespace FoodShopManagement_WF.UI
             // txtAddress
             // 
             this.txtAddress.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtAddress.Location = new System.Drawing.Point(207, 176);
+            this.txtAddress.Location = new System.Drawing.Point(155, 143);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(2);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(238, 28);
+            this.txtAddress.Size = new System.Drawing.Size(180, 24);
             this.txtAddress.TabIndex = 7;
             // 
             // txtPhonenumber
             // 
             this.txtPhonenumber.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtPhonenumber.Location = new System.Drawing.Point(207, 111);
+            this.txtPhonenumber.Location = new System.Drawing.Point(155, 90);
+            this.txtPhonenumber.Margin = new System.Windows.Forms.Padding(2);
             this.txtPhonenumber.Name = "txtPhonenumber";
-            this.txtPhonenumber.Size = new System.Drawing.Size(238, 28);
+            this.txtPhonenumber.Size = new System.Drawing.Size(180, 24);
             this.txtPhonenumber.TabIndex = 8;
             // 
             // txtCustomerName
             // 
             this.txtCustomerName.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtCustomerName.Location = new System.Drawing.Point(207, 52);
+            this.txtCustomerName.Location = new System.Drawing.Point(155, 42);
+            this.txtCustomerName.Margin = new System.Windows.Forms.Padding(2);
             this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(238, 28);
+            this.txtCustomerName.Size = new System.Drawing.Size(180, 24);
             this.txtCustomerName.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 181);
+            this.label3.Location = new System.Drawing.Point(28, 147);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 23);
+            this.label3.Size = new System.Drawing.Size(59, 18);
             this.label3.TabIndex = 3;
             this.label3.Text = "Address";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 116);
+            this.label2.Location = new System.Drawing.Point(28, 94);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 23);
+            this.label2.Size = new System.Drawing.Size(106, 18);
             this.label2.TabIndex = 4;
             this.label2.Text = "PhoneNumber";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 52);
+            this.label1.Location = new System.Drawing.Point(28, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 23);
+            this.label1.Size = new System.Drawing.Size(114, 18);
             this.label1.TabIndex = 5;
             this.label1.Text = "CustomerName";
             // 
             // frmCustomerDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._182944;
-            this.ClientSize = new System.Drawing.Size(529, 359);
+            this.ClientSize = new System.Drawing.Size(397, 292);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCustomerDetail";
             this.Text = "frmCustomer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCustomerDetail_FormClosing);

@@ -93,5 +93,26 @@ namespace FoodShopManagement_WF.Model.impl
             }
             return null;
         }
+
+        public TblProductsDTO getProduct(string idProduct)
+        {
+            try
+            {
+                Dictionary<string, string> hashParam = new Dictionary<string, string>();
+                hashParam.Add("idProduct", idProduct);
+                HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("product/getProduct", hashParam, Program.TokenGlobal);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    var product = responseMessage.Content.ReadAsStringAsync();
+                    TblProductsDTO productDTO = JsonConvert.DeserializeObject<TblProductsDTO>(product.Result);
+                    return productDTO;
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

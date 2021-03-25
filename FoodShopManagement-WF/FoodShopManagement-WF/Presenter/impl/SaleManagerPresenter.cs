@@ -239,10 +239,16 @@ namespace FoodShopManagement_WF.Presenter.impl
 
                     if (item != null)
                     {
-                        //increase quantity
-                        item.quantity++;
-                        //update totalPrice
-                        item.totalPrice = item.quantity * item.price;
+                        if (item.quantity < product.quantity)
+                        {
+                            //increase quantity
+                            item.quantity++;
+                            //update totalPrice
+                            item.totalPrice = item.quantity * item.price;
+                        } else
+                        {
+                            MessageBox.Show("Quantity of item can't more then quantity of product in stock", "Error");
+                        }
                     } else
                     {
                         item = new CartItemDTO()
@@ -347,7 +353,17 @@ namespace FoodShopManagement_WF.Presenter.impl
                     MessageBox.Show("Select product you want to remove", "Notification");
                 }
             }
-            
+        }
+
+        private void udpateQuantityProduct(TblProductsDTO dto)
+        {
+            foreach (var produdct in listProducts)
+            {
+                if (produdct.idProduct.Equals(dto.idProduct))
+                {
+                    produdct.quantity = dto.quantity;
+                }
+            }
         }
 
         public void CheckoutCart()
@@ -363,6 +379,31 @@ namespace FoodShopManagement_WF.Presenter.impl
             }
             else
             {
+                //check quantity again
+                string error = "";
+
+                foreach (var item in listProductOrder)
+                {
+                    TblProductsDTO dto = productModel.getProduct(item.idProduct);
+                    if (dto == null)
+                    {
+                        error += item.name + " is not available or out of stock. \n";
+                    }
+                    else if (dto.quantity < item.quantity)
+                    {
+                        udpateQuantityProduct(dto);
+                        LoadProducts();
+                        error += item.name + " is only have " + dto.quantity + ". \n";
+                    }
+                }
+
+                if (error.Trim().Length != 0)
+                {
+                    error += "Please remove item or change quantity";
+                    MessageBox.Show(error, "Error");
+                    return;
+                }
+
                 //create order
                 CreateOrder();
                 //remove list item order
