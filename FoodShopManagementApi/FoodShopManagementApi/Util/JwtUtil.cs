@@ -21,11 +21,13 @@ namespace FoodShopManagementApi.Util
             permClaims.Add(new Claim("role", employeesDTO.role));
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
               _config["Jwt:Issuer"],
-              permClaims,
+              permClaims, 
+
               expires: DateTime.Now.AddMinutes(120),
               signingCredentials: credentials);
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
         public static bool ValidateJSONWebToken(string token, IConfiguration _config)
         {
             var handler = new JwtSecurityTokenHandler();
@@ -78,7 +80,6 @@ namespace FoodShopManagementApi.Util
             {
                 throw new Exception(e.Message);
             }
-            
         }
     }
 }

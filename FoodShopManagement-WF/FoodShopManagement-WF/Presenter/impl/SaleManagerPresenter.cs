@@ -26,6 +26,7 @@ namespace FoodShopManagement_WF.Presenter.impl
         private BindingSource bsCustomer;
         private List<TblProductsDTO> listProducts;
         private List<CartItemDTO> listProductOrder;
+        private int customerPoint = -1;
 
         public SaleManagerPresenter() { }
 
@@ -255,6 +256,8 @@ namespace FoodShopManagement_WF.Presenter.impl
                         //add product to list product order
                         listProductOrder.Add(item);
                     }
+
+                    
                 }
             } else
             {
@@ -264,15 +267,17 @@ namespace FoodShopManagement_WF.Presenter.impl
 
         public void LoadProductsOrder()
         {
-            DataTable dtProduct = ConvertCustom.ListToDataTable<CartItemDTO>(listProductOrder);
-            bsProduct = new BindingSource()
+            if (listProductOrder == null)
             {
-                DataSource = dtProduct
-            };
+                form.getDgvItemOfOrder().DataSource = null;
+                form.getDgvItemOfOrder().Rows.Clear();
+                return;
+            }
+
+            DataTable dtProduct = ConvertCustom.ListToDataTable<CartItemDTO>(listProductOrder);
 
             //binding data to data grid view
-            form.getBnProduct().BindingSource = bsProduct;
-            form.getDgvItemOfOrder().DataSource = bsProduct;
+            form.getDgvItemOfOrder().DataSource = dtProduct;
 
             form.getDgvItemOfOrder().Columns["idProduct"].Visible = false;
 
@@ -314,30 +319,35 @@ namespace FoodShopManagement_WF.Presenter.impl
 
         public void RemoveProductFromOrder()
         {
-            DataGridView dgvItemOfOrder = form.getDgvItemOfOrder();
-            //Get number of selected grow
-            Int32 selectedRowCount = dgvItemOfOrder.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            if (selectedRowCount > 0)
+            
+            if (MessageBox.Show("Do you want to delete?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                for (int i = 0; i < selectedRowCount; i++)
+                DataGridView dgvItemOfOrder = form.getDgvItemOfOrder();
+                //Get number of selected grow
+                Int32 selectedRowCount = dgvItemOfOrder.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                if (selectedRowCount > 0)
                 {
-                    //get selected row
-                    String row = dgvItemOfOrder.SelectedRows[i].Index.ToString();
-                    int rowInt = int.Parse(row);
+                    for (int i = 0; i < selectedRowCount; i++)
+                    {
+                        //get selected row
+                        String row = dgvItemOfOrder.SelectedRows[i].Index.ToString();
+                        int rowInt = int.Parse(row);
 
-                    //get product from list product
-                    CartItemDTO item = listProductOrder[rowInt];
-                    listProductOrder.Remove(item);
+                        //get product from list product
+                        CartItemDTO item = listProductOrder[rowInt];
+                        listProductOrder.Remove(item);
 
-                    //remove list
-                    if (listProductOrder.Count == 0)
-                        listProductOrder = null;
+                        //remove list
+                        if (listProductOrder.Count == 0)
+                            listProductOrder = null;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Select product you want to remove", "Notification");
                 }
             }
-            else
-            {
-                MessageBox.Show("Select product you want to remove", "Notification");
-            }
+            
         }
 
         public void CheckoutCart()
@@ -347,13 +357,31 @@ namespace FoodShopManagement_WF.Presenter.impl
             {
                 MessageBox.Show(MessageUtil.CUSTOMER_INVALID);
             }
-            else CreateOrder();
+            else if (listProductOrder == null)
+            {
+                MessageBox.Show(MessageUtil.ITEM_EMPTY);
+            }
+            else
+            {
+                //create order
+                CreateOrder();
+                //remove list item order
+                listProductOrder = null;
+                //reload interface
+                LoadCustomers();
+                LoadProductsOrder();
+                LoadProducts();
+                form.getAmount().Text = "";
+                form.getDiscount().Text = "";
+                form.getCurrentAmount().Text = "";
+                form.getCustomerName().Text = "";
+            }
         }
 
         private void CreateOrder()
         {
             //create order id
-            string idOrder = new Random().Next(999999).ToString();
+            string idOrder = Guid.NewGuid().ToString();
             TblOrderDTO order = new TblOrderDTO()
             {
 
@@ -387,8 +415,8 @@ namespace FoodShopManagement_WF.Presenter.impl
                 isSuccess = orderModel.AddOrderDetail(cart);
                 if (isSuccess)
                 {
-                    MessageBox.Show(MessageUtil.CHECKOUT_SUCCESS);
                     updateCustomerPoint();
+                    MessageBox.Show(MessageUtil.CHECKOUT_SUCCESS);
                 }
                 else 
                     MessageBox.Show(MessageUtil.ERROR);
@@ -402,8 +430,17 @@ namespace FoodShopManagement_WF.Presenter.impl
         private void updateCustomerPoint()
         {
             //calculate point for customer
-            int amount = int.Parse(form.getAmount().Text);
+            int amount = int.Parse(form.getCurrentAmount().Text);
             int point = amount / 100;
+            int customerPoint = int.Parse(form.getCustomerPoint().Text);
+            int discount = int.Parse(form.getDiscount().Text);
+
+            if (discount == 0)
+                point += customerPoint;
+            else
+                point += customerPoint - discount;
+
+
             string customerId = form.getCustomerId().Text;
 
             TblCustomerDTO dto = new TblCustomerDTO()
@@ -420,7 +457,88 @@ namespace FoodShopManagement_WF.Presenter.impl
             if (customerId.Equals(""))
                 MessageBox.Show(MessageUtil.CUSTOMER_EMPTY);
             else
+            {
                 form.getCustomerOrder().Text = form.getCustomerName().Text;
+                customerPoint = int.Parse(form.getCustomerPoint().Text);
+                form.getDiscount().Text = form.getCustomerPoint().Text;
+            }
+        }
+
+        public void UpdateQuantityOfItem()
+        {
+            DataGridView dgvItemOfOrder = form.getDgvItemOfOrder();
+            //Get number of selected grow
+            Int32 selectedRowCount = dgvItemOfOrder.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount > 0)
+            {
+                for (int i = 0; i < selectedRowCount; i++)
+                {
+                    //get selected row
+                    String row = dgvItemOfOrder.SelectedRows[i].Index.ToString();
+                    int rowInt = int.Parse(row);
+
+                    //get product from list product
+                    CartItemDTO item = listProductOrder[rowInt];
+
+                    //decrease quantity
+                    item.quantity--;
+                    //update totalprice
+                    item.totalPrice = item.quantity * item.price;
+
+                    //remove item
+                    if (item.quantity == 0)
+                        listProductOrder.Remove(item);
+
+                    //remove list
+                    if (listProductOrder.Count == 0)
+                        listProductOrder = null;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select product you want to decrease", "Notification");
+            }
+        }
+
+        private int ValidateDiscount()
+        {
+            int discount = 0;
+            if (form.getDiscount().Text.Trim().Length != 0)
+            {
+                try
+                {
+                    discount = int.Parse(form.getDiscount().Text);
+                }
+                catch (FormatException)
+                {
+                    form.getDiscount().Text = customerPoint.ToString();
+                    MessageBox.Show("Discount must be number only", "Error");
+                }
+            }
+
+            if (customerPoint != -1)
+            {
+                if (discount > customerPoint)
+                {
+                    discount = customerPoint;
+                    form.getDiscount().Text = customerPoint.ToString();
+                    MessageBox.Show("Discount must be less than point of customer", "Error");
+                }
+            }
+
+            return discount;
+        }
+
+        private float CalculateTotalCurrentAmount()
+        {
+            float amount = calculateTotalPrice();
+            int discount = ValidateDiscount();
+            return amount - discount;
+        }
+
+        public void UpdateCurrentAmount()
+        {
+            form.getCurrentAmount().Text = CalculateTotalCurrentAmount().ToString();
         }
     }
 }

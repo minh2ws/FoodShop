@@ -220,6 +220,7 @@ namespace FoodShopManagement_WF.UI
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.txtFullname);
             this.panel5.Location = new System.Drawing.Point(724, 290);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(626, 398);
             this.panel5.TabIndex = 10;
@@ -239,7 +240,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(13, 344);
+            this.label9.Location = new System.Drawing.Point(13, 345);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 24);
             this.label9.TabIndex = 8;
@@ -253,7 +254,7 @@ namespace FoodShopManagement_WF.UI
             this.txtRole.Location = new System.Drawing.Point(199, 270);
             this.txtRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRole.Name = "txtRole";
-            this.txtRole.Size = new System.Drawing.Size(252, 34);
+            this.txtRole.Size = new System.Drawing.Size(253, 34);
             this.txtRole.TabIndex = 7;
             // 
             // txtPassword
@@ -265,7 +266,7 @@ namespace FoodShopManagement_WF.UI
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(400, 34);
+            this.txtPassword.Size = new System.Drawing.Size(399, 34);
             this.txtPassword.TabIndex = 6;
             this.txtPassword.Tag = "Password";
             // 
@@ -307,7 +308,7 @@ namespace FoodShopManagement_WF.UI
             this.txtEmployeeID.Location = new System.Drawing.Point(199, 46);
             this.txtEmployeeID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEmployeeID.Name = "txtEmployeeID";
-            this.txtEmployeeID.Size = new System.Drawing.Size(400, 34);
+            this.txtEmployeeID.Size = new System.Drawing.Size(399, 34);
             this.txtEmployeeID.TabIndex = 4;
             // 
             // label7
@@ -327,7 +328,7 @@ namespace FoodShopManagement_WF.UI
             this.txtFullname.Location = new System.Drawing.Point(199, 126);
             this.txtFullname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFullname.Name = "txtFullname";
-            this.txtFullname.Size = new System.Drawing.Size(400, 34);
+            this.txtFullname.Size = new System.Drawing.Size(399, 34);
             this.txtFullname.TabIndex = 5;
             // 
             // panel1
@@ -336,8 +337,9 @@ namespace FoodShopManagement_WF.UI
             this.panel1.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._182944;
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(724, 158);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(626, 114);
+            this.panel1.Size = new System.Drawing.Size(627, 114);
             this.panel1.TabIndex = 9;
             // 
             // label4
@@ -358,7 +360,7 @@ namespace FoodShopManagement_WF.UI
             this.panel4.Controls.Add(this.btnAdd);
             this.panel4.Controls.Add(this.btnEdit);
             this.panel4.Controls.Add(this.btnDelete);
-            this.panel4.Location = new System.Drawing.Point(-2, -2);
+            this.panel4.Location = new System.Drawing.Point(-3, -2);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1461, 86);
@@ -371,7 +373,7 @@ namespace FoodShopManagement_WF.UI
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAdd.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.Location = new System.Drawing.Point(78, 10);
+            this.btnAdd.Location = new System.Drawing.Point(77, 10);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(60, 59);
@@ -403,10 +405,10 @@ namespace FoodShopManagement_WF.UI
             this.btnDelete.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.remove_60px;
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDelete.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(210, 10);
+            this.btnDelete.Location = new System.Drawing.Point(211, 10);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(66, 59);
+            this.btnDelete.Size = new System.Drawing.Size(67, 59);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -422,7 +424,7 @@ namespace FoodShopManagement_WF.UI
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(90, 114);
+            this.panel2.Location = new System.Drawing.Point(91, 114);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(506, 657);
@@ -434,6 +436,7 @@ namespace FoodShopManagement_WF.UI
             this.dgvListEmployee.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvListEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListEmployee.Location = new System.Drawing.Point(-1, 117);
+            this.dgvListEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvListEmployee.Name = "dgvListEmployee";
             this.dgvListEmployee.RowHeadersVisible = false;
             this.dgvListEmployee.RowHeadersWidth = 51;
@@ -525,7 +528,7 @@ namespace FoodShopManagement_WF.UI
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(49, 27);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
@@ -571,7 +574,6 @@ namespace FoodShopManagement_WF.UI
             this.cbRole.Items.AddRange(new object[] {
             "All",
             "Salesman",
-            "Manager",
             "Warehouse Staff"});
             this.cbRole.Location = new System.Drawing.Point(180, 75);
             this.cbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -599,7 +601,7 @@ namespace FoodShopManagement_WF.UI
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label1);
             this.panel3.ForeColor = System.Drawing.Color.Yellow;
-            this.panel3.Location = new System.Drawing.Point(-1, 29);
+            this.panel3.Location = new System.Drawing.Point(-1, 30);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(506, 39);
@@ -654,6 +656,7 @@ namespace FoodShopManagement_WF.UI
             this.panel6.Controls.Add(this.label13);
             this.panel6.Controls.Add(this.txtCustomerName);
             this.panel6.Location = new System.Drawing.Point(739, 286);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(626, 372);
             this.panel6.TabIndex = 18;
@@ -687,7 +690,7 @@ namespace FoodShopManagement_WF.UI
             this.txtAddress.Location = new System.Drawing.Point(201, 238);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(400, 34);
+            this.txtAddress.Size = new System.Drawing.Size(399, 34);
             this.txtAddress.TabIndex = 10;
             // 
             // txtPoint
@@ -697,7 +700,7 @@ namespace FoodShopManagement_WF.UI
             this.txtPoint.Location = new System.Drawing.Point(201, 300);
             this.txtPoint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPoint.Name = "txtPoint";
-            this.txtPoint.Size = new System.Drawing.Size(400, 34);
+            this.txtPoint.Size = new System.Drawing.Size(399, 34);
             this.txtPoint.TabIndex = 11;
             // 
             // txtPhonenumber
@@ -708,7 +711,7 @@ namespace FoodShopManagement_WF.UI
             this.txtPhonenumber.Location = new System.Drawing.Point(201, 174);
             this.txtPhonenumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPhonenumber.Name = "txtPhonenumber";
-            this.txtPhonenumber.Size = new System.Drawing.Size(400, 34);
+            this.txtPhonenumber.Size = new System.Drawing.Size(399, 34);
             this.txtPhonenumber.TabIndex = 6;
             // 
             // label11
@@ -739,7 +742,7 @@ namespace FoodShopManagement_WF.UI
             this.txtCustomerID.Location = new System.Drawing.Point(201, 37);
             this.txtCustomerID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCustomerID.Name = "txtCustomerID";
-            this.txtCustomerID.Size = new System.Drawing.Size(400, 34);
+            this.txtCustomerID.Size = new System.Drawing.Size(399, 34);
             this.txtCustomerID.TabIndex = 4;
             // 
             // label13
@@ -759,7 +762,7 @@ namespace FoodShopManagement_WF.UI
             this.txtCustomerName.Location = new System.Drawing.Point(201, 107);
             this.txtCustomerName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(400, 34);
+            this.txtCustomerName.Size = new System.Drawing.Size(399, 34);
             this.txtCustomerName.TabIndex = 5;
             // 
             // panel7
@@ -767,9 +770,10 @@ namespace FoodShopManagement_WF.UI
             this.panel7.BackColor = System.Drawing.Color.Transparent;
             this.panel7.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._182944;
             this.panel7.Controls.Add(this.label14);
-            this.panel7.Location = new System.Drawing.Point(739, 189);
+            this.panel7.Location = new System.Drawing.Point(739, 190);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(626, 88);
+            this.panel7.Size = new System.Drawing.Size(627, 89);
             this.panel7.TabIndex = 17;
             // 
             // label14
@@ -777,7 +781,7 @@ namespace FoodShopManagement_WF.UI
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Imprint MT Shadow", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(157, 24);
+            this.label14.Location = new System.Drawing.Point(157, 25);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(334, 47);
             this.label14.TabIndex = 8;
@@ -896,16 +900,16 @@ namespace FoodShopManagement_WF.UI
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.label18);
             this.panel9.ForeColor = System.Drawing.Color.Yellow;
-            this.panel9.Location = new System.Drawing.Point(8, 29);
+            this.panel9.Location = new System.Drawing.Point(8, 30);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(556, 59);
+            this.panel9.Size = new System.Drawing.Size(557, 59);
             this.panel9.TabIndex = 1;
             // 
             // label18
             // 
             this.label18.Font = new System.Drawing.Font("Georgia", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(110, 11);
+            this.label18.Location = new System.Drawing.Point(109, 11);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(331, 32);
             this.label18.TabIndex = 0;
@@ -916,7 +920,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.dgvCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomer.Location = new System.Drawing.Point(6, 115);
+            this.dgvCustomer.Location = new System.Drawing.Point(5, 114);
             this.dgvCustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCustomer.Name = "dgvCustomer";
             this.dgvCustomer.RowHeadersVisible = false;
@@ -936,6 +940,7 @@ namespace FoodShopManagement_WF.UI
             this.DataRevenues.Controls.Add(this.panel11);
             this.DataRevenues.Controls.Add(this.panel10);
             this.DataRevenues.Location = new System.Drawing.Point(4, 39);
+            this.DataRevenues.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DataRevenues.Name = "DataRevenues";
             this.DataRevenues.Size = new System.Drawing.Size(1464, 799);
             this.DataRevenues.TabIndex = 2;
@@ -943,16 +948,16 @@ namespace FoodShopManagement_WF.UI
             // 
             // txttotal
             // 
-            this.txttotal.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttotal.Location = new System.Drawing.Point(970, 689);
+            this.txttotal.Location = new System.Drawing.Point(976, 719);
+            this.txttotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txttotal.Name = "txttotal";
-            this.txttotal.Size = new System.Drawing.Size(362, 35);
+            this.txttotal.Size = new System.Drawing.Size(361, 30);
             this.txttotal.TabIndex = 22;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(868, 696);
+            this.label24.Location = new System.Drawing.Point(851, 719);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(64, 24);
             this.label24.TabIndex = 21;
@@ -971,24 +976,24 @@ namespace FoodShopManagement_WF.UI
             this.panel13.Controls.Add(this.label20);
             this.panel13.Controls.Add(this.txtQuantity);
             this.panel13.Location = new System.Drawing.Point(741, 228);
+            this.panel13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(626, 393);
+            this.panel13.Size = new System.Drawing.Size(645, 367);
             this.panel13.TabIndex = 20;
             // 
             // txtsalesman
             // 
-            this.txtsalesman.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtsalesman.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtsalesman.Location = new System.Drawing.Point(369, 60);
+            this.txtsalesman.Location = new System.Drawing.Point(407, 44);
+            this.txtsalesman.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtsalesman.Name = "txtsalesman";
-            this.txtsalesman.Size = new System.Drawing.Size(204, 20);
+            this.txtsalesman.Size = new System.Drawing.Size(204, 30);
             this.txtsalesman.TabIndex = 14;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(23, 201);
+            this.label25.Location = new System.Drawing.Point(25, 89);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(141, 24);
             this.label25.TabIndex = 12;
@@ -999,7 +1004,7 @@ namespace FoodShopManagement_WF.UI
             this.txtproductname.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtproductname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtproductname.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtproductname.Location = new System.Drawing.Point(209, 201);
+            this.txtproductname.Location = new System.Drawing.Point(211, 89);
             this.txtproductname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtproductname.Name = "txtproductname";
             this.txtproductname.Size = new System.Drawing.Size(400, 27);
@@ -1010,17 +1015,17 @@ namespace FoodShopManagement_WF.UI
             this.txtPrice.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPrice.Font = new System.Drawing.Font("Georgia", 13.8F);
-            this.txtPrice.Location = new System.Drawing.Point(209, 328);
+            this.txtPrice.Location = new System.Drawing.Point(211, 286);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(400, 34);
+            this.txtPrice.Size = new System.Drawing.Size(399, 34);
             this.txtPrice.TabIndex = 6;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(23, 261);
+            this.label16.Location = new System.Drawing.Point(25, 219);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(95, 24);
             this.label16.TabIndex = 1;
@@ -1030,7 +1035,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(23, 108);
+            this.label19.Location = new System.Drawing.Point(25, 149);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(104, 24);
             this.label19.TabIndex = 0;
@@ -1041,7 +1046,7 @@ namespace FoodShopManagement_WF.UI
             this.txtcustomer.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtcustomer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtcustomer.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcustomer.Location = new System.Drawing.Point(209, 120);
+            this.txtcustomer.Location = new System.Drawing.Point(211, 149);
             this.txtcustomer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtcustomer.Name = "txtcustomer";
             this.txtcustomer.Size = new System.Drawing.Size(400, 27);
@@ -1051,7 +1056,7 @@ namespace FoodShopManagement_WF.UI
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(23, 328);
+            this.label20.Location = new System.Drawing.Point(25, 286);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(60, 24);
             this.label20.TabIndex = 2;
@@ -1061,10 +1066,10 @@ namespace FoodShopManagement_WF.UI
             // 
             this.txtQuantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQuantity.Font = new System.Drawing.Font("Georgia", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(209, 261);
+            this.txtQuantity.Location = new System.Drawing.Point(211, 219);
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(400, 34);
+            this.txtQuantity.Size = new System.Drawing.Size(399, 34);
             this.txtQuantity.TabIndex = 5;
             // 
             // panel14
@@ -1072,9 +1077,10 @@ namespace FoodShopManagement_WF.UI
             this.panel14.BackColor = System.Drawing.Color.Transparent;
             this.panel14.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources._182944;
             this.panel14.Controls.Add(this.label21);
-            this.panel14.Location = new System.Drawing.Point(741, 131);
+            this.panel14.Location = new System.Drawing.Point(741, 130);
+            this.panel14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(626, 88);
+            this.panel14.Size = new System.Drawing.Size(627, 89);
             this.panel14.TabIndex = 19;
             // 
             // label21
@@ -1082,7 +1088,7 @@ namespace FoodShopManagement_WF.UI
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Imprint MT Shadow", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(157, 24);
+            this.label21.Location = new System.Drawing.Point(157, 25);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(266, 47);
             this.label21.TabIndex = 8;
@@ -1094,11 +1100,10 @@ namespace FoodShopManagement_WF.UI
             this.panel11.Controls.Add(this.panel15);
             this.panel11.Controls.Add(this.bnOrderDetail);
             this.panel11.Controls.Add(this.dgrOrderDetail);
-            this.panel11.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel11.Location = new System.Drawing.Point(75, 130);
             this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(597, 602);
+            this.panel11.Size = new System.Drawing.Size(597, 603);
             this.panel11.TabIndex = 17;
             // 
             // panel15
@@ -1109,7 +1114,7 @@ namespace FoodShopManagement_WF.UI
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel15.Controls.Add(this.label23);
             this.panel15.ForeColor = System.Drawing.Color.Yellow;
-            this.panel15.Location = new System.Drawing.Point(3, 29);
+            this.panel15.Location = new System.Drawing.Point(3, 30);
             this.panel15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(589, 59);
@@ -1118,7 +1123,7 @@ namespace FoodShopManagement_WF.UI
             // label23
             // 
             this.label23.Font = new System.Drawing.Font("Georgia", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(52, 13);
+            this.label23.Location = new System.Drawing.Point(52, 14);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(453, 32);
             this.label23.TabIndex = 0;
@@ -1150,7 +1155,7 @@ namespace FoodShopManagement_WF.UI
             this.bnOrderDetail.MovePreviousItem = this.toolStripButton10;
             this.bnOrderDetail.Name = "bnOrderDetail";
             this.bnOrderDetail.PositionItem = this.toolStripTextBox2;
-            this.bnOrderDetail.Size = new System.Drawing.Size(595, 31);
+            this.bnOrderDetail.Size = new System.Drawing.Size(595, 27);
             this.bnOrderDetail.TabIndex = 5;
             this.bnOrderDetail.Text = "bindingNavigator1";
             // 
@@ -1208,7 +1213,7 @@ namespace FoodShopManagement_WF.UI
             this.toolStripTextBox2.AutoSize = false;
             this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox2.Name = "toolStripTextBox2";
-            this.toolStripTextBox2.Size = new System.Drawing.Size(50, 27);
+            this.toolStripTextBox2.Size = new System.Drawing.Size(49, 27);
             this.toolStripTextBox2.Text = "0";
             this.toolStripTextBox2.ToolTipText = "Current position";
             // 
@@ -1249,7 +1254,7 @@ namespace FoodShopManagement_WF.UI
             this.dgrOrderDetail.Name = "dgrOrderDetail";
             this.dgrOrderDetail.RowHeadersWidth = 62;
             this.dgrOrderDetail.RowTemplate.Height = 28;
-            this.dgrOrderDetail.Size = new System.Drawing.Size(586, 503);
+            this.dgrOrderDetail.Size = new System.Drawing.Size(587, 503);
             this.dgrOrderDetail.TabIndex = 2;
             // 
             // panel10
@@ -1267,7 +1272,7 @@ namespace FoodShopManagement_WF.UI
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(825, 42);
+            this.label22.Location = new System.Drawing.Point(708, 42);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(65, 24);
             this.label22.TabIndex = 1;
@@ -1275,15 +1280,11 @@ namespace FoodShopManagement_WF.UI
             // 
             // datetimepicker
             // 
-            this.datetimepicker.CalendarFont = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datetimepicker.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.datetimepicker.Font = new System.Drawing.Font("Georgia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.datetimepicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datetimepicker.Location = new System.Drawing.Point(937, 42);
-            this.datetimepicker.MaxDate = new System.DateTime(2021, 3, 24, 0, 0, 0, 0);
-            this.datetimepicker.MinDate = new System.DateTime(2020, 3, 24, 0, 0, 0, 0);
+            this.datetimepicker.CalendarFont = new System.Drawing.Font("Georgia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datetimepicker.Location = new System.Drawing.Point(816, 42);
+            this.datetimepicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.datetimepicker.Name = "datetimepicker";
-            this.datetimepicker.Size = new System.Drawing.Size(161, 28);
+            this.datetimepicker.Size = new System.Drawing.Size(281, 30);
             this.datetimepicker.TabIndex = 0;
             this.datetimepicker.Value = new System.DateTime(2021, 3, 24, 0, 0, 0, 0);
             this.datetimepicker.ValueChanged += new System.EventHandler(this.SearchDate);
@@ -1301,7 +1302,7 @@ namespace FoodShopManagement_WF.UI
             this.menuStrip1.Location = new System.Drawing.Point(1351, 33);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(262, 54);
+            this.menuStrip1.Size = new System.Drawing.Size(261, 54);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 

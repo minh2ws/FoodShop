@@ -43,7 +43,7 @@ namespace FoodShopManagementApi.DAO
                     cmd.Parameters.AddWithValue("@idEmp", dto.idEmployee);
                     cmd.Parameters.AddWithValue("@price", dto.priceSum);
                     cmd.Parameters.AddWithValue("@discount", dto.discount);
-                    cmd.Parameters.AddWithValue("@priceTotal", dto.priceSum);
+                    cmd.Parameters.AddWithValue("@priceTotal", dto.total);
                     cmd.Parameters.AddWithValue("@orderDate", dto.orderDate);
 
                     return cmd.ExecuteNonQuery() > 0;
@@ -78,12 +78,8 @@ namespace FoodShopManagementApi.DAO
                     sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
                     if (sqlDataReader.Read())
                     {
-                        float total =float.Parse(sqlDataReader["total"].ToString());
-                       
-                       
-                           
-                            return total;
-                        
+                        float total =float.Parse(sqlDataReader.GetString("total"));
+                        return total;
                     }
                 }
             }
@@ -91,7 +87,6 @@ namespace FoodShopManagementApi.DAO
             finally
             {
                 DBUtil.CloseConnection(sqlDataReader, connection);
-
             }
             return 0;
         }
