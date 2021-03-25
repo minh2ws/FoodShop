@@ -50,6 +50,7 @@
     <Compile Include="CartDTO.cs" />
     <Compile Include="CartItemDTO.cs" />
     <Compile Include="ErrorDTO.cs" />
+    <Compile Include="RevenuesDTO.cs" />
     <Compile Include="TblCategoryDTO.cs" />
     <Compile Include="TblCustomerDTO.cs" />
     <Compile Include="TblEmployeesDTO.cs" />

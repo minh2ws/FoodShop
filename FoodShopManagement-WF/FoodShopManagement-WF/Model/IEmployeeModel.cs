@@ -19,6 +19,7 @@ namespace FoodShopManagement_WF.Model
 
         List<TblEmployeesDTO> getAll();
         bool UpdateEmpDetail(TblEmployeesDTO model);
+       
 
 
     }

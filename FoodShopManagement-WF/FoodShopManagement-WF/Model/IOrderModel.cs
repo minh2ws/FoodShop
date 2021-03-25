@@ -11,5 +11,7 @@ namespace FoodShopManagement_WF.Model
     {
         bool AddOrder(TblOrderDTO dto);
         bool AddOrderDetail(CartDTO dto);
+        List<RevenuesDTO> LoadOrderDetail(DateTime date);
+        float LoadTotal(DateTime date);
     }
 }
