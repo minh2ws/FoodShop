@@ -265,18 +265,12 @@ namespace FoodShopManagement_WF.UI
         {
 
         }
-
         private void txtSearchCustomer_TextChanged(object sender, EventArgs e)
         {
             presenter.SearchCustomer();
         }
 
       
-
-       
-
-        
-
         private void SearchDate(object sender, EventArgs e)
         {
             presenter.LoadRevenues(datetimepicker.Value);

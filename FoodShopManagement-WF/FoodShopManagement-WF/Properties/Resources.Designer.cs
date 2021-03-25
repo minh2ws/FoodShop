@@ -283,6 +283,16 @@ namespace FoodShopManagement_WF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hamburger_100px {
+            get {
+                object obj = ResourceManager.GetObject("hamburger_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap login {
             get {
                 object obj = ResourceManager.GetObject("login", resourceCulture);
@@ -316,6 +326,16 @@ namespace FoodShopManagement_WF.Properties {
         internal static System.Drawing.Bitmap loginiconn {
             get {
                 object obj = ResourceManager.GetObject("loginiconn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loginnn {
+            get {
+                object obj = ResourceManager.GetObject("loginnn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -423,6 +443,16 @@ namespace FoodShopManagement_WF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sign_in_form_password_50px {
+            get {
+                object obj = ResourceManager.GetObject("sign_in_form_password_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SVG401253_zoom_d {
             get {
                 object obj = ResourceManager.GetObject("SVG401253.zoom.d", resourceCulture);
@@ -496,6 +526,36 @@ namespace FoodShopManagement_WF.Properties {
         internal static System.Drawing.Bitmap Untitled2 {
             get {
                 object obj = ResourceManager.GetObject("Untitled2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_25px {
+            get {
+                object obj = ResourceManager.GetObject("user_25px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_shield_30px {
+            get {
+                object obj = ResourceManager.GetObject("user_shield_30px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap username_50px {
+            get {
+                object obj = ResourceManager.GetObject("username_50px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

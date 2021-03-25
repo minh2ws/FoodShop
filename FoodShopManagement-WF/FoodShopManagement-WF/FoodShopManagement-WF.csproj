@@ -72,10 +72,8 @@
     <Compile Include="Model\impl\CustomerModel.cs" />
     <Compile Include="Model\impl\LoginModel.cs" />
     <Compile Include="Model\impl\EmployeeModel.cs" />
-    <Compile Include="Model\impl\MyProfileDetailModel.cs" />
     <Compile Include="Model\impl\OrderModel.cs" />
     <Compile Include="Model\impl\ProductModel.cs" />
-    <Compile Include="Model\IMyProfileDetailModel.cs" />
     <Compile Include="Model\IOrderModel.cs" />
     <Compile Include="Model\IProductModel.cs" />
     <Compile Include="Presenter\IWarehousePresenter.cs" />
@@ -84,9 +82,7 @@
     <Compile Include="Presenter\impl\WarehousePresenter.cs" />
     <Compile Include="Presenter\impl\EmployeePresenter.cs" />
     <Compile Include="Presenter\impl\LoginPresenter.cs" />
-    <Compile Include="Presenter\impl\MyProfileDetailPresenter.cs" />
     <Compile Include="Presenter\impl\SaleManagerPresenter.cs" />
-    <Compile Include="Presenter\IMyProfileDetailPresenter.cs" />
     <Compile Include="Presenter\ISaleManagerPresenter.cs" />
     <Compile Include="UI\frmCategoryDetail.cs">
       <SubType>Form</SubType>
@@ -114,12 +110,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\frmManager_main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\frmManager_main.Designer.cs">
-      <DependentUpon>frmManager_main.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\frmManager_v2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,9 +164,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\frmManager_main.resx">
-      <DependentUpon>frmManager_main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\frmManager_v2.resx">
       <DependentUpon>frmManager_v2.cs</DependentUpon>
@@ -330,6 +317,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\contact_details_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hamburger_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_shield_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\username_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign_in_form_password_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginnn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -305,6 +305,7 @@ namespace FoodShopManagement_WF.Presenter.impl
         {
             float total = orderModel.LoadTotal(date);
             List<RevenuesDTO> listDetail = orderModel.LoadOrderDetail(date);
+            clearDataBindingTextOrderdetail();
             if (listDetail.Count >0)
             {
                 DataTable dtOrderDetail = ConvertCustom.ListToDataTable<RevenuesDTO>(listDetail);
@@ -323,13 +324,16 @@ namespace FoodShopManagement_WF.Presenter.impl
             form.getDgvOrderDetail().Columns["total"].Visible = false;
 
             //clear and add new data binding
-            clearDataBindingTextOrderdetail();
-            bindingDataTextOrderdetail();
-            }
+            
+           // clearDataBindingTextOrderdetail();
+            //if (listDetail.Count > 0)
+                bindingDataTextOrderdetail();
+           }
         }
 
         public void clearDataBindingTextOrderdetail()
         {
+          
             form.getcustomer().DataBindings.Clear();
             form.getsalesman().DataBindings.Clear();
             form.getproductname().DataBindings.Clear();
@@ -352,6 +356,7 @@ namespace FoodShopManagement_WF.Presenter.impl
         {
             float total = orderModel.LoadTotal(date);
             List<RevenuesDTO> listDetail = orderModel.LoadOrderDetail(date);
+            clearDataBindingTextOrderdetail();
             if (listDetail != null)
             {
                 DataTable dtOrderDetail = ConvertCustom.ListToDataTable<RevenuesDTO>(listDetail);
@@ -370,7 +375,7 @@ namespace FoodShopManagement_WF.Presenter.impl
                 form.getDgvOrderDetail().Columns["total"].Visible = false;
 
                 //clear and add new data binding
-                clearDataBindingTextOrderdetail();
+                //clearDataBindingTextOrderdetail();
                 bindingDataTextOrderdetail();
             }
         }

@@ -1160,13 +1160,13 @@ namespace FoodShopManagement_WF.UI
             this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
             this.toolStripButton7.Name = "toolStripButton7";
             this.toolStripButton7.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton7.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton7.Size = new System.Drawing.Size(29, 28);
             this.toolStripButton7.Text = "Add new";
             // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(45, 24);
+            this.toolStripLabel2.Size = new System.Drawing.Size(45, 28);
             this.toolStripLabel2.Text = "of {0}";
             this.toolStripLabel2.ToolTipText = "Total number of items";
             // 
@@ -1176,7 +1176,7 @@ namespace FoodShopManagement_WF.UI
             this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
             this.toolStripButton8.Name = "toolStripButton8";
             this.toolStripButton8.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton8.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton8.Size = new System.Drawing.Size(29, 28);
             this.toolStripButton8.Text = "Delete";
             // 
             // toolStripButton9
@@ -1185,7 +1185,7 @@ namespace FoodShopManagement_WF.UI
             this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
             this.toolStripButton9.Name = "toolStripButton9";
             this.toolStripButton9.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton9.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton9.Size = new System.Drawing.Size(29, 28);
             this.toolStripButton9.Text = "Move first";
             // 
             // toolStripButton10
@@ -1194,13 +1194,13 @@ namespace FoodShopManagement_WF.UI
             this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
             this.toolStripButton10.Name = "toolStripButton10";
             this.toolStripButton10.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton10.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton10.Size = new System.Drawing.Size(29, 28);
             this.toolStripButton10.Text = "Move previous";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 31);
             // 
             // toolStripTextBox2
             // 
@@ -1215,7 +1215,7 @@ namespace FoodShopManagement_WF.UI
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
             // 
             // toolStripButton11
             // 
@@ -1223,7 +1223,7 @@ namespace FoodShopManagement_WF.UI
             this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
             this.toolStripButton11.Name = "toolStripButton11";
             this.toolStripButton11.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton11.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton11.Size = new System.Drawing.Size(29, 28);
             this.toolStripButton11.Text = "Move next";
             // 
             // toolStripButton12
@@ -1232,13 +1232,13 @@ namespace FoodShopManagement_WF.UI
             this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
             this.toolStripButton12.Name = "toolStripButton12";
             this.toolStripButton12.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton12.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton12.Size = new System.Drawing.Size(29, 28);
             this.toolStripButton12.Text = "Move last";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 31);
             // 
             // dgrOrderDetail
             // 
@@ -1280,7 +1280,7 @@ namespace FoodShopManagement_WF.UI
             this.datetimepicker.Font = new System.Drawing.Font("Georgia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datetimepicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datetimepicker.Location = new System.Drawing.Point(937, 42);
-            this.datetimepicker.MaxDate = new System.DateTime(2021, 3, 24, 0, 0, 0, 0);
+            this.datetimepicker.MaxDate = new System.DateTime(2999, 3, 24, 0, 0, 0, 0);
             this.datetimepicker.MinDate = new System.DateTime(2020, 3, 24, 0, 0, 0, 0);
             this.datetimepicker.Name = "datetimepicker";
             this.datetimepicker.Size = new System.Drawing.Size(161, 28);
@@ -1342,6 +1342,7 @@ namespace FoodShopManagement_WF.UI
             this.ClientSize = new System.Drawing.Size(1913, 977);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmManager_v2";
             this.Text = "Manager";
