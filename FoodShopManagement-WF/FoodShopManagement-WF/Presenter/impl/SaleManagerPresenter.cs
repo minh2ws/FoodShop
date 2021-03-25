@@ -255,6 +255,8 @@ namespace FoodShopManagement_WF.Presenter.impl
                         //add product to list product order
                         listProductOrder.Add(item);
                     }
+
+                    UpdateAmount();
                 }
             } else
             {
@@ -272,13 +274,9 @@ namespace FoodShopManagement_WF.Presenter.impl
             }
 
             DataTable dtProduct = ConvertCustom.ListToDataTable<CartItemDTO>(listProductOrder);
-            bsProduct = new BindingSource()
-            {
-                DataSource = dtProduct
-            };
 
             //binding data to data grid view
-            form.getDgvItemOfOrder().DataSource = bsProduct;
+            form.getDgvItemOfOrder().DataSource = dtProduct;
 
             form.getDgvItemOfOrder().Columns["idProduct"].Visible = false;
 
@@ -358,16 +356,30 @@ namespace FoodShopManagement_WF.Presenter.impl
             {
                 MessageBox.Show(MessageUtil.CUSTOMER_INVALID);
             }
+            else if (listProductOrder == null)
+            {
+                MessageBox.Show(MessageUtil.ITEM_EMPTY);
+            }
             else
             {
+                //create order
                 CreateOrder();
+                //remove list item order
+                listProductOrder = null;
+                //reload interface
+                LoadCustomers();
+                LoadProductsOrder();
+                LoadProducts();
+                form.getAmount().Text = "";
+                form.getDiscount().Text = "";
+                form.getCurrentAmount().Text = "";  
             }
         }
 
         private void CreateOrder()
         {
             //create order id
-            string idOrder = new Random().Next(999999).ToString();
+            string idOrder = Guid.NewGuid().ToString();
             TblOrderDTO order = new TblOrderDTO()
             {
 
@@ -418,6 +430,12 @@ namespace FoodShopManagement_WF.Presenter.impl
             //calculate point for customer
             int amount = int.Parse(form.getAmount().Text);
             int point = amount / 100;
+            int customerPoint = int.Parse(form.getCustomerPoint().Text);
+            int discount = int.Parse(form.getDiscount().Text);
+
+            if (discount == 0)
+                point += customerPoint;        
+
             string customerId = form.getCustomerId().Text;
 
             TblCustomerDTO dto = new TblCustomerDTO()
