@@ -164,6 +164,10 @@ namespace FoodShopManagement_WF.Presenter.impl
         public void LoadCustomers()
         {
             List<TblCustomerDTO> listCustomers = customerModel.getCustomers();
+            if (listCustomers != null)
+            {
+
+            }
             DataTable dtCustomer = ConvertCustom.ListToDataTable<TblCustomerDTO>(listCustomers);
             bsCustomer = new BindingSource()
             {
