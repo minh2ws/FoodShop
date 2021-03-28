@@ -316,7 +316,7 @@ namespace FoodShopManagement_WF.Presenter.impl
             //binding data to data grid view
             form.getBnOrderDetail().BindingSource = bsOrderdetail;
             form.getDgvOrderDetail().DataSource = bsOrderdetail;
-            form.gettotal().Text = total.ToString() +".000";
+            form.gettotal().Text = total.ToString() ;
             //hide unnecessary column
             form.getDgvOrderDetail().Columns["Customer"].Visible = false;
             form.getDgvOrderDetail().Columns["Salesman"].Visible = false;

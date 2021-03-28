@@ -37,7 +37,7 @@ namespace FoodShopManagement_WF.Model.impl
         {
           
             HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("order/load-listOrderdetail", date, Program.TokenGlobal);
-            if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
+            if (responseMessage.IsSuccessStatusCode)
             {
                 var loadResult = responseMessage.Content.ReadAsStringAsync();
 
@@ -51,7 +51,7 @@ namespace FoodShopManagement_WF.Model.impl
         {
            
             HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("order/load-total", date, Program.TokenGlobal);
-            if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
+            if (responseMessage.IsSuccessStatusCode)
             {
                 var loadResult = responseMessage.Content.ReadAsStringAsync();
                 if ( loadResult.Result!="")

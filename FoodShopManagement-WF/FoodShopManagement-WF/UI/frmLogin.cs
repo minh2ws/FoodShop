@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Net.Http;
 using System.Windows.Forms;
-using Newtonsoft.Json;
-using FoodShopManagement_WF.Util;
-using FoodShopManagement_WF.UI;
-using DTO;
 using FoodShopManagement_WF.Presenter;
 using FoodShopManagement_WF.Presenter.impl;
 

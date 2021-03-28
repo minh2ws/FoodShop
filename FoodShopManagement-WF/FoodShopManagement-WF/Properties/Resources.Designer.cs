@@ -123,6 +123,16 @@ namespace FoodShopManagement_WF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_50px1 {
+            get {
+                object obj = ResourceManager.GetObject("add_50px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_60px {
             get {
                 object obj = ResourceManager.GetObject("add_60px", resourceCulture);
@@ -183,6 +193,26 @@ namespace FoodShopManagement_WF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap checkmark_50px {
+            get {
+                object obj = ResourceManager.GetObject("checkmark_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap checkmark_50px1 {
+            get {
+                object obj = ResourceManager.GetObject("checkmark_50px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap circled_user_female_skin_type_7_50px {
             get {
                 object obj = ResourceManager.GetObject("circled_user_female_skin_type_7_50px", resourceCulture);
@@ -223,6 +253,16 @@ namespace FoodShopManagement_WF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete_48px1 {
+            get {
+                object obj = ResourceManager.GetObject("delete_48px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete1 {
             get {
                 object obj = ResourceManager.GetObject("delete1", resourceCulture);
@@ -256,6 +296,16 @@ namespace FoodShopManagement_WF.Properties {
         internal static System.Drawing.Bitmap edit_property_50px {
             get {
                 object obj = ResourceManager.GetObject("edit_property_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_property_50px1 {
+            get {
+                object obj = ResourceManager.GetObject("edit_property_50px1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -316,6 +366,16 @@ namespace FoodShopManagement_WF.Properties {
         internal static System.Drawing.Bitmap loginiconn {
             get {
                 object obj = ResourceManager.GetObject("loginiconn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minus_50px {
+            get {
+                object obj = ResourceManager.GetObject("minus_50px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -406,6 +466,16 @@ namespace FoodShopManagement_WF.Properties {
         internal static System.Drawing.Bitmap save3 {
             get {
                 object obj = ResourceManager.GetObject("save3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_50px {
+            get {
+                object obj = ResourceManager.GetObject("search_50px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

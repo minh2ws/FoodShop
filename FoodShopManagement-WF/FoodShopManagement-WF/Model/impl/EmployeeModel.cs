@@ -16,7 +16,7 @@ namespace FoodShopManagement_WF.Model.impl
         public bool InsertEmployee(TblEmployeesDTO Employee)
         {
             HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("employee/Insert", Employee, Program.TokenGlobal);
-            if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
+            if (responseMessage.IsSuccessStatusCode)
             {
                 var employeeDTO = responseMessage.Content.ReadAsStringAsync();
                 bool result = JsonConvert.DeserializeObject<bool>(employeeDTO.Result);
@@ -29,7 +29,7 @@ namespace FoodShopManagement_WF.Model.impl
         public bool UpdateEmployee(TblEmployeesDTO Employee)
         {
             HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("employee/UpdateEmployee", Employee, Program.TokenGlobal);
-            if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
+            if (responseMessage.IsSuccessStatusCode)
             {
                 var employeeDTO = responseMessage.Content.ReadAsStringAsync();
                 bool result = JsonConvert.DeserializeObject<bool>(employeeDTO.Result);
@@ -63,7 +63,7 @@ namespace FoodShopManagement_WF.Model.impl
             Dictionary<string, string> hashParam = new Dictionary<string, string>();
             hashParam.Add("role", role);
             HttpResponseMessage responseMessage = ApiConnection.loadGetJsonObject("employee/LoadByRole", hashParam, Program.TokenGlobal);
-            if (responseMessage.StatusCode != System.Net.HttpStatusCode.Unauthorized)
+            if (responseMessage.IsSuccessStatusCode)
             {
                 var loadResult = responseMessage.Content.ReadAsStringAsync();
 
@@ -90,7 +90,7 @@ namespace FoodShopManagement_WF.Model.impl
         public bool UpdateEmpDetail(TblEmployeesDTO emp)
         {
             HttpResponseMessage responseMessage = ApiConnection.loadPostJsonObject("employee/UpdateEmpDetail", emp, Program.TokenGlobal);
-            if (responseMessage.StatusCode != HttpStatusCode.Unauthorized)
+            if (responseMessage.IsSuccessStatusCode)
             {
                 //get json content
                 var body = responseMessage.Content.ReadAsStringAsync();

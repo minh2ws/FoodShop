@@ -43,7 +43,6 @@ namespace FoodShopManagement_WF.UI
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnAddCategory = new System.Windows.Forms.Button();
             this.btnEditCategory = new System.Windows.Forms.Button();
-            this.btnDeleteCategory = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.bindingNavigatorCategory = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -224,11 +223,11 @@ namespace FoodShopManagement_WF.UI
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Tahoma", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.Black;
             this.label14.Location = new System.Drawing.Point(150, 19);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(331, 46);
+            this.label14.Size = new System.Drawing.Size(354, 48);
             this.label14.TabIndex = 8;
             this.label14.Text = "Category Details";
             // 
@@ -238,7 +237,6 @@ namespace FoodShopManagement_WF.UI
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.btnAddCategory);
             this.panel9.Controls.Add(this.btnEditCategory);
-            this.panel9.Controls.Add(this.btnDeleteCategory);
             this.panel9.Location = new System.Drawing.Point(-2, -2);
             this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
@@ -248,7 +246,7 @@ namespace FoodShopManagement_WF.UI
             // btnAddCategory
             // 
             this.btnAddCategory.BackColor = System.Drawing.Color.White;
-            this.btnAddCategory.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.add1;
+            this.btnAddCategory.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.add_50px1;
             this.btnAddCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAddCategory.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCategory.Location = new System.Drawing.Point(36, 14);
@@ -264,33 +262,18 @@ namespace FoodShopManagement_WF.UI
             // btnEditCategory
             // 
             this.btnEditCategory.BackColor = System.Drawing.Color.White;
-            this.btnEditCategory.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.edit2;
+            this.btnEditCategory.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.edit_property_50px1;
             this.btnEditCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnEditCategory.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditCategory.Location = new System.Drawing.Point(99, 14);
             this.btnEditCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditCategory.Name = "btnEditCategory";
-            this.btnEditCategory.Size = new System.Drawing.Size(52, 59);
+            this.btnEditCategory.Size = new System.Drawing.Size(62, 59);
             this.btnEditCategory.TabIndex = 6;
             this.btnEditCategory.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEditCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditCategory.UseVisualStyleBackColor = false;
             this.btnEditCategory.Click += new System.EventHandler(this.btnEditCategory_Click);
-            // 
-            // btnDeleteCategory
-            // 
-            this.btnDeleteCategory.BackColor = System.Drawing.Color.White;
-            this.btnDeleteCategory.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.delete1;
-            this.btnDeleteCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnDeleteCategory.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCategory.Location = new System.Drawing.Point(159, 14);
-            this.btnDeleteCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDeleteCategory.Name = "btnDeleteCategory";
-            this.btnDeleteCategory.Size = new System.Drawing.Size(58, 59);
-            this.btnDeleteCategory.TabIndex = 5;
-            this.btnDeleteCategory.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDeleteCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteCategory.UseVisualStyleBackColor = false;
             // 
             // panel10
             // 
@@ -780,12 +763,14 @@ namespace FoodShopManagement_WF.UI
             // 
             // btnGetAll
             // 
+            this.btnGetAll.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.btnGetAll.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.checkmark_50px1;
+            this.btnGetAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnGetAll.Location = new System.Drawing.Point(233, 10);
             this.btnGetAll.Name = "btnGetAll";
-            this.btnGetAll.Size = new System.Drawing.Size(75, 59);
+            this.btnGetAll.Size = new System.Drawing.Size(64, 59);
             this.btnGetAll.TabIndex = 5;
-            this.btnGetAll.Text = "Get";
-            this.btnGetAll.UseVisualStyleBackColor = true;
+            this.btnGetAll.UseVisualStyleBackColor = false;
             this.btnGetAll.Click += new System.EventHandler(this.btnGetAll_Click);
             // 
             // label19
@@ -821,8 +806,8 @@ namespace FoodShopManagement_WF.UI
             // btnAddProduct
             // 
             this.btnAddProduct.BackColor = System.Drawing.Color.White;
-            this.btnAddProduct.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.add1;
-            this.btnAddProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAddProduct.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.add_50px;
+            this.btnAddProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAddProduct.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProduct.Location = new System.Drawing.Point(33, 10);
             this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -837,13 +822,13 @@ namespace FoodShopManagement_WF.UI
             // btnEditProduct
             // 
             this.btnEditProduct.BackColor = System.Drawing.Color.White;
-            this.btnEditProduct.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.edit2;
-            this.btnEditProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnEditProduct.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.edit_property_50px1;
+            this.btnEditProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnEditProduct.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditProduct.Location = new System.Drawing.Point(96, 10);
             this.btnEditProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditProduct.Name = "btnEditProduct";
-            this.btnEditProduct.Size = new System.Drawing.Size(52, 59);
+            this.btnEditProduct.Size = new System.Drawing.Size(54, 59);
             this.btnEditProduct.TabIndex = 3;
             this.btnEditProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEditProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -853,13 +838,13 @@ namespace FoodShopManagement_WF.UI
             // btnDeleteProduct
             // 
             this.btnDeleteProduct.BackColor = System.Drawing.Color.White;
-            this.btnDeleteProduct.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.delete1;
-            this.btnDeleteProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDeleteProduct.BackgroundImage = global::FoodShopManagement_WF.Properties.Resources.remove_60px;
+            this.btnDeleteProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDeleteProduct.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteProduct.Location = new System.Drawing.Point(156, 10);
             this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(58, 59);
+            this.btnDeleteProduct.Size = new System.Drawing.Size(59, 59);
             this.btnDeleteProduct.TabIndex = 2;
             this.btnDeleteProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDeleteProduct.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1021,7 +1006,6 @@ namespace FoodShopManagement_WF.UI
         private System.Windows.Forms.TextBox txtSearchProductName;
         private System.Windows.Forms.Button btnAddCategory;
         private System.Windows.Forms.Button btnEditCategory;
-        private System.Windows.Forms.Button btnDeleteCategory;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem msTool;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;

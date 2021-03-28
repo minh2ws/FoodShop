@@ -70,10 +70,9 @@ namespace FoodShopManagementApi.DAO
                 connection = DBUtil.MakeConnect();
                 if (connection != null)
                 {
-                    String sql = "select sum(priceTotal) as total from tblOrder where CAST(orderDate as DATE) = @date  ";
-                    SqlCommand sqlCommand = new SqlCommand(sql, connection);
                     string date_str = date.ToString("yyyy-MM-dd");
-                    sqlCommand.Parameters.AddWithValue("@date", date_str);
+                    String sql = "select sum(priceTotal) as total from tblOrder where orderDate BETWEEN '" + date_str + "' AND '" + date_str + " 23:59:59' ";
+                    SqlCommand sqlCommand = new SqlCommand(sql, connection);
                    
                     sqlDataReader = sqlCommand.ExecuteReader(CommandBehavior.CloseConnection);
                     if (sqlDataReader.Read())

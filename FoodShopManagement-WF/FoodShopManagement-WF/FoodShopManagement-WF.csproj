@@ -331,5 +331,26 @@
   <ItemGroup>
     <None Include="Resources\contact_details_50px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_50px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_48px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkmark_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_property_50px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkmark_50px1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
